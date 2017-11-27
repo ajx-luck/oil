@@ -11,4 +11,9 @@ public class WebController {
     public String show(ModelMap map){
         return "show";
     }
+
+    @RequestMapping("/fx2")
+    public String fx2(ModelMap map){
+        return "fx2";
+    }
 }
