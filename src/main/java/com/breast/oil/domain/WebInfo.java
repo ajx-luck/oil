@@ -21,6 +21,8 @@ public class WebInfo {
     private Long price;
     @Column(nullable = false)
     private String ip;
+    @Column(nullable = false)
+    private String wechatId;
 
     public String getIp() {
         return ip;
@@ -56,5 +58,13 @@ public class WebInfo {
 
     public Long getId() {
         return id;
+    }
+
+    public String getWechatId() {
+        return wechatId;
+    }
+
+    public void setWechatId(String wechatId) {
+        this.wechatId = wechatId;
     }
 }
