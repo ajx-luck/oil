@@ -40,24 +40,41 @@ public class WebController {
     }
 
     @RequestMapping("/fx2")
-    public String fx2(ModelMap map){
-        map.addAttribute("wechat_id",mUrlMappingService.getWechatIdByUrl("fx2"));
+    public String fx2(ModelMap map, HttpServletRequest request){
+        String wechatId = mUrlMappingService.getWechatIdByUrl("fx2");
+        map.addAttribute("wechat_id",wechatId);
+        WebInfo info = new WebInfo();
+        info.setUrlPath("fx2");
+        info.setIp(request.getRemoteAddr());
+        info.setCreateTime(new Date().getTime());
+        info.setPrice(AppConsts.price);
+        info.setWechatId(wechatId);
+        mWebInfoRepository.save(info);
         return "fx2";
     }
     @RequestMapping("/fx3")
-    public String fx3(ModelMap map){
-        map.addAttribute("wechat_id",mUrlMappingService.getWechatIdByUrl("fx3"));
+    public String fx3(ModelMap map, HttpServletRequest request){
+        String wechatId = mUrlMappingService.getWechatIdByUrl("fx3");
+        map.addAttribute("wechat_id",wechatId);
+        WebInfo info = new WebInfo();
+        info.setUrlPath("fx3");
+        info.setIp(request.getRemoteAddr());
+        info.setCreateTime(new Date().getTime());
+        info.setPrice(AppConsts.price);
+        info.setWechatId(wechatId);
+        mWebInfoRepository.save(info);
         return "fx2";
     }
     @RequestMapping("/fx1")
     public String fx1(ModelMap map, HttpServletRequest request){
-        map.addAttribute("wechat_id",mUrlMappingService.getWechatIdByUrl("fx1"));
+        String wechatId = mUrlMappingService.getWechatIdByUrl("fx1");
+        map.addAttribute("wechat_id",wechatId);
         WebInfo info = new WebInfo();
         info.setUrlPath("fx1");
         info.setIp(request.getRemoteAddr());
         info.setCreateTime(new Date().getTime());
         info.setPrice(AppConsts.price);
-        info.setWechatId("fx96756");
+        info.setWechatId(wechatId);
         mWebInfoRepository.save(info);
         return "show";
     }
@@ -77,7 +94,7 @@ public class WebController {
         statisticsInfo.setStart(TimeUtils.timesToDate(start));
         statisticsInfo.setEnd(TimeUtils.timesToDate(end));
         statisticsInfo.setResult(FormatUtils.formatMoney(total));
-        statisticsInfo.setAverage(FormatUtils.formatMoney(total/ statisticsInfo.wechatAdd));
+        statisticsInfo.setAverage(FormatUtils.formatMoney(total/statisticsInfo.wechatAdd));
         statisticsInfo.setCreateTime(new Date().getTime());
         statisticsInfo.setUrl(mUrlMappingService.getUrlByWechatId(statisticsInfo.wechatId));
         map.addAttribute("statisticsInfo", statisticsInfo);

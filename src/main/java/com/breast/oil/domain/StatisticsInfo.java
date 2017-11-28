@@ -101,4 +101,6 @@ public class StatisticsInfo {
     public void setWechatAdd(int wechatAdd) {
         this.wechatAdd = wechatAdd;
     }
+
+
 }
