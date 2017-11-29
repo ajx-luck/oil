@@ -88,8 +88,9 @@ public class WebController {
 
     @RequestMapping(value = "/result",method = RequestMethod.POST)
     public String result(StatisticsInfo statisticsInfo, ModelMap map){
-        long start = TimeUtils.localDateTimeToTimes(statisticsInfo.getStart());
-        long end = TimeUtils.localDateTimeToTimes(statisticsInfo.getEnd());
+
+        long start = TimeUtils.DateTimeParse(statisticsInfo.getStart() + " "+statisticsInfo.getStartTime());
+        long end = TimeUtils.DateTimeParse(statisticsInfo.getEnd() + " "+statisticsInfo.getEndTime());
         long total = mStatisticsRepository.totalMoney(statisticsInfo.getWechatId(),start,end);
         statisticsInfo.setStart(TimeUtils.timesToDate(start));
         statisticsInfo.setEnd(TimeUtils.timesToDate(end));

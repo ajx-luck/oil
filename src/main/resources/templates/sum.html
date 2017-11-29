@@ -2,15 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
     <title>上报数据</title>
 </head>
+<script>
+function test()
+{
+    alert("1111")
+    document.getElementById("myform").submit();
+}
+</script>
 <body>
-    <form action="#" th:action="@{/result}" th:object="${statisticsInfo}" method="post">
-        <div>微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
-        <div>新增数量：</div><input type="number" th:field="*{wechatAdd}"/><br/>
-        <div>开始时间：</div><input type="datetime-local" th:field="*{start}" value="2017-11-28T12:00"/><br/>
-        <div>结束时间：</div><input type="datetime-local" th:field="*{end}" value="2017-11-28T19:00"/><br/>
-        <input type="submit" text="提交"/>
+    <form id="myfrom" action="#" th:action="@{/result}" th:object="${statisticsInfo}" method="post">
+        <div>推广微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
+        <div>推广微信新增粉丝：</div><input  type="number" th:field="*{wechatAdd}"/><br/>
+        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <input type="submit" value="提交"/>
     </form>
 </body>
 </html>

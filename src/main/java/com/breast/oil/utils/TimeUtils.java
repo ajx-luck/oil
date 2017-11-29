@@ -29,4 +29,21 @@ public class TimeUtils {
         SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return format.format(time);
     }
+
+    public static long DateTimeParse(String time){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date date = null;
+        try {
+            date = sdf.parse(time);
+        } catch (ParseException e) {
+            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            try {
+                date = sdf.parse(time);
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+        return date.getTime();
+    }
 }
