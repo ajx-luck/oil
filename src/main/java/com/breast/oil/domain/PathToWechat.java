@@ -19,6 +19,8 @@ public class PathToWechat {
     private String wechatId;
     @Column(nullable = false)
     public Long createTime;
+    @Column(nullable = false)
+    private Long price;
 
     public Long getId() {
         return id;
@@ -50,5 +52,13 @@ public class PathToWechat {
 
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
     }
 }
