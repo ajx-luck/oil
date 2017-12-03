@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="css/back.css"/>
     <link rel="stylesheet" type="text/css" href="css/zui.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss"/>
+    <link href="css/main1.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -29,6 +31,8 @@
 <div class="wrap">
 
     <div class="container">
+
+        <div th:replace="layout::kh_title"></div>
 
         <div class="row">
 
@@ -477,7 +481,6 @@
 
 
 
-                <p align="center"><img src="picture/fx96756.jpg" /></p>
 
 
                 <div id="zanlist">
@@ -545,6 +548,7 @@
                     </section>
 
                 </section>
+
 
                 <article>
 
@@ -1130,6 +1134,7 @@
 
         </div>
 
+
         <div class="row padding-no fixed-bottom" data-padding="padding-no" data-fixed="fixed-bottom">
 
             <div class="col-md-12">
@@ -1160,7 +1165,9 @@
 
     </div>
 
-    <footer class="footer">
+
+
+    <footer class="footer" th:replace="layout::kh_footer">
 
         <p class="footer-version"><a href="javascript:void(0)" class="on" title="触屏版">触屏版</a></p>
 
@@ -1168,6 +1175,9 @@
 
 
 </div>
+
+
+
 </body>
 
 </html>

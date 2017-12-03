@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<!-- kh导航 -->
+<div th:fragment="kh_title">
+<link href="css/public.css" rel="stylesheet" />
+<link href="css/search.css" rel="stylesheet" />
+<link href="css/product.css" rel="stylesheet" />
+<script src="js/name.js"></script>
+<script scr="js/jquery-1.js"></script>
+<!--导航样式 -->
+<style>
+    ._nav{width:100%;height:40px;background:#70b541;border-bottom:solid 2px #fff;}
+    ._nav ul{list-style:none;}
+    ._nav ul li{float:left;width:25%;text-align:center;font-size:14px;line-height:40px}
+    ._nav ul li a{display:block;color:#fff;}
+    ._nav ul li a:hover{background:#4e8529;}
+    ._top h1{width:100%;overflow:hidden;margin:0px 0px;line-height:30px;}
+    ._top h1 span{display:block;width:100%;font-size:15px;float:left;text-align:center;color:#666;}
+    ._top h1 span:nth-child(2){color:red;font-size:18px;}
+</style>
+<!--导航样式 -->
+<div class="_top">
+    <h1>
+        <span><script>document.write(name);</script></span> <span></span>
+    </h1>
+</div>
+
+<header style=" background:#4a8519; color:#fff;">
+
+    <div class="_nav">
+        <ul>
+            <li class="menuitem">
+                <a th:href="${home}">首页</a>
+            </li>
+            <li class="menuitem">
+                <a href="/product">产品中心</a>
+            </li>
+
+            <li class="menuitem">
+                <a href="/about">公司简介</a>
+            </li>
+            <li class="menuitem">
+                <a href="/contact">联系我们</a>
+            </li>
+        </ul>
+    </div>
+
+
+ <!--   <div id="layout_search_head" >&lt;!&ndash; 默认状态返回按钮 s !&ndash;&gt;
+        &lt;!&ndash;<div class="ls-header-icon-back" id="layout_urlblack"><a href="#"><span>返回</span></a></div>&ndash;&gt;
+        &lt;!&ndash; 默认状态返回按钮 end !&ndash;&gt;&lt;!&ndash; 标题 s !&ndash;&gt;
+        <div class="ls-header-title">碧丝芙丰韵美乳精油</div>
+        &lt;!&ndash; 标题 end !&ndash;&gt;&lt;!&ndash; 新增咨询按钮 s !&ndash;&gt;
+
+        &lt;!&ndash; 新增咨询按钮 end !&ndash;&gt;&lt;!&ndash; 隐藏导航区 s !&ndash;&gt;
+        &lt;!&ndash;<div id="layout_lsKey" class="ls-header-icon-shortcut"><span></span></div>&ndash;&gt;
+        &lt;!&ndash; 隐藏导航区 end !&ndash;&gt;
+    </div>-->
+</header>
+
+
+
+<!-- banner -->
+<!--<div class="viewport">
+    <img src="./nav/images/3-03.jpg" alt=""/>
+</div>-->
+<!-- banner -->
+
+<!-- kh导航 -->
+</div>
+
+<!-- kh版权 -->
+<footer style="margin-top:100px;border-top:2px solid #666" th:fragment="kh_footer">
+    <div class="Copyright" style="text-size:18px;">
+        <p> <script>document.write(banquan);document.write(name);</script> </p>
+        <p><a href='http://www.miitbeian.gov.cn/'>鲁ICP备17040548号</a></p>
+        <p><script>document.write(address);</script></p>
+    </div>
+</footer>
+<!-- kh版权 -->
+</body>
+</html>

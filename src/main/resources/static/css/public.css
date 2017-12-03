@@ -1,0 +1,366 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Microsoft YaHei,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    min-width: 320px;
+    background: #f6f6f6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: Microsoft YaHei,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+}
+
+body, div, p, span, form, iframe, table, td, th, input, textarea, button, label, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li, dl {
+    list-style-type: none;
+}
+
+em, i, dfn, cite, strong, small {
+    font-style: normal;
+}
+
+input, button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+/*color*/
+a:link, a:visited, a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+/* clearfix */
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+}
+
+/* public */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.fb {
+    font-weight: bold;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f15 {
+    font-size: 15px;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr15 {
+    margin-right: 15px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: .5rem;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pt5 {
+    padding-top: 5px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+
+.pt20 {
+    padding-top: 20px;
+}
+
+.red {
+    color: #fc2125;
+}
+
+.dis-blk {
+    display: block;
+}
+
+/*img {
+    width: 100%;
+    display: block;
+}*/
+
+
+.ls-tab li.sort-by-price a:after, .ls-header-icon-back span, .ls-header-icon-cancel span, .ls-header-icon-category span, .ls-header-icon-close:after, .ls-header-icon-logo span, .ls-header-icon-search span, .ls-header-icon-shortcut span, .ls-header-shortcut span, .jd-search-tab li.sort-by-integrative a:after, .jd-search-tab li.sort-by-integrative.active a:after, .jd-search-tab li.sort-by-price a:after, .jd-search-tab li.sort-by-price.active a.arrow-down:after, .jd-search-tab li.sort-by-price.active a.arrow-up:after, .search-history a:before, .region-title-back i, .sidebar-btn-location:after, .sidebar-categories .arrow, .sidebar-categories li.checked .tick, .supplier-arrow-right {
+    display: block;
+    background: url(../images/ls-sprites.png) no-repeat;
+    background-size: 200px 200px;
+}
+
+.viewport {
+    margin: 0 auto;
+    max-width: 640px;
+    min-width: 320px;
+}
+
+.banner-mod {
+    width: 100%;
+}
+
+
+footer {
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.bttom-link {
+    overflow: hidden;
+    background: #fff;
+    color: #999;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+}
+
+.bttom-link a {
+    color: #666;
+    font-size: 1.2rem;
+    padding: 0 1.5rem;
+}
+
+.footRelease {
+    margin: 1.5rem 5rem 0;
+    text-align: center;
+}
+
+.footRelease ul li {
+    display: table-cell;
+    width: 10%;
+    text-align: center;
+}
+
+.footRelease li a b {
+    display: inline-block;
+    width: 32px;
+    height: 28px;
+    color: #fff;
+}
+
+.footRelease li a span {
+    display: block;
+    font-size: 12px;
+    color: #333;
+}
+
+.footRelease .Touch b {
+    background: url(../images/sjico.png) no-repeat top center;
+}
+
+.footRelease .PC b {
+    background: url(../images/pcico.png) no-repeat top center;
+}
+
+.Copyright {
+    width: 100%;
+    padding: 1rem 0;
+    color: #999;
+}
+
+.Copyright p {
+    font-size: .7rem;
+    text-align: center;
+    margin-top: .08rem;
+}
+
+#fixico {
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    bottom: 6rem;
+    left: 0;
+    z-index: 100;
+}
+
+#fixico #backtop {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    background: rgba(188,188,188,0.6) url(../images/top.png) no-repeat center center;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+#fixico #shopcar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    background: #f93538 url(../images/car.png) no-repeat center center;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    background-size: 100% 100%;
+}
+
+#fixico #shopcar i {
+    width: 1rem;
+    height: 1rem;
+    font-size: .8rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1rem;
+    background: #fff;
+    color: #f93538;
+    display: block;
+    position: absolute;
+    right: .9rem;
+    top: .9rem;
+    font-family: Arial;
+}
+
+#fixico #Advisory {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    background: url(../images/zixun.png) no-repeat center center;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    bottom: .75rem;
+    background-size: 100% 100%;
+}
+
+
+@media only screen and (min-width:361px) {
+    html {
+        font-size: 72% !important;
+    }
+}
+
+@media only screen and (min-width:381px) {
+    html {
+        font-size: 78% !important;
+    }
+}
+
+@media only screen and (min-width:481px) {
+    html {
+        font-size: 94% !important;
+    }
+}
+
+@media only screen and (min-width:561px) {
+    html {
+        font-size: 109% !important;
+    }
+}
+
+@media only screen and (min-width:641px) {
+    html {
+        font-size: 125% !important;
+    }
+
+    body {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+}
+
+.wx_layer {
+    width: 180px;
+    background: #fff;
+    position: fixed;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 16px;
+    left: 50%;
+    margin-left: -90px;
+    top: 80px;
+    left: 50%;
+    z-index: 99;
+}
+
+.wx_layer .wxcode {
+    padding: 15px;
+}
+
+.wx_layer .close {
+    width: 31px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.wx_layer strong {
+    font-size: 20px;
+    color: #4a4a4a;
+}

@@ -37,6 +37,7 @@ public class WebController {
     public String fx1(ModelMap map, HttpServletRequest request){
         String wechatId = mUrlMappingService.getWechatIdByUrl(URL_1);
         map.addAttribute("wechat_id",wechatId);
+        map.addAttribute("home","/"+URL_1);
         WebInfo info = new WebInfo();
         info.setUrlPath(URL_1);
         info.setIp(request.getRemoteAddr());
