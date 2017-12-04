@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>关键词二次点击统计</title>
+</head>
+<script>
+function test()
+{
+    alert("1111")
+    document.getElementById("myform").submit();
+}
+</script>
+<body>
+    <form id="myfrom" action="#" th:action="@{/keyword}" th:object="${secondClick}" method="post">
+        <div>关键词：</div><input type="text" th:field="*{keyWord}"/><br/>
+        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>

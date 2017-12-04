@@ -21,12 +21,23 @@ public class WXInfo {
     private String urlPath;
     @Column(nullable = false)
     private String keyWord;
+    @Column(nullable = true)
+    public Long createTime;
 
-    public WXInfo(String wechatId, String ip, String urlPath, String keyWord) {
+    public WXInfo(String wechatId, String ip, String urlPath, String keyWord, Long createTime) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
         this.keyWord = keyWord;
+        this.createTime = createTime;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
 
     public String getWechatId() {

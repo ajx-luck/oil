@@ -1,5 +1,6 @@
 package com.breast.oil.web;
 
+import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.StatisticsInfoRepository;
@@ -159,5 +160,12 @@ public class WebController {
     public String contact(ModelMap map,HttpServletRequest request){
         map.addAttribute("home",request.getParameter("home"));
         return "contact";
+    }
+
+    @RequestMapping(value = "/kw",method = RequestMethod.GET)
+    public String kw(ModelMap map){
+        SecondClick secondClick = new SecondClick();
+        map.addAttribute("secondClick",secondClick);
+        return "kw";
     }
 }
