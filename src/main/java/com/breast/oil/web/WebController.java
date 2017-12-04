@@ -33,19 +33,23 @@ public class WebController {
 
 
 
-    @RequestMapping("/"+URL_1)
+    @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_1);
-        map.addAttribute("wechat_id",wechatId);
-        map.addAttribute("home","/"+URL_1);
+        setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
+        return "fx1";
+    }
+
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
+        String wechatId = mUrlMappingService.getWechatIdByUrl(url1);
+        map.addAttribute("wechat_id", wechatId);
+        map.addAttribute("home", url1);
         WebInfo info = new WebInfo();
-        info.setUrlPath(URL_1);
+        info.setUrlPath(url1);
         info.setIp(request.getRemoteAddr());
         info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_1));
+        info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
         mWebInfoRepository.save(info);
-        return "fx1";
     }
 
     @RequestMapping("/show")
@@ -53,128 +57,56 @@ public class WebController {
         return "show";
     }
 
-    @RequestMapping("/"+URL_2)
+    @RequestMapping(value = "/"+URL_2,method = RequestMethod.GET)
     public String fx2(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_2);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_2);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_2));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_2, mUrlMappingService.getPriceByUrl(URL_2));
         return "fx2";
     }
-    @RequestMapping("/"+URL_3)
+    @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_3);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_3);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_3));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_4)
+    @RequestMapping(value = "/"+URL_4,method = RequestMethod.GET)
     public String fx4(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_4);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_4);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_4));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_4, mUrlMappingService.getPriceByUrl(URL_4));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_5)
+    @RequestMapping(value = "/"+URL_5,method = RequestMethod.GET)
     public String fx5(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_5);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_5);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_5));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_5, mUrlMappingService.getPriceByUrl(URL_5));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_6)
+    @RequestMapping(value = "/"+URL_6,method = RequestMethod.GET)
     public String fx6(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_6);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_6);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_6));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_6, mUrlMappingService.getPriceByUrl(URL_6));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_7)
+    @RequestMapping(value = "/"+URL_7,method = RequestMethod.GET)
     public String fx7(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_7);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_7);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_7));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_7, mUrlMappingService.getPriceByUrl(URL_7));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_8)
+    @RequestMapping(value = "/"+URL_8,method = RequestMethod.GET)
     public String fx8(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_8);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_8);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_8));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_8, mUrlMappingService.getPriceByUrl(URL_8));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_9)
+    @RequestMapping(value = "/"+URL_9,method = RequestMethod.GET)
     public String fx9(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_9);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_9);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_9));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_9, mUrlMappingService.getPriceByUrl(URL_9));
         return "fx1";
     }
 
-    @RequestMapping("/"+URL_10)
+    @RequestMapping(value = "/"+URL_10,method = RequestMethod.GET)
     public String fx10(ModelMap map, HttpServletRequest request){
-        String wechatId = mUrlMappingService.getWechatIdByUrl(URL_10);
-        map.addAttribute("wechat_id",wechatId);
-        WebInfo info = new WebInfo();
-        info.setUrlPath(URL_10);
-        info.setIp(request.getRemoteAddr());
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(mUrlMappingService.getPriceByUrl(URL_10));
-        info.setWechatId(wechatId);
-        mWebInfoRepository.save(info);
+        setInfo(map, request, URL_10, mUrlMappingService.getPriceByUrl(URL_10));
         return "fx1";
     }
 
@@ -209,5 +141,23 @@ public class WebController {
                     request.getParameter("wx"), Long.valueOf(request.getParameter("price"))));
         }
         return "update";
+    }
+
+    @RequestMapping(value = "/product",method = RequestMethod.GET)
+    public String product(ModelMap map,HttpServletRequest request){
+        map.addAttribute("home",request.getParameter("home"));
+        return "product";
+    }
+
+    @RequestMapping(value = "/about",method = RequestMethod.GET)
+    public String about(ModelMap map,HttpServletRequest request){
+        map.addAttribute("home",request.getParameter("home"));
+        return "about";
+    }
+
+    @RequestMapping(value = "/contact",method = RequestMethod.GET)
+    public String contact(ModelMap map,HttpServletRequest request){
+        map.addAttribute("home",request.getParameter("home"));
+        return "contact";
     }
 }

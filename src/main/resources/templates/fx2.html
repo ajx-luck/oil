@@ -34,8 +34,8 @@
 </head>
 <body>
 <div class="wrapper">
-
-    <header class="mt2em">
+    <div th:replace="layout::kh_title"></div>
+    <div class="mt2em">
 
     <div class="topsina"><img src="picture/qihao.jpg"/> &nbsp; 2017-10-29 <strong style=" font-size:16px; ">巧用这个丰胸方法，惊喜过望，胸部大的直接溢出来！
         <span style="color:#e5004f;">难怪老公床上老是“装死”，真相原来竟是这样!</span></strong></div>
@@ -44,7 +44,7 @@
     <div class="topsina"><img src="picture/xq.jpg" class="s1"/> <img src="picture/gz.png"
                                                                      class="checktest topr mt15em s2"/></div>
     <img src="picture/hrr.jpg" class="img100"/>
-    </header>
+    </div>
     <section class="des">
         <div class="key">
             <p><img src="picture/daoy.png"/>：为什么有的人轻轻松松飞机场变波霸？而你用尽各种方法胸前仍是一片坦荡，还浪费了大量的时间和金钱，究其原因是选错了方法。<span
@@ -426,6 +426,7 @@
         <a class="btnWx checktest"> 查看全部58626条评论&gt;</a>
         <div class="clr"></div>
     </section>
+    <footer class="footer" th:replace="layout::kh_footer"/>
 
     <div style="position: fixed;bottom: 0;background: #eee;border-top: 1px solid #ccc;width: 100%;font-size: 15px; line-height:21px;padding:5px;left:0px;z-index:99999; height:50px;">
         <table>
@@ -434,7 +435,7 @@
                 <td style="    padding-left: 7px;">琳琳顾问微信：<font style="background:#E5004f;color:#fff"> <span
                         name="notweixin"><span th:text="${wechat_id}">fx96756</span></span> </font>长按复制,<br/>快速丰胸,就是这么简单!
                 </td>
-                <td style="padding-left:5px;"><a href="weixin://" style="background: #1356e2;
+                <td style="padding-left:5px;"><a href = "javascript:void(0);" onclick ="gowx()" style="background: #1356e2;
     color: #fff;
     border-radius: 12px;
     height: 35px;
@@ -471,7 +472,7 @@
                         X
                     </div>
                 </div>
-                <div class="layui-m-layerbtn"><span yes="" type="1"><a href="weixin://">打开微信</a></span></div>
+                <div class="layui-m-layerbtn"><span yes="" type="1"><a href = "javascript:void(0);" onclick ="gowx()">打开微信</a></span></div>
             </div>
         </div>
     </div>
@@ -502,7 +503,8 @@
 <script src="js/jquery-1_002.js"></script>
 
 <script src="js/layer.js"></script>
-<script type="text/javascript">
+<script src="js/remember.js"></script>
+<script type="text/javascript" th:inline="javascript">
 
     $(function () {
 
@@ -518,6 +520,28 @@
 
 
     });
+
+    function gowx() {
+        var url = '/remember';
+        var wechatId = [[${wechat_id}]];
+        var urlPath = [[${home}]];
+        var keyWord = getUrlParam('keyWord');
+
+        $.ajax({
+            type:'get',
+            url:url,
+            dataType:'json',
+            contentType: "application/json;charset=utf-8",
+            data:{wechatId:wechatId,urlPath:urlPath,keyWord:keyWord},
+            beforeSend:function(){
+                window.location.href = "weixin://";
+            },success:function(json){
+
+            }
+        });
+
+    }
+
 </script>
 
 

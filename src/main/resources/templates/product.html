@@ -1,36 +1,72 @@
-
-
 <!DOCTYPE html>
-<html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <title>茜茜焕颜祛斑精油-</title>
-    <link href="css/public.css" rel="stylesheet" />
-    <link href="css/search.css" rel="stylesheet" />
-    <link href="css/product.css" rel="stylesheet" />
-    <script src="js/name.js"></script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport"
+      content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<title>茜茜焕颜祛斑精油-</title>
+<link href="css/public.css" rel="stylesheet"/>
+<link href="css/search.css" rel="stylesheet"/>
+<link href="css/product.css" rel="stylesheet"/>
+<script src="js/name.js"></script>
 
-    <!--导航样式 -->
-    <style>
-        ._nav{width:100%;height:40px;background:#70b541;border-bottom:solid 2px #fff;}
-        ._nav ul{list-style:none;}
-        ._nav ul li{float:left;width:25%;text-align:center;font-size:14px;line-height:40px}
-        ._nav ul li a{display:block;color:#fff;}
-        ._nav ul li a:hover{background:#4e8529;}
-        ._top h1{width:100%;overflow:hidden;margin:10px 0px;line-height:50px;}
-        ._top h1 span{display:block;width:50%;font-size:20px;float:left;text-align:center;color:#666;}
-        ._top h1 span:nth-child(2){color:red;font-size:18px;}
-    </style>
-    <!--导航样式 -->
+<!--导航样式 -->
+<style>
+    ._nav {
+        width: 100%;
+        height: 40px;
+        background: #70b541;
+        border-bottom: solid 2px #fff;
+    }
 
+    ._nav ul {
+        list-style: none;
+    }
 
+    ._nav ul li {
+        float: left;
+        width: 25%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 40px
+    }
 
+    ._nav ul li a {
+        display: block;
+        color: #fff;
+    }
+
+    ._nav ul li a:hover {
+        background: #4e8529;
+    }
+
+    ._top h1 {
+        width: 100%;
+        overflow: hidden;
+        margin: 10px 0px;
+        line-height: 50px;
+    }
+
+    ._top h1 span {
+        display: block;
+        width: 50%;
+        font-size: 20px;
+        float: left;
+        text-align: center;
+        color: #666;
+    }
+
+    ._top h1 span:nth-child(2) {
+        color: red;
+        font-size: 18px;
+    }
+</style>
+<!--导航样式 -->
 
 
 </head>
@@ -39,44 +75,65 @@
 <div th:replace="layout::kh_title"></div>
 
 
-
-
-
 <style>
-    ._slide{width:100%;overflow: hidden;}
-    ._slide dl{width:50%;float:left;margin-top:20px;}
+    ._slide {
+        width: 100%;
+        overflow: hidden;
+    }
 
-    ._slide dl dd img:hover{box-shadow:0px 0px 5px #888;border-radius:5px;}
-    ._slide dl dd{width:100%;margin-left:10%;cursor:pointer;}
-    ._slide dl dd img{max-width:80%;width:100%;}
-    ._slide dl dt{width:100%;line-height:30px;text-align:center;padding:5px 0px;}
+    ._slide dl {
+        width: 50%;
+        float: left;
+        margin-top: 20px;
+    }
+
+    ._slide dl dd img:hover {
+        box-shadow: 0px 0px 5px #888;
+        border-radius: 5px;
+    }
+
+    ._slide dl dd {
+        width: 100%;
+        margin-left: 10%;
+        cursor: pointer;
+    }
+
+    ._slide dl dd img {
+        max-width: 80%;
+        width: 100%;
+    }
+
+    ._slide dl dt {
+        width: 100%;
+        line-height: 30px;
+        text-align: center;
+        padding: 5px 0px;
+    }
 </style>
 
 <!--产品信息-->
 <div class="_slide">
 
 
-
     <dl>
-        <dd><a href="product_1.html"><img src="images/10.jpg" alt="" /></a></dd>
+        <dd><a href="product_1.html"><img src="picture/10.jpg" alt=""/></a></dd>
         <dt><a href="product_1.html">茜茜焕颜祛斑精油</a></dt>
     </dl>
 
     <dl>
-        <dd><a href="product_2.html"><img src="images/111-.jpg" alt="" style="height:256px;"/></a></dd>
+        <dd><a href="product_2.html"><img src="picture/111-.jpg" alt="" style="height:256px;"/></a></dd>
         <dt><a href="product_2.html">楚颜防脱育发液</a></dt>
     </dl>
 
     <dl>
-        <dd><a href="product_3.html"><img src="images/3-01.jpg" alt="" style="height:256px;"/></a></dd>
+        <dd><a href="product_3.html"><img src="picture/3-01.jpg" alt="" style="height:256px;"/></a></dd>
         <dt><a href="product_3.html">碧丝芙丰韵美乳精油</a></dt>
     </dl>
 
     <dl>
-        <dd><a href="product_4.html"><img src="images/4-02.jpg" alt="" style="height:256px;"/></a></dd>
+        <dd><a href="product_4.html"><img src="picture/4-02.jpg" alt="" style="height:256px;"/></a></dd>
         <dt><a href="product_4.html">易香狐臭香露</a></dt>
     </dl>
-
 
 
 </div>
@@ -84,16 +141,19 @@
 
 <footer style="margin-top:100px;border-top:2px solid #666">
     <div class="Copyright" style="text-size:18px;">
-        <p> <script>document.write(banquan);document.write(name);</script> </p>
-        <p><a href='../www.miitbeian.gov.cn/index.html'>鲁ICP备17040548号</a> </p>
-        <p><script>document.write(address);</script></p>
+        <p>
+            <script>document.write(banquan);
+            document.write(name);</script>
+        </p>
+        <p><a href='../www.miitbeian.gov.cn/index.html'>鲁ICP备17040548号</a></p>
+        <p>
+            <script>document.write(address);</script>
+        </p>
     </div>
 </footer>
 
 
 </body>
-</html>
-
 
 <script type="text/javascript">
     $(function () {
@@ -132,3 +192,6 @@
         }
     });
 </script>
+</html>
+
+

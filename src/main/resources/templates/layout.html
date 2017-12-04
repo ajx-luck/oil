@@ -35,17 +35,17 @@
     <div class="_nav">
         <ul>
             <li class="menuitem">
-                <a th:href="${home}">首页</a>
+                <a th:href="@{'/'+${home}}">首页</a>
             </li>
             <li class="menuitem">
-                <a href="/product">产品中心</a>
+                <a th:href="@{/product(home=${home})}">产品中心</a>
             </li>
 
             <li class="menuitem">
-                <a href="/about">公司简介</a>
+                <a th:href="@{/about(home=${home})}">公司简介</a>
             </li>
             <li class="menuitem">
-                <a href="/contact">联系我们</a>
+                <a th:href="@{/contact(home=${home})}">联系我们</a>
             </li>
         </ul>
     </div>
