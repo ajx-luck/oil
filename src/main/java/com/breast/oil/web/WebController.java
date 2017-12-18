@@ -6,16 +6,22 @@ import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WebInfoRepository;
+import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 import static com.breast.oil.consts.AppConsts.*;
@@ -41,7 +47,7 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
-        String wechatId = mUrlMappingService.getWechatIdByUrl(url1);
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", url1);
         WebInfo info = new WebInfo();
@@ -50,6 +56,7 @@ public class WebController {
         info.setCreateTime(new Date().getTime());
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
+        info.setKeyWord(request.getParameter("kw"));
         mWebInfoRepository.save(info);
     }
 
@@ -136,7 +143,7 @@ public class WebController {
 
     @RequestMapping(value = "/updatewx",method = RequestMethod.GET)
     public String updatewx(ModelMap map, HttpServletRequest request){
-        if("aa12345678".equals(request.getParameter("passwd"))) {
+        if("aa12345678".equals(request.getParameter("pd"))) {
             map.addAttribute("pathToWechat",
                     mUrlMappingService.updatePriceAndWechatIdByUrl(request.getParameter("url"),
                     request.getParameter("wx"), Long.valueOf(request.getParameter("price"))));
@@ -167,5 +174,24 @@ public class WebController {
         SecondClick secondClick = new SecondClick();
         map.addAttribute("secondClick",secondClick);
         return "kw";
+    }
+
+    @RequestMapping(value = "/addwx",method = RequestMethod.GET)
+    public String addwx(ModelMap map, HttpServletRequest request){
+        if("aa12345678".equals(request.getParameter("pd"))) {
+            map.addAttribute("pathToWechat",
+                    mUrlMappingService.addUrlAndWechat(request.getParameter("url"),
+                            request.getParameter("wx"), Long.valueOf(request.getParameter("price"))));
+        }
+        return "update";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/deletewx",method = RequestMethod.GET)
+    public ResponseEntity deletewx(ModelMap map, HttpServletRequest request){
+        if("aa12345678".equals(request.getParameter("pd"))) {
+            mUrlMappingService.deleteByWechatId(request.getParameter("wx"));
+        }
+        return new ResponseEntity("操作成功", HttpStatus.OK);
     }
 }

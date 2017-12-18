@@ -23,4 +23,9 @@ public interface PathToWechatRepository extends JpaRepository<PathToWechat,Long>
 
     @Query("select '*' from PathToWechat where wechatId=:wechatId")
     List<PathToWechat> findByWechatId(@Param("wechatId") String wechatId);
+
+    @Modifying(clearAutomatically=true)
+    @Transactional
+    @Query("delete from PathToWechat where wechatId=:wechatId")
+    void deleteByWechatId(@Param("wechatId") String wechatId);
 }

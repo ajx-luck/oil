@@ -37,8 +37,15 @@ public class StatisticsController {
     public String keyword(SecondClick secondClick,ModelMap map){
         long start = TimeUtils.DateTimeParse(secondClick.getStart() + " "+secondClick.getStartTime());
         long end = TimeUtils.DateTimeParse(secondClick.getEnd() + " "+secondClick.getEndTime());
-        return "{count:"+mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
-                secondClick.getKeyWord(),start,end)+"}";
+        String result = "";
+        if(secondClick.getWechatId() == null || secondClick.getWechatId() == "") {
+            result = "{count:" + mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+                    secondClick.getKeyWord(), start, end) + "}";
+        }else{
+            result = "{count:" + mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+                    secondClick.getKeyWord(),secondClick.wechatId, start, end) + "}";
+        }
+        return result;
     }
 
 }

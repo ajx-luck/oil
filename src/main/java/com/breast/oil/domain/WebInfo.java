@@ -23,6 +23,8 @@ public class WebInfo {
     private String ip;
     @Column(nullable = false)
     private String wechatId;
+    @Column(nullable = true)
+    private String keyWord;
 
     public String getIp() {
         return ip;
@@ -66,5 +68,13 @@ public class WebInfo {
 
     public void setWechatId(String wechatId) {
         this.wechatId = wechatId;
+    }
+
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 }
