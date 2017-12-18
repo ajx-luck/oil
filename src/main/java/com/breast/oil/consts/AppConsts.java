@@ -4,7 +4,7 @@ package com.breast.oil.consts;
  * Created by B04e on 2017/11/27.
  */
 public interface AppConsts {
-    final static Long price = 129L;
+    Long price = 129L;
     String URL_1 = "fx1";
     String URL_2 = "fx2";
     String URL_3 = "fx3";

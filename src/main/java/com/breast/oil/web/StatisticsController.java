@@ -4,6 +4,7 @@ package com.breast.oil.web;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.WXInfo;
 import com.breast.oil.repository.WXInfoRepository;
+import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -22,6 +23,8 @@ public class StatisticsController {
 
     @Autowired
     WXInfoRepository mWXInfoRepository;
+    @Autowired
+    UrlMappingService mUrlMappingService;
 
     @RequestMapping(value = "/remember",method = RequestMethod.GET)
     public String remember(HttpServletRequest request){
@@ -29,7 +32,7 @@ public class StatisticsController {
         String urlPath = request.getParameter("urlPath");
         String keyWord = request.getParameter("keyWord");
         WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,new Date().getTime());
-        mWXInfoRepository.save(wxInfo);
+        mUrlMappingService.savaWXInfo(wxInfo,request.getRemoteAddr());
         return "{code:0}";
     }
 

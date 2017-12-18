@@ -47,7 +47,8 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
-        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
+        String ip = request.getRemoteAddr();
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", url1);
         WebInfo info = new WebInfo();
@@ -57,7 +58,7 @@ public class WebController {
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
         info.setKeyWord(request.getParameter("kw"));
-        mWebInfoRepository.save(info);
+        mUrlMappingService.savaWebInfo(info,ip);
     }
 
     @RequestMapping("/show")
