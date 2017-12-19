@@ -1,8 +1,7 @@
 package com.breast.oil.services;
 
-import com.breast.oil.domain.PathToWechat;
-import com.breast.oil.domain.WXInfo;
-import com.breast.oil.domain.WebInfo;
+import com.breast.oil.domain.*;
+import com.breast.oil.repository.KeyWordRepository;
 import com.breast.oil.repository.PathToWechatRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
@@ -28,6 +27,8 @@ public class UrlMappingService {
     WebInfoRepository mWebInfoRepository;
     @Autowired
     WXInfoRepository mWXInfoRepository;
+    @Autowired
+    KeyWordRepository mKeyWordRepository;
     public  List<PathToWechat> mPathToWechats;
 
     public List<PathToWechat> getAllPathToWechat(){
@@ -76,10 +77,17 @@ public class UrlMappingService {
             return list.get(new Random().nextInt(list.size())).getWechatId();
         }
     }
-    @Cacheable(value = "string", key = "#ip")
+    @Cacheable(value = "getwechat", key = "#ip")
     public String getRandomWechatIdByUrl(String url,String ip){
+        cacheIp(ip);
         return getRandomWechatIdByUrl(url);
     }
+
+    @CachePut(value = "getwechat", key = "#ip")
+    public void cacheIp(String ip){
+
+    }
+
 
     /**
      * 根据url获取第一个微信号
@@ -179,7 +187,12 @@ public class UrlMappingService {
      */
     @Cacheable(value = "save", key = "#ip")
     public void savaWebInfo(WebInfo info,String ip){
+        cacheWeb(ip);
         mWebInfoRepository.save(info);
+    }
+    @CachePut(value = "save", key = "#ip")
+    public void cacheWeb(String ip){
+
     }
 
     /**
@@ -187,13 +200,69 @@ public class UrlMappingService {
      * @param info
      * @param ip
      */
-    @Cacheable(value = "save", key = "#ip")
+    @Cacheable(value = "savewx", key = "#ip")
     public void savaWXInfo(WXInfo info, String ip){
+        cacheWx(ip);
         mWXInfoRepository.save(info);
     }
 
+    @CachePut(value = "savewx", key = "#ip")
+    public void cacheWx(String ip){
 
+    }
+
+    /**
+     * 删除微信号
+     * @param wechatId
+     */
     public void deleteByWechatId(String wechatId){
         mPathToWechatRepository.deleteByWechatId(wechatId);
+    }
+
+    /**
+     * 新增关键字
+     * @param keyWord
+     */
+    public void addKeyWord(KeyWord keyWord){
+        mKeyWordRepository.save(keyWord);
+    }
+
+    /**
+     * 获取统计数据
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<WebAndWXCount> countAll(long start,long end){
+        List<WebAndWXCount> list = new ArrayList<>();
+        for(KeyWord keyWord:mKeyWordRepository.findAll()){
+            String kw = keyWord.getKeyWord();
+            String kwd = keyWord.getKeyWordDesc();
+            long webCount = mWebInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,start,end);
+            long wxCount = mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,start,end);
+            WebAndWXCount webAndWXCount = new WebAndWXCount(kw,kwd,wxCount,webCount);
+            list.add(webAndWXCount);
+        }
+        return list;
+    }
+
+    /**
+     * 获取统计数据
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<WebAndWXCount> countAllByWechatId(String wechatId,long start,long end){
+        List<WebAndWXCount> list = new ArrayList<>();
+        for(KeyWord keyWord:mKeyWordRepository.findAll()){
+            String kw = keyWord.getKeyWord();
+            String kwd = keyWord.getKeyWordDesc();
+            long webCount = mWebInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,wechatId,start,end);
+            long wxCount = mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,wechatId,start,end);
+            WebAndWXCount webAndWXCount = new WebAndWXCount(kw,kwd,wxCount,webCount);
+            webAndWXCount.setWechatId(wechatId);
+            list.add(webAndWXCount);
+        }
+        return list;
     }
 }

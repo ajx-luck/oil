@@ -18,23 +18,28 @@
     <!-- UC应用模式 -->
     <meta name="browsermode" content="appl ication"/>
     <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
-    <title>上报数据</title>
+    <title>查询结果</title>
 </head>
-<script>
-function test()
-{
-    alert("1111")
-    document.getElementById("myform").submit();
-}
-</script>
 <body>
-    <form id="myform" action="#" th:action="@{/result}" th:object="${statisticsInfo}" method="post">
-        <div>推广微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
-        <div>推广微信新增粉丝：</div><input  type="number" th:field="*{wechatAdd}"/><br/>
-        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
-        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
-        <input type="submit" value="提交"/>
-    </form>
-
+    <table border="1">
+        <tr>
+            <th>下标</th>
+            <th>关键字</th>
+            <th>关键字描述</th>
+            <th>微信号码（可选）</th>
+            <th>微信点击</th>
+            <th>网页点击</th>
+            <th>百分比</th>
+        </tr>
+        <tr  th:each="count,countStat : ${list}">
+            <th th:text="${countStat.index}">下标</th>
+            <th th:text="${count.keyWord}">关键字</th>
+            <th th:text="${count.keyWordDesc}">关键字描述</th>
+            <th th:text="${count.wechatId}">微信号码（可选）</th>
+            <th th:text="${count.wxCount}">微信点击</th>
+            <th th:text="${count.webCount}">网页点击</th>
+            <th th:text="${count.percentage}">百分比</th>
+        </tr>
+    </table>
 </body>
 </html>

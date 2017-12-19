@@ -1,6 +1,7 @@
 package com.breast.oil.web;
 
 
+import com.breast.oil.domain.KeyWord;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.WXInfo;
 import com.breast.oil.repository.WXInfoRepository;
@@ -30,6 +31,8 @@ public class StatisticsController {
     public String remember(HttpServletRequest request){
         String wechatId = request.getParameter("wechatId");
         String urlPath = request.getParameter("urlPath");
+        String[] paths = urlPath.split("\\?kw");
+        urlPath = paths[0];
         String keyWord = request.getParameter("keyWord");
         WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,new Date().getTime());
         mUrlMappingService.savaWXInfo(wxInfo,request.getRemoteAddr());
@@ -51,4 +54,13 @@ public class StatisticsController {
         return result;
     }
 
+
+    @RequestMapping(value = "/addkw",method = RequestMethod.GET)
+    public String addKeyWord(HttpServletRequest request){
+        String keyWord = request.getParameter("kw");
+        String keyWordDesc = request.getParameter("kwd");
+        KeyWord kw = new KeyWord(keyWord,keyWordDesc,new Date().getTime());
+        mUrlMappingService.addKeyWord(kw);
+        return "{code:0}";
+    }
 }

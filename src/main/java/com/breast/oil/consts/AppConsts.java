@@ -5,11 +5,11 @@ package com.breast.oil.consts;
  */
 public interface AppConsts {
     Long price = 129L;
-    String URL_1 = "fx1";
-    String URL_2 = "fx2";
-    String URL_3 = "fx3";
-    String URL_4 = "fx4";
-    String URL_5 = "fx5";
+    String URL_1 = "fxa";
+    String URL_2 = "fxb";
+    String URL_3 = "fxc";
+    String URL_4 = "fxd";
+    String URL_5 = "fxe";
     String URL_6 = "fx6";
     String URL_7 = "fx7";
     String URL_8 = "fx8";

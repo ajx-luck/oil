@@ -19,6 +19,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,21 +44,25 @@ public class WebController {
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
-        return "fx1";
+        return "fx2";
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
         String ip = request.getRemoteAddr();
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
+        if(wechatId == null){
+            wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
+        }
+        String kw = request.getParameter("kw");
         map.addAttribute("wechat_id", wechatId);
-        map.addAttribute("home", url1);
+        map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
         info.setIp(request.getRemoteAddr());
         info.setCreateTime(new Date().getTime());
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
-        info.setKeyWord(request.getParameter("kw"));
+        info.setKeyWord(kw);
         mUrlMappingService.savaWebInfo(info,ip);
     }
 
@@ -74,31 +79,31 @@ public class WebController {
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3));
-        return "fx1";
+        return "fx2";
     }
 
     @RequestMapping(value = "/"+URL_4,method = RequestMethod.GET)
     public String fx4(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_4, mUrlMappingService.getPriceByUrl(URL_4));
-        return "fx1";
+        return "fx2";
     }
 
     @RequestMapping(value = "/"+URL_5,method = RequestMethod.GET)
     public String fx5(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_5, mUrlMappingService.getPriceByUrl(URL_5));
-        return "fx1";
+        return "fx2";
     }
 
     @RequestMapping(value = "/"+URL_6,method = RequestMethod.GET)
     public String fx6(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_6, mUrlMappingService.getPriceByUrl(URL_6));
-        return "fx1";
+        return "fx2";
     }
 
     @RequestMapping(value = "/"+URL_7,method = RequestMethod.GET)
     public String fx7(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_7, mUrlMappingService.getPriceByUrl(URL_7));
-        return "fx1";
+        return "fx2";
     }
 
     @RequestMapping(value = "/"+URL_8,method = RequestMethod.GET)
@@ -173,7 +178,9 @@ public class WebController {
     @RequestMapping(value = "/kw",method = RequestMethod.GET)
     public String kw(ModelMap map){
         SecondClick secondClick = new SecondClick();
+        SecondClick secondClick1 = new SecondClick();
         map.addAttribute("secondClick",secondClick);
+        map.addAttribute("secondClick1",secondClick1);
         return "kw";
     }
 
@@ -195,4 +202,18 @@ public class WebController {
         }
         return new ResponseEntity("操作成功", HttpStatus.OK);
     }
+
+
+    @RequestMapping(value = "/countall",method = RequestMethod.POST)
+    public String countAll(StatisticsInfo statisticsInfo1,ModelMap map){
+        long start = TimeUtils.DateTimeParse(statisticsInfo1.getStart() + " "+statisticsInfo1.getStartTime());
+        long end = TimeUtils.DateTimeParse(statisticsInfo1.getEnd() + " "+statisticsInfo1.getEndTime());
+        if(StringUtils.isEmptyOrWhitespace(statisticsInfo1.getWechatId())){
+            map.addAttribute("list", mUrlMappingService.countAll(start, end));
+        }else {
+            map.addAttribute("list", mUrlMappingService.countAllByWechatId(statisticsInfo1.getWechatId(),start, end));
+        }
+        return "count";
+    }
+
 }

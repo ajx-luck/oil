@@ -31,13 +31,20 @@ CREATE TABLE `path_to_wechat` (
 -- ----------------------------
 -- Records of path_to_wechat
 -- ----------------------------
-INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fx1', 'fx96756');
-INSERT INTO `path_to_wechat` VALUES ('2', '1000', '129', 'fx2', 'fx95687');
-INSERT INTO `path_to_wechat` VALUES ('3', '1000', '129', 'fx3', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('4', '1000', '129', 'fx4', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('5', '1000', '129', 'fx5', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('6', '1000', '129', 'fx6', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('7', '1000', '129', 'fx7', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('8', '1000', '129', 'fx8', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('9', '1000', '129', 'fx9', 'cph33566');
-INSERT INTO `path_to_wechat` VALUES ('10', '1000', '129', 'fx10', 'cph33566');
+INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fxa', 'lzd7411');
+INSERT INTO `path_to_wechat` VALUES ('2', '1000', '129', 'fxa', 'RV8425');
+INSERT INTO `path_to_wechat` VALUES ('3', '1000', '129', 'fxa', 'bv1701');
+INSERT INTO `path_to_wechat` VALUES ('4', '1000', '129', 'fxa', 'tv1727');
+INSERT INTO `path_to_wechat` VALUES ('5', '1000', '129', 'fxa', 'xv7958');
+INSERT INTO `path_to_wechat` VALUES ('6', '1000', '129', 'fxa', 'fk64467');
+INSERT INTO `path_to_wechat` VALUES ('7', '1000', '129', 'fxa', 'fk29135');
+INSERT INTO `path_to_wechat` VALUES ('8', '1000', '129', 'fxb', 'FK040591');
+INSERT INTO `path_to_wechat` VALUES ('9', '1000', '129', 'fxb', 'FK40579');
+INSERT INTO `path_to_wechat` VALUES ('10', '1000', '129', 'fxb', 'fk319204');
+INSERT INTO `path_to_wechat` VALUES ('11', '1000', '129', 'fxb', 'fk64067');
+INSERT INTO `path_to_wechat` VALUES ('12', '1000', '129', 'fxb', 'fk58751');
+INSERT INTO `path_to_wechat` VALUES ('13', '1000', '129', 'fxb', 'fk29436');
+INSERT INTO `path_to_wechat` VALUES ('14', '1000', '129', 'fxb', 'fk71866');
+INSERT INTO `path_to_wechat` VALUES ('15', '1000', '129', 'fxb', 'fk44938');
+INSERT INTO `path_to_wechat` VALUES ('16', '1000', '129', 'fxc', 'cph131466');
+INSERT INTO `path_to_wechat` VALUES ('17', '1000', '129', 'fxc', 'xf409926');

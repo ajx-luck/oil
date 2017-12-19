@@ -36,5 +36,13 @@ function test()
         <br/>
         <input type="submit" value="提交"/>
     </form>
+
+    <form id="myfom" action="#" th:action="@{/countall}" th:object="${secondClick1}" method="post">
+        <div>微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
+        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <br/>
+        <input type="submit" value="提交"/>
+    </form>
 </body>
 </html>
