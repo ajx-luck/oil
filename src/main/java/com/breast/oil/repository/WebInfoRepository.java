@@ -27,4 +27,10 @@ public interface WebInfoRepository extends JpaRepository<WebInfo,Long>{
                                                                                      @Param("startTime") Long startTime,
                                                                                      @Param("endTime") Long endTime);
 
+    @Query("select count(*) from  WebInfo where urlPath=:urlPath and createTime>=:startTime and createTime <:endTime")
+    Long countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+                                                                                    @Param("urlPath") String urlPath,
+                                                                                    @Param("startTime") Long startTime,
+                                                                                    @Param("endTime") Long endTime);
+
 }

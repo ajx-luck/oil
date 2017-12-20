@@ -26,4 +26,10 @@ public interface WXInfoRepository extends JpaRepository<WXInfo, Long> {
                                                                                     @Param("urlPath") String urlPath,
                                                                                     @Param("startTime") Long startTime,
                                                                                     @Param("endTime") Long endTime);
+
+    @Query("select count(*) from  WXInfo where urlPath=:urlPath and createTime>=:startTime and createTime <:endTime")
+    Long countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+            @Param("urlPath") String urlPath,
+            @Param("startTime") Long startTime,
+            @Param("endTime") Long endTime);
 }

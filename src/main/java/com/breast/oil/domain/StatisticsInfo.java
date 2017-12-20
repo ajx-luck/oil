@@ -29,6 +29,11 @@ public class StatisticsInfo {
     public String average;
     @Column(nullable = false)
     public Long createTime;
+    /**
+     * 记录的增加微信数量
+     */
+    @Column(nullable = false)
+    public Long wechatRAdd;
     public String startTime;
     public String endTime;
 
@@ -120,5 +125,11 @@ public class StatisticsInfo {
         this.wechatAdd = wechatAdd;
     }
 
+    public Long getWechatRAdd() {
+        return wechatRAdd;
+    }
 
+    public void setWechatRAdd(Long wechatRAdd) {
+        this.wechatRAdd = wechatRAdd;
+    }
 }
