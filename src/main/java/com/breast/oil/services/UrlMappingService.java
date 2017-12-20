@@ -77,14 +77,15 @@ public class UrlMappingService {
             return list.get(new Random().nextInt(list.size())).getWechatId();
         }
     }
-    @Cacheable(value = "getwechat", key = "#ip")
+
+    @Cacheable(value = "getwechat", key="T(String).valueOf(#url).concat('-').concat(#ip)")
     public String getRandomWechatIdByUrl(String url,String ip){
-        cacheIp(ip);
+        cacheIp(url,ip);
         return getRandomWechatIdByUrl(url);
     }
 
-    @CachePut(value = "getwechat", key = "#ip")
-    public void cacheIp(String ip){
+    @CachePut(value = "getwechat", key="T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void cacheIp(String url,String ip){
 
     }
 
