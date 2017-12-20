@@ -10,6 +10,7 @@ public class SecondClick {
     public String end;
     public String keyWord;
     public String wechatId;
+    public String url;
 
     public String getStartTime() {
         return startTime;
@@ -57,5 +58,13 @@ public class SecondClick {
 
     public void setWechatId(String wechatId) {
         this.wechatId = wechatId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

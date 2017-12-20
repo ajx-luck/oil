@@ -5,6 +5,7 @@ import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
+import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
@@ -38,6 +39,8 @@ public class WebController {
     StatisticsInfoRepository mStatisticsInfoRepository;
     @Autowired
     UrlMappingService mUrlMappingService;
+    @Autowired
+    WXInfoRepository mWXInfoRepository;
 
 
 
@@ -124,6 +127,11 @@ public class WebController {
         return "fx1";
     }
 
+    /**
+     * 手动统计数据
+     * @param map
+     * @return
+     */
     @RequestMapping("/sum")
     public String sum(ModelMap map){
         StatisticsInfo statisticsInfo = new StatisticsInfo();
@@ -131,19 +139,32 @@ public class WebController {
         return "sum";
     }
 
+    /**
+     * 统计数据结果
+     * @param statisticsInfo
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/result",method = RequestMethod.POST)
     public String result(StatisticsInfo statisticsInfo, ModelMap map){
         long start = TimeUtils.DateTimeParse(statisticsInfo.getStart() + " "+statisticsInfo.getStartTime());
         long end = TimeUtils.DateTimeParse(statisticsInfo.getEnd() + " "+statisticsInfo.getEndTime());
-        long total = mStatisticsRepository.totalMoney(statisticsInfo.getWechatId(),start,end);
+        long total = mWebInfoRepository.countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(statisticsInfo.getWechatId(),start,end);
+        long wechatRAdd = mWXInfoRepository.countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(statisticsInfo.getWechatId(),start,end);
+        long wechatAdd = statisticsInfo.getWechatAdd();
+        long addWX = wechatAdd == 0?wechatRAdd:wechatAdd;
         statisticsInfo.setStart(TimeUtils.timesToDate(start));
         statisticsInfo.setEnd(TimeUtils.timesToDate(end));
-        statisticsInfo.setResult(FormatUtils.formatMoney(total));
-        statisticsInfo.setAverage(FormatUtils.formatMoney(total/statisticsInfo.wechatAdd));
+        statisticsInfo.setResult(total+"次");
+        statisticsInfo.setWechatRAdd(wechatRAdd);
+        statisticsInfo.setAverage(FormatUtils.percentage(addWX,total));
         statisticsInfo.setCreateTime(new Date().getTime());
-        statisticsInfo.setUrl(mUrlMappingService.getUrlByWechatId(statisticsInfo.wechatId));
+        statisticsInfo.setUrl(statisticsInfo.wechatId);
         map.addAttribute("statisticsInfo", statisticsInfo);
-        mStatisticsInfoRepository.save(statisticsInfo);
+        if(wechatAdd>0) {
+            mStatisticsInfoRepository.save(statisticsInfo);
+        }
+        statisticsInfo.setWechatAdd((int)addWX);
         return "result";
     }
 
@@ -209,7 +230,11 @@ public class WebController {
         long start = TimeUtils.DateTimeParse(statisticsInfo1.getStart() + " "+statisticsInfo1.getStartTime());
         long end = TimeUtils.DateTimeParse(statisticsInfo1.getEnd() + " "+statisticsInfo1.getEndTime());
         if(StringUtils.isEmptyOrWhitespace(statisticsInfo1.getWechatId())){
-            map.addAttribute("list", mUrlMappingService.countAll(start, end));
+            if(StringUtils.isEmptyOrWhitespace(statisticsInfo1.getUrl())){
+                map.addAttribute("list", mUrlMappingService.countAll(start, end));
+            }else {
+                map.addAttribute("list", mUrlMappingService.countAllByUrl(statisticsInfo1.getUrl(),start, end));
+            }
         }else {
             map.addAttribute("list", mUrlMappingService.countAllByWechatId(statisticsInfo1.getWechatId(),start, end));
         }
