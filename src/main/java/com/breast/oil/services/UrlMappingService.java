@@ -265,4 +265,24 @@ public class UrlMappingService {
         }
         return list;
     }
+
+    /**
+     * 获取统计数据
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<WebAndWXCount> countAllByUrl(String urlPath,long start,long end){
+        List<WebAndWXCount> list = new ArrayList<>();
+        for(KeyWord keyWord:mKeyWordRepository.findAll()){
+            String kw = keyWord.getKeyWord();
+            String kwd = keyWord.getKeyWordDesc();
+            long webCount = mWebInfoRepository.countByKeyWordAndUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,urlPath,start,end);
+            long wxCount = mWXInfoRepository.countByKeyWordAndUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw,urlPath,start,end);
+            WebAndWXCount webAndWXCount = new WebAndWXCount(kw,kwd,wxCount,webCount);
+            webAndWXCount.setWechatId(urlPath);
+            list.add(webAndWXCount);
+        }
+        return list;
+    }
 }

@@ -209,7 +209,11 @@ public class WebController {
         long start = TimeUtils.DateTimeParse(statisticsInfo1.getStart() + " "+statisticsInfo1.getStartTime());
         long end = TimeUtils.DateTimeParse(statisticsInfo1.getEnd() + " "+statisticsInfo1.getEndTime());
         if(StringUtils.isEmptyOrWhitespace(statisticsInfo1.getWechatId())){
-            map.addAttribute("list", mUrlMappingService.countAll(start, end));
+            if(StringUtils.isEmptyOrWhitespace(statisticsInfo1.getUrl())){
+                map.addAttribute("list", mUrlMappingService.countAll(start, end));
+            }else {
+                map.addAttribute("list", mUrlMappingService.countAllByUrl(statisticsInfo1.getUrl(),start, end));
+            }
         }else {
             map.addAttribute("list", mUrlMappingService.countAllByWechatId(statisticsInfo1.getWechatId(),start, end));
         }
