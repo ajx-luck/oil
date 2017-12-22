@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>查询结果</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>下标</th>
+            <th>推广渠道</th>
+            <th>消耗额度</th>
+            <th>余额</th>
+            <th>网页点击数</th>
+            <th>新增微信数（实际）</th>
+            <th>新增微信数（统计）</th>
+            <th>转化率</th>
+            <th>转化价格</th>
+        </tr>
+        <tr  th:each="count,countStat : ${list}">
+            <th th:text="${countStat.index}">下标</th>
+            <th th:text="${count.wechatId}">推广渠道</th>
+            <th th:text="${count.saleMoney}">消耗额度</th>
+            <th th:text="${count.totalMoney}">余额</th>
+            <th th:text="${count.result}">网页点击数</th>
+            <th th:text="${count.wechatAdd}">新增微信数（实际）</th>
+            <th th:text="${count.wechatRAdd}">新增微信数（统计）</th>
+            <th th:text="${count.average}">转化率</th>
+            <th th:text="${count.averageMoney}">转化价格</th>
+        </tr>
+    </table>
+</body>
+</html>

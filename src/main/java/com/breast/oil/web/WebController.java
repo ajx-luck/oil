@@ -135,7 +135,9 @@ public class WebController {
     @RequestMapping("/sum")
     public String sum(ModelMap map){
         StatisticsInfo statisticsInfo = new StatisticsInfo();
-        map.addAttribute(statisticsInfo);
+        StatisticsInfo statisticsInfo1 = new StatisticsInfo();
+        map.addAttribute("statisticsInfo",statisticsInfo);
+        map.addAttribute("statisticsInfo1",statisticsInfo1);
         return "sum";
     }
 
@@ -162,6 +164,7 @@ public class WebController {
         statisticsInfo.setUrl(statisticsInfo.wechatId);
         map.addAttribute("statisticsInfo", statisticsInfo);
         if(wechatAdd>0) {
+            statisticsInfo.setAverageMoney(statisticsInfo.getSaleMoney()/statisticsInfo.getWechatAdd());
             mStatisticsInfoRepository.save(statisticsInfo);
         }
         statisticsInfo.setWechatAdd((int)addWX);
@@ -240,5 +243,6 @@ public class WebController {
         }
         return "count";
     }
+
 
 }

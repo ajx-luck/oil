@@ -13,7 +13,7 @@ public class FormatUtils {
 
     public static String percentage(long numerator ,long denominator){
         double p = Double.parseDouble(numerator+"")*100/denominator;
-        DecimalFormat df=new DecimalFormat("#.0000");
+        DecimalFormat df=new DecimalFormat("#.00");
         return df.format(p)+"%";
     }
 }

@@ -34,6 +34,13 @@ public class StatisticsInfo {
      */
     @Column(nullable = false)
     public Long wechatRAdd;
+    @Column(nullable = false)
+    public double saleMoney;
+    @Column(nullable = false)
+    public double totalMoney;
+    @Column(nullable = false)
+    public double averageMoney;
+
     public String startTime;
     public String endTime;
 
@@ -131,5 +138,29 @@ public class StatisticsInfo {
 
     public void setWechatRAdd(Long wechatRAdd) {
         this.wechatRAdd = wechatRAdd;
+    }
+
+    public double getSaleMoney() {
+        return saleMoney;
+    }
+
+    public void setSaleMoney(double saleMoney) {
+        this.saleMoney = saleMoney;
+    }
+
+    public double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public double getAverageMoney() {
+        return averageMoney;
+    }
+
+    public void setAverageMoney(double averageMoney) {
+        this.averageMoney = averageMoney;
     }
 }
