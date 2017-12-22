@@ -244,5 +244,12 @@ public class WebController {
         return "count";
     }
 
+    @RequestMapping(value = "/countCost",method = RequestMethod.POST)
+    public String countCost(StatisticsInfo statisticsInfo1,ModelMap map){
+        long start = TimeUtils.DateTimeParse(statisticsInfo1.getStart() + " "+statisticsInfo1.getStartTime());
+        long end = TimeUtils.DateTimeParse(statisticsInfo1.getEnd() + " "+statisticsInfo1.getEndTime());
+        map.addAttribute("list",  mUrlMappingService.countCost(statisticsInfo1.getUrl(),start,end));
+        return "countcost";
+    }
 
 }

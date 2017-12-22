@@ -1,5 +1,7 @@
 package com.breast.oil;
 
+import com.breast.oil.domain.StatisticsInfo;
+import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import org.junit.Test;
@@ -8,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class OilApplicationTests {
@@ -15,6 +19,8 @@ public class OilApplicationTests {
 	private StatisticsRepository mStatisticsRepository;
 	@Autowired
 	private WXInfoRepository mWXInfoRepository;
+	@Autowired
+	private StatisticsInfoRepository mStatisticsInfoRepository;
 	@Test
 	public void contextLoads() {
 	}
@@ -32,5 +38,12 @@ public class OilApplicationTests {
 		long end = 1513586285412L;
 		long count = mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(keyWord,start,end);
 		assert (1 == count);
+	}
+
+	@Test
+	public void count(){
+		List<StatisticsInfo> list = mStatisticsInfoRepository.findByUrl("fx");
+		assert (list!=null);
+
 	}
 }

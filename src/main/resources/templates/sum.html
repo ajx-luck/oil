@@ -36,13 +36,14 @@ function test()
         <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
         <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
         <br/>
-        <br/>
         <input type="submit" value="提    交"/>
     </form>
     <div></div>
     <form id="myform1" action="#" th:action="@{/countCost}" th:object="${statisticsInfo1}" method="post">
+        <div>推广渠道：</div><input type="text" th:field="*{url}"/><br/>
         <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
         <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <br/>
         <input type="submit" value="提    交"/>
     </form>
 
