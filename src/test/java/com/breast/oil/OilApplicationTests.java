@@ -53,7 +53,7 @@ public class OilApplicationTests {
 
 	@Test
 	public void count(){
-		List<StatisticsInfo> list = mStatisticsInfoRepository.findByUrl("fx",0L,0L);
+		List<StatisticsInfo> list = mStatisticsInfoRepository.findByUrlAndCreateTimeGreaterThanEqualAndCreateTimeLessThan("fx",0L,0L);
 		assert (list!=null);
 
 	}

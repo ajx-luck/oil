@@ -310,11 +310,13 @@ public class UrlMappingService {
      * @return
      */
     public List<StatisticsInfo> countCost(String url, long start, long end) {
+        List<StatisticsInfo> list;
         if (StringUtils.isEmptyOrWhitespace(url)) {
-            return mStatisticsInfoRepository.findAllByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start, end);
+            list = mStatisticsInfoRepository.findByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start, end);
         } else {
-            return mStatisticsInfoRepository.findByUrl(url, start, end);
+            list = mStatisticsInfoRepository.findByUrlAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(url, start, end);
         }
+        return list;
     }
 
     public String getLastWechatIdByIp(String ip) {

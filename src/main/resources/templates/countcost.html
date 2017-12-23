@@ -33,16 +33,16 @@
             <th>转化率</th>
             <th>转化价格</th>
         </tr>
-        <tr  th:each="count,countStat : ${list}">
+        <tr  th:each="countcost,countStat : ${list}">
             <th th:text="${countStat.index}">下标</th>
-            <th th:text="${count.wechatId}">推广渠道</th>
-            <th th:text="${count.saleMoney}">消耗额度</th>
-            <th th:text="${count.totalMoney}">余额</th>
-            <th th:text="${count.result}">网页点击数</th>
-            <th th:text="${count.wechatAdd}">新增微信数（实际）</th>
-            <th th:text="${count.wechatRAdd}">新增微信数（统计）</th>
-            <th th:text="${count.average}">转化率</th>
-            <th th:text="${count.averageMoney}">转化价格</th>
+            <th th:text="${countcost.url}">推广渠道</th>
+            <th th:text="${countcost.saleMoney}">消耗额度</th>
+            <th th:text="${countcost.totalMoney}">余额</th>
+            <th th:text="${countcost.result}">网页点击数</th>
+            <th th:text="${countcost.wechatAdd}">新增微信数（实际）</th>
+            <th th:text="${countcost.wechatRAdd}">新增微信数（统计）</th>
+            <th th:text="${countcost.average}">转化率</th>
+            <th th:text="${countcost.averageMoney}">转化价格</th>
         </tr>
     </table>
 </body>
