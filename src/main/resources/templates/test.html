@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>上报数据</title>
+</head>
+<script src=”https://open.mobile.qq.com/sdk/qqapi.js?_bid=152″></script>
+<script type=”text/javascript”>
+mqq.ui.openUrl({ target: 2,url: “http://10.41.1.36/fxa”});
+</script>
+<body>
+    <form id="myform" action="#" th:action="@{/result}" th:object="${statisticsInfo}" method="post">
+        <div>推广渠道：</div><input type="text" th:field="*{wechatId}"/><br/>
+        <div>微信新增：</div><input  type="number" th:field="*{wechatAdd}"/><br/>
+        <div>消耗额度：</div><input  type="number" th:field="*{saleMoney}"/><br/>
+        <div>余额：</div><input  type="number" th:field="*{totalMoney}"/><br/>
+        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <br/>
+        <input type="submit" value="提    交"/>
+    </form>
+    <div></div>
+    <form id="myform1" action="#" th:action="@{/countCost}" th:object="${statisticsInfo1}" method="post">
+        <div>推广渠道：</div><input type="text" th:field="*{url}"/><br/>
+        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <br/>
+        <input type="submit" value="提    交"/>
+    </form>
+
+</body>
+</html>

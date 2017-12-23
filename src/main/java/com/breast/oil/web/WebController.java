@@ -88,7 +88,7 @@ public class WebController {
     @RequestMapping(value = "/"+URL_4,method = RequestMethod.GET)
     public String fx4(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_4, mUrlMappingService.getPriceByUrl(URL_4));
-        return "fx2";
+        return "fxqrcode";
     }
 
     @RequestMapping(value = "/"+URL_5,method = RequestMethod.GET)
