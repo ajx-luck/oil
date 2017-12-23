@@ -88,7 +88,8 @@ span.copy{ color:#E5004F; font-weight:normal; font-family:Arial; font-size:.9em;
 .case{ padding:4rem 0;}
 
 .case .btun{ text-align:center; font-size:1.8rem; line-height:3.5rem; margin:2rem auto;}
-.btnTitle{ background:#A3A9C5; color:#FFF; padding:.8rem 2rem; border-radius:2rem;}
+.btnTitle{ background:#e5004f; color:#FFF; padding:.8rem 2rem; border-radius:2rem;}
+
 
 .case h4{ font-size:1.8rem; line-height:3.5rem; color:#000;}
 
