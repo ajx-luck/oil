@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>加琳琳老师微信号</title>
+</head>
+<script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+<script type="text/javascript">
+    var newnum = new Array(32,30,29,28,25,23,21,19,17,16,15,14,12,11,10,8,7,6,4,2,1);
+    var leg = newnum.length;
+    var num = -1;
+    var t = setInterval(function(){
+        num++;
+        if (num >= leg) {
+            clearInterval(t);
+            return;
+        }
+        var shownum = document.getElementById("shownum").innerHTML = newnum[num];
+    }, 2000)
+</script>
+
+<style type="text/css">
+    *{margin: 0;padding: 0;}
+    body{width: 100%;max-width: 640px;margin: 0 auto;font-family: "微软雅黑","Microsoft YaHei",Arial,sans-serif;font-size: 16px;line-height: 1.5;}
+    .main{padding-top: 50px;text-align: center;color: #0066c2;letter-spacing: 2px;overflow: hidden;}
+    .main b{font-size: 0.8rem;display: inline-block;}
+    .main .sx{background: #0066c2;color: #fff;padding: 5px 20px; margin-top: 15px;}
+    .num,.code_box{color: #ff0;}
+    .main p{color: #03abf4;font-size: 0.5rem;}
+    #code{width: 70%;}
+</style>
+
+<body style="font-size: 12px;">
+<div class="main">
+    <b>加琳琳老师微信号立即获取免费一对一丰胸方案<br/><span style="font-size: 0.6rem;">立即获取免费一对一丰胸方案</span></b>
+    <br/>
+    <b class="sx">剩下<span class="num" id="shownum"></span>个名额</b>
+    <p style="margin-top: 10px;">每天仅通过50个名额</p>
+    <br/>
+    <div class="code_box">
+        <div class="code" id="copywx"><img width='60%' th:src="@{'picture/'+${wechat_id}+'.jpg'}"/></div>
+        <p>↑长按识别上方二维码加好友↑</p>
+    </div>
+</div>
+
+</body>
+</html>

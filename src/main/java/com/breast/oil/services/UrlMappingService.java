@@ -303,16 +303,31 @@ public class UrlMappingService {
 
     /**
      * 统计手动添加的数据
+     *
      * @param url
      * @param start
      * @param end
      * @return
      */
-    public List<StatisticsInfo> countCost(String url,long start,long end){
-        if(StringUtils.isEmptyOrWhitespace(url)){
-            return mStatisticsInfoRepository.findAllByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start,end);
-        }else{
-            return mStatisticsInfoRepository.findByUrl(url,start,end);
+    public List<StatisticsInfo> countCost(String url, long start, long end) {
+        if (StringUtils.isEmptyOrWhitespace(url)) {
+            return mStatisticsInfoRepository.findAllByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start, end);
+        } else {
+            return mStatisticsInfoRepository.findByUrl(url, start, end);
+        }
+    }
+
+    public String getLastWechatIdByIp(String ip) {
+        if (StringUtils.isEmptyOrWhitespace(ip)) {
+            return getRandomWechatIdByUrl("fxc");
+        } else {
+            List<WebInfo> list = mWebInfoRepository.findByIpOrderById(ip);
+            String wechatId = "";
+            if (list != null && list.size() > 0) {
+                wechatId = list.get(list.size() - 1).getWechatId();
+            }
+            return StringUtils.isEmptyOrWhitespace(wechatId)?getRandomWechatIdByUrl("fxc"):wechatId;
+
         }
     }
 }

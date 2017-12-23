@@ -47,7 +47,7 @@ public class WebController {
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
-        return "fx2";
+        return "fxqrcode";
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
@@ -252,4 +252,12 @@ public class WebController {
         return "countcost";
     }
 
+
+    @RequestMapping(value = "/weixin",method = RequestMethod.GET)
+    public String wxinfo(ModelMap map, HttpServletRequest request){
+        String ip = request.getRemoteAddr();
+        String wechatId = mUrlMappingService.getLastWechatIdByIp(ip);
+        map.addAttribute("wechat_id", wechatId);
+        return "wxinfo";
+    }
 }

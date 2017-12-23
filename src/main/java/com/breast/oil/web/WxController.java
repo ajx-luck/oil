@@ -31,4 +31,11 @@ public class WxController {
         }
         return new ResponseEntity("", HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public String fx8(ModelMap map, HttpServletRequest request){
+        return "test";
+    }
+
+
 }

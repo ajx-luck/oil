@@ -1,9 +1,12 @@
 package com.breast.oil.repository;
 
+import com.breast.oil.domain.PathToWechat;
 import com.breast.oil.domain.WebInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /**
  * Created by B04e on 2017/11/27.
@@ -33,4 +36,6 @@ public interface WebInfoRepository extends JpaRepository<WebInfo,Long>{
                                                                                     @Param("startTime") Long startTime,
                                                                                     @Param("endTime") Long endTime);
 
+//    @Query("select '*' from WebInfo where ip=:ip order by id desc")
+    List<WebInfo>  findByIpOrderById(@Param("ip") String ip);
 }
