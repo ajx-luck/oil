@@ -85,10 +85,10 @@ span.copy{ color:#E5004F; font-weight:normal; font-family:Arial; font-size:.9em;
 .content p.t{text-align:center;}
 .content p.t img{ width:75%; }
 
-.case{ padding:4rem 0;}
+.case{ padding:0.5rem 0;}
 
-.case .btun{ text-align:center; font-size:1.8rem; line-height:3.5rem; margin:2rem auto;}
-.btnTitle{ background:#e5004f; color:#FFF; padding:.8rem 2rem; border-radius:2rem;}
+.case .btun{ text-align:center; font-size:1.8rem; line-height:1.8rem; margin:2rem auto;}
+.btnTitle{ background:#e5004f; color:#FFF; padding:.8rem 2rem; border-radius:0.5rem;}
 
 
 .case h4{ font-size:1.8rem; line-height:3.5rem; color:#000;}
