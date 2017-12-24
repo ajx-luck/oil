@@ -91,6 +91,7 @@ public class UrlMappingService {
     }
 
 
+
     /**
      * 根据url获取第一个微信号
      *
@@ -193,14 +194,14 @@ public class UrlMappingService {
      * @param info
      * @param ip
      */
-    @Cacheable(value = "save", key = "#ip")
-    public void savaWebInfo(WebInfo info, String ip) {
-        cacheWeb(ip);
+    @Cacheable(value = "save", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void savaWebInfo(WebInfo info,String url, String ip) {
+        cacheWeb(url,ip);
         mWebInfoRepository.save(info);
     }
 
-    @CachePut(value = "save", key = "#ip")
-    public void cacheWeb(String ip) {
+    @CachePut(value = "save", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void cacheWeb(String url,String ip) {
 
     }
 
@@ -210,14 +211,14 @@ public class UrlMappingService {
      * @param info
      * @param ip
      */
-    @Cacheable(value = "savewx", key = "#ip")
-    public void savaWXInfo(WXInfo info, String ip) {
-        cacheWx(ip);
+    @Cacheable(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void savaWXInfo(WXInfo info, String url,String ip) {
+        cacheWx(url,ip);
         mWXInfoRepository.save(info);
     }
 
-    @CachePut(value = "savewx", key = "#ip")
-    public void cacheWx(String ip) {
+    @CachePut(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void cacheWx(String url,String ip) {
 
     }
 

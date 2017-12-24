@@ -66,7 +66,7 @@ public class WebController {
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
         info.setKeyWord(kw);
-        mUrlMappingService.savaWebInfo(info,ip);
+        mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 
     @RequestMapping("/show")
