@@ -578,7 +578,7 @@
             contentType: "application/json;charset=utf-8",
             data: {wechatId: wechatId, urlPath: urlPath, keyWord: keyWord},
             beforeSend: function () {
-                window.location.href = "http://jump.hupeh.cn/sxm1223.php";
+                window.location.href = [[${ticket}]];
             }, success: function (json) {
 
             }

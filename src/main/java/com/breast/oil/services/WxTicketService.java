@@ -1,14 +1,28 @@
 package com.breast.oil.services;
 
+import com.breast.oil.utils.HttpClientHelper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 
 /**
  * Created by B04e on 2017/12/22.
  */
 @Service
 public class WxTicketService {
+    public static String ticket = "";
+    public final static long ONE_Minute =  300 * 1000;
+
+    @Scheduled(fixedDelay=ONE_Minute)
+    public String getTicket(){
+        String str = HttpClientHelper.sendGet("http://jump.hupeh.cn/sxm1223.php",null,"utf-8");
+        int index = str.indexOf("ticket=");
+        int end = str.indexOf("#wechat_redirect");
+        ticket = str.substring(index,end);
+        return ticket;
+    }
+
+
     /**
      * 获取access_token，然后jsapi_ticket
      */

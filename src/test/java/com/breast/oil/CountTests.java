@@ -1,8 +1,10 @@
 package com.breast.oil;
 
 import com.breast.oil.domain.WebAndWXCount;
+import com.breast.oil.services.WxTicketService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -12,7 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CountTests {
-
+    @Autowired
+    WxTicketService mWxTicketService;
     @Test
     public void countWxAndWeb(){
         WebAndWXCount webAndWXCount = new WebAndWXCount("1","方案1",20L,1000L);
@@ -35,6 +38,12 @@ public class CountTests {
         }
         System.out.print(d);
         assert ("".equals(d));
+    }
+
+    @Test
+    public void testTicket(){
+        String ticket = mWxTicketService.getTicket();
+        assert ("t769e3df69736bc09caf574789b5a8bde".equals(ticket));
     }
 
 }

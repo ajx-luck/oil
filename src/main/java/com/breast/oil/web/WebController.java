@@ -9,6 +9,7 @@ import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
+import com.breast.oil.services.WxTicketService;
 import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,8 @@ public class WebController {
     UrlMappingService mUrlMappingService;
     @Autowired
     WXInfoRepository mWXInfoRepository;
+    @Autowired
+    WxTicketService mWxTicketService;
 
 
 
@@ -59,6 +62,10 @@ public class WebController {
         String kw = request.getParameter("kw");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
+        if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
+            mWxTicketService.getTicket();
+        }
+        map.addAttribute("ticket", "weixin://dl/business/?"+WxTicketService.ticket+"#wechat_redirect");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
         info.setIp(request.getRemoteAddr());
