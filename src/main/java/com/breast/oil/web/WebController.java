@@ -269,6 +269,14 @@ public class WebController {
         String ip = request.getRemoteAddr();
         String wechatId = mUrlMappingService.getLastWechatIdByIp(ip);
         map.addAttribute("wechat_id", wechatId);
+        return "wxinfo";
+    }
+
+    @RequestMapping(value = "/zixun",method = RequestMethod.GET)
+    public String zixun(ModelMap map, HttpServletRequest request){
+        String ip = request.getRemoteAddr();
+        String wechatId = mUrlMappingService.getLastWechatIdByIp(ip);
+        map.addAttribute("wechat_id", wechatId);
         return "zixun";
     }
 }
