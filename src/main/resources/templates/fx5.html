@@ -392,55 +392,24 @@
     <footer class="footer" th:replace="layout::kh_footer"/>
 
 
-    <style>
-        .ff-img{position: fixed;bottom: 10px;left: 15px;z-index: 100000000;}
-        .ff-img img{width: 70px;}
-        .shanshuo{
-            -webkit-animation: big 1.4s ease infinite alternate;
-            -moz-animation: big 1.4s ease infinite alternate;
-            -ms-animation: big 1.4s ease infinite alternate;
-            -o-animation: big 1.4s ease infinite alternate;
-        }
-        .shanshuo{
-            animation: big 3s ease infinite alternate;-webkit-animation: big 3s ease infinite alternate;-moz-animation: big 3s ease infinite alternate;
-            -ms-animation: big 3s ease infinite alternate;-o-animation: big 3s ease infinite alternate;
-        }
-        @keyframes big{
-            0%{transform:scale(1);}
-            18%{transform:scale(1.1);}
-            32%{transform:scale(1);}
-            48%{transform:scale(1.1);}
-            64%{transform:scale(1);}
-            80%{transform:scale(1.1);
-            }100%{transform:scale(1);}
-        }
-        @-webkit-keyframes big{
-            0%{-webkit-transform:scale(1);}
-            18%{-webkit-transform:scale(1.1);}
-            32%{-webkit-transform:scale(1);}
-            48%{-webkit-transform:scale(1.1);}
-            64%{-webkit-transform:scale(1);}
-            80%{-webkit-transform:scale(1.1);}
-            100%{-webkit-transform:scale(1);
-            }}
-        @-moz-keyframes big{0%{-moz-transform:scale(1);}18%{-moz-transform:scale(1.1);}32%{-moz-transform:scale(1);}48%{-moz-transform:scale(1.1);}64%{-moz-transform:scale(1);}80%{-moz-transform:scale(1.1);}100%{-moz-transform:scale(1);}}@-o-keyframes big{0%{-o-transform:scale(1);}18%{-o-transform:scale(1.1);}32%{-o-transform:scale(1);}48%{-o-transform:scale(1.1);}64%{-o-transform:scale(1);}80%{-o-transform:scale(1.1);}100%{-o-transform:scale(1);}}@-ms-keyframes big{0%{-ms-transform:scale(1);}18%{-ms-transform:scale(1.1);}32%{-ms-transform:scale(1);}48%{-ms-transform:scale(1.1);}64%{-ms-transform:scale(1);}80%{-ms-transform:scale(1.1);}100%{-ms-transform:scale(1);}}
-
-
-    </style>
-    <div class="ff-img">
-        <a class="checktest"><img src="picture/wenwen.png"/></a>
-    </div>
-    <div style="position: fixed;bottom: 0;background: #e5004f;border-top: 1px solid #ccc;width: 100%;font-size: 15px; line-height:21px;padding:5px;padding-left:3px;left:0px;z-index:99999; height:50px;">
-
-        <table><tbody><tr><td style="padding-left:90px; color: #fff;">查看更多丰胸案例<br/><i style="font-weight:bolder;color: #fede57;">现在咨询就有好礼相送</i></td><td style="padding-left:15px;"><a href="javascript:void(0);" onclick="gowx()" class="shanshuo" style="background: #fff;
-    color: #e5004f;
+    <div style="position: fixed;bottom: 0;background: #eee;border-top: 1px solid #ccc;width: 100%;font-size: 15px; line-height:21px;padding:5px;left:0px;z-index:99999; height:50px;">
+        <table>
+            <tbody>
+            <tr>
+                <td style="    padding-left: 7px;">琳琳顾问微信：<font style="background:#E5004f;color:#fff"> <span
+                        name="notweixin"><a href="javascript:void(0);" onclick="gowx()" th:text="${wechat_id}">fx96756</a></span> </font>去微信添加<br/>丰胸,就是这么简单!
+                </td>
+                <td style="padding-left:5px;"><a href="javascript:void(0);" onclick="gowx()" style="background: #1356e2;
+    color: #fff;
     border-radius: 12px;
     height: 35px;
     line-height: 35px;
     text-align: center;
-    box-shadow: 0 1px 3px 0 #000;display:block;width:95px;">点击咨询&gt;</a></td></tr></tbody></table></div>
-
-
+    box-shadow: 0 1px 3px 0 #000;display:block;width:100px;">去微信&gt;</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 <br/>

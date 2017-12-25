@@ -50,7 +50,7 @@ public class WebController {
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
-        return "fx5";
+        return "fx2";
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
