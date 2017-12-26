@@ -1,5 +1,6 @@
 package com.breast.oil.web;
 
+import com.breast.oil.domain.OssObject;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
@@ -11,7 +12,9 @@ import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
 import com.breast.oil.utils.FormatUtils;
+import com.breast.oil.utils.OssUtils;
 import com.breast.oil.utils.TimeUtils;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
@@ -278,5 +281,18 @@ public class WebController {
         String wechatId = mUrlMappingService.getLastWechatIdByIp(ip);
         map.addAttribute("wechat_id", wechatId);
         return "zixun";
+    }
+
+    /**
+     * 表单上传文件到OSS
+     * @param map
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/upload",method = RequestMethod.GET)
+    public String upload(ModelMap map,HttpServletRequest request){
+        String policy=OssUtils.getBase64Policy();
+        String signature= OssUtils.getSignPolicy("",policy);
+        return "upload";
     }
 }

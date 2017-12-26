@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>上传文件</title>
+</head>
+<body>
+<form  action="http://picket.oss-cn-shenzhen.aliyuncs.com" method="post" enctype="multipart/form-data" th:object="${ossObject}">
+    <input type="text" name="OSSAccessKeyId" th:field="*{ossId}"/>
+    <input type="text" name="policy" th:field="*{policy}"/>
+    <input type="text" name="Signature" th:field="*{signature}"/>
+    <input type="text" name="key" th:field="*{key}"/>
+    <input type="text" name="success_action_redirect" value="http://oss.aliyun.com"/>
+    <input type="text" name="success_action_status" value="201"/>
+    <input name="file" type="file" id="file"/>
+    <input name="submit" value="Upload" type="submit"/>
+</form>
+</body>
+</html>
