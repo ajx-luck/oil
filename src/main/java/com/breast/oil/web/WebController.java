@@ -292,7 +292,9 @@ public class WebController {
     @RequestMapping(value = "/upload",method = RequestMethod.GET)
     public String upload(ModelMap map,HttpServletRequest request){
         String policy=OssUtils.getBase64Policy();
-        String signature= OssUtils.getSignPolicy("",policy);
+        String signature= OssUtils.getSignPolicy(policy);
+        OssObject ossObject = new OssObject(OssUtils.KEY_ID,policy,signature,"");
+        map.addAttribute("ossObject",ossObject);
         return "upload";
     }
 }

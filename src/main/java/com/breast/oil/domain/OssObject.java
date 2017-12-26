@@ -4,9 +4,9 @@ package com.breast.oil.domain;
  * Created by B04e on 2017/12/26.
  */
 public class OssObject {
-    private String ossId;
+    private String OSSAccessKeyId;
     private String policy;
-    private String signature;
+    private String Signature;
     /**
      * 文件名
      */
@@ -17,19 +17,12 @@ public class OssObject {
     }
 
     public OssObject(String ossId, String policy, String signature, String key) {
-        this.ossId = ossId;
+        this.OSSAccessKeyId = ossId;
         this.policy = policy;
-        this.signature = signature;
+        this.Signature = signature;
         this.key = key;
     }
 
-    public String getOssId() {
-        return ossId;
-    }
-
-    public void setOssId(String ossId) {
-        this.ossId = ossId;
-    }
 
     public String getPolicy() {
         return policy;
@@ -37,14 +30,6 @@ public class OssObject {
 
     public void setPolicy(String policy) {
         this.policy = policy;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
     }
 
     public String getKey() {
@@ -55,5 +40,19 @@ public class OssObject {
         this.key = key;
     }
 
+    public String getOSSAccessKeyId() {
+        return OSSAccessKeyId;
+    }
 
+    public void setOSSAccessKeyId(String OSSAccessKeyId) {
+        this.OSSAccessKeyId = OSSAccessKeyId;
+    }
+
+    public String getSignature() {
+        return Signature;
+    }
+
+    public void setSignature(String signature) {
+        Signature = signature;
+    }
 }
