@@ -12,7 +12,6 @@ public class OssUtils {
     public static final String KEY_ID = "LTAITQyJ9fTrfnXa";
     public static final String SECRET = "mmc6y2L1uUszr9hOGYOiRt2A3veL6e";
 
-
     public static String getBase64Policy(){
         return mBase64.encodeToString(POLICY.getBytes());
     }
