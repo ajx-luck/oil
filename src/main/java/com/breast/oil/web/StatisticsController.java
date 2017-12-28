@@ -34,7 +34,8 @@ public class StatisticsController {
         String[] paths = urlPath.split("\\?kw");
         urlPath = paths[0];
         String keyWord = request.getParameter("keyWord");
-        WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,new Date().getTime());
+        String type = request.getParameter("position");
+        WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,type,new Date().getTime());
         mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
         return "{code:0}";
     }

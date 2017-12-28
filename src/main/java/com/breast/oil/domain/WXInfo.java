@@ -23,12 +23,16 @@ public class WXInfo {
     private String keyWord;
     @Column(nullable = true)
     public Long createTime;
+    //点击的来源的
+    @Column(nullable = true)
+    public String type;
 
-    public WXInfo(String wechatId, String ip, String urlPath, String keyWord, Long createTime) {
+    public WXInfo(String wechatId, String ip, String urlPath, String keyWord, String type,Long createTime) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
         this.keyWord = keyWord;
+        this.type = type;
         this.createTime = createTime;
     }
 
