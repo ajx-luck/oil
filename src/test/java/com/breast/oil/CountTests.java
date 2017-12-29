@@ -40,10 +40,6 @@ public class CountTests {
         assert ("".equals(d));
     }
 
-    @Test
-    public void testTicket(){
-        String ticket = mWxTicketService.getTicket();
-        assert ("t769e3df69736bc09caf574789b5a8bde".equals(ticket));
-    }
+
 
 }

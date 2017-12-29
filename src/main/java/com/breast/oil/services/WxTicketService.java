@@ -12,10 +12,10 @@ import java.io.IOException;
  */
 @Service
 public class WxTicketService {
-    public static String ticket = "";
+    public static String ticket = "weixin://";
     public final static long ONE_Minute =  300 * 1000;
 
-    @Scheduled(fixedDelay=ONE_Minute)
+   /* @Scheduled(fixedDelay=ONE_Minute)
     public String getTicket(){
         try {
             String str = HttpClientHelper.sendGet("http://jump.hupeh.cn/sxm1223.php",null,"utf-8");
@@ -26,7 +26,7 @@ public class WxTicketService {
             e.printStackTrace();
         }
         return ticket;
-    }
+    }*/
 
 
     /**

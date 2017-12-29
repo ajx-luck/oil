@@ -65,10 +65,10 @@ public class WebController {
         String kw = request.getParameter("kw");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
-        if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
+       /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
-        }
-        map.addAttribute("ticket", "weixin://dl/business/?"+WxTicketService.ticket+"#wechat_redirect");
+        }*/
+        map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
         info.setIp(request.getRemoteAddr());
