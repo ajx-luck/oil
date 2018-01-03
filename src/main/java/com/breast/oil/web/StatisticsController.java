@@ -6,6 +6,7 @@ import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.WXInfo;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
+import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.URLDecoder;
 import java.util.Date;
 
 /**
@@ -35,7 +37,9 @@ public class StatisticsController {
         urlPath = paths[0];
         String keyWord = request.getParameter("keyWord");
         String type = request.getParameter("position");
-        WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,type,new Date().getTime());
+        String e_keywordid = FormatUtils.decode(request.getParameter("e_keywordid"));
+        String e_creative = request.getParameter("e_creative");
+        WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
         mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
         return "{code:0}";
     }

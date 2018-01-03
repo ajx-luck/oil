@@ -25,6 +25,10 @@ public class WebInfo {
     private String wechatId;
     @Column(nullable = true)
     private String keyWord;
+    @Column(nullable = false)
+    private String creative;
+    @Column(nullable = false)
+    private String keywordid;
 
     public String getIp() {
         return ip;
@@ -76,5 +80,21 @@ public class WebInfo {
 
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
+    }
+
+    public String getCreative() {
+        return creative;
+    }
+
+    public void setCreative(String creative) {
+        this.creative = creative;
+    }
+
+    public String getKeywordid() {
+        return keywordid;
+    }
+
+    public void setKeywordid(String keywordid) {
+        this.keywordid = keywordid;
     }
 }

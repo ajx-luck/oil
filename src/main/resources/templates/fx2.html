@@ -529,14 +529,16 @@
         var url = '/remember';
         var wechatId = [[${wechat_id}]];
         var urlPath = [[${home}]];
-        var keyWord = getUrlParam('kw');
+        var keyWord = getUrlParam('keyword');
+        var e_creative = getUrlParam('e_creative');
+        var e_keywordid = getUrlParam('e_keywordid');
 
         $.ajax({
             type: 'get',
             url: url,
             dataType: 'json',
             contentType: "application/json;charset=utf-8",
-            data: {wechatId: wechatId, urlPath: urlPath, keyWord: keyWord},
+            data: {wechatId: wechatId, urlPath: urlPath, keyWord: keyWord,e_creative:e_creative,e_keywordid:e_keywordid},
             beforeSend: function () {
                 window.location.href = "http://jump.hupeh.cn/sxm1223.php";
             }, success: function (json) {

@@ -62,7 +62,9 @@ public class WebController {
         if(wechatId == null){
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
         }
-        String kw = request.getParameter("kw");
+        String kw = request.getParameter("keyword");
+        String e_keywordid = request.getParameter("e_keywordid");
+        String e_creative = request.getParameter("e_creative");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
@@ -76,6 +78,8 @@ public class WebController {
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
         info.setKeyWord(kw);
+        info.setKeywordid(e_keywordid);
+        info.setCreative(e_creative);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 
