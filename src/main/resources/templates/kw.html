@@ -21,29 +21,41 @@
     <title>关键词二次点击统计</title>
 </head>
 <script>
-function test()
-{
-    alert("1111")
-    document.getElementById("myform").submit();
-}
+    function test() {
+        alert("1111")
+        document.getElementById("myform").submit();
+    }
 </script>
 <body>
+<div>
+    <p>统计关键词</p>
     <form id="myfrom" action="#" th:action="@{/keyword}" th:object="${secondClick}" method="post">
-        <div>关键词：</div><input type="text" th:field="*{keyWord}"/><br/>
-        <div>微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
-        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
-        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <div>关键词：</div>
+        <input type="text" th:field="*{keyWord}"/><br/>
+        <div>微信号码：</div>
+        <input type="text" th:field="*{wechatId}"/><br/>
+        <div>开始时间：</div>
+        <input type="date" th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div>
+        <input type="date" th:field="*{end}"/><input type="time" th:field="*{endTime}"/><br/>
         <br/>
         <input type="submit" value="提交"/>
     </form>
-
+</div>
+<div>
+    <p>统计关键词点击</p>
     <form id="myfom" action="#" th:action="@{/countall}" th:object="${secondClick1}" method="post">
-        <div>微信号码：</div><input type="text" th:field="*{wechatId}"/><br/>
-        <div>地址：</div><input type="text" th:field="*{url}"/><br/>
-        <div>开始时间：</div><input  type="date"  th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
-        <div>结束时间：</div><input type="date"  th:field="*{end}" /><input type="time" th:field="*{endTime}"/><br/>
+        <div>微信号码：</div>
+        <input type="text" th:field="*{wechatId}"/><br/>
+        <div>地址：</div>
+        <input type="text" th:field="*{url}"/><br/>
+        <div>开始时间：</div>
+        <input type="date" th:field="*{start}"/> <input type="time" th:field="*{startTime}"/><br/>
+        <div>结束时间：</div>
+        <input type="date" th:field="*{end}"/><input type="time" th:field="*{endTime}"/><br/>
         <br/>
         <input type="submit" value="提交"/>
     </form>
+</div>
 </body>
 </html>
