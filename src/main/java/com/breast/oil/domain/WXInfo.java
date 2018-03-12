@@ -27,9 +27,9 @@ public class WXInfo {
     @Column(nullable = true)
     public String type;
     //创意
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String creative;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String keywordid;
 
     public WXInfo(String wechatId, String ip, String urlPath, String keyWord,String creative,String keywordid, String type,Long createTime) {

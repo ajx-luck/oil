@@ -22,10 +22,17 @@
 </head>
 <script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
 <script type="text/javascript">
-    alert("hello")
-    mqq.ui.openUrl({target: 2, url: "http://10.41.1.36/fxa"});
+    var _mta_btn_id = '$download_btn_id';
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/mta/channel_stats.js?v1";
+        mta.setAttribute("name", "MTA_CHANNEL");
+        mta.setAttribute("app_key", "AD9I6H6IRP5G");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
 </script>
 <body>
-hello
+<a id="download_app" href="/qiumiao-debug-v2.5.0.0201.apk" download="/qiumiao-debug-v2.5.0.0201.apk">下载应用</a>
 </body>
 </html>

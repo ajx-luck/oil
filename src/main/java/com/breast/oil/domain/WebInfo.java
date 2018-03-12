@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Comparator;
 
 /**
  * Created by B04e on 2017/11/27.
@@ -25,9 +26,9 @@ public class WebInfo {
     private String wechatId;
     @Column(nullable = true)
     private String keyWord;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String creative;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String keywordid;
 
     public String getIp() {
@@ -97,4 +98,7 @@ public class WebInfo {
     public void setKeywordid(String keywordid) {
         this.keywordid = keywordid;
     }
+
+
+
 }
