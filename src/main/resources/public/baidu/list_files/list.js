@@ -21,6 +21,6 @@ if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai 
 };
 window.onpopstate = function(a) {
     if (location.hash.indexOf("_wmtz_") == -1) {
-        window.location.href = "./list.html""
+        window.location.href = "./list.html"
     }
 }

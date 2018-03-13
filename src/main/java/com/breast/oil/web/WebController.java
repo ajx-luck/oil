@@ -1,9 +1,6 @@
 package com.breast.oil.web;
 
-import com.breast.oil.domain.OssObject;
-import com.breast.oil.domain.SecondClick;
-import com.breast.oil.domain.StatisticsInfo;
-import com.breast.oil.domain.WebInfo;
+import com.breast.oil.domain.*;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
@@ -70,6 +67,9 @@ public class WebController {
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
         }*/
+        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+            mUrlMappingService.addKeyWordAndWebClick(e_keywordid,kw);
+        }
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);

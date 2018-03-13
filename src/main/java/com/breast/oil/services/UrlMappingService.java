@@ -241,6 +241,40 @@ public class UrlMappingService {
     }
 
     /**
+     * 关键词统计+1
+     * @param keyword
+     * @param keyWordDesc
+     */
+    public void addKeyWordAndWebClick(String keyword,String keyWordDesc){
+        List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
+        KeyWord kw;
+        if(list!=null && list.size() > 0){
+            kw = list.get(0);
+            kw.setWeb(kw.getWeb()+1);
+        }else{
+            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+        }
+        mKeyWordRepository.save(kw);
+    }
+
+    /**
+     * 关键词统计+1
+     * @param keyword
+     * @param keyWordDesc
+     */
+    public void addKeyWordAndWxClick(String keyword,String keyWordDesc){
+        List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
+        KeyWord kw;
+        if(list!=null && list.size() > 0){
+            kw = list.get(0);
+            kw.setWxClick(kw.getWeb()+1);
+        }else{
+            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+        }
+        mKeyWordRepository.save(kw);
+    }
+
+    /**
      * 获取统计数据
      *
      * @param start

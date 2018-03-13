@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
@@ -39,6 +40,9 @@ public class StatisticsController {
         String type = request.getParameter("position");
         String e_keywordid = FormatUtils.decode(request.getParameter("e_keywordid"));
         String e_creative = request.getParameter("e_creative");
+        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+            mUrlMappingService.addKeyWordAndWxClick(e_keywordid,keyWord);
+        }
         WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
         mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
         return "{code:0}";
