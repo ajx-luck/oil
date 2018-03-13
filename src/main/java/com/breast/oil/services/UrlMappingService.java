@@ -38,6 +38,12 @@ public class UrlMappingService {
         return mPathToWechats;
     }
 
+    public String getRandomWechatId(){
+        List<PathToWechat> list = getAllPathToWechat();
+        int i = new Random().nextInt(list.size());
+        return list.get(i).getWechatId();
+    }
+
     public List<PathToWechat> updateAllPathToWechat() {
         mPathToWechats = mPathToWechatRepository.findAll();
         return mPathToWechats;

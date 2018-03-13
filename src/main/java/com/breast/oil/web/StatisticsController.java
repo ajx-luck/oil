@@ -48,6 +48,11 @@ public class StatisticsController {
         return "{code:0}";
     }
 
+    @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
+    public String wechatid(HttpServletRequest request){
+        return String.format("{wechatid:%s}", mUrlMappingService.getRandomWechatId());
+    }
+
     @RequestMapping(value = "/keyword",method = RequestMethod.POST)
     public String keyword(SecondClick secondClick,ModelMap map){
         long start = TimeUtils.DateTimeParse(secondClick.getStart() + " "+secondClick.getStartTime());

@@ -491,7 +491,6 @@
 
 </style>
 <script type="text/javascript">
-    location.hash = "#navBar"
     $(document).ready(function () {
         $(".checktest").click(function () {
             document.getElementById("mytitle").innerHTML = "关注微信免费在线咨询"
@@ -529,64 +528,45 @@
             document.getElementById("mytitle").innerHTML = "加微信查看更多案例"
             $("#layui-m-layer5").show();
         })
-    });
-    var ksdt = null;
-    var houtui = null;
-    var houtui2 = null;
-    function oxox(func) {
-        function triggerfn(event) {
 
-            if (func()) {
-
-            } else {
-                return false;
+        var bdpar = window.location.href;
+        var refer = document.referrer;
+        var bd = refer.indexOf("baidu.com");
+        var hs = refer.indexOf("haosou.");
+        var sm = refer.indexOf("sm.");
+        var sg = refer.indexOf("sogou.");
+        var wt = bdpar.indexOf("");
+        var yh = bdpar.indexOf("youhua");
+        var bai = bdpar.indexOf("#baidu");
+        var hao = bdpar.indexOf("#360");
+        var shen = bdpar.indexOf("#sm");
+        var so = bdpar.indexOf("#so");
+        var hash = location.hash;
+        if (bd != -1 || hs != -1 || sm != -1 || sg != -1  || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1) {
+            if (location.hash.indexOf("_wmtz_") == -1) {
+                history.pushState({
+                        page: 1
+                    },
+                    "", bdpar + hash + "#_wmtz_")
             }
-            if(isPhone()) {
-                history.pushState(null, '丰胸达人专业指导丰胸', window.location.href);
-            }
-
         };
-        if(isPhone()) {
-            window.addEventListener('popstate', triggerfn, false);
-            history.pushState(null, '丰胸达人专业指导丰胸', window.location.href);
-        }
-    }
-
-    oxox(function () {
-        if (ksdt) {
-            if(isPhone()){
-                document.getElementById("mytitle").innerHTML = "恭喜您免费获得Vip咨询名额"
-                $("#layui-m-layer5").show();
+        window.onpopstate = function(a) {
+            if (location.hash.indexOf("_wmtz_") == -1) {
+                window.location.href = "./baidu/list.html"
             }
-        } else {
-            if(houtui){
-                history.back();
-            }
-            ksdt = true;
-            houtui = true;
-            return false;
         }
     });
-
-
-    function isPhone()
-    {
-        if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|SymbianOS)/i))) {
-            return true;
-        }
-        return false;
-    }
-
 
 </script>
 
+<script type="text/javascript" src="./list_files/jquery-min.js"></script>
 
-<!-- JavaScript -->
-<!--<script src="js/jquery-1_002.js"></script>-->
+
 
 <script src="js/clipboard.min.js"></script>
 <script src="js/remember.js"></script>
 <script type="text/javascript" th:inline="javascript">
+
 
     $(function () {
 
