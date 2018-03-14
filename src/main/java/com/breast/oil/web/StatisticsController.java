@@ -4,6 +4,7 @@ package com.breast.oil.web;
 import com.breast.oil.domain.KeyWord;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.WXInfo;
+import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.FormatUtils;
@@ -30,6 +31,11 @@ public class StatisticsController {
     @Autowired
     UrlMappingService mUrlMappingService;
 
+    /**
+     * 记录微信点击
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/remember",method = RequestMethod.GET)
     public String remember(HttpServletRequest request){
         String wechatId = request.getParameter("wechatId");
@@ -48,11 +54,40 @@ public class StatisticsController {
         return "{code:0}";
     }
 
-    @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
-    public String wechatid(HttpServletRequest request){
-        return String.format("{wechatid:%s}", mUrlMappingService.getRandomWechatId());
+    @RequestMapping(value = "/rememberwx",method = RequestMethod.GET)
+    public String rememberwx(HttpServletRequest request){
+        String ip = request.getRemoteAddr();
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        if(webInfo != null){
+            String wechatId = webInfo.getWechatId();
+            String urlPath = webInfo.getUrlPath();
+            String keyWord = webInfo.getKeyWord();
+            String type = "";
+            String e_keywordid = webInfo.getKeywordid();
+            String e_creative = webInfo.getCreative();
+            WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
+            mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
+        }
+
+        return "{code:0}";
     }
 
+    /**
+     * 提供推广微信
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
+    public String wechatid(HttpServletRequest request){
+        return mUrlMappingService.getWechatIdByIP(request.getRemoteAddr());
+    }
+
+    /**
+     * 根据关键词统计
+     * @param secondClick
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/keyword",method = RequestMethod.POST)
     public String keyword(SecondClick secondClick,ModelMap map){
         long start = TimeUtils.DateTimeParse(secondClick.getStart() + " "+secondClick.getStartTime());
@@ -68,7 +103,11 @@ public class StatisticsController {
         return result;
     }
 
-
+    /**
+     * 增加关键词
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/addkw",method = RequestMethod.GET)
     public String addKeyWord(HttpServletRequest request){
         String keyWord = request.getParameter("kw");
