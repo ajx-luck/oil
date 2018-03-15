@@ -933,7 +933,7 @@
         $.ajax({
             type: "get",
             url: url,
-            async: false,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 
             success: function (msg) {
                 $(".red").html(msg);
