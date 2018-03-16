@@ -7,6 +7,7 @@ import com.breast.oil.domain.WXInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
+import com.breast.oil.utils.CommonUtils;
 import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,14 +50,14 @@ public class StatisticsController {
         if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
             mUrlMappingService.addKeyWordAndWxClick(e_keywordid,keyWord);
         }
-        WXInfo wxInfo = new WXInfo(wechatId,request.getHeader("X-Real-IP"),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-        mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getHeader("X-Real-IP"));
+        WXInfo wxInfo = new WXInfo(wechatId,CommonUtils.getIpAddr(request),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
+        mUrlMappingService.savaWXInfo(wxInfo,urlPath,CommonUtils.getIpAddr(request));
         return "{code:0}";
     }
 
     @RequestMapping(value = "/rememberwx",method = RequestMethod.GET)
     public String rememberwx(HttpServletRequest request){
-        String ip = request.getHeader("X-Real-IP");
+        String ip = CommonUtils.getIpAddr(request);
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         if(webInfo != null){
             String wechatId = webInfo.getWechatId();
@@ -65,8 +66,8 @@ public class StatisticsController {
             String type = "";
             String e_keywordid = webInfo.getKeywordid();
             String e_creative = webInfo.getCreative();
-            WXInfo wxInfo = new WXInfo(wechatId,request.getHeader("X-Real-IP"),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-            mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getHeader("X-Real-IP"));
+            WXInfo wxInfo = new WXInfo(wechatId,CommonUtils.getIpAddr(request),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
+            mUrlMappingService.savaWXInfo(wxInfo,urlPath,CommonUtils.getIpAddr(request));
         }
 
         return "{code:0}";
@@ -79,7 +80,7 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
     public String wechatid(HttpServletRequest request){
-        return mUrlMappingService.getWechatIdByIP(request.getHeader("X-Real-IP"));
+        return mUrlMappingService.getWechatIdByIP(CommonUtils.getIpAddr(request));
     }
 
     /**

@@ -9,10 +9,7 @@ import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
-import com.breast.oil.utils.CookieUtils;
-import com.breast.oil.utils.FormatUtils;
-import com.breast.oil.utils.OssUtils;
-import com.breast.oil.utils.TimeUtils;
+import com.breast.oil.utils.*;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -60,7 +57,7 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl,HttpServletResponse response) {
-        String ip = request.getHeader("X-Real-IP");
+        String ip = CommonUtils.getIpAddr(request);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         if(wechatId == null){
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
@@ -82,7 +79,7 @@ public class WebController {
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
-        info.setIp(request.getHeader("X-Real-IP"));
+        info.setIp(CommonUtils.getIpAddr(request));
         info.setCreateTime(new Date().getTime());
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
