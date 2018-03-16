@@ -404,18 +404,36 @@
 <script type="text/javascript">
     var str_wx_id
     $(function () {
+        str_wx_id = getCookie("wechatid")
+        if(str_wx_id != null){
+            $(".wxnum").html(str_wx_id);
+        }else{
+            var url = "/wechatid";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 
-        var url = "/wechatid";
-        $.ajax({
-            type: "get",
-            url: url,
-            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+                success: function (msg) {
+                    $(".wxnum").html(msg);
+                }
+            })
+        }
 
-            success: function (msg) {
-                $(".wxnum").html(msg);
-            }
-        })
     });
+
+    //读取cookies
+    function getCookie(name)
+    {
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+
+        if(arr=document.cookie.match(reg))
+
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+
 
 
 </script>

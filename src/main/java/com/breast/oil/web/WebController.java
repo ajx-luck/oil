@@ -1,5 +1,6 @@
 package com.breast.oil.web;
 
+import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
@@ -8,6 +9,7 @@ import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
+import com.breast.oil.utils.CookieUtils;
 import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.OssUtils;
 import com.breast.oil.utils.TimeUtils;
@@ -53,11 +55,18 @@ public class WebController {
         return "fx2";
     }
 
-    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
+        setInfo(map, request, url1, priceByUrl,null);
+    }
+
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl,HttpServletResponse response) {
         String ip = request.getRemoteAddr();
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         if(wechatId == null){
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
+        }
+        if(response != null){
+            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME,wechatId,60*60*24*15);
         }
         String kw = request.getParameter("keyword");
         String e_keywordid = request.getParameter("e_keywordid");
@@ -94,8 +103,8 @@ public class WebController {
         return "fx5";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
-    public String fx3(ModelMap map, HttpServletRequest request){
-        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3));
+    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response){
+        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3),response);
         return "fx5";
     }
 
