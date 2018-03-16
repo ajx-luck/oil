@@ -49,14 +49,14 @@ public class StatisticsController {
         if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
             mUrlMappingService.addKeyWordAndWxClick(e_keywordid,keyWord);
         }
-        WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-        mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
+        WXInfo wxInfo = new WXInfo(wechatId,request.getHeader("X-Real-IP"),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
+        mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getHeader("X-Real-IP"));
         return "{code:0}";
     }
 
     @RequestMapping(value = "/rememberwx",method = RequestMethod.GET)
     public String rememberwx(HttpServletRequest request){
-        String ip = request.getRemoteAddr();
+        String ip = request.getHeader("X-Real-IP");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         if(webInfo != null){
             String wechatId = webInfo.getWechatId();
@@ -65,8 +65,8 @@ public class StatisticsController {
             String type = "";
             String e_keywordid = webInfo.getKeywordid();
             String e_creative = webInfo.getCreative();
-            WXInfo wxInfo = new WXInfo(wechatId,request.getRemoteAddr(),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-            mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getRemoteAddr());
+            WXInfo wxInfo = new WXInfo(wechatId,request.getHeader("X-Real-IP"),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
+            mUrlMappingService.savaWXInfo(wxInfo,urlPath,request.getHeader("X-Real-IP"));
         }
 
         return "{code:0}";
@@ -79,7 +79,7 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
     public String wechatid(HttpServletRequest request){
-        return mUrlMappingService.getWechatIdByIP(request.getRemoteAddr());
+        return mUrlMappingService.getWechatIdByIP(request.getHeader("X-Real-IP"));
     }
 
     /**

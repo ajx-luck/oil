@@ -60,7 +60,7 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl,HttpServletResponse response) {
-        String ip = request.getRemoteAddr();
+        String ip = request.getHeader("X-Real-IP");
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         if(wechatId == null){
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
@@ -82,7 +82,7 @@ public class WebController {
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
-        info.setIp(request.getRemoteAddr());
+        info.setIp(request.getHeader("X-Real-IP"));
         info.setCreateTime(new Date().getTime());
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
