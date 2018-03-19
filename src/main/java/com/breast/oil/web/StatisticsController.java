@@ -68,9 +68,10 @@ public class StatisticsController {
             String e_creative = webInfo.getCreative();
             WXInfo wxInfo = new WXInfo(wechatId,CommonUtils.getIpAddr(request),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
             mUrlMappingService.savaWXInfo(wxInfo,urlPath,CommonUtils.getIpAddr(request));
+            return "{code:0}";
         }
 
-        return "{code:0}";
+        return "{code:1}";
     }
 
     /**

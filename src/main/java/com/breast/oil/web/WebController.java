@@ -1,18 +1,20 @@
 package com.breast.oil.web;
 
 import com.breast.oil.consts.AppConsts;
-import com.breast.oil.domain.*;
+import com.breast.oil.domain.SecondClick;
+import com.breast.oil.domain.StatisticsInfo;
+import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
-import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
-import com.breast.oil.utils.*;
-import org.apache.commons.codec.binary.Base64;
+import com.breast.oil.utils.CommonUtils;
+import com.breast.oil.utils.CookieUtils;
+import com.breast.oil.utils.FormatUtils;
+import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -293,18 +295,5 @@ public class WebController {
         return "zixun";
     }
 
-    /**
-     * 表单上传文件到OSS
-     * @param map
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "/upload",method = RequestMethod.GET)
-    public String upload(ModelMap map,HttpServletRequest request){
-        String policy=OssUtils.getBase64Policy();
-        String signature= OssUtils.getSignPolicy(policy);
-        OssObject ossObject = new OssObject(OssUtils.KEY_ID,policy,signature,"");
-        map.addAttribute("ossObject",ossObject);
-        return "upload";
-    }
+
 }
