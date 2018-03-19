@@ -1,0 +1,476 @@
+body {
+    margin: 0px;
+}
+
+body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, input, textarea, p, hr, thead, tbody, tfoot, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body, button, input, select, textarea {
+    font-family: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 'wenquanyi micro hei', \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
+    color: #333333;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:visited {
+    color: #333333;
+}
+
+a:hover {
+    color: #333333;
+}
+
+a:active {
+    color: #333333;
+}
+
+.body_notMax, .body_notMax body, .body_notMax .g-doc {
+    height: 100% !important;
+}
+
+.g-doc {
+    position: relative;
+}
+
+.m-topHead {
+    width: 100%;
+    border-bottom: 1px #e9e9e9 solid;
+}
+
+.m-headNav {
+    height: 51.52px;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.m-hdTop-user-img {
+    width: 24.96px;
+    height: 24.96px;
+    display: block;
+    background-color: #fff;
+}
+
+.m-hdTop-user-img img {
+    display: block;
+    width: 24.96px;
+    height: 24.96px;
+    border-radius: 24.96px;
+}
+
+.m-message-tips:after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 3px;
+    background: #fb3a3a;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 1px;
+}
+
+.m-headNav .aLogo {
+    width: 107px;
+    height: 22px;
+    background-image: url(../images/logo2016.png);
+    -webkit-background-size: 107px;
+    background-size: 107px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -11px 0 0 -54px
+}
+
+.m-headNav .sMenu {
+    width: 23.36px;
+    height: 23.36px;
+    position: absolute;
+    left: 14.08px;
+    top: 16.96px;
+    position: absolute;
+    background: url(../images/top_left.png) no-repeat;
+    -webkit-background-size: 23.36px;
+    background-size: 23.36px;
+    z-index: 5;
+}
+
+.m-headNav .m-hdTop-user {
+    width: 24.96 spx;
+    height: 24.96px;
+    position: absolute;
+    right: 12.48px;
+    top: 12.48px;
+    background: url(../images/top_right.png) no-repeat;
+    -webkit-background-size: 24.96px;
+    background-size: 24.96px;
+}
+
+.showMenu {
+    position: relative;
+}
+
+.showMenu .m-headNav
+.menu-animate {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    transition: transform 0.6s ease-in-out 0s;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out 0s;
+}
+
+.menu-animate-two {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transition: transform 0.6s ease-in-out 0s;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out 0s;
+}
+
+.m-article h2 {
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 35px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.m-article {
+    padding: 20px 0;
+    margin: 0 10px;
+}
+
+.m-reply-w {
+    zoom: 1;
+}
+
+.daodu {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 12px 12px 25px;
+    background-color: #eee;
+    padding: 7px 5px 6px 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    position: relative;
+}
+
+.daodu p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+}
+
+.daodu p font {
+    position: absolute;
+    display: block;
+    background-color: #ff0000;
+    color: #fff;
+    width: 40px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+}
+
+.artEdit {
+    padding: 8px;
+    background: #f2f2f2;
+}
+
+.artEdit .artRight {
+    padding: 20px 20px 10px 20px;
+}
+
+.keyMode {
+    margin: 20px 0 0px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.keyWord {
+    width: 100%;
+    height: 29px;
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+}
+
+.keyWord a { /*width: 81px;*/
+    height: 29px;
+    line-height: 29px;
+    padding: 0 10px;
+    background: #f2f2f2;
+    display: inline-block;
+    color: #888;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.jpReduce {
+    padding: 19px;
+    border: 1px solid #ececec;
+    position: relative;
+}
+
+.col-ab-tit {
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: -11px;
+}
+
+.col-ab-tit span {
+    padding: 0 20px;
+    background: #fff;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.bdshare-button-style0-16 a, .bdshare-button-style0-16 .bds_more {
+    float: left;
+    font-size: 12px;
+    padding-left: 17px;
+    line-height: 16px;
+    height: 16px;
+    background-image: url(../images/icons_0_16.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 6px 6px 6px 0;
+}
+
+.fs-18 {
+    font-size: 18px !important;
+}
+
+.main {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.main > * {
+    font-size: 16;
+}
+
+@media screen and (min-width: 320px) {
+    .main {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .main {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .main {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .main {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .main {
+        font-size: 28px;
+    }
+}
+
+.guide-nav, .artInfo .pubTime, .artInfo .source, .artInfo .author, .editAbout .feelFace a span, .topList5 li, .guide a, .col-c .active .c-Title span, .hotPet .pet-list dt i, .guide a.wxMa .s_ma em {
+    background: url(../images/art2016.png) no-repeat;
+}
+
+.main h1 {
+    margin: 0.7em 0 0.7em 0;
+    font-size: 25px;
+}
+
+.main h2 {
+    margin: 0.7em 0 0.7em 0;
+    font-size: 22px;
+    text-align: center;
+}
+
+p {
+    color: #5E5E5E;
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 1em;
+    padding: 0px 10px;
+
+}
+
+.index-bd {
+    margin: 0px 0.8em;
+    padding: 0.4em 0px;
+}
+
+.rq {
+    height: 3em;
+    padding-bottom: 1em;
+}
+
+.rq em {
+    font-style: normal;
+    float: left;
+    font-size: 18px;
+}
+
+.rq font {
+    font-size: 18px;
+    font-style: normal;
+}
+
+.dy {
+    border: 0.2em solid #cccccc;
+    padding: 1em;
+}
+
+.dy .dyimg img {
+    width: 18%;
+}
+
+.bg-b {
+    background-color: #40a6ed;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: #FFFFFF;
+    margin-top: 0.3em;
+}
+
+.bg-red {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 0.5em;
+    margin-bottom: 1.2em;
+    font-size: 16px;
+}
+
+.red {
+    color: #FF0000;
+    font-weight: normal;
+}
+
+.red3 {
+    color: #FF0000;
+    font-weight: normal;
+    margin-top: 2em;
+}
+
+.bg-h {
+    background-color: #000000;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: #FFFFFF
+}
+
+.title {
+    overflow: hidden;
+    width: 20em;
+    border-bottom: 0.2em solid red;
+    margin-top: 2em;
+}
+
+.title img {
+    float: left;
+}
+
+.title1 {
+    float: left;
+    color: red;
+    font-size: 20px;
+    padding-left: 0.2em;
+}
+
+.line {
+    border-top: 0.2em dotted #FF0000;
+    height: 0.2em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.wximg {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.wximg img {
+    width: 100%;
+}
+
+.altp {
+    text-align: center;
+}
+
+.altp img {
+    width: 100%;
+}
+
+.wxh img {
+    width: 80%;
+}
+
+#BizQQWPA, #BizQQWPA1 {
+    cursor: pointer;
+}
+
+.bg-b {
+    background-color: #40a6ed;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: #FFFFFF;
+    margin-top: 0.3em;
+}
+
+.artInfo .pubTime {
+    background-position: -384px -32px;
+}
+
+.guide-nav, .artInfo .pubTime, .artInfo .source, .artInfo .author, .editAbout .pic-txt .txt-area .askWx, .editAbout .feelFace a span, .topList5 li, .guide a, .col-c .active .c-Title span, .hotPet .pet-list dt i, .guide a.wxMa .s_ma em {
+    background: url(../images/art2016.png) no-repeat;
+    background-position: -384px -32px;
+}
+
+.artInfo span {
+    margin-right: 25px;
+    padding-left: 25px;
+    font-size: 14px;
+    color: #888;
+}

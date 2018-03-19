@@ -38,6 +38,25 @@ public class UrlMappingService {
         return mPathToWechats;
     }
 
+    /**
+     * 随机获取一个微信号码
+     * @return
+     */
+    public String getRandomWechatId(){
+        List<PathToWechat> list = getAllPathToWechat();
+        int i = new Random().nextInt(list.size());
+        return list.get(i).getWechatId();
+    }
+
+    public String getWechatIdByIP(String ip){
+        List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
+        if(list == null || list.size() == 0 || StringUtils.isEmptyOrWhitespace(list.get(0).getWechatId())){
+            return getRandomWechatId();
+        }else{
+            return list.get(0).getWechatId();
+        }
+    }
+
     public List<PathToWechat> updateAllPathToWechat() {
         mPathToWechats = mPathToWechatRepository.findAll();
         return mPathToWechats;
@@ -76,6 +95,15 @@ public class UrlMappingService {
             return null;
         } else {
             return list.get(new Random().nextInt(list.size())).getWechatId();
+        }
+    }
+
+    public WebInfo getWebInfoByIP(String ip){
+        List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
+        if(list == null || list.size() == 0){
+            return null;
+        }else{
+            return list.get(0);
         }
     }
 
@@ -214,6 +242,9 @@ public class UrlMappingService {
     @Cacheable(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void savaWXInfo(WXInfo info, String url,String ip) {
         cacheWx(url,ip);
+        if(!StringUtils.isEmptyOrWhitespace(info.getKeywordid())){
+            addKeyWordAndWxClick(info.getKeywordid(),info.getKeyWord());
+        }
         mWXInfoRepository.save(info);
     }
 
@@ -238,6 +269,40 @@ public class UrlMappingService {
      */
     public void addKeyWord(KeyWord keyWord) {
         mKeyWordRepository.save(keyWord);
+    }
+
+    /**
+     * 关键词统计+1
+     * @param keyword
+     * @param keyWordDesc
+     */
+    public void addKeyWordAndWebClick(String keyword,String keyWordDesc){
+        List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
+        KeyWord kw;
+        if(list!=null && list.size() > 0){
+            kw = list.get(0);
+            kw.setWeb(kw.getWeb()+1);
+        }else{
+            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+        }
+        mKeyWordRepository.save(kw);
+    }
+
+    /**
+     * 关键词统计+1
+     * @param keyword
+     * @param keyWordDesc
+     */
+    public void addKeyWordAndWxClick(String keyword,String keyWordDesc){
+        List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
+        KeyWord kw;
+        if(list!=null && list.size() > 0){
+            kw = list.get(0);
+            kw.setWxClick(kw.getWxClick()+1);
+        }else{
+            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+        }
+        mKeyWordRepository.save(kw);
     }
 
     /**

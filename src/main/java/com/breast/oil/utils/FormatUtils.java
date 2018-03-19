@@ -1,5 +1,7 @@
 package com.breast.oil.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.DecimalFormat;
 
 /**
@@ -15,5 +17,15 @@ public class FormatUtils {
         double p = Double.parseDouble(numerator+"")*100/denominator;
         DecimalFormat df=new DecimalFormat("#.00");
         return df.format(p)+"%";
+    }
+
+    public static String decode(String str){
+        String result = "";
+        try {
+            result = URLDecoder.decode(str,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

@@ -20,15 +20,31 @@ public class KeyWord {
     private String keyWordDesc;
     @Column(nullable = true)
     public Long createTime;
+    /**
+     * web点击次数
+     */
+    @Column(nullable = true)
+    public Long web;
+    /**
+     * wx点击次数
+     */
+    @Column(nullable = true)
+    public Long wxClick;
 
     public KeyWord(){
         this.createTime = new Date().getTime();
     }
 
     public KeyWord(String keyWord, String keyWordDesc, Long createTime) {
+        this(keyWord,keyWordDesc,createTime,0L,0L);
+    }
+
+    public KeyWord(String keyWord, String keyWordDesc, Long createTime, Long web, Long wxClick) {
         this.keyWord = keyWord;
         this.keyWordDesc = keyWordDesc;
         this.createTime = createTime;
+        this.web = web;
+        this.wxClick = wxClick;
     }
 
     public String getKeyWord() {
@@ -55,4 +71,19 @@ public class KeyWord {
         this.createTime = createTime;
     }
 
+    public Long getWeb() {
+        return web;
+    }
+
+    public void setWeb(Long web) {
+        this.web = web;
+    }
+
+    public Long getWxClick() {
+        return wxClick;
+    }
+
+    public void setWxClick(Long wxClick) {
+        this.wxClick = wxClick;
+    }
 }

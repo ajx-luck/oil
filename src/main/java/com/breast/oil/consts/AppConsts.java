@@ -15,4 +15,6 @@ public interface AppConsts {
     String URL_8 = "fx8";
     String URL_9 = "fx9";
     String URL_10 = "fx10";
+
+    String WECHAT_ID_COOKIE_NAME = "wechatid";
 }

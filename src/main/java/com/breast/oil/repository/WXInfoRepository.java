@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  * Created by B04e on 2017/12/4.
  */
@@ -32,4 +34,7 @@ public interface WXInfoRepository extends JpaRepository<WXInfo, Long> {
             @Param("urlPath") String urlPath,
             @Param("startTime") Long startTime,
             @Param("endTime") Long endTime);
+
+    List<WXInfo> findByCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("startTime") Long startTime,
+                                                                       @Param("endTime") Long endTime);
 }

@@ -1,6 +1,6 @@
 package com.breast.oil.web;
 
-import com.breast.oil.domain.OssObject;
+import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
@@ -8,15 +8,13 @@ import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
-import com.breast.oil.result.Response;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
+import com.breast.oil.utils.CommonUtils;
+import com.breast.oil.utils.CookieUtils;
 import com.breast.oil.utils.FormatUtils;
-import com.breast.oil.utils.OssUtils;
 import com.breast.oil.utils.TimeUtils;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -56,26 +54,40 @@ public class WebController {
         return "fx2";
     }
 
-    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl) {
-        String ip = request.getRemoteAddr();
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
+        setInfo(map, request, url1, priceByUrl,null);
+    }
+
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl,HttpServletResponse response) {
+        String ip = CommonUtils.getIpAddr(request);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         if(wechatId == null){
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
         }
-        String kw = request.getParameter("kw");
+        if(response != null){
+            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME,wechatId,60*60*24*15);
+        }
+        String kw = request.getParameter("keyword");
+        String e_keywordid = request.getParameter("e_keywordid");
+        String e_creative = request.getParameter("e_creative");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
-        if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
+       /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
+        }*/
+        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+            mUrlMappingService.addKeyWordAndWebClick(e_keywordid,kw);
         }
-        map.addAttribute("ticket", "weixin://dl/business/?"+WxTicketService.ticket+"#wechat_redirect");
+        map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo();
         info.setUrlPath(url1);
-        info.setIp(request.getRemoteAddr());
+        info.setIp(CommonUtils.getIpAddr(request));
         info.setCreateTime(new Date().getTime());
         info.setPrice(priceByUrl);
         info.setWechatId(wechatId);
         info.setKeyWord(kw);
+        info.setKeywordid(e_keywordid);
+        info.setCreative(e_creative);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 
@@ -90,8 +102,8 @@ public class WebController {
         return "fx5";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
-    public String fx3(ModelMap map, HttpServletRequest request){
-        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3));
+    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response){
+        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3),response);
         return "fx5";
     }
 
@@ -283,18 +295,5 @@ public class WebController {
         return "zixun";
     }
 
-    /**
-     * 表单上传文件到OSS
-     * @param map
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "/upload",method = RequestMethod.GET)
-    public String upload(ModelMap map,HttpServletRequest request){
-        String policy=OssUtils.getBase64Policy();
-        String signature= OssUtils.getSignPolicy(policy);
-        OssObject ossObject = new OssObject(OssUtils.KEY_ID,policy,signature,"");
-        map.addAttribute("ossObject",ossObject);
-        return "upload";
-    }
+
 }

@@ -23,13 +23,24 @@ public class WXInfo {
     private String keyWord;
     @Column(nullable = true)
     public Long createTime;
+    //点击的来源的
+    @Column(nullable = true)
+    public String type;
+    //创意
+    @Column(nullable = true)
+    private String creative;
+    @Column(nullable = true)
+    private String keywordid;
 
-    public WXInfo(String wechatId, String ip, String urlPath, String keyWord, Long createTime) {
+    public WXInfo(String wechatId, String ip, String urlPath, String keyWord,String creative,String keywordid, String type,Long createTime) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
         this.keyWord = keyWord;
+        this.type = type;
         this.createTime = createTime;
+        this.creative = creative;
+        this.keywordid = keywordid;
     }
 
     public Long getCreateTime() {
@@ -74,5 +85,21 @@ public class WXInfo {
 
     public Long getId() {
         return id;
+    }
+
+    public String getCreative() {
+        return creative;
+    }
+
+    public void setCreative(String creative) {
+        this.creative = creative;
+    }
+
+    public String getKeywordid() {
+        return keywordid;
+    }
+
+    public void setKeywordid(String keywordid) {
+        this.keywordid = keywordid;
     }
 }

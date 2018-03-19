@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by B04e on 2017/11/27.
  */
-public interface WebInfoRepository extends JpaRepository<WebInfo,Long>{
+public interface WebInfoRepository extends JpaRepository<WebInfo, Long> {
 
     @Query("select count(*) from  WebInfo where keyWord=:keyWord and createTime>=:startTime and createTime <:endTime")
     Long countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("keyWord") String keyWord,
@@ -26,16 +26,22 @@ public interface WebInfoRepository extends JpaRepository<WebInfo,Long>{
 
     @Query("select count(*) from  WebInfo where keyWord=:keyWord and urlPath=:urlPath and createTime>=:startTime and createTime <:endTime")
     Long countByKeyWordAndUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("keyWord") String keyWord,
-                                                                                     @Param("urlPath") String urlPath,
-                                                                                     @Param("startTime") Long startTime,
-                                                                                     @Param("endTime") Long endTime);
-
-    @Query("select count(*) from  WebInfo where urlPath=:urlPath and createTime>=:startTime and createTime <:endTime")
-    Long countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
                                                                                     @Param("urlPath") String urlPath,
                                                                                     @Param("startTime") Long startTime,
                                                                                     @Param("endTime") Long endTime);
 
-//    @Query("select '*' from WebInfo where ip=:ip order by id desc")
-    List<WebInfo>  findByIpOrderById(@Param("ip") String ip);
+    @Query("select count(*) from  WebInfo where urlPath=:urlPath and createTime>=:startTime and createTime <:endTime")
+    Long countByUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+            @Param("urlPath") String urlPath,
+            @Param("startTime") Long startTime,
+            @Param("endTime") Long endTime);
+
+    //    @Query("select '*' from WebInfo where ip=:ip order by id desc")
+    List<WebInfo> findByIpOrderById(@Param("ip") String ip);
+
+    List<WebInfo> findByIpOrderByIdDesc(@Param("ip") String ip);
+
+    Long countByKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("keywordid") String keywordid,
+                                                                                    @Param("startTime") Long startTime,
+                                                                                    @Param("endTime") Long endTime);
 }
