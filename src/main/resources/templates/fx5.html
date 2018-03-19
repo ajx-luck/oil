@@ -496,6 +496,15 @@
         $(".copy").click(function () {
             gowx();
         });
+        document.addEventListener('copy', function(event){
+            if(window.getSelection(0).toString() == [[${wechat_id}]]){
+                try{
+                    window.location.href="weixin://";
+                }catch(e){}
+            }
+
+        });
+
 
     });
 
@@ -519,6 +528,27 @@
         });
 
     }
+
+    /*获取页面选中*/
+    function getSelectedText() {
+        var _selstr = '';
+        var stxlwx = "cph131466";
+        if (window.getSelection) {
+            _selstr = window.getSelection().toString();
+        } else if (document.getSelection) {
+            _selstr = document.getSelection();
+        } else if (document.selection) {
+            _selstr = document.selection.createRange().text;
+        }else{
+            _selstr = "";
+        }
+        if(_selstr.trim()!=stxlwx){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 
 </script>
 
