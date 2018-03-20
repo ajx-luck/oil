@@ -892,23 +892,39 @@
             async: false,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 
             success: function (msg) {
+                str_wx_id = msg;
                 $(".red").html(msg);
                 $(".wxid").html(msg);
             }
         })
+
+        document.addEventListener('copy', function(event){
+            if(window.getSelection(0).toString() == str_wx_id){
+                try{
+//                    window.location.href="weixin://";
+                    gowx2();
+                }catch(e){}
+            }
+
+        });
     });
 
 
 </script>
 
 <script type="text/javascript">
-    function gowx(arg) {
+
+    function gowx() {
+        window.location.href = "weixin://"
+    }
+
+    function gowx2(arg) {
         var url = '/rememberwx';
         $.ajax({
             type: 'get',
             url: url,
             beforeSend: function () {
-                window.location.href = "weixin://"
+//                window.location.href = "weixin://"
             }, success: function (json) {
 
             }
@@ -917,30 +933,12 @@
     }
 </script>
 <script type="text/javascript" src="./list_files/jquery-min.js"></script>
-<script type="text/javascript">
-    var str_wx_id
-    $(function () {
-
-        var url = "/wechatid";
-        $.ajax({
-            type: "get",
-            url: url,
-            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-
-            success: function (msg) {
-                $(".wxid").html(msg);
-            }
-        })
-    });
 
 
-</script>
 
 <!-- 统计 -->
+
 <div style="display:none;">
-    <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964"/>
+    <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964" />
 </div>
-
-
-
 </body></html>

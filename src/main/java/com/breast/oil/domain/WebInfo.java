@@ -30,6 +30,8 @@ public class WebInfo {
     private String creative;
     @Column(nullable = true)
     private String keywordid;
+    @Column(nullable = false)
+    private String refer;
 
     public String getIp() {
         return ip;
@@ -99,6 +101,11 @@ public class WebInfo {
         this.keywordid = keywordid;
     }
 
+    public String getRefer() {
+        return refer;
+    }
 
-
+    public void setRefer(String refer) {
+        this.refer = refer;
+    }
 }

@@ -530,7 +530,7 @@
         })
 
         var bdpar = window.location.href;
-        var refer = document.referrer;
+        var refer = "https://www.baidu.com/from=844b/s?word=丰胸隆胸价格&amp;ts=8064056&amp;t_kt=0&amp;ie=utf-8&amp;fm_kl=021394be2f&amp;rsv_iqid=0458776271&amp;rsv_t=bf11oetS5rACCLS%252Bh7JTRp4IDKJ6fJka%252BY0zvWs80wnjkEsO35GhnLxTSQ";
         var bd = refer.indexOf("baidu.com");
         var hs = refer.indexOf("haosou.");
         var sm = refer.indexOf("sm.");
@@ -542,6 +542,7 @@
         var shen = bdpar.indexOf("#sm");
         var so = bdpar.indexOf("#so");
         var hash = location.hash;
+
         if (bd != -1 || hs != -1 || sm != -1 || sg != -1  ||  yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1) {
             if (location.hash.indexOf("_wmtz_") == -1) {
                 history.pushState({
@@ -555,6 +556,9 @@
                 window.location.href = "./baidu/list.html"
             }
         }
+
+
+
     });
 
 </script>
@@ -586,7 +590,8 @@
         document.addEventListener('copy', function(event){
             if(window.getSelection(0).toString() == [[${wechat_id}]]){
                 try{
-                    window.location.href="weixin://";
+//                    window.location.href="weixin://";
+                    gowx2();
                 }catch(e){}
             }
 
@@ -595,9 +600,11 @@
 
     });
 
+    function gowx() {
+        window.location.href = "weixin://"
+    }
 
-
-    function gowx(arg) {
+    function gowx2(arg) {
         var url = '/remember';
         var wechatId = [[${wechat_id}]];
         var urlPath = [[${home}]];
@@ -613,7 +620,7 @@
             beforeSend: function () {
                 ksdt = false;
 //              window.location.href = [[${ticket}]];
-                window.location.href = "weixin://"
+
 
             }, success: function (json) {
 
@@ -623,32 +630,14 @@
     }
 
 
-    /*获取页面选中*/
-    function getSelectedText() {
-        var _selstr = '';
-        var stxlwx = "cph131466";
-        if (window.getSelection) {
-            _selstr = window.getSelection().toString();
-        } else if (document.getSelection) {
-            _selstr = document.getSelection();
-        } else if (document.selection) {
-            _selstr = document.selection.createRange().text;
-        }else{
-            _selstr = "";
-        }
-        if(_selstr.trim()!=stxlwx){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-
-</script>
 
 
 
 </script>
+
+
+
+
 <div style="display:none;">
     <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964" />
 </div>

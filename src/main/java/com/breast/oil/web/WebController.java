@@ -68,6 +68,7 @@ public class WebController {
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME,wechatId,60*60*24*15);
         }
         String kw = request.getParameter("keyword");
+        String referer = request.getHeader("referer");
         String e_keywordid = request.getParameter("e_keywordid");
         String e_creative = request.getParameter("e_creative");
         map.addAttribute("wechat_id", wechatId);
@@ -88,6 +89,7 @@ public class WebController {
         info.setKeyWord(kw);
         info.setKeywordid(e_keywordid);
         info.setCreative(e_creative);
+        info.setRefer(referer);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 

@@ -791,13 +791,17 @@
 </div>
 
 <script type="text/javascript">
-    function gowx(arg) {
+    function gowx() {
+        window.location.href = "weixin://"
+    }
+
+    function gowx2(arg) {
         var url = '/rememberwx';
         $.ajax({
             type: 'get',
             url: url,
             beforeSend: function () {
-                window.location.href = "weixin://"
+//                window.location.href = "weixin://"
             }, success: function (json) {
 
             }
@@ -817,19 +821,29 @@
             async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 
             success: function (msg) {
+                str_wx_id = msg;
                 $(".wxid").html(msg);
                 $(".wxidbottom").html(msg);
             }
         })
+
+        document.addEventListener('copy', function(event){
+            if(window.getSelection(0).toString() == str_wx_id){
+                try{
+//                    window.location.href="weixin://";
+                    gowx2();
+                }catch(e){}
+            }
+
+        });
     });
 
 
 </script>
 
 <!-- 统计 -->
+
 <div style="display:none;">
-    <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964"/>
+    <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964" />
 </div>
-
-
 </body></html>
