@@ -30,7 +30,7 @@ public class WebInfo {
     private String creative;
     @Column(nullable = true)
     private String keywordid;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String refer;
 
     public String getIp() {
