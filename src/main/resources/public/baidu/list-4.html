@@ -800,6 +800,9 @@
         $.ajax({
             type: 'get',
             url: url,
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: { position: arg},
             beforeSend: function () {
 //                window.location.href = "weixin://"
             }, success: function (json) {
@@ -814,16 +817,18 @@
     var str_wx_id
     $(function () {
 
-        var url = "/wechatid";
+        var url = "/rememberweb";
         $.ajax({
             type: "get",
             url: url,
             async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: { urlPath: "list-4"},
             success: function (msg) {
-                str_wx_id = msg;
-                $(".wxid").html(msg);
-                $(".wxidbottom").html(msg);
+                str_wx_id =  jQuery.parseJSON(msg).wechatId;
+                $(".wxid").html(str_wx_id);
+                $(".wxidbottom").html(str_wx_id);
             }
         })
 

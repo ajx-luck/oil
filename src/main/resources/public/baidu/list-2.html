@@ -395,13 +395,15 @@
         $.ajax({
             type: 'get',
             url: url,
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: { position: arg},
             beforeSend: function () {
-
+//                window.location.href = "weixin://"
             }, success: function (json) {
 
             }
         });
-
 
     }
 </script>
@@ -413,15 +415,17 @@
         if(str_wx_id != null){
             $(".wxnum").html(str_wx_id);
         }else{
-            var url = "/wechatid";
+            var url = "/rememberweb";
             $.ajax({
                 type: "get",
                 url: url,
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: { urlPath: "list-2"},
                 success: function (msg) {
-                    str_wx_id = msg;
-                    $(".wxnum").html(msg);
+                    str_wx_id =  jQuery.parseJSON(msg).wechatId;
+                    $(".wxnum").html(str_wx_id);
                 }
             })
             document.addEventListener('copy', function(event){

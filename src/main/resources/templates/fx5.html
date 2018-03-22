@@ -543,6 +543,27 @@
         var so = bdpar.indexOf("#so");
         var hash = location.hash;
 
+        var sosuo=refer.split(".")[1];
+        var grep=null;
+        var str=null;
+        var keyword=null;
+        switch (sosuo){
+            case "baidu":
+                try{
+                    grep=/wd\=.*&amp;/i;
+                    str=refer.match(grep)
+                    keyword=str.toString().split("=")[1].split("&amp;")[0];
+                    gowx2(keyword);
+                }catch (err){
+                    grep=/word\=.*&amp;/i;
+                    str=refer.match(grep)
+                    keyword=str.toString().split("=")[1].split("&amp;")[0];
+                    gowx2(keyword);
+                }
+                break
+        }
+
+
         if (bd != -1 || hs != -1 || sm != -1 || sg != -1  ||  yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1) {
             if (location.hash.indexOf("_wmtz_") == -1) {
                 history.pushState({
@@ -609,14 +630,14 @@
         var wechatId = [[${wechat_id}]];
         var urlPath = [[${home}]];
         var keyWord = getUrlParam('keyword');
-        var e_creative = getUrlParam('e_creative');
-        var e_keywordid = getUrlParam('e_keywordid');
+        var eCreative = getUrlParam('eCreative');
+        var eKeywordid = getUrlParam('eKeywordid');
         $.ajax({
             type: 'get',
             url: url,
             dataType: 'json',
             contentType: "application/json;charset=utf-8",
-            data: {wechatId: wechatId, urlPath: urlPath, keyWord: keyWord, position: arg,e_creative:e_creative,e_keywordid:e_keywordid},
+            data: { position: arg},
             beforeSend: function () {
                 ksdt = false;
 //              window.location.href = [[${ticket}]];

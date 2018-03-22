@@ -1,24 +1,18 @@
 package com.breast.oil.web;
 
 
-import com.breast.oil.domain.KeyWord;
-import com.breast.oil.domain.SecondClick;
-import com.breast.oil.domain.WXInfo;
-import com.breast.oil.domain.WebInfo;
+import com.breast.oil.domain.*;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.CommonUtils;
-import com.breast.oil.utils.FormatUtils;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.URLDecoder;
 import java.util.Date;
 
 /**
@@ -34,87 +28,96 @@ public class StatisticsController {
 
     /**
      * 记录微信点击
+     *
      * @param request
      * @return
      */
-    @RequestMapping(value = "/remember",method = RequestMethod.GET)
-    public String remember(HttpServletRequest request){
-        String wechatId = request.getParameter("wechatId");
-        String urlPath = request.getParameter("urlPath");
-        String[] paths = urlPath.split("\\?kw");
-        urlPath = paths[0];
-        String keyWord = request.getParameter("keyWord");
+    @RequestMapping(value = "/remember", method = RequestMethod.GET)
+    public String remember(HttpServletRequest request) {
         String type = request.getParameter("position");
-        String e_keywordid = FormatUtils.decode(request.getParameter("e_keywordid"));
-        String e_creative = request.getParameter("e_creative");
-        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
-            mUrlMappingService.addKeyWordAndWxClick(e_keywordid,keyWord);
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(CommonUtils.getIpAddr(request));
+        if(webInfo != null) {
+            WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
+                    type, webInfo.getKeyWord(), webInfo.geteKeywordid(), webInfo.getRefer(),
+                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum());
+            mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
+            return "{code:0}";
+        }else{
+            return "{code:1}";
         }
-        WXInfo wxInfo = new WXInfo(wechatId,CommonUtils.getIpAddr(request),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-        mUrlMappingService.savaWXInfo(wxInfo,urlPath,CommonUtils.getIpAddr(request));
-        return "{code:0}";
+
     }
 
-    @RequestMapping(value = "/rememberwx",method = RequestMethod.GET)
-    public String rememberwx(HttpServletRequest request){
-        String ip = CommonUtils.getIpAddr(request);
-        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
-        if(webInfo != null){
-            String wechatId = webInfo.getWechatId();
-            String urlPath = webInfo.getUrlPath();
-            String keyWord = webInfo.getKeyWord();
-            String type = "";
-            String e_keywordid = webInfo.getKeywordid();
-            String e_creative = webInfo.getCreative();
-            WXInfo wxInfo = new WXInfo(wechatId,CommonUtils.getIpAddr(request),urlPath,keyWord == null ? "def":keyWord,e_creative,e_keywordid,type,new Date().getTime());
-            mUrlMappingService.savaWXInfo(wxInfo,urlPath,CommonUtils.getIpAddr(request));
-            return "{code:0}";
-        }
 
-        return "{code:1}";
+
+    /**
+     * 记录静态网页点击
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/rememberweb", method = RequestMethod.GET)
+    public String rememberWeb(HttpServletRequest request) {
+        String ip = CommonUtils.getIpAddr(request);
+        String wechatId = mUrlMappingService.getWechatIdByIP(ip);
+        String urlPath = request.getParameter("urlPath");
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        if(webInfo != null) {
+            String keyWord = webInfo.getKeyWord() == null?"def":webInfo.getKeyWord();
+            String e_keywordid = webInfo.geteKeywordid() == null ? "def":webInfo.geteKeywordid();
+            HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
+                    wechatId, keyWord, e_keywordid);
+            mUrlMappingService.savaHtmlWebInfo(htmlInfo);
+            String str = String.format("{\"wechatId\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\"}",wechatId,keyWord,e_keywordid);
+            return str;
+        }
+        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"def\",\"e_keywordid\":\"def\"}",wechatId);
     }
 
     /**
      * 提供推广微信
+     *
      * @param request
      * @return
      */
-    @RequestMapping(value = "/wechatid",method = RequestMethod.GET)
-    public String wechatid(HttpServletRequest request){
+    @RequestMapping(value = "/wechatid", method = RequestMethod.GET)
+    public String wechatid(HttpServletRequest request) {
         return mUrlMappingService.getWechatIdByIP(CommonUtils.getIpAddr(request));
     }
 
     /**
      * 根据关键词统计
+     *
      * @param secondClick
      * @param map
      * @return
      */
-    @RequestMapping(value = "/keyword",method = RequestMethod.POST)
-    public String keyword(SecondClick secondClick,ModelMap map){
-        long start = TimeUtils.DateTimeParse(secondClick.getStart() + " "+secondClick.getStartTime());
-        long end = TimeUtils.DateTimeParse(secondClick.getEnd() + " "+secondClick.getEndTime());
+    @RequestMapping(value = "/keyword", method = RequestMethod.POST)
+    public String keyword(SecondClick secondClick, ModelMap map) {
+        long start = TimeUtils.DateTimeParse(secondClick.getStart() + " " + secondClick.getStartTime());
+        long end = TimeUtils.DateTimeParse(secondClick.getEnd() + " " + secondClick.getEndTime());
         String result = "";
-        if(secondClick.getWechatId() == null || secondClick.getWechatId() == "") {
+        if (secondClick.getWechatId() == null || secondClick.getWechatId() == "") {
             result = "{count:" + mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
                     secondClick.getKeyWord(), start, end) + "}";
-        }else{
+        } else {
             result = "{count:" + mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
-                    secondClick.getKeyWord(),secondClick.wechatId, start, end) + "}";
+                    secondClick.getKeyWord(), secondClick.wechatId, start, end) + "}";
         }
         return result;
     }
 
     /**
      * 增加关键词
+     *
      * @param request
      * @return
      */
-    @RequestMapping(value = "/addkw",method = RequestMethod.GET)
-    public String addKeyWord(HttpServletRequest request){
+    @RequestMapping(value = "/addkw", method = RequestMethod.GET)
+    public String addKeyWord(HttpServletRequest request) {
         String keyWord = request.getParameter("kw");
         String keyWordDesc = request.getParameter("kwd");
-        KeyWord kw = new KeyWord(keyWord,keyWordDesc,new Date().getTime());
+        KeyWord kw = new KeyWord(keyWord, keyWordDesc, new Date().getTime());
         mUrlMappingService.addKeyWord(kw);
         return "{code:0}";
     }

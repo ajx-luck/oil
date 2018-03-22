@@ -28,12 +28,12 @@ public class KeyWordService {
         Map<String,String> keywords = new HashMap<>();
         List<Custom> customs = new ArrayList<>();
         for(WXInfo info:wxInfos){
-            Integer value = map.get(info.getKeywordid());
+            Integer value = map.get(info.geteKeywordid());
             if(value == null){
-                map.put(info.getKeywordid(),1);
-                keywords.put(info.getKeywordid(),info.getKeyWord());
+                map.put(info.geteKeywordid(),1);
+                keywords.put(info.geteKeywordid(),info.getKeyWord());
             }else{
-                map.put(info.getKeywordid(),++value);
+                map.put(info.geteKeywordid(),++value);
             }
         }
         for(Map.Entry<String,Integer> entry:map.entrySet()){
@@ -41,7 +41,7 @@ public class KeyWordService {
             String keywordid = entry.getKey();
             String keyword = keywords.get(keywordid);
             int weixin = entry.getValue();
-            long web = mWebInfoRepository.countByKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(keywordid,start,end);
+            long web = mWebInfoRepository.countByEKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(keywordid,start,end);
             Custom custom = new Custom(keywordid,weixin,web,keyword);
             customs.add(custom);
         }

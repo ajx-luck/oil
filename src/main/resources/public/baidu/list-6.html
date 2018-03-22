@@ -885,16 +885,24 @@
     var str_wx_id
     $(function () {
 
-        var url = "/wechatid";
+        var url = "/rememberweb";
         $.ajax({
             type: "get",
             url: url,
             async: false,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-
+//            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: { urlPath: "list-6"},
             success: function (msg) {
-                str_wx_id = msg;
-                $(".red").html(msg);
-                $(".wxid").html(msg);
+                str_wx_id =  jQuery.parseJSON(msg).wechatId;
+                $(".red").html(str_wx_id);
+                $(".wxid").html(str_wx_id);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                //弹出报错内容　　
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(errorThrown);
             }
         })
 
@@ -923,6 +931,9 @@
         $.ajax({
             type: 'get',
             url: url,
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: { position: arg},
             beforeSend: function () {
 //                window.location.href = "weixin://"
             }, success: function (json) {

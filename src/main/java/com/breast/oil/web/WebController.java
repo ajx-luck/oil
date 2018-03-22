@@ -67,29 +67,24 @@ public class WebController {
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME,wechatId,60*60*24*15);
         }
-        String kw = request.getParameter("keyword");
+        String keyword = request.getParameter("keyword");
         String referer = request.getHeader("referer");
         String e_keywordid = request.getParameter("e_keywordid");
         String e_creative = request.getParameter("e_creative");
+        String e_matchtype = request.getParameter("e_matchtype");
+        String e_adposition = request.getParameter("e_adposition");
+        String e_pagenum = request.getParameter("e_pagenum");
         map.addAttribute("wechat_id", wechatId);
-        map.addAttribute("home", kw == null ?url1:url1+"?kw="+kw);
+        map.addAttribute("home", keyword == null ?url1:url1+"?kw="+keyword);
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
         }*/
-        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
-            mUrlMappingService.addKeyWordAndWebClick(e_keywordid,kw);
-        }
+      /*  if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+            mUrlMappingService.addKeyWordAndWebClick(e_keywordid,keyword);
+        }*/
         map.addAttribute("ticket", "weixin://");
-        WebInfo info = new WebInfo();
-        info.setUrlPath(url1);
-        info.setIp(CommonUtils.getIpAddr(request));
-        info.setCreateTime(new Date().getTime());
-        info.setPrice(priceByUrl);
-        info.setWechatId(wechatId);
-        info.setKeyWord(kw);
-        info.setKeywordid(e_keywordid);
-        info.setCreative(e_creative);
-        info.setRefer(referer);
+        WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
+                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 

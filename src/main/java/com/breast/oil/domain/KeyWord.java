@@ -16,8 +16,8 @@ public class KeyWord {
     private Long id;
     @Column(nullable = false,unique = true)
     private String keyWord;
-    @Column(nullable = false)
-    private String keyWordDesc;
+    @Column(nullable = true)
+    private String e_keywordid;
     @Column(nullable = true)
     public Long createTime;
     /**
@@ -35,16 +35,24 @@ public class KeyWord {
         this.createTime = new Date().getTime();
     }
 
-    public KeyWord(String keyWord, String keyWordDesc, Long createTime) {
-        this(keyWord,keyWordDesc,createTime,0L,0L);
+    public KeyWord(String keyWord, String e_keywordid, Long createTime) {
+        this(keyWord,e_keywordid,createTime,0L,0L);
     }
 
-    public KeyWord(String keyWord, String keyWordDesc, Long createTime, Long web, Long wxClick) {
+    public KeyWord(String keyWord, String e_keywordid, Long createTime, Long web, Long wxClick) {
         this.keyWord = keyWord;
-        this.keyWordDesc = keyWordDesc;
+        this.e_keywordid = e_keywordid;
         this.createTime = createTime;
         this.web = web;
         this.wxClick = wxClick;
+    }
+
+    public String getE_keywordid() {
+        return e_keywordid;
+    }
+
+    public void setE_keywordid(String e_keywordid) {
+        this.e_keywordid = e_keywordid;
     }
 
     public String getKeyWord() {
@@ -55,13 +63,6 @@ public class KeyWord {
         this.keyWord = keyWord;
     }
 
-    public String getKeyWordDesc() {
-        return keyWordDesc;
-    }
-
-    public void setKeyWordDesc(String keyWordDesc) {
-        this.keyWordDesc = keyWordDesc;
-    }
 
     public Long getCreateTime() {
         return createTime;

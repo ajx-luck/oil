@@ -28,6 +28,8 @@ public class UrlMappingService {
     KeyWordRepository mKeyWordRepository;
     @Autowired
     StatisticsInfoRepository mStatisticsInfoRepository;
+    @Autowired
+    HtmlInfoRepository mHtmlInfoRepository;
     public List<PathToWechat> mPathToWechats;
 
 
@@ -225,6 +227,9 @@ public class UrlMappingService {
     @Cacheable(value = "save", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void savaWebInfo(WebInfo info,String url, String ip) {
         cacheWeb(url,ip);
+        if(!StringUtils.isEmptyOrWhitespace(info.getKeyWord())){
+            addKeyWordAndWxClick(info.getKeyWord(),info.geteKeywordid());
+        }
         mWebInfoRepository.save(info);
     }
 
@@ -242,8 +247,8 @@ public class UrlMappingService {
     @Cacheable(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void savaWXInfo(WXInfo info, String url,String ip) {
         cacheWx(url,ip);
-        if(!StringUtils.isEmptyOrWhitespace(info.getKeywordid())){
-            addKeyWordAndWxClick(info.getKeywordid(),info.getKeyWord());
+        if(!StringUtils.isEmptyOrWhitespace(info.getKeyWord())){
+            addKeyWordAndWxClick(info.getKeyWord(),info.geteKeywordid());
         }
         mWXInfoRepository.save(info);
     }
@@ -251,6 +256,10 @@ public class UrlMappingService {
     @CachePut(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void cacheWx(String url,String ip) {
 
+    }
+
+    public void savaHtmlWebInfo(HtmlInfo info) {
+        mHtmlInfoRepository.save(info);
     }
 
     /**
@@ -316,7 +325,7 @@ public class UrlMappingService {
         List<WebAndWXCount> list = new ArrayList<>();
         for (KeyWord keyWord : mKeyWordRepository.findAll()) {
             String kw = keyWord.getKeyWord();
-            String kwd = keyWord.getKeyWordDesc();
+            String kwd = keyWord.getE_keywordid();
             long webCount = mWebInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, start, end);
             long wxCount = mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, start, end);
             WebAndWXCount webAndWXCount = new WebAndWXCount(kw, kwd, wxCount, webCount);
@@ -336,7 +345,7 @@ public class UrlMappingService {
         List<WebAndWXCount> list = new ArrayList<>();
         for (KeyWord keyWord : mKeyWordRepository.findAll()) {
             String kw = keyWord.getKeyWord();
-            String kwd = keyWord.getKeyWordDesc();
+            String kwd = keyWord.getE_keywordid();
             long webCount = mWebInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, wechatId, start, end);
             long wxCount = mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, wechatId, start, end);
             WebAndWXCount webAndWXCount = new WebAndWXCount(kw, kwd, wxCount, webCount);
@@ -357,7 +366,7 @@ public class UrlMappingService {
         List<WebAndWXCount> list = new ArrayList<>();
         for (KeyWord keyWord : mKeyWordRepository.findAll()) {
             String kw = keyWord.getKeyWord();
-            String kwd = keyWord.getKeyWordDesc();
+            String kwd = keyWord.getE_keywordid();
             long webCount = mWebInfoRepository.countByKeyWordAndUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, urlPath, start, end);
             long wxCount = mWXInfoRepository.countByKeyWordAndUrlPathAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(kw, urlPath, start, end);
             WebAndWXCount webAndWXCount = new WebAndWXCount(kw, kwd, wxCount, webCount);
@@ -389,7 +398,7 @@ public class UrlMappingService {
         if (StringUtils.isEmptyOrWhitespace(ip)) {
             return getRandomWechatIdByUrl("fxc");
         } else {
-            List<WebInfo> list = mWebInfoRepository.findByIpOrderById(ip);
+            List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
             String wechatId = "";
             if (list != null && list.size() > 0) {
                 wechatId = list.get(list.size() - 1).getWechatId();

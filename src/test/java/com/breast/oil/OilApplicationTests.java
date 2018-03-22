@@ -38,7 +38,7 @@ public class OilApplicationTests {
 
 	@Test
 	public void findWxByIp(){
-		List<WebInfo> webInfo = mWebInfoRepository.findByIpOrderById("127.0.0.1");
+		List<WebInfo> webInfo = mWebInfoRepository.findByIpOrderByIdDesc("127.0.0.1");
 		assert (webInfo!=null);
 	}
 
