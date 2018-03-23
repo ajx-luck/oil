@@ -1,6 +1,7 @@
 package com.breast.oil.web;
 
 
+import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
@@ -59,19 +60,23 @@ public class StatisticsController {
     @RequestMapping(value = "/rememberweb", method = RequestMethod.GET)
     public String rememberWeb(HttpServletRequest request) {
         String ip = CommonUtils.getIpAddr(request);
-        String wechatId = mUrlMappingService.getWechatIdByIP(ip);
         String urlPath = request.getParameter("urlPath");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        String wechatId = webInfo.getWechatId();
         if(webInfo != null) {
             String keyWord = webInfo.getKeyWord() == null?"def":webInfo.getKeyWord();
             String e_keywordid = webInfo.geteKeywordid() == null ? "def":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
                     wechatId, keyWord, e_keywordid);
-            mUrlMappingService.savaHtmlWebInfo(htmlInfo);
-            String str = String.format("{\"wechatId\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\"}",wechatId,keyWord,e_keywordid);
+            if(!"fxc".equals(urlPath)) {
+                mUrlMappingService.savaHtmlWebInfo(htmlInfo);
+            }
+            String str = String.format("{\"wechatId\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                    ,wechatId,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
-        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"def\",\"e_keywordid\":\"def\"}",wechatId);
+        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"def\",\"e_keywordid\":\"def\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                ,wechatId, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
     }
 
     /**

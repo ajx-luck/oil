@@ -546,14 +546,12 @@
         var sosuo=refer.split(".")[1];
         var grep=null;
         var str=null;
-        var keyword=null;
+        var keyword="";
         switch (sosuo){
             case "baidu":
                 try{
-                    grep=/wd\=.*&amp;/i;
-                    str=refer.match(grep)
-                    keyword=str.toString().split("=")[1].split("&amp;")[0];
-                    gowx2(keyword);
+                    keyword=getUrlParam("keyword");
+                    setHash(bdpar,hash);
                 }catch (err){
                     grep=/word\=.*&amp;/i;
                     str=refer.match(grep)
@@ -563,24 +561,36 @@
                 break
         }
 
-
-        if (bd != -1 || hs != -1 || sm != -1 || sg != -1  ||  yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1) {
-            if (location.hash.indexOf("_wmtz_") == -1) {
-                history.pushState({
-                        page: 1
-                    },
-                    "", bdpar + hash + "#_wmtz_")
-            }
-        };
         window.onpopstate = function(a) {
             if (location.hash.indexOf("_wmtz_") == -1) {
                 window.location.href = "./baidu/list.html"
             }
         }
-
-
-
+//        setHash(bdpar,hash);
     });
+    function setHash(bdpar,hash) {
+        var url = "/rememberweb";
+        $.ajax({
+            type: "get",
+            url: url,
+            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+            contentType: "application/json;charset=utf-8",
+            data: { urlPath: "fxc"},
+            success: function (msg) {
+//                alert(msg)
+                var jsonobj = jQuery.parseJSON(msg);
+                str_wx_id =  jsonobj.wechatId;
+                var js_add_history = jsonobj.JS_ADD_HISTORY;
+                var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+//                eval(js_add_back_listener);
+                eval(js_add_copy);
+                eval(js_add_history);
+                $(".red").html(str_wx_id);
+                $(".wxid").html(str_wx_id);
+            }
+        });
+    }
 
 </script>
 
@@ -608,15 +618,6 @@
         $(".copy").click(function () {
             gowx();
         });
-        document.addEventListener('copy', function(event){
-            if(window.getSelection(0).toString() == [[${wechat_id}]]){
-                try{
-//                    window.location.href="weixin://";
-                    gowx2();
-                }catch(e){}
-            }
-
-        });
 
 
     });
@@ -627,11 +628,7 @@
 
     function gowx2(arg) {
         var url = '/remember';
-        var wechatId = [[${wechat_id}]];
-        var urlPath = [[${home}]];
-        var keyWord = getUrlParam('keyword');
-        var eCreative = getUrlParam('eCreative');
-        var eKeywordid = getUrlParam('eKeywordid');
+
         $.ajax({
             type: 'get',
             url: url,

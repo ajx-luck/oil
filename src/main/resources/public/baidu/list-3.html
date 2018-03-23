@@ -915,7 +915,7 @@
     }
 
     function gowx2(arg) {
-        var url = '/rememberwx';
+        var url = '/remember';
         $.ajax({
             type: 'get',
             url: url,
@@ -941,24 +941,19 @@
             type: "get",
             url: url,
             async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-            dataType: 'json',
+//            dataType: 'json',
             contentType: "application/json;charset=utf-8",
             data: { urlPath: "list-3"},
             success: function (msg) {
-                str_wx_id =  jQuery.parseJSON(msg).wechatId;
+                var jsonobj = jQuery.parseJSON(msg);
+                str_wx_id =  jsonobj.wechatId;
+                var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                eval(js_add_copy);
                 $(".red").html(str_wx_id);
                 $(".wxid").html(str_wx_id);
             }
         })
-        document.addEventListener('copy', function(event){
-            if(window.getSelection(0).toString() == str_wx_id){
-                try{
-//                    window.location.href="weixin://";
-                    gowx2();
-                }catch(e){}
-            }
 
-        });
     });
 
 
