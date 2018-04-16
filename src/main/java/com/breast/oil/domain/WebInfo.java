@@ -1,5 +1,7 @@
 package com.breast.oil.domain;
 
+import com.breast.oil.utils.TimeUtils;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +19,8 @@ public class WebInfo {
     private String urlPath;
     @Column(nullable = false)
     private Long createTime;
+    @Column(nullable = true)
+    private String displayTime;
     @Column(nullable = false)
     private String ip;
     @Column(nullable = false)
@@ -64,6 +68,7 @@ public class WebInfo {
         this.eCreative = e_creative;
         this.eAdposition = e_adposition;
         this.ePagenum = e_pagenum;
+        this.displayTime = TimeUtils.timesToDate(createTime);
     }
 
     public Long getId() {
@@ -157,5 +162,13 @@ public class WebInfo {
 
     public void setePagenum(String ePagenum) {
         this.ePagenum = ePagenum;
+    }
+
+    public String getDisplayTime() {
+        return displayTime;
+    }
+
+    public void setDisplayTime(String displayTime) {
+        this.displayTime = displayTime;
     }
 }

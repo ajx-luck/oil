@@ -1,5 +1,7 @@
 package com.breast.oil.domain;
 
+import com.breast.oil.utils.TimeUtils;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +19,8 @@ public class HtmlInfo {
     private String urlPath;
     @Column(nullable = false)
     private Long createTime;
+    @Column(nullable = true)
+    private String displayTime;
     @Column(nullable = false)
     private String ip;
     @Column(nullable = false)
@@ -37,6 +41,7 @@ public class HtmlInfo {
         this.wechatId = wechatId;
         this.keyWord = keyWord;
         this.eKeywordid = e_keywordid;
+        this.displayTime = TimeUtils.timesToDate(createTime);
     }
 
     public String getUrlPath() {
@@ -85,5 +90,13 @@ public class HtmlInfo {
 
     public void seteKeywordid(String eKeywordid) {
         this.eKeywordid = eKeywordid;
+    }
+
+    public String getDisplayTime() {
+        return displayTime;
+    }
+
+    public void setDisplayTime(String displayTime) {
+        this.displayTime = displayTime;
     }
 }

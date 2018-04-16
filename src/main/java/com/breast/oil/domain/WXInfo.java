@@ -1,5 +1,7 @@
 package com.breast.oil.domain;
 
+import com.breast.oil.utils.TimeUtils;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,8 @@ public class WXInfo {
     private String urlPath;
     @Column(nullable = true)
     public Long createTime;
+    @Column(nullable = true)
+    private String displayTime;
     //点击的来源的
     @Column(nullable = true)
     public String type;
@@ -68,6 +72,7 @@ public class WXInfo {
         this.eCreative = e_creative;
         this.eAdposition = e_adposition;
         this.ePagenum = e_pagenum;
+        this.displayTime = TimeUtils.timesToDate(createTime);
     }
 
     public Long getId() {
@@ -169,5 +174,13 @@ public class WXInfo {
 
     public void setePagenum(String ePagenum) {
         this.ePagenum = ePagenum;
+    }
+
+    public String getDisplayTime() {
+        return displayTime;
+    }
+
+    public void setDisplayTime(String displayTime) {
+        this.displayTime = displayTime;
     }
 }
