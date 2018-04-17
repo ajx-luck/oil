@@ -1,19 +1,20 @@
 package com.breast.oil.web;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
+import com.breast.oil.po.Location;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
-import com.breast.oil.utils.CommonUtils;
-import com.breast.oil.utils.CookieUtils;
-import com.breast.oil.utils.FormatUtils;
-import com.breast.oil.utils.TimeUtils;
+import com.breast.oil.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,8 @@ import org.thymeleaf.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.breast.oil.consts.AppConsts.*;
 
@@ -55,10 +58,10 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
-        setInfo(map, request, url1, priceByUrl,null);
+        setInfo(map, request, url1,"",null);
     }
 
-    private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl,HttpServletResponse response) {
+    private void setInfo(ModelMap map, HttpServletRequest request, String url1,String city,HttpServletResponse response) {
         String ip = CommonUtils.getIpAddr(request);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
         if(wechatId == null){
@@ -100,7 +103,28 @@ public class WebController {
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response){
-        setInfo(map, request, URL_3, mUrlMappingService.getPriceByUrl(URL_3),response);
+
+        Map<String,Object> params = new HashMap<>();
+        params.put("format","json");
+        params.put("ip",CommonUtils.getIpAddr(request));
+        try {
+            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
+            System.out.println(result);
+            if (result != null) {
+                Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
+                });
+                setInfo(map, request, URL_3,location.city, response);
+                if (location == null || location.city == null || location.toString().contains("北京") || location.toString().contains("上海")
+                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
+                    return "forward:/fxa";
+                }
+
+            }
+        }catch (Exception e){
+            setInfo(map, request, URL_3,"", response);
+            return "forward:/fxa";
+        }
+
         return "fx5";
     }
 

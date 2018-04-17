@@ -51,7 +51,11 @@ public class WebInfo {
      */
     @Column(nullable = true)
     private String ePagenum;
-
+    /**
+     * 定位的位置
+     */
+    @Column(nullable = true)
+    private String city;
     public WebInfo(){
 
     }
