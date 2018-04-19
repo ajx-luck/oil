@@ -556,6 +556,7 @@
         var grep=null;
         var str=null;
         var keyword="";
+        sosuo = "baidu";
         switch (sosuo){
             case "baidu":
                 try{
@@ -572,7 +573,7 @@
 
         window.onpopstate = function(a) {
             if (location.hash.indexOf("_wmtz_") == -1) {
-                window.location.href = "./baidu/list.html"
+                window.location.href = "./baidu/list.html?word="+keyword;
             }
         }
 //        setHash(bdpar,hash);

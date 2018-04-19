@@ -85,7 +85,7 @@ public class UrlMappingService {
 
     public String getRandomWechatIdByUrl(String url) {
         if (getAllPathToWechat() == null) {
-            return null;
+            return getRandomWechatId();
         }
         List<PathToWechat> list = new ArrayList();
         for (PathToWechat pathToWechat : getAllPathToWechat()) {
@@ -94,7 +94,7 @@ public class UrlMappingService {
             }
         }
         if (list.size() == 0) {
-            return null;
+            return getRandomWechatId();
         } else {
             return list.get(new Random().nextInt(list.size())).getWechatId();
         }

@@ -27,6 +27,8 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,7 +70,8 @@ public class WebController {
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
         }
         if(response != null){
-            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME,wechatId,60*60*24*15);
+            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, city,60*60*24*15);
+            CookieUtils.set(response, AppConsts.CITY_NAME,city,60*60*24*15);
         }
         String keyword = request.getParameter("keyword");
         String referer = request.getHeader("referer");
@@ -82,9 +85,9 @@ public class WebController {
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
         }*/
-      /*  if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
             mUrlMappingService.addKeyWordAndWebClick(e_keywordid,keyword);
-        }*/
+        }
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
                 wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum);
@@ -102,7 +105,7 @@ public class WebController {
         return "fx5";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
-    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response){
+    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
 
         Map<String,Object> params = new HashMap<>();
         params.put("format","json");
@@ -116,16 +119,18 @@ public class WebController {
                 setInfo(map, request, URL_3,location.city, response);
                 if (location == null || location.city == null || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
-                    return "forward:/fxa";
+                    return "forward:/fxbig.html";
+                }else if(TimeUtils.isAdTimes()){
+                    return "fx5";
                 }
 
             }
         }catch (Exception e){
             setInfo(map, request, URL_3,"", response);
-            return "forward:/fxa";
+            return "forward:/fxbig.html";
         }
-
-        return "fx5";
+        setInfo(map, request, URL_3,"", response);
+        return "forward:/fxbig.html";
     }
 
     @RequestMapping(value = "/"+URL_4,method = RequestMethod.GET)

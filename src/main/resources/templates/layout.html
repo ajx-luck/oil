@@ -74,6 +74,172 @@
 <!-- kh导航 -->
 </div>
 
+<!-- 导航 -->
+
+<div class="top-head" th:fragment="yi_title">
+    <style>
+        .g-doc {
+            background: #fff none repeat scroll 0 0;
+            font-size: 0.7rem;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+        }
+        .Header{font-family:'微软雅黑'; max-width:640px; margin:0px auto;}
+        .Header .Menu{height:40px; line-height:40px; background-color:#FF7FAA;}
+        .Header .Menu a{color:#FFF; text-decoration:none; font-size:14px; margin:0px 2px;}
+        .header{
+            max-width:660px;padding:5px;margin:0 auto;
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        .nav{
+            padding: 0;
+            color: #000;
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 4px;
+            display: flex;
+            display: -webkit-flex; /* Safari */
+            -webkit-justify-content: space-around; /* Safari 6.1+ */
+            justify-content: space-around;
+        }
+        .nav li{
+            width: 30%;
+            padding: 4px 0;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        .title{
+            margin: 8% 0;
+            color: #5cd7e6;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        .wrap{
+            padding: 4% 3%;
+            margin: 5% 8px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .new-title{
+            margin: 5% 0;
+        }
+        .wrap .new-title{
+            position: absolute;
+            top: -7%;
+            left: 2%;
+            width: 95%;
+            padding: 3% 0;
+            border-radius: 7px;
+            text-align: center;
+            color: #fff;
+            background-color: #45adbc;
+        }
+        .top-head{
+            width: 98%;
+            margin: auto;
+        }
+        .top-head h1{
+            font-size: 16px;
+            text-align: center;
+            padding:0;
+            margin:0;
+        }
+        @media screen and (max-width:500px){
+            .top-head h1{
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+        .top-head ul{
+            background-color: rgb(7,179,227);
+            height: 50px;
+            font-size: 16px;
+        }
+        @media screen and (max-width:500px){
+            .top-head ul{
+                background-color: rgb(7,179,227);
+                height: 24px;
+            }
+        }
+        .top-head ul li{
+            list-style: none;
+            width: 25%;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+        }
+        @media screen and (max-width:500px){
+            .top-head ul li{
+                list-style: none;
+                width: 25%;
+                text-align: center;
+                line-height: 24px;
+                float: left;
+            }
+        }
+        .top-head ul li a{
+            color: #666;
+            font-size:12px;
+            text-decoration: none;
+        }
+        @media screen and (max-width:500px){
+            .top-head ul li a{
+                color: #fff;
+                text-decoration: none;
+                font-size: 14px;
+            }
+        }
+        .top-head-img{
+            width: 100%;
+            margin: 0 auto;
+        }
+        @media screen and (max-width:500px){
+            .top-head-img{
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+
+        .top-head-img img{
+            width: 100%;
+        }
+    </style>
+    <h1 style="text-align: left;color:#999;font-size: 12px;height:22px">广州源诚网络科技有限公司</h1>
+    <ul style="background: #ebebeb;box-shadow: 0 0 1px 0 #a0a0a0;color: #333;height:22px">
+        <li class="menuitem">
+            <a href="">
+                首页
+            </a>
+        </li>
+        <li class="menuitem">
+            <a href="/fxbig/product.html">
+                产品中心
+            </a>
+        </li>
+        <li class="menuitem">
+            <a href="/fxbig/about.html">
+                公司简介
+            </a>
+        </li>
+        <li class="menuitem">
+            <a href="/fxbig/contact.html">
+                联系我们
+            </a>
+        </li>
+    </ul>
+
+    <div class="top-head-img">
+        <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/a1.jpg" alt="">
+    </div>
+</div>
+<!-- 导航 -->
+
 <!-- kh版权 -->
 <footer style="margin-top:100px;border-top:2px solid #666" th:fragment="kh_footer">
     <div class="Copyright" style="text-size:18px;">
@@ -82,6 +248,15 @@
         <p><script>document.write(address);</script></p>
     </div>
 </footer>
+
+<div th:fragment="yi_footer">
+    <p style="text-align: center;font-size:12px;line-height:12px;">Copyright ? 2017,广州源诚网络科技有限公司,All rights reserved </p>
+    <p style="text-align: center;font-size:12px;line-height:12px;">地 址： 广州市天河区东圃一横路96号216、217房 备案号：<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17133431号</a></p>
+    <br/><br/>
+</div>
+
+</div>
+
 <!-- kh版权 -->
 </body>
 </html>

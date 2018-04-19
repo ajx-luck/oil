@@ -468,10 +468,7 @@
 <script type="text/javascript">
     var str_wx_id
     $(function () {
-        str_wx_id = getCookie("wechatid")
-        if (str_wx_id != null) {
-            $(".wxnum").html(str_wx_id);
-        } else {
+
             var url = "/rememberweb";
             $.ajax({
                 type: "get",
@@ -489,7 +486,7 @@
                 }
             })
 
-        }
+
 
 
     });
@@ -500,7 +497,7 @@
 
         if (arr = document.cookie.match(reg))
 
-            return unescape(arr[2]);
+            return decodeURIComponent(arr[2]);
         else
             return null;
     }

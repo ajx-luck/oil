@@ -8,7 +8,7 @@
     <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0">
     <meta name="MobileOptimized" content="100%">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="./fxbig/index.css">
+    <link rel="stylesheet" href="/fxbig/index.css">
     <script src="js/jquery-1.js" type="text/javascript"></script>
 
     
@@ -162,29 +162,29 @@
             </a>
         </li>
         <li class="menuitem">
-            <a href="./nav/product.html">
+            <a href="/fxbig/product.html">
                 产品中心
             </a>
         </li>
         <li class="menuitem">
-            <a href="./nav/about.html">
+            <a href="/fxbig/about.html">
                 公司简介
             </a>
         </li>
         <li class="menuitem">
-            <a href="./nav/contact.html">
+            <a href="/fxbig/contact.html">
                 联系我们
             </a>
         </li>
     </ul>
 
     <div class="top-head-img">
-        <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/3ba-2.jpg" alt="">
+        <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/a1.jpg" alt="">
     </div>
 </div>
 <!-- 导航 -->
 <div class="g-doc" id="wrapper">
-    <nav class="m-nav special1">
+    <nav class="m-img">
         <p style="margin:0;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/snip20170309_1.png" id="wz"></p>
     </nav>
     <div class="g-mm">
@@ -261,17 +261,17 @@
             <strong>切记：只有变成丰满体质，才能让丰满畅通无阻！</strong>
         </p>
         <p class="m-border text-indent">
-            营养师微信：<b style="color:#f00"><script class="wxnum">document.write(str_wx_id);</script><span name="notweixin"></span>（ 长按可复制）</b> <br></p></div>
+            营养师微信：<b style="color:#f00" ><span class="wxnum"><script>document.write(str_wx_id);</script></span>（ 长按可复制）</b> <br></p></div>
 
 
 
+    <p style="text-align: center;font-size:12px;line-height:12px;">Copyright ? 2017,广州源诚网络科技有限公司,All rights reserved </p>
+    <p style="text-align: center;font-size:12px;line-height:12px;">地 址： 广州市天河区东圃一横路96号216、217房 备案号：<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17133431号</a></p>
+    <br><br>
+</div>
 
 
-    <p class="footer1" style="padding:0px;margin:0px;padding-bottom:50px;line-height:12px;" align="center">
-        <font size="1.5" color="#989896">Copyright 2017,壹健康健康产业（深圳）有限公司,All rights reserved <br>
-            地 址：深圳市龙岗区坂田街道雪岗南路148号D栋2楼202<br>
-            <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17067268号</a></font>
-    </p>
+
 
 
 </div>
@@ -364,10 +364,7 @@
 <script type="text/javascript">
     var str_wx_id
     $(function () {
-        str_wx_id = getCookie("wechatid")
-        if (str_wx_id != null) {
-            $(".wxnum").html(str_wx_id);
-        } else {
+
             var url = "/rememberweb";
             $.ajax({
                 type: "get",
@@ -375,7 +372,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-2"},
+                data: {urlPath: "fxc"},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = jsonobj.wechatId;
@@ -385,7 +382,7 @@
                 }
             })
 
-        }
+
 
 
     });
@@ -396,7 +393,7 @@
 
         if (arr = document.cookie.match(reg))
 
-            return unescape(arr[2]);
+            return decodeURIComponent(arr[2]);
         else
             return null;
     }

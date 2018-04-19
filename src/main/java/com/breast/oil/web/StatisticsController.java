@@ -62,8 +62,9 @@ public class StatisticsController {
         String ip = CommonUtils.getIpAddr(request);
         String urlPath = request.getParameter("urlPath");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
-        String wechatId = webInfo.getWechatId();
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
         if(webInfo != null) {
+            wechatId = webInfo.getWechatId();
             String keyWord = webInfo.getKeyWord() == null?"def":webInfo.getKeyWord();
             String e_keywordid = webInfo.geteKeywordid() == null ? "def":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
