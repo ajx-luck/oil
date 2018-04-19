@@ -261,7 +261,7 @@
             <strong>切记：只有变成丰满体质，才能让丰满畅通无阻！</strong>
         </p>
         <p class="m-border text-indent">
-            营养师微信：<b style="color:#f00"><script>document.write(str_wx_id);</script><span name="notweixin"></span>（ 长按可复制）</b> <br></p></div>
+            营养师微信：<b style="color:#f00"><script class="wxnum">document.write(str_wx_id);</script><span name="notweixin"></span>（ 长按可复制）</b> <br></p></div>
 
 
 
@@ -331,12 +331,78 @@
 <footer class="footer-1">
     <div>
         <p style="color:#ffffff;font-size:18px;padding:0;margin:0;">
-            营养师微信：<span><script>document.write(str_wx_id)</script></span> (长按复制微信)
+            营养师微信：<span class="wxnum"><script>document.write(str_wx_id)</script></span> (长按复制微信)
         </p>
         <p style="text-align:center;color:#fff;font-size:16px;padding:0;margin:0;"><span style="font-size:16px;">加微信，获取一对一丰胸指导</span></p>
     </div>
 
 </footer>
+
+<script type="text/javascript">
+    function gowx() {
+        window.location.href = "weixin://"
+    }
+
+    function gowx2(arg) {
+        var url = '/remember';
+        $.ajax({
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: {position: arg},
+            beforeSend: function () {
+                window.location.href = "weixin://"
+            }, success: function (json) {
+
+            }
+        });
+
+    }
+</script>
+
+<script type="text/javascript">
+    var str_wx_id
+    $(function () {
+        str_wx_id = getCookie("wechatid")
+        if (str_wx_id != null) {
+            $(".wxnum").html(str_wx_id);
+        } else {
+            var url = "/rememberweb";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {urlPath: "list-2"},
+                success: function (msg) {
+                    var jsonobj = jQuery.parseJSON(msg);
+                    str_wx_id = jsonobj.wechatId;
+                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    eval(js_add_copy);
+                    $(".wxnum").html(str_wx_id);
+                }
+            })
+
+        }
+
+
+    });
+
+    //读取cookies
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+        if (arr = document.cookie.match(reg))
+
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+
+
+</script>
 
 <div style="display:none;">
     <script type="text/javascript" src="http://s19.cnzz.com/z_stat.php?id=1273105964&amp;web_id=1273105964" />
