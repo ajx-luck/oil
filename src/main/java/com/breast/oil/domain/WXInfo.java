@@ -54,6 +54,11 @@ public class WXInfo {
      */
     @Column(nullable = true)
     private String ePagenum;
+    /**
+     * 定位的位置
+     */
+    @Column(nullable = true)
+    private String city;
 
     public WXInfo(){
 
@@ -182,5 +187,13 @@ public class WXInfo {
 
     public void setDisplayTime(String displayTime) {
         this.displayTime = displayTime;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

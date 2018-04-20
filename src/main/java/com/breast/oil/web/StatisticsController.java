@@ -41,6 +41,7 @@ public class StatisticsController {
             WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
                     type, webInfo.getKeyWord(), webInfo.geteKeywordid(), webInfo.getRefer(),
                     webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum());
+            wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
             return "{code:0}";
         }else{

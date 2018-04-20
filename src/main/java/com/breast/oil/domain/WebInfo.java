@@ -75,6 +75,15 @@ public class WebInfo {
         this.displayTime = TimeUtils.timesToDate(createTime);
     }
 
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public Long getId() {
         return id;
     }
