@@ -40,20 +40,10 @@
             margin-right: 10px
         }
     </style>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?7c338479d97b74ee93ce19f0b0ca1f00";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 </head>
 <body>
 <div class="wrapper">
-    <div th:replace="layout::kh_title"></div>
-    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/picture/3-03.jpg" alt="" class="img100"/>
+    <div th:replace="layout::yi_title"></div>
     <div class="mt2em">
         <div class="topsina" id="navBar"><strong style="font-size:16px;">巧用这个丰胸方案，惊喜过望，胸部大的直接溢出来！
             <span style="color:#e5004f;">平胸、下垂——女人不能忍受的痛!你还在忍吗?</span></strong></div>
@@ -430,7 +420,7 @@
            color: #fff;"> 查看更多&gt;</a>
         <div class="clr"></div>
     </section>
-    <footer class="footer" th:replace="layout::kh_footer"/>
+    <footer class="footer" th:replace="layout::yi_footer"/>
 
 
     <div style="position: fixed;bottom: 0;background: #eee;border-top: 1px solid #ccc;width: 100%;font-size: 15px; line-height:21px;padding:5px;left:0px;z-index:99999; height:50px;">
@@ -556,7 +546,9 @@
         var grep=null;
         var str=null;
         var keyword="";
-        sosuo = "baidu";
+        if(keyword=getUrlParam("e_keywordid") != null ){
+            sosuo = "baidu";
+        }
         switch (sosuo){
             case "baidu":
                 try{

@@ -56,7 +56,7 @@ public class WebController {
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
-        return "fx2";
+        return "fx5";
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
@@ -85,9 +85,9 @@ public class WebController {
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
             mWxTicketService.getTicket();
         }*/
-        if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
+      /*  if(!StringUtils.isEmptyOrWhitespace(e_keywordid)){
             mUrlMappingService.addKeyWordAndWebClick(e_keywordid,keyword);
-        }
+        }*/
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
                 wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum);
@@ -111,6 +111,7 @@ public class WebController {
         Map<String,Object> params = new HashMap<>();
         params.put("format","json");
         params.put("ip",CommonUtils.getIpAddr(request));
+        String e_creative = request.getParameter("e_creative");
         try {
             String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
             System.out.println(result);
@@ -118,7 +119,7 @@ public class WebController {
                 Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
                 });
                 setInfo(map, request, URL_3,location.city, response);
-                if (location == null || location.city == null || location.toString().contains("北京") || location.toString().contains("上海")
+                if (StringUtils.isEmptyOrWhitespace(e_creative) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
                     return "forward:/fxbig.html";
                 }else if(TimeUtils.isAdTimes()){
@@ -127,7 +128,7 @@ public class WebController {
 
             }
         }catch (Exception e){
-            setInfo(map, request, URL_3,"", response);
+            setInfo(map, request, URL_3,"未知", response);
             return "forward:/fxbig.html";
         }
         setInfo(map, request, URL_3,"", response);
@@ -143,31 +144,31 @@ public class WebController {
     @RequestMapping(value = "/"+URL_5,method = RequestMethod.GET)
     public String fx5(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_5, mUrlMappingService.getPriceByUrl(URL_5));
-        return "fx2";
+        return "fx5";
     }
 
     @RequestMapping(value = "/"+URL_6,method = RequestMethod.GET)
     public String fx6(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_6, mUrlMappingService.getPriceByUrl(URL_6));
-        return "fx2";
+        return "fx5";
     }
 
     @RequestMapping(value = "/"+URL_7,method = RequestMethod.GET)
     public String fx7(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_7, mUrlMappingService.getPriceByUrl(URL_7));
-        return "fx2";
+        return "fx5";
     }
 
     @RequestMapping(value = "/"+URL_8,method = RequestMethod.GET)
     public String fx8(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_8, mUrlMappingService.getPriceByUrl(URL_8));
-        return "fx1";
+        return "fx5";
     }
 
     @RequestMapping(value = "/"+URL_9,method = RequestMethod.GET)
     public String fx9(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_9, mUrlMappingService.getPriceByUrl(URL_9));
-        return "fx1";
+        return "fx5";
     }
 
     @RequestMapping(value = "/"+URL_10,method = RequestMethod.GET)
@@ -321,6 +322,7 @@ public class WebController {
         map.addAttribute("wechat_id", wechatId);
         return "zixun";
     }
+
 
 
 }

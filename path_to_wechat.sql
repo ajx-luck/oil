@@ -34,5 +34,5 @@ CREATE TABLE `path_to_wechat` (
 INSERT INTO `path_to_wechat` VALUES ('14', '1000', '129', 'fxa', 'wk27057');
 INSERT INTO `path_to_wechat` VALUES ('15', '1000', '129', 'fxb', 'wk26177');
 INSERT INTO `path_to_wechat` VALUES ('16', '1000', '129', 'fxc', 'cph131466');
-INSERT INTO `path_to_wechat` VALUES ('17', '1000', '129', 'fxc', 'xf409926');
+INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fxc', 'wd66666488');
 SET FOREIGN_KEY_CHECKS=1;
