@@ -54,7 +54,7 @@ function setCookie(name, value, liveMinutes) {
     var exp = new Date();
     exp.setTime(exp.getTime() + minutes + 8 * 3600 * 1000);
     //path=/表示全站有效，而不是当前页
-    document.cookie = name + "=" + value + ";path=/;expires=" + exp.toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + exp.toUTCString();
 }
 
 

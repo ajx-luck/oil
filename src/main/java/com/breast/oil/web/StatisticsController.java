@@ -66,7 +66,7 @@ public class StatisticsController {
         String keyWord = request.getParameter("keyword");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
-        String city = "";
+        String city = "北京";
         if(webInfo != null) {
             //如果为空，就取推广的记录页面，否则随便取
             if(StringUtils.isEmptyOrWhitespace(wechatId)) {
@@ -86,8 +86,8 @@ public class StatisticsController {
                     ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
-        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
+        return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                ,wechatId,city, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
     }
 
     /**
