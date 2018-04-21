@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -62,22 +63,30 @@ public class StatisticsController {
     public String rememberWeb(HttpServletRequest request) {
         String ip = CommonUtils.getIpAddr(request);
         String urlPath = request.getParameter("urlPath");
+        String keyWord = request.getParameter("keyword");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
+        String city = "";
         if(webInfo != null) {
-            wechatId = webInfo.getWechatId();
-            String keyWord = webInfo.getKeyWord() == null?"def":webInfo.getKeyWord();
-            String e_keywordid = webInfo.geteKeywordid() == null ? "def":webInfo.geteKeywordid();
+            //如果为空，就取推广的记录页面，否则随便取
+            if(StringUtils.isEmptyOrWhitespace(wechatId)) {
+                wechatId = webInfo.getWechatId();
+            }
+            city = webInfo.getCity();
+            if(StringUtils.isEmptyOrWhitespace(keyWord)) {
+                keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
+            }
+            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
                     wechatId, keyWord, e_keywordid);
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
-            String str = String.format("{\"wechatId\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
+            String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
-        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"def\",\"e_keywordid\":\"def\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+        return String.format("{\"wechatId\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
                 ,wechatId, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
     }
 

@@ -89,15 +89,7 @@
             }
         </style>
 
-        <header class="layout pubbac262 headertop">
-            <section class="pubwarp">
-                <i class="publeftico headeri"></i>
-                <h6 class="pubcolcfd headerh6">&nbsp;</h6>
-                <span class="pubicon blue_kit_icon_more"></span>
-                <span class="pubicon blue_kit_icon_search"></span>
-                <span class="pubicon blue_kit_icon"></span>
-            </section>
-        </header>
+
         <div class="layout pubbacfaf headerdiv">
             <section class="pubwarp">
                 <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-6_files/tb288cbjybmpufjszfuxxag_xxa_!!2778885080.jpg"
@@ -113,11 +105,13 @@
                      width="597" height="398" class="user_img">
                 <div class="avatarcon">
                     <div class="avatardiv">
+                        <br/>
                         <b class="pubcol336 user_name">刘琳</b>
                         <span class="level level_6">6</span>&nbsp;
                     </div>
-                    <time class="pubcolccc avatardivtime">楼主 发表于2017.3.12 16:07</time>
+
                 </div>
+                <time class="pubcolccc avatardivtime">楼主 发表于2017.3.12 16:07</time>
                 <i class="list_item_more_operation_btn j_list_item_more_operation_btn pubicon icon_btn"></i>
             </div>
             <section class="mainsection">
@@ -949,7 +943,7 @@
             async: false,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //            dataType: 'json',
             contentType: "application/json;charset=utf-8",
-            data: {urlPath: "list-6"},
+            data: {urlPath: "list-6",keyword:getQueryString("word")},
             success: function (msg) {
                 var jsonobj = jQuery.parseJSON(msg);
                 str_wx_id = jsonobj.wechatId;

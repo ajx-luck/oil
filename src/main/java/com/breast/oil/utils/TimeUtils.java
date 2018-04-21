@@ -66,6 +66,8 @@ public class TimeUtils {
                 ad_stopTimes = properties.getProperty("adsop");
             } catch (IOException e) {
                 e.printStackTrace();
+                ad_startTimes = "8:00";
+                ad_stopTimes = "19:00";
             }
 
         }

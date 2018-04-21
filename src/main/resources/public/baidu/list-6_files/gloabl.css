@@ -326,7 +326,7 @@ select, textarea {
     vertical-align: middle;
     overflow: hidden;
     font-size: 0.75rem;
-    margin-top: -0.313rem;
+    margin-top: 0rem;
 }
 
 .level {

@@ -224,16 +224,14 @@ public class UrlMappingService {
      * @param info
      * @param ip
      */
-    @Cacheable(value = "save", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void savaWebInfo(WebInfo info,String url, String ip) {
         cacheWeb(url,ip);
         if(!StringUtils.isEmptyOrWhitespace(info.getKeyWord())){
-            addKeyWordAndWxClick(info.getKeyWord(),info.geteKeywordid());
+            addKeyWordAndWebClick(info.geteKeywordid(),info.getKeyWord());
         }
         mWebInfoRepository.save(info);
     }
 
-    @CachePut(value = "save", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void cacheWeb(String url,String ip) {
 
     }
