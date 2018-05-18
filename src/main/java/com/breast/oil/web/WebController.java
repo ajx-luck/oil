@@ -123,7 +123,7 @@ public class WebController {
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
                     return "forward:/fxbig.html";
                 }else if(TimeUtils.isAdTimes()){
-                    return "forward:/fxh.html";
+                    return "forward:/fxbig.html";
                 }
 
             }
