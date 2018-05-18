@@ -135,6 +135,8 @@ public class WebController {
         return "forward:/fxbig.html";
     }
 
+
+
     @RequestMapping(value = "/"+URL_4,method = RequestMethod.GET)
     public String fx4(ModelMap map, HttpServletRequest request){
         setInfo(map, request, URL_4, mUrlMappingService.getPriceByUrl(URL_4));
