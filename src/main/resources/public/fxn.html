@@ -1008,7 +1008,7 @@
             </style>
             <div class="m-message text-indent" style="color:#000; text-align:center">
 
-                <div style="text-align:center"><img src="/fxn/tt.png" style="width: 75px;height:75px;vertical-align: top;border: 0px none;border-radius: 100%; "></div>
+                <div style="text-align:center"><img src="/fxn/tt.jpg" style="width: 75px;height:75px;vertical-align: top;border: 0px none;border-radius: 100%; "></div>
                 <div style="text-align:left; text-align:center ">懒的测试？直接添加资深丰胸老师微信<br><div style="color: #e81d1d;font-weight: bold;"><script>document.write(stxlwx);</script></div>
                     （长按复制↑）随时咨询
 
@@ -1275,7 +1275,7 @@
     <!-- 退弹结束 -->
 
 
-    <script type="text/javascript" src="/fxn/bd.js"> </script>
+    <!--<script type="text/javascript" src="/fxn/bd.js"> </script>-->
 
     <div class="sogoutip" style="z-index: 2147483645; visibility: hidden; display: none;"></div>
     <div class="sogoubottom" id="sougou_bottom" style="display: none;"></div><div id="ext_overlay" class="ext_overlayBG" style="display:
@@ -1319,7 +1319,55 @@ display: none; z-index: 2147483645; background: transparent;"></iframe>
     #CBCBCB; bottom: 0; font-size: 12px; height:40px;  line-height:
             20px; opacity: 1; position: fixed; width: 100%; z-index: 102; max-width: 640px;}
 </style>
+<script type="text/javascript">
+    function gowx() {
+        window.location.href = "weixin://"
+    }
 
+    function gowx2(arg) {
+        var url = '/remember';
+        $.ajax({
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: {position: arg},
+            beforeSend: function () {
+                window.location.href = "weixin://"
+            }, success: function (json) {
+
+            }
+        });
+
+    }
+</script>
+
+<script type="text/javascript">
+    var str_wx_id
+    $(function () {
+
+        var url = "/rememberweb";
+        $.ajax({
+            type: "get",
+            url: url,
+            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            data: {urlPath: "fxc"},
+            success: function (msg) {
+                var jsonobj = jQuery.parseJSON(msg);
+                str_wx_id = jsonobj.wechatId;
+                var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                eval(js_add_copy);
+            }
+        })
+
+
+
+
+    })
+
+
+</script>
 </body>
-
 </html>
