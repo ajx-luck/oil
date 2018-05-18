@@ -99,22 +99,7 @@
     </div>
 </section>
 
-    $(function() {
-        var n = $("#main-menu"),
-            a = n.children();
-        if (a.length > 4) {
-            n.after('<ul id="nav-menu" class="menu" />'),
-                a.filter(":nth-child(n+5)").appendTo("#nav-menu"),
-                n.append('<li id="nav-menu-toggle" class="menuitem"><a href=""><span class="icon"><\/span><span class="icon"><\/span><span class="icon"><\/span><\/a><\/li>');
-            var e = $("#menu").addClass("has-nav-menu");
-            $("#nav-menu-toggle > a").on("click",
-                function() {
-                    return e.toggleClass("show-nav-menu"),
-                        !1
-                })
-        }
-    });
-</script>
+
 <script>
     $(function() {
         $(window).on("resize",

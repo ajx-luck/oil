@@ -70,7 +70,7 @@ public class WebController {
             wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
         }
         if(response != null){
-            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, city,60*60*24*15);
+            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
             CookieUtils.set(response, AppConsts.CITY_NAME,city,60*60*24*15);
         }
         String keyword = request.getParameter("keyword");
@@ -121,18 +121,18 @@ public class WebController {
                 setInfo(map, request, URL_3,location.city, response);
                 if (StringUtils.isEmptyOrWhitespace(e_creative) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
-                    return "forward:/fxbig.html";
+                    return "forward:/fxn.html";
                 }else if(TimeUtils.isAdTimes()){
-                    return "forward:/fxbig.html";
+                    return "forward:/fxn.html";
                 }
 
             }
         }catch (Exception e){
             setInfo(map, request, URL_3,"未知", response);
-            return "forward:/fxbig.html";
+            return "forward:/fxn.html";
         }
         setInfo(map, request, URL_3,"", response);
-        return "forward:/fxbig.html";
+        return "forward:/fxn.html";
     }
 
 
