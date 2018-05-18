@@ -1,6 +1,7 @@
 package com.breast.oil.domain;
 
 import com.breast.oil.utils.TimeUtils;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +30,7 @@ public class WebInfo {
     private String keyWord;
     @Column(nullable = true)
     private String eKeywordid;
+    @Type(type="text")
     @Column(nullable = true)
     private String refer;
     /**
