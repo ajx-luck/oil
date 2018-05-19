@@ -285,6 +285,9 @@ public class UrlMappingService {
      * @param keyWordDesc
      */
     public void addKeyWordAndWebClick(String keyword,String keyWordDesc){
+        if(keyword == null || keyWordDesc == null){
+            return;
+        }
         List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
         KeyWord kw;
         if(list!=null && list.size() > 0){
@@ -304,6 +307,9 @@ public class UrlMappingService {
      * @param keyWordDesc
      */
     public void addKeyWordAndWxClick(String keyword,String keyWordDesc){
+        if(keyword == null || keyWordDesc == null){
+            return;
+        }
         List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
         KeyWord kw;
         if(list!=null && list.size() > 0){
