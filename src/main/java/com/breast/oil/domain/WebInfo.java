@@ -64,11 +64,17 @@ public class WebInfo {
     @Column(nullable = true)
     private String price;
 
+    /**
+     * 人群编号
+     */
+    @Column(nullable = true)
+    private String audience;
+
     public WebInfo(){
 
     }
 
-    public WebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price) {
+    public WebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -82,6 +88,7 @@ public class WebInfo {
         this.ePagenum = e_pagenum;
         this.displayTime = TimeUtils.timesToDate(createTime);
         this.price = price;
+        this.audience = audience;
     }
 
 
@@ -200,5 +207,13 @@ public class WebInfo {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getAudience() {
+        return audience;
+    }
+
+    public void setAudience(String audience) {
+        this.audience = audience;
     }
 }

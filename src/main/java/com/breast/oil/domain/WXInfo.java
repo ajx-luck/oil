@@ -67,11 +67,17 @@ public class WXInfo {
     @Column(nullable = true)
     private String price;
 
+    /**
+     * 人群编号
+     */
+    @Column(nullable = true)
+    private String audience;
+
     public WXInfo(){
 
     }
 
-    public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid, String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price) {
+    public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid, String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
@@ -86,6 +92,7 @@ public class WXInfo {
         this.ePagenum = e_pagenum;
         this.displayTime = TimeUtils.timesToDate(createTime);
         this.price = price;
+        this.audience = audience;
     }
 
     public Long getId() {
@@ -211,5 +218,13 @@ public class WXInfo {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getAudience() {
+        return audience;
+    }
+
+    public void setAudience(String audience) {
+        this.audience = audience;
     }
 }

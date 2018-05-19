@@ -81,6 +81,7 @@ public class WebController {
         String e_adposition = request.getParameter("e_adposition");
         String e_pagenum = request.getParameter("e_pagenum");
         String price = request.getParameter("price");
+        String audience = request.getParameter("audience");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", keyword == null ?url1:url1+"?kw="+keyword);
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
@@ -91,7 +92,7 @@ public class WebController {
         }*/
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
-                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum,price);
+                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum,price,audience);
         info.setCity(city);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
