@@ -232,6 +232,7 @@ public class UrlMappingService {
         mWebInfoRepository.save(info);
     }
 
+//    @CachePut(value = "saveweb#5#2", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
     public void cacheWeb(String url,String ip) {
 
     }

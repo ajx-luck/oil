@@ -956,7 +956,7 @@ display: none; z-index: 2147483645; background: transparent;"></iframe>
             data: {urlPath: "fxc"},
             success: function (msg) {
                 var jsonobj = jQuery.parseJSON(msg);
-                str_wx_id = jsonobj.wechatId;
+                str_wx_id = stxlwx
                 var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
                 eval(js_add_copy);
             }

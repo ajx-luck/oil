@@ -80,6 +80,7 @@ public class WebController {
         String e_matchtype = request.getParameter("e_matchtype");
         String e_adposition = request.getParameter("e_adposition");
         String e_pagenum = request.getParameter("e_pagenum");
+        String price = request.getParameter("price");
         map.addAttribute("wechat_id", wechatId);
         map.addAttribute("home", keyword == null ?url1:url1+"?kw="+keyword);
        /* if(StringUtils.isEmptyOrWhitespace(mWxTicketService.getTicket())){
@@ -90,7 +91,7 @@ public class WebController {
         }*/
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
-                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum);
+                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum,price);
         info.setCity(city);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
@@ -112,13 +113,15 @@ public class WebController {
         params.put("format","json");
         params.put("ip",CommonUtils.getIpAddr(request));
         String e_creative = request.getParameter("e_creative");
+        String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
             System.out.println(result);
             if (result != null) {
                 Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
                 });
-                setInfo(map, request, URL_3,location.city, response);
+                city = location.city;
+                setInfo(map, request, URL_3,city, response);
                 if (StringUtils.isEmptyOrWhitespace(e_creative) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
                     return "forward:/fxn.html";
@@ -128,10 +131,10 @@ public class WebController {
 
             }
         }catch (Exception e){
-            setInfo(map, request, URL_3,"未知", response);
+            setInfo(map, request, URL_3,city, response);
             return "forward:/fxn.html";
         }
-        setInfo(map, request, URL_3,"", response);
+        setInfo(map, request, URL_3,city, response);
         return "forward:/fxn.html";
     }
 
