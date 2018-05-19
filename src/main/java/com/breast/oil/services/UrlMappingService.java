@@ -226,7 +226,7 @@ public class UrlMappingService {
      */
     public void savaWebInfo(WebInfo info,String url, String ip) {
         cacheWeb(url,ip);
-        if(info.getRefer() != null && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord()))){
+        if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
         }
         mWebInfoRepository.save(info);
