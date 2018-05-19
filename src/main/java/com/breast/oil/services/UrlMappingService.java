@@ -293,7 +293,9 @@ public class UrlMappingService {
         }else{
             kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
         }
-        mKeyWordRepository.save(kw);
+        if(!keyWordDesc.equals("{keywordid}")) {
+            mKeyWordRepository.save(kw);
+        }
     }
 
     /**
@@ -310,7 +312,9 @@ public class UrlMappingService {
         }else{
             kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
         }
-        mKeyWordRepository.save(kw);
+        if(!keyWordDesc.equals("{keywordid}")) {
+            mKeyWordRepository.save(kw);
+        }
     }
 
     /**
