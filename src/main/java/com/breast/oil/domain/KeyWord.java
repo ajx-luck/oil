@@ -36,7 +36,7 @@ public class KeyWord {
     }
 
     public KeyWord(String keyWord, String e_keywordid, Long createTime) {
-        this(keyWord,e_keywordid,createTime,0L,0L);
+        this(keyWord,e_keywordid,createTime,1L,0L);
     }
 
     public KeyWord(String keyWord, String e_keywordid, Long createTime, Long web, Long wxClick) {
