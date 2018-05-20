@@ -73,11 +73,24 @@ public class WXInfo {
     @Column(nullable = true)
     private String audience;
 
+    /**
+     * 单元名称
+     */
+    @Column(nullable = true)
+    private String dy;
+
+    /**
+     * 计划名称
+     */
+    @Column(nullable = true)
+    private String jh;
+
     public WXInfo(){
 
     }
 
-    public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid, String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience) {
+    public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid,
+                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
@@ -93,6 +106,8 @@ public class WXInfo {
         this.displayTime = TimeUtils.timesToDate(createTime);
         this.price = price;
         this.audience = audience;
+        this.dy = dy;
+        this.jh = jh;
     }
 
     public Long getId() {
@@ -226,5 +241,21 @@ public class WXInfo {
 
     public void setAudience(String audience) {
         this.audience = audience;
+    }
+
+    public String getDy() {
+        return dy;
+    }
+
+    public void setDy(String dy) {
+        this.dy = dy;
+    }
+
+    public String getJh() {
+        return jh;
+    }
+
+    public void setJh(String jh) {
+        this.jh = jh;
     }
 }
