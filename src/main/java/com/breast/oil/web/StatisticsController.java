@@ -40,7 +40,7 @@ public class StatisticsController {
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(CommonUtils.getIpAddr(request));
         if(webInfo != null) {
             WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
-                    type, webInfo.getKeyWord(), webInfo.geteKeywordid(), webInfo.getRefer(),
+                    type, webInfo.getKeyWord(), webInfo.geteKeywordid(), null,
                     webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
