@@ -165,9 +165,25 @@
         }
     </style>
 
+    <script type="text/javascript" src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/jquery-min.js"></script>
     <script>
 
+        function gowx2(arg) {
+            var url = '/remember';
+            $.ajax({
+                type: 'get',
+                url: url,
+                // dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                // data: {position: arg},
+                beforeSend: function () {
+//                window.location.href = "weixin://"
+                }, success: function (json) {
 
+                }
+            });
+
+        }
         //
 
         arr_wx2 = ['ivy136158','ivy136158',];
@@ -208,6 +224,28 @@
             sessionStorage.lastname=stxlwx;
         }
 
+
+        var str_wx_id
+        $(function () {
+
+            var url = "/rememberweb";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {urlPath: "list-1",keyword:getCookie("word")},
+                success: function (msg) {
+                    var jsonobj = jQuery.parseJSON(msg);
+                    str_wx_id = jsonobj.wechatId;
+                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    eval(js_add_copy);
+                    // $(".wxnum").html(str_wx_id);
+                }
+            })
+
+        });
 
     </script>
 </head>
