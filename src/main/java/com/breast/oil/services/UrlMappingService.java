@@ -231,7 +231,7 @@ public class UrlMappingService {
         //真实有效点击
         if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
-            RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),info.getRefer(),info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
+            RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
                     info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh());
             mRealWebInfoRepository.save(realWebInfo);
         }
