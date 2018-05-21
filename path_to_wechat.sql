@@ -26,7 +26,7 @@ CREATE TABLE `path_to_wechat` (
   `url_path` varchar(255) NOT NULL,
   `wechat_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of path_to_wechat

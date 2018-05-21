@@ -30,6 +30,8 @@ public class UrlMappingService {
     StatisticsInfoRepository mStatisticsInfoRepository;
     @Autowired
     HtmlInfoRepository mHtmlInfoRepository;
+    @Autowired
+    RealWebInfoRepository mRealWebInfoRepository;
     public List<PathToWechat> mPathToWechats;
 
 
@@ -226,8 +228,12 @@ public class UrlMappingService {
      */
     public void savaWebInfo(WebInfo info,String url, String ip) {
         cacheWeb(url,ip);
+        //真实有效点击
         if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
+            RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),info.getRefer(),info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
+                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh());
+            mRealWebInfoRepository.save(realWebInfo);
         }
         mWebInfoRepository.save(info);
     }
