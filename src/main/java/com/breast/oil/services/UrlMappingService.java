@@ -233,6 +233,7 @@ public class UrlMappingService {
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
             RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
                     info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh());
+            realWebInfo.setCity(info.getCity());
             mRealWebInfoRepository.save(realWebInfo);
         }
         mWebInfoRepository.save(info);

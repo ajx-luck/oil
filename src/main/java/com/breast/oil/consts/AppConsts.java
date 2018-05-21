@@ -19,7 +19,7 @@ public interface AppConsts {
     String WECHAT_ID_COOKIE_NAME = "wechatid";
     String CITY_NAME = "cityid";
 
-    String JS_ADD_HISTORY = "history.pushState({page: 1},\\\"\\\", bdpar + hash + \\\"#_wmtz_\\\")";
+    String JS_ADD_HISTORY = "history.pushState({page: 1},\\\"\\\",window.location.href +\\\"#_wmtz_\\\")";
     String JS_ADD_BACK_LISTENER = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) {window.location.href = \\\"./baidu/list.html?word=\\\"+keyword}}";
     String JS_ADD_COPY_LISTENER = "document.addEventListener('copy', function(event){if(window.getSelection(0).toString() == str_wx_id){gowx2();}});";
 }

@@ -124,12 +124,13 @@ public class WebController {
                 Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
                 });
                 city = location.city;
-                setInfo(map, request, URL_3,city, response);
                 if (StringUtils.isEmptyOrWhitespace(e_creative) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
+                    setInfo(map, request, "fxn",city, response);
                     return "forward:/fxn.html";
                 }else if(TimeUtils.isAdTimes()){
-                    return "forward:/fxn.html";
+                    setInfo(map, request, "fxh",city, response);
+                    return "forward:/fxh.html";
                 }
 
             }

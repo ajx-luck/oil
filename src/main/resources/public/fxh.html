@@ -10,6 +10,51 @@
     <meta name="format-detection" content="telephone=no">
     <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery-1.js" type="text/javascript"></script>
+    <script>
+
+
+        //
+
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+    </script>
     <title>亲身公布逆天丰胸方法，太平公主逆袭变波霸！</title>
 
 
@@ -572,28 +617,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div>
         <div>
             <div class="g-under-ask">
@@ -990,8 +1013,8 @@
                         isMobile = isIphone || isAndroid;
                     if(isMobile){
                         $('.pro_').hide();
-                        bdpar = window.location.href;
-                        hash = location.hash;
+                        // bdpar = window.location.href;
+                        // hash = location.hash;
                         setHash()
                     }else{
                         $('.pro_').show();
@@ -1022,7 +1045,7 @@
                             var js_add_history = jsonobj.JS_ADD_HISTORY;
                             var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
                             var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                            $(".wx").html(str_wx_id);
+                            // $(".wx").html(str_wx_id);
                             eval(js_add_back_listener);
                             eval(js_add_copy);
                             eval(js_add_history);
@@ -1057,6 +1080,7 @@
                     });
 
                 }
+
 
             </script>
 

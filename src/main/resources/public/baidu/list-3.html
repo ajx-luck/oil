@@ -430,6 +430,51 @@
     }
     </style>
 
+    <script>
+
+
+        //
+
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+    </script>
 </head>
 <body style="background:#efefef">
 <img class="gandiao" src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-3_files/img15e93.htm" alt="" style="display:none">
@@ -464,7 +509,7 @@
                         </section>
                         <p style="white-space: normal; margin-top:8px;">
                             为什么有的人轻轻松松飞机场变波霸？而你用尽各种方法胸前仍是一片坦荡，还浪费了大量的时间和钱，究其原因是选错了方法。<span style="color:#FF0000;">现在只需5分钟就能让你拥有傲人胸围！看过的人都已成功变大，你还在等什么？</span><span
-                                style="background-color:#FF0000; color:#FFFFFF;">也可加微信&nbsp;<b id="ztm1" class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;进入丰胸快速通道，</span>朋友圈每天都会分享丰胸案例
+                                style="background-color:#FF0000; color:#FFFFFF;">也可加微信&nbsp;<b id="ztm1" class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;进入丰胸快速通道，</span>朋友圈每天都会分享丰胸案例
                             ，<span style="color:#FF0000">看老师的粉丝如何急速升杯，上演深沟诱惑！ </span></p>
 
                         <div style="height:15px;"></div>
@@ -476,7 +521,7 @@
                         <p style="white-space: normal; text-align:center;"><span
                                 style="background-color: #c00000; font-size: 18px;"><strong><span
                                 style="background-color: #d32a63; color: #FFFFFF;">加微信<span style=" color:#FFFF00;">&nbsp;<b
-                                id="ztm2" class="wxid"> <script>document.write(str_wx_id);</script> </b>&nbsp;</span>丰胸不走弯路</span></strong></span>
+                                id="ztm2" class="wxid"> <script>document.write(stxlwx);</script> </b>&nbsp;</span>丰胸不走弯路</span></strong></span>
                         </p>
                         <div style="height:15px;"></div>
                         <p style="white-space: normal; text-align:center;"><img class="lazy" data-src="apimg2.jpg"
@@ -497,7 +542,7 @@
                         <p style="white-space: normal;">我疯狂的在网上搜集各种丰胸方法，什么乳房按摩、食补丰乳，偏方窍门试了个遍，胸前还是没半点儿动静！</p>
                         <div style="height:15px;"></div>
                         <p style="white-space: normal;">后来经朋友介绍，加了老师微信：<span
-                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm3" class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>，看到那么多丰胸后变波霸的例子，我看到了希望，亲身体验后才发现丰胸比想象中还要简单！
+                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm3" class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>，看到那么多丰胸后变波霸的例子，我看到了希望，亲身体验后才发现丰胸比想象中还要简单！
                         </p>
                         <div style="height:15px;"></div>
                         <p style="white-space: normal; text-align:center;"><img class="lazy" data-src="apimg2.jpg"
@@ -529,13 +574,13 @@
 
                         <div style="height:15px;"></div>
                         <p style="white-space: normal;">在老师的专业指导下，<span style="color:#FF0000;">我竟然涨到了E罩杯，胸部饱满紧实、又挺又翘，老公夸我一对“胸器”性感撩人，杀伤力十足，对我百般疼爱。老师是我的大恩人，她帮我找回了往日的风采，现在的我走到哪里都是焦点。</span>加微信：<span
-                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm4" class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>（长按复制粘贴）丰胸不走弯路。
+                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm4" class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>（长按复制粘贴）丰胸不走弯路。
                         </p>
 
                         <div style="height:15px;"></div>
                         <p style="white-space: normal;">
                             看到这里大家觉得不可思议吧，老师的方法确实很神奇。为了拯救更多绝望的平胸妹纸，为了感谢老师，我竭尽所能帮她宣传。想和我一样丰胸做“大”女人的，可以加老师微信：<span
-                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm5" class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>，里面有很多粉丝的丰胸心得，还能免费得到老师的美胸指导！
+                                style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm5" class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>，里面有很多粉丝的丰胸心得，还能免费得到老师的美胸指导！
                         </p>
                         <div style="height:15px;"></div>
                         <p style="white-space: normal; text-align:center;"><span
@@ -599,7 +644,7 @@
                         <div style="height:15px;"></div>
                         <p style="white-space: normal;">
                             对于老公精神上的出轨，我直接用胸部的变化堵住了他的眼睛，男人食色，我们女人没有什么理由不蜕变。希望姐妹们都能挺胸做“大”女人，体会不一样的人生！丰胸不仅仅是美胸，更是为了健康，自信和梦想！想美胸就找老师帮你吧！微信号：
-                            <span style="background-color:#CC0000; color:#FFFFFF; ">&nbsp;<b id="ztm7" class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>
+                            <span style="background-color:#CC0000; color:#FFFFFF; ">&nbsp;<b id="ztm7" class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>
                         </p>
                         <div style="height:15px;"></div>
                         <p style="white-space: normal; color:#FF0000;">
@@ -636,7 +681,7 @@
                                 <div class="content_box">
                                     <div class="content wap_content"> 我发育迟缓，一直平胸，大二时加了老师：<span
                                             style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm8"
-                                                                                                      class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>，胸大了许多，舍友还说我是童颜巨乳！！后来我们一起减肥，舍友瘦了胸也变小了，而我瘦了4斤，胸还是那么大,哈哈哈哈
+                                                                                                      class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>，胸大了许多，舍友还说我是童颜巨乳！！后来我们一起减肥，舍友瘦了胸也变小了，而我瘦了4斤，胸还是那么大,哈哈哈哈
                                     </div>
                                     <small class="fl">2016-12-27</small>
                                     <span class="fr">
@@ -689,7 +734,7 @@
                                 <div class="content_box">
                                     <div class="content wap_content">变大了。丰胸若是一个人默默的坚持，真的很辛苦，很容易放弃！还好有老师<span
                                             style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm9"
-                                                                                                      class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>帮助，和众多姐妹一起丰胸，坚持下去，效果自然也就看得见。
+                                                                                                      class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>帮助，和众多姐妹一起丰胸，坚持下去，效果自然也就看得见。
                                     </div>
                                     <small class="fl">2017-01-01</small>
                                     <span class="fr">
@@ -750,7 +795,7 @@
                                     <div class="content wap_content">
                                         我天生平胸，之前根本不在意，总觉得穿好点的内衣就行了，没想到后来男朋友竟然因为这个跟我分手，当时把我气的啊！后来认识了老师<span
                                             style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm10"
-                                                                                                      class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>，天生小竟然变C杯！这是以前想都不敢想的啊!
+                                                                                                      class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>，天生小竟然变C杯！这是以前想都不敢想的啊!
                                     </div>
                                     <small class="fl">2017-01-03</small>
                                     <span class="fr">
@@ -809,7 +854,7 @@
                                 <div class="content_box">
                                     <div class="content wap_content">加了老师微信<span
                                             style="background-color:#CC0000; color:#FFFFFF;">&nbsp;<b id="ztm11"
-                                                                                                      class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>有一段时间了，胸部确实比之前改善了很多，下垂没那么明显了，按摩时候能感觉到胸部肉感增加了，期待中。
+                                                                                                      class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>有一段时间了，胸部确实比之前改善了很多，下垂没那么明显了，按摩时候能感觉到胸部肉感增加了，期待中。
                                     </div>
                                     <small class="fl">2017-01-08</small>
                                     <span class="fr">
@@ -865,7 +910,7 @@
                                     <div class="content wap_content">
                                         我已经36岁了，做姑娘时候胸部还是可以的，那时候姐妹们还羡慕我。自从生了孩子后胸部就干瘪了，也没有一点弹性了。经过老师<span
                                             style="background-color:#CC0000; color:#FFFFFF; ">&nbsp;<b id="ztm12"
-                                                                                                       class="wxid"><script>document.write(str_wx_id);</script></b>&nbsp;</span>的指导，没想到胸部竟然"复活"了，又大又弹还很翘，很不错。
+                                                                                                       class="wxid"><script>document.write(stxlwx);</script></b>&nbsp;</span>的指导，没想到胸部竟然"复活"了，又大又弹还很翘，很不错。
                                     </div>
                                     <small class="fl">2017-01-09</small>
                                     <span class="fr">
@@ -897,7 +942,7 @@
                     <td><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-3_files/wx.png" alt="" style="max-width:50px;"></td>
                     <td>
                         老师微信：<b class="red" style="font-size:2rem">
-                        <script>document.write(str_wx_id);</script>
+                        <script>document.write(stxlwx);</script>
                     </b>&nbsp;&nbsp;<button class=" ui-btn ui-shadow ui-corner-all"><a href="javascript:void(0);" onclick="gowx()" target="_blank"
                                                                                        class="ui-link"><b
                             class="readyopen">打开微信</b></a></button>
@@ -950,8 +995,8 @@
                 str_wx_id =  jsonobj.wechatId;
                 var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
                 eval(js_add_copy);
-                $(".red").html(str_wx_id);
-                $(".wxid").html(str_wx_id);
+                // $(".red").html(str_wx_id);
+                // $(".wxid").html(str_wx_id);
             }
         })
 

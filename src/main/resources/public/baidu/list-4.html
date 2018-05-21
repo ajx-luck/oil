@@ -48,6 +48,51 @@
         margin-left: 0px !important;
     }
     </style>
+    <script>
+
+
+        //
+
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+    </script>
 
 </head>
 <body class="ue_revision portrait">
@@ -97,7 +142,7 @@
                                     用了微信上买的丰胸产品，我一听丰胸的产品，就觉得不靠谱。但是她说，这个产品不妨碍健康，又不贵，你可以买来试试。她给我了一个微信号，（<span class="STYLE2">
                                             <b>
                                                 <span class="wxid">
-                                                    <script>document.write(str_wx_id);</script>
+                                                    <script>document.write(stxlwx);</script>
                                                 </span>
                                             </b>
                                         </span>），微信丰胸达人。被她一撩拨，我心里就开始长毛了。
@@ -153,7 +198,7 @@
                                                             回复&nbsp;<a>张雪sky</a>&nbsp;:亲! <span class="STYLE2">
                                                                 <b id="jiafen2">
                                                                     <span class="wxid">
-                                                                        <script>document.write(str_wx_id);</script>
+                                                                        <script>document.write(stxlwx);</script>
                                                                     </span>
                                                                 </b>
                                                             </span>，是你的还是她的微信？我以前用过其他的丰胸产品，都没什么效果，这个靠谱吗？很怀疑啊
@@ -238,7 +283,7 @@
                                     大家不要私信咨询我了，我也不专业，平常时间也不多，你们直接加丰胸达人的微信：<span class="STYLE2">
                                             <b id="jiafen2">
                                                 <span class="wxid">
-                                                    <script>document.write(str_wx_id);</script>
+                                                    <script>document.write(stxlwx);</script>
                                                 </span>
                                             </b>
                                         </span>，可以说是张雪推荐的~~
@@ -443,7 +488,7 @@
                                                         <span class="STYLE2">
                                                             <b id="jiafen2">
                                                                 <span class="wxid">
-                                                                    <script>document.write(str_wx_id);</script>
+                                                                    <script>document.write(stxlwx);</script>
                                                                 </span>
                                                             </b>
                                                         </span>
@@ -787,7 +832,7 @@
 <p></p>
 <div style="position:fixed; text-align:center; font-size:18px; font-weight:bold; bottom:0; width:100%; height:50px; line-height:50px; background-color:#F00; color:#FFF">
     丰胸加我：<span class="wxidbottom">
-            <script>document.write(str_wx_id);</script>
+            <script>document.write(stxlwx);</script>
         </span>
     （长按可复制）
 </div>
@@ -832,8 +877,8 @@
                 str_wx_id =  jsonobj.wechatId;
                 var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
                 eval(js_add_copy);
-                $(".wxid").html(str_wx_id);
-                $(".wxidbottom").html(str_wx_id);
+                // $(".wxid").html(str_wx_id);
+                // $(".wxidbottom").html(str_wx_id);
             }
         })
 

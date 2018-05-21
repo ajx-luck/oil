@@ -60,7 +60,7 @@ public class TimeUtils {
         if (ad_startTimes == null || ad_stopTimes == null) {
             Properties properties = new Properties();
             try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("/www/adtime.properties"));
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("/root/oil/adtime.properties"));
                 properties.load(bufferedReader);
                 ad_startTimes = properties.getProperty("adstart");
                 ad_stopTimes = properties.getProperty("adsop");
