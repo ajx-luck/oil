@@ -78,7 +78,7 @@ public class StatisticsController {
             }
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid);
+                    wechatId, keyWord, e_keywordid,city);
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
