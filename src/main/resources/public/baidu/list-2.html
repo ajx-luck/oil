@@ -499,7 +499,7 @@
 
     }
 </script>
-<script type="text/javascript" src="./list_files/jquery-min.js"></script>
+<script type="text/javascript" src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/jquery-min.js"></script>
 <script type="text/javascript">
     var str_wx_id
     $(function () {
@@ -511,7 +511,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-2",keyword:getQueryString("word")},
+                data: {urlPath: "list-2",keyword:getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = jsonobj.wechatId;
