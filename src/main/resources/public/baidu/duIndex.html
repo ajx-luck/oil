@@ -1656,110 +1656,110 @@
 <body data-version="css_page_2@w-13,css_weather@w-6,css_icon@w-4,css_plus@w-8,css_edit@w-6,css_modal@3,css_widget_sug@w-6,css_skin@4,js_esl@w-6,js_zepto@w-7,js_event@w-41,js_fastclick@,js_utils@,js_smartymonkey@w-1,js_index@w-24,js_banner_ctrl@w-13,js_inputlog@w-12,js_bdnow@w-24,js_nctips@w-4,js_widget_textinput@w-8,js_widget_sug@w-8,js_hash_lib@w-11,js_skinRenderIndex@w-11,js_skinIphone@w-15,js_prefetch@w-14,js_sug@w-34,js_iscroll@w-6,js_init@w-11,js_geolocation@w-8,js_login@w-9,js_tab@w-16,js_md5@w-6,js_url@w-6,js_lswrite@w-9,js_modal@w-7,js_thirdparty@w-8,js_superstart@w-39,js_setSearchEngine@w-6"
       data-cur-page="index">
 <script data-lsid="plus_js_head">        (function () {
-    var d = window.B || (window.B = {});
-    var b = document;
-    if (b.cookie.match(/BAIDUID=([^:]+)/)) {
-        d.id = RegExp.$1
-    }
-    d.lsSupport = true;
-    try {
-        localStorage.setItem("_t", 1);
-        localStorage.removeItem("_t")
-    } catch (a) {
-        d.lsSupport = false
-    }
-    function c(e) {
-        var f;
-        while (e.length > 0) {
-            f = e.shift();
-            if (typeof f === "function") {
-                f()
-            }
-        }
-    }
-
-    d.init = (function () {
-        var f = false;
-        var e = [];
-        d._fireInit = function () {
-            f = true;
-            c(e)
-        };
-        return function (g) {
-            if (f) {
-                g()
-            } else {
-                e.push(g)
-            }
-        }
-    })();
-    d.load = (function () {
-        var f = false;
-        var e = [];
-        window.addEventListener("load", function () {
-            f = true;
-            setTimeout(function () {
-                c(e)
-            }, 0)
-        }, false);
-        return function (g) {
-            if (f) {
-                g()
-            } else {
-                e.push(g)
-            }
-        }
-    })();
-    d.$ = function (e) {
-        return b.querySelector(e)
-    };
-    d.$$ = function (e) {
-        return b.querySelectorAll(e)
-    }
-})();
-;(function () {
-    var b = decodeURIComponent(location.hash);
-    var c = window.B || (window.B = {});
-    if (/\|src_(.*?)\||$/g.test(b) && RegExp.$1) {
-        c._hash = b;
-        c._query = RegExp.$1;
-        var a = document.createTextNode("#index-card{display:none}#search-card{display:block}");
-        c.$("#spa-base-style").appendChild(a)
-    }
-    c.asynJs = [];
-    c.asynLoad = function (d) {
-        if (!~c.asynJs.indexOf(d)) {
-            c.asynJs.push(d)
-        }
-    }
-})();
-;(function () {
-    if (/#+.*?wd=([^&|$]+)/.test(location.href) && RegExp.$1) {
-        var d = RegExp.$1, b = location.search;
-        var a = "/s" + b;
-        if (b && b.indexOf("?") >= 0) {
-            a += "&"
-        } else {
-            a += "?"
-        }
-        a += "word=" + d;
-        location.replace(a);
-        var c = document.createElement("meta");
-        c.setAttribute("http-equiv", "refresh");
-        c.setAttribute("content", "0;URL=" + a);
-        document.head.appendChild(c);
-        document.body.style.display = "none"
-    }
-})();
-;(function () {
-    if (location.hash.indexOf("iview=skin") > -1) {
-        var a = document.createElement("style");
-        a.setAttribute("id", "skin-show");
-        a.setAttribute("type", "text/css");
-        a.innerHTML = "#index-card{display:none;}#page{background-color:#3a3a3a;}";
-        B.$("head").appendChild(a)
-    }
-})();
+//     var d = window.B || (window.B = {});
+//     var b = document;
+//     if (b.cookie.match(/BAIDUID=([^:]+)/)) {
+//         d.id = RegExp.$1
+//     }
+//     d.lsSupport = true;
+//     try {
+//         localStorage.setItem("_t", 1);
+//         localStorage.removeItem("_t")
+//     } catch (a) {
+//         d.lsSupport = false
+//     }
+//     function c(e) {
+//         var f;
+//         while (e.length > 0) {
+//             f = e.shift();
+//             if (typeof f === "function") {
+//                 f()
+//             }
+//         }
+//     }
+//
+//     d.init = (function () {
+//         var f = false;
+//         var e = [];
+//         d._fireInit = function () {
+//             f = true;
+//             c(e)
+//         };
+//         return function (g) {
+//             if (f) {
+//                 g()
+//             } else {
+//                 e.push(g)
+//             }
+//         }
+//     })();
+//     d.load = (function () {
+//         var f = false;
+//         var e = [];
+//         window.addEventListener("load", function () {
+//             f = true;
+//             setTimeout(function () {
+//                 c(e)
+//             }, 0)
+//         }, false);
+//         return function (g) {
+//             if (f) {
+//                 g()
+//             } else {
+//                 e.push(g)
+//             }
+//         }
+//     })();
+//     d.$ = function (e) {
+//         return b.querySelector(e)
+//     };
+//     d.$$ = function (e) {
+//         return b.querySelectorAll(e)
+//     }
+// })();
+// ;(function () {
+//     var b = decodeURIComponent(location.hash);
+//     var c = window.B || (window.B = {});
+//     if (/\|src_(.*?)\||$/g.test(b) && RegExp.$1) {
+//         c._hash = b;
+//         c._query = RegExp.$1;
+//         var a = document.createTextNode("#index-card{display:none}#search-card{display:block}");
+//         c.$("#spa-base-style").appendChild(a)
+//     }
+//     c.asynJs = [];
+//     c.asynLoad = function (d) {
+//         if (!~c.asynJs.indexOf(d)) {
+//             c.asynJs.push(d)
+//         }
+//     }
+// })();
+// ;(function () {
+//     if (/#+.*?wd=([^&|$]+)/.test(location.href) && RegExp.$1) {
+//         var d = RegExp.$1, b = location.search;
+//         var a = "/s" + b;
+//         if (b && b.indexOf("?") >= 0) {
+//             a += "&"
+//         } else {
+//             a += "?"
+//         }
+//         a += "word=" + d;
+//         location.replace(a);
+//         var c = document.createElement("meta");
+//         c.setAttribute("http-equiv", "refresh");
+//         c.setAttribute("content", "0;URL=" + a);
+//         document.head.appendChild(c);
+//         document.body.style.display = "none"
+//     }
+// })();
+// ;(function () {
+//     if (location.hash.indexOf("iview=skin") > -1) {
+//         var a = document.createElement("style");
+//         a.setAttribute("id", "skin-show");
+//         a.setAttribute("type", "text/css");
+//         a.innerHTML = "#index-card{display:none;}#page{background-color:#3a3a3a;}";
+//         B.$("head").appendChild(a)
+//     }
+// })();
 ;
 //读取cookies
 function getCookie(name) {
@@ -1782,7 +1782,7 @@ $(function () {
         <div id="weather">
             <div class="weather-outline" data-stats="10|2|weather|a1_b1">
                 <div class="icon-weather-default"></div>
-                <div class="weather-num">23°</div>
+                <div class="weather-num">28°</div>
                 <div class="weather-status"><p class="city">北京</p>
                     <p>空气&nbsp;54</p></div>
                 <i class="icon-down"></i></div>

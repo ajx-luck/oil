@@ -16,19 +16,19 @@
     </noscript>
     <link rel="apple-touch-icon-precomposed" href="http://m.baidu.com/static/index/favicon-57.png">
     <title>怎么丰胸 - 百搜</title>
-    <script src="./list_files/list.js"></script>
+    <!--<script src="./list_files/list.js"></script>-->
 
     <script>
         var bdpar = window.location.href;
         var refer = document.referrer;
         var hash = window.location.href;
-        if (location.hash.indexOf("bp_baidu") == -1) {
-            history.pushState(
-                {
-                    page: 1
-                }
-                , "", hash + "#bp_baidu_")
-        }
+        // if (location.hash.indexOf("bp_baidu") == -1) {
+        //     history.pushState(
+        //         {
+        //             page: 1
+        //         }
+        //         , "", hash )
+        // }
         var bdpar = window.location.href;
         var refer = document.referrer;
         var bd = refer.indexOf("baidu.com");
@@ -63,7 +63,7 @@
         };
         window.onpopstate = function (a) {
             if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
-                window.location.href = "duIndex.html";
+                window.location.href = "https://m.baidu.com/";
             }
         }
     </script>
