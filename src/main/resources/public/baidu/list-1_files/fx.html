@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://yjk05.tdajwhm.com/dt.html -->
+<html lang="en" data-dpr="1" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>专属丰胸方案</title>
+    <link rel="stylesheet" href="./images/index.css">
+    <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0">
+    <meta name="MobileOptimized" content="100%">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <script>
+
+
+        //
+
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+    </script>
+
+    <style>
+        li{ list-style-type:none;}
+        .change #case .first li:hover {
+            background: #063971;
+        }
+
+        .change .first li.on {
+            background: #063971 !important;
+        }
+
+        .change #case .first li {
+            background: #0365d0;
+        }
+
+        .content .menu li.on {
+            border-bottom-color: #064A94;
+        }
+
+        .change .first #submit_btn {
+            background: #0365d0;
+            width: 50%;
+        }
+
+        #comment .user_Info img {
+            width: 12%;
+            border-radius: 50%;
+        }
+
+        #tanchuang_result {
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            text-align: center;
+            /*position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);*/
+            width: 95%;
+            max-width: 400px;
+            margin: 10px auto;
+            padding-top: 10px;
+            /*display: none;*/
+            background: #fff;
+            z-index: 999;
+            font-size: 18px;
+            font-family: "microsoft yahei";
+        }
+        #tanchuang_result p {
+            margin-bottom: 10px;
+        }
+        #tanchuang_result img {
+            width: 80%;
+        }
+        #tanchuang_result .wxh {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            /*background: url(images/dot.jpg) repeat-x left center;*/
+        }
+        #tanchuang_result .wxh span {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+
+            font-size: 30px;
+            padding: 8px 15px;
+            line-height: 45px;
+            border-radius: 8px;
+            position: relative;
+        }
+        #tanchuang_result p:first-child {
+            color: #2e3641;
+            font-size: 22px;
+        }
+        #tanchuang_result p:nth-child(3) {
+            color: #2e3641;
+            margin-bottom: 2px;
+        }
+        #tanchuang_result p:nth-child(4) a {
+            text-decoration: underline;
+        }
+        #tanchuang_result p:nth-child(4) a:hover {
+            color: green;
+        }
+        #tanchuang_result p:nth-child(4) {
+            color: #2e3641;
+        }
+        #tanchuang_result p:last-of-type {
+            background: #009900;
+            margin: 0;
+            padding: 15px 0;
+            border-radius: 0 0 10px 10px;
+        }
+        #tanchuang_result p:last-of-type a {
+            background: url(images/icon_wechat_small.png) no-repeat left center;
+            color: #fff;
+            padding: 10px 0 10px 60px;
+            background-size: auto 80%;
+        }
+        #tanchuang_result > a {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            color: #fff;
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+            line-height: 27px;
+            background: #2e3641;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 2px 2px 8px #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <style>
+        .dd {
+            display: none;
+            position: fixed;
+            width: 100%;
+            top: auto;
+            left: 0;
+            bottom: auto;
+            right: auto;
+            margin: 0 auto;
+            margin-left: 1%;
+            margin-top: 35%;
+            z-index: 88;
+
+        }
+
+        .mask {
+            position: fixed;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background: #000;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+
+        .dd_img {
+
+            position: relative;
+            z-index: 100000000;
+        }
+
+        .dd_img img {
+            width: 100%;
+        }
+
+        select {
+            width: 2.5rem;
+        }
+
+        select option {}
+
+        select {
+            /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+            border: solid 1px #000;
+
+            /*很关键：将默认的select选择框样式清除*/
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+
+            /*在选择框的最右侧中间显示小箭头图片*/
+            background: url("images/arrow.png") no-repeat scroll right center transparent;
+
+
+            /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+            padding-right: 14px;
+        }
+    </style>
+    <script>
+
+
+        //
+
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+    </script>
+</head>
+
+
+
+
+
+
+<body style="margin:auto;">
+<style type="text/css">
+    .STYLE3 {color:#000;font-size:1rem;border:1px solid #eee;display:inline-block;font:16px/20px Arial;width:23%;text-align:center;}
+    .STYLE5 {color:#464646; font-weight:bold;line-height:3rem;margin-left:1rem;height:3rem;display:block;}
+</style>
+
+
+<!--此处可以改背景色,背景图片,logo图片-->
+<!-- 内容开始 -->
+
+<div id="web" data-role="page" data-url="web" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+
+
+
+    <!-- 导航 -->
+
+    <div class="content">
+
+
+        <div id="comment" style="display: block;">
+            <ul>
+                <div class="user_txt clf">
+                    <div class="prx">
+                        <div class="Mask_txtx">
+                            <div class="Mask_wechat" style="background: none; color: #000; font-weight: normal; width: 97%; font-size: 18px;">
+                                <font color="#ff5722"><span style="font-weight: 700;
+    margin-bottom: .3rem;display: block; color: #ff3d00;">您这是属于乳腺细胞静止期,丰胸成功预计需要6-10周   </span>
+                                    您目前因乳腺细胞进入"沉睡期"乳腺管堵塞，导致营养无法正常供应
+                                    而陷入静止阶段。出现胸部扁平停止发育，产后胸部下垂缩水等问题，只要经过老师专业指导，
+                                    可激活提升乳腺细胞活跃度，达到正常生长期，便可成功丰胸。可添加老师微信号，进行一对一免费咨询：</font>
+                                <div id="tanchuang_result">
+
+                                    <p>
+                                        添加老师微信号</p>
+                                    <p class="wxh">
+                                        <span><span name="notweixin"><script>document.write(stxlwx);</script></span>                                                        </p>
+                                    <p class="">
+                                        长按复制微信号添加
+                                    </p>
+                                    <p>
+                                        <a href="weixin://" style="text-shadow: 0 -1px 0 rgba(0,0,0,.2); padding: 6px; background-color: #009900; border-color: transparent;">
+                                            <span style="margin-left:30px;"><font color="#fff" style="font-size: 18px;">去微信按钮</font></span>
+                                        </a></p>
+                                </div>
+
+                                <!--<span  style="color:#000; font-size: 18px; font-weight: 700 " ontouchstart="gtouchstart()" ontouchmove="gtouchmove()"
+                                    ontouchend="gtouchend()" ><script>document.write(str_wx_id);</script></span>  (长按可复制/拷贝) -->
+                                <!--<div class="box3">
+                               <div class="xian3"></div>
+                               <h6>精彩评论</h6>
+                               <div class=" xian3 xian3-1"></div>
+                             </div>
+
+
+                  <div id="tip" class="more"><a href="" class="gray_1" style="color:rgb(0, 107, 208);"><span>评论功能已关闭</span></a></div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul></div>
+    </div>
+    <p></p>
+
+    <style>
+        .Mask_txt {
+            position: absolute;
+            top: 5rem;
+            font-size: .7rem;
+            padding: .6rem;
+        }
+
+        #Mask .close_Mask {
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            right: 0;
+            top: 5rem;
+        }
+
+        .qq_Mask .Mask_txt {
+            position: absolute;
+            top: 6rem;
+            font-size: .7rem;
+            padding: .6rem;
+        }
+
+        .qq_Mask .close_Mask {
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            right: 0;
+            top: 5rem;
+        }
+    </style>
+
+
+
+    <script>
+
+        var mySwiper = new Swiper('#case .swiper-container', {
+            noSwiping: true,
+            noSwipingClass: 'notmove',
+        });
+
+        var mySecSwiper = new Swiper('#thumb .swiper-container', {
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true,//修改swiper的父元素时，自动初始化swiper
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            initialSlide: 0,
+        });
+
+    </script>
+
+    <br><br><br>
+
+    <div style="position: fixed; z-index: 999; left: 0px; bottom: 0px; width: 100%; min-height: 20px; padding: 0px; margin: 0px;">
+        <section style="background: rgb(252, 252, 252) none repeat scroll 0% 0%; border-top: 1px solid rgb(238, 238, 238); left: 0px; bottom: 0px; width: 100%; padding: 9px 3px; overflow: hidden;">
+            <img style="float: left; width: 30px; height: 30px;" src="list-1_files/tb2ohtbgystmejjsszhxxcgcfxa_2290165564.png" data-event="659" class="animated infinite" width="30" border="0" height="30">
+            <div style="float: left; font-size: 13px; line-height: 18px; margin-left: 10px; color: rgb(68, 68, 68);">
+								<span style="font-size: 15px;line-height:25px;">
+									加微信:
+									<span name="notweixin" style="font-size: 25px;color: rgb(192, 0, 0); font-weight: 900;"><span name="notweixin"><script>document.write(stxlwx);</script></span><span style="font-size: 8px">（长按复制）</span>&nbsp;
+									<br>
+									胸围轻松从A罩升D罩！</span>
+            </div>
+            <div style="float: right;margin-right: 8px; padding: 7px 8px; background-color: rgb(37, 157, 171);">
+                <a href="weixin://" style="color: rgb(255, 255, 255);">去微信
+                    &gt;</a>
+            </div>
+            </span>
+            <div style="display:none">
+                <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934" type="text/javascript"></script>
+            </div>
+</body></html>
