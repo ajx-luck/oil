@@ -143,9 +143,11 @@ public class WebController {
                     }
                     setInfo(map, request, "fxn", city, response);
                     return "forward:/fxn.html";
+                }else{
+                    setInfo(map, request, "fxh", city, response);
+                    return "forward:/fxcg.html";
                 }
-                setInfo(map, request, "fxn",city, response);
-                return "forward:/fxn.html";
+
 //                }else if(TimeUtils.isAdTimes()){
 //                    setInfo(map, request, "fxn",city, response);
 //                    return "forward:/fxn.html";
