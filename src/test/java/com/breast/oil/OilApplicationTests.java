@@ -1,17 +1,16 @@
 package com.breast.oil;
 
+import com.breast.oil.domain.KeyWord;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
-import com.breast.oil.repository.StatisticsInfoRepository;
-import com.breast.oil.repository.StatisticsRepository;
-import com.breast.oil.repository.WXInfoRepository;
-import com.breast.oil.repository.WebInfoRepository;
+import com.breast.oil.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -25,6 +24,8 @@ public class OilApplicationTests {
 	private StatisticsInfoRepository mStatisticsInfoRepository;
 	@Autowired
 	private WebInfoRepository mWebInfoRepository;
+	@Autowired
+	private KeyWordRepository mKeyWordRepository;
 	@Test
 	public void contextLoads() {
 
@@ -56,5 +57,11 @@ public class OilApplicationTests {
 		List<StatisticsInfo> list = mStatisticsInfoRepository.findByUrlAndCreateTimeGreaterThanEqualAndCreateTimeLessThan("fx",0L,0L);
 		assert (list!=null);
 
+	}
+
+	@Test
+	public void testUpdateKeyWord(){
+		KeyWord keyWord = new KeyWord("55","9",new Date().getTime());
+		mKeyWordRepository.save(keyWord);
 	}
 }

@@ -1,9 +1,10 @@
 package com.breast.oil.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,6 +21,7 @@ public class KeyWord {
     private String e_keywordid;
     @Column(nullable = true)
     public Long createTime;
+
     /**
      * web点击次数
      */
@@ -30,6 +32,7 @@ public class KeyWord {
      */
     @Column(nullable = true)
     public Long wxClick;
+
 
     public KeyWord(){
         this.createTime = new Date().getTime();

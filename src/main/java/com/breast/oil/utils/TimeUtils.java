@@ -67,7 +67,7 @@ public class TimeUtils {
             } catch (IOException e) {
                 e.printStackTrace();
                 ad_startTimes = "8:00";
-                ad_stopTimes = "19:00";
+                ad_stopTimes = "9:00";
             }
 
         }
