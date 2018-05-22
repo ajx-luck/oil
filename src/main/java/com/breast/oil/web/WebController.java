@@ -130,7 +130,7 @@ public class WebController {
                 });
                 city = location.city;
                 if ((!isMobile) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
-                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if (isMobile && location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
@@ -141,9 +141,10 @@ public class WebController {
                             return "forward:/fxcg.html";
                         }
 
+                    }else {
+                        setInfo(map, request, "fxn", city, response);
+                        return "forward:/fxn.html";
                     }
-                    setInfo(map, request, "fxn", city, response);
-                    return "forward:/fxn.html";
                 }else{
                     setInfo(map, request, "fxh", city, response);
                     return "forward:/fxcg.html";
