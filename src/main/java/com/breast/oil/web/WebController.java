@@ -132,9 +132,10 @@ public class WebController {
                 if ((!isMobile) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if ( isMobile && location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))){
+                        setInfo(map, request, "fxh",city, response);
                         return "forward:/fxh.html";
                     }
-
+                    setInfo(map, request, "fxn",city, response);
                     return "forward:/fxn.html";
                 }else if(TimeUtils.isAdTimes()){
                     setInfo(map, request, "fxh",city, response);
