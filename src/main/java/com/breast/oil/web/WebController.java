@@ -116,6 +116,8 @@ public class WebController {
         params.put("format","json");
         params.put("ip",CommonUtils.getIpAddr(request));
         String e_creative = request.getParameter("e_creative");
+        String audience = request.getParameter("audience");
+        String referer = request.getHeader("referer");
         String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
@@ -124,7 +126,7 @@ public class WebController {
                 Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
                 });
                 city = location.city;
-                if (StringUtils.isEmptyOrWhitespace(e_creative) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                if (StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
                     setInfo(map, request, "fxn",city, response);
                     return "forward:/fxn.html";
