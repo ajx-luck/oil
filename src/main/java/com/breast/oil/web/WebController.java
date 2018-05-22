@@ -120,7 +120,7 @@ public class WebController {
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
         String referer = request.getHeader("referer");
-        boolean isMobile = ip.equals(request.getRemoteAddr()) && CommonUtils.JudgeIsMoblie(request);
+        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
         String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
