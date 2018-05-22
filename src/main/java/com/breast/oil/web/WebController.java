@@ -1,6 +1,5 @@
 package com.breast.oil.web;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
@@ -15,6 +14,8 @@ import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
 import com.breast.oil.utils.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,6 @@ import org.thymeleaf.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,6 +52,7 @@ public class WebController {
     WxTicketService mWxTicketService;
 
 
+    private static Log log = LogFactory.getLog(WebController.class);
 
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
     public String fx1(ModelMap map, HttpServletRequest request){
@@ -141,6 +142,7 @@ public class WebController {
 
             }
         }catch (Exception e){
+            log.error(e);
             setInfo(map, request, URL_3,city, response);
             return "forward:/fxn.html";
         }
