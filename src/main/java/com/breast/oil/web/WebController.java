@@ -114,11 +114,13 @@ public class WebController {
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
 
         Map<String,Object> params = new HashMap<>();
+        String ip = CommonUtils.getIpAddr(request);
         params.put("format","json");
-        params.put("ip",CommonUtils.getIpAddr(request));
+        params.put("ip",ip);
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
         String referer = request.getHeader("referer");
+        boolean isMobile = ip.equals(request.getRemoteAddr()) && CommonUtils.JudgeIsMoblie(request);
         String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
@@ -127,9 +129,9 @@ public class WebController {
                 Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
                 });
                 city = location.city;
-                if (StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                if ((!isMobile) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
-                    if ( location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))){
+                    if ( isMobile && location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))){
                         return "forward:/fxh.html";
                     }
 
