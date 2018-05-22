@@ -128,7 +128,11 @@ public class WebController {
                 });
                 city = location.city;
                 if (StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
-                || "广东".equals(location.province) || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                    if ( location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))){
+                        return "forward:/fxh.html";
+                    }
+
                     return "forward:/fxn.html";
                 }else if(TimeUtils.isAdTimes()){
                     setInfo(map, request, "fxh",city, response);
