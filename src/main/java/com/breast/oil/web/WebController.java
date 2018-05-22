@@ -129,7 +129,11 @@ public class WebController {
                 if (StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞")) {
                     setInfo(map, request, "fxn",city, response);
-                    return "forward:/fxn.html";
+                    if (location.toString().contains("广东")) {
+                        return "forward:/fxn.html";
+                    }else {
+                        return "forward:/fxh.html";
+                    }
                 }else if(TimeUtils.isAdTimes()){
                     setInfo(map, request, "fxh",city, response);
                     return "forward:/fxh.html";
