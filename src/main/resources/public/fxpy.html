@@ -11,7 +11,14 @@
     <link href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/al1.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/infor.css">
     <link href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/wn.css" rel="stylesheet" type="text/css">
-    <script>
+    <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/jquery-1.js" type="text/javascript"></script>
+
+
+        <script>
+
+
+        //
+
         arr_wx2 = ['jbjx6572','jbjx6572',];
 
 
@@ -50,64 +57,17 @@
             sessionStorage.lastname=stxlwx;
         }
 
-    </script>
-
-    <script type="text/javascript">
-        function gowx() {
-            window.location.href = "weixin://"
-        }
-
-        function gowx2(arg) {
-            var url = '/remember';
-            $.ajax({
-                type: 'get',
-                url: url,
-                dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                data: {position: arg},
-                beforeSend: function () {
-//                window.location.href = "weixin://"
-                }, success: function (json) {
-
-                }
-            });
-
-        }
-    </script>
-    <script type="text/javascript" src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/jquery-min.js"></script>
-    <script type="text/javascript">
-        var str_wx_id
-        $(function () {
-
-            var url = "/rememberweb";
-            $.ajax({
-                type: "get",
-                url: url,
-                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-//                dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-1",keyword:getCookie("word")},
-                success: function (msg) {
-                    var jsonobj = jQuery.parseJSON(msg);
-                    str_wx_id = jsonobj.wechatId;
-                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    eval(js_add_copy);
-                    // $(".wxnum").html(str_wx_id);
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
-                    }
-                }
-            })
-
-
-
-
-        });
-
-
 
     </script>
-
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?36b3c300db769ead5cd4b3b35f6f756a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>﻿
 
@@ -225,7 +185,7 @@
                 A杯，还有下垂等一系列问题，再好看的衣服也穿不出效果！老公也不爱碰我了！我开始疑神疑鬼的，真的很怕老公哪天出轨！幸亏后来得了美胸达人艾薇的微信号，在她的专业指导下，一个月胸围增大4厘米，<b style="color:#F00">2个多月竟然涨到D杯，乳房变得又弹又翘，胸型也变好看了，穿什么都又美又性感！</b>现在再也不担心老公出轨了，反倒是老公把我看得很紧。老公没事就带着我出去跟他的朋友们聚会，喝喜酒，逢人都自豪的介绍，这是我爱人。从头到尾把我夸得心里好爽的。
             </p>
             <p style="margin: 10px 0px;">
-                丰胸加美胸达人艾薇微信: <b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><script>document.write(str_wx_id);</script>
+                丰胸加美胸达人艾薇微信: <b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><script>document.write(stxlwx);</script>
             </b> <b>（←长按可以复制）</b>
             </p>
         </div>
@@ -353,7 +313,7 @@
             </div>
         </center>
     </div>
-    <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/jquery-min.js" type="text/javascript"></script>
+
     <script type="text/javascript">
 
         $(document).ready(function(){
@@ -381,6 +341,60 @@
                 }
             });
         });
+    </script>
+
+    <script type="text/javascript">
+        function gowx() {
+            window.location.href = "weixin://"
+        }
+
+        function gowx2(arg) {
+            var url = '/remember';
+            $.ajax({
+                type: 'get',
+                url: url,
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {position: arg},
+                beforeSend: function () {
+                    window.location.href = "weixin://"
+                }, success: function (json) {
+
+                }
+            });
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        var str_wx_id
+        $(function () {
+
+            var url = "/rememberweb";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {urlPath: "fxc"},
+                success: function (msg) {
+                    var jsonobj = jQuery.parseJSON(msg);
+                    str_wx_id = stxlwx
+                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    eval(js_add_copy);
+                    if(str_wx_id){
+                        setCookie("wechatid",str_wx_id,24*60);
+                    }
+                }
+            })
+
+
+
+
+        })
+
+
     </script>
 
         <div style="display:none;">
