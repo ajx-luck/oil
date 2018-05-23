@@ -258,7 +258,7 @@ public class WebInfo {
                 "&wechatId=" + wechatId +
                 "&keyWord=" + keyWord +
                 "&eKeywordid=" + eKeywordid +
-                "&refer=" + refer +
+                "&refer=NULL" +
                 "&eMatchtype=" + eMatchtype +
                 "&eCreative=" + eCreative +
                 "&eAdposition=" + eAdposition +
