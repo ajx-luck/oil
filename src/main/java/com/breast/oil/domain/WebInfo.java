@@ -247,4 +247,27 @@ public class WebInfo {
     public void setJh(String jh) {
         this.jh = jh;
     }
+
+    @Override
+    public String toString() {
+        return "?" +
+                "urlPath=" + urlPath +
+                "&createTime=" + createTime +
+                "&displayTime=" + displayTime +
+                "& ip=" + ip +
+                "&wechatId=" + wechatId +
+                "&keyWord=" + keyWord +
+                "&eKeywordid=" + eKeywordid +
+                "&refer=" + refer +
+                "&eMatchtype=" + eMatchtype +
+                "&eCreative=" + eCreative +
+                "&eAdposition=" + eAdposition +
+                "&ePagenum=" + ePagenum +
+                "&city=" + city +
+                "&price=" + price +
+                "&audience=" + audience +
+                "&dy=" + dy +
+                "&jh=" + jh
+                ;
+    }
 }

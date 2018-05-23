@@ -3,6 +3,7 @@ package com.breast.oil.web;
 
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
+import com.breast.oil.repository.RealWebInfoRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.CommonUtils;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by B04e on 2017/11/28.
@@ -27,6 +30,8 @@ public class StatisticsController {
     WXInfoRepository mWXInfoRepository;
     @Autowired
     UrlMappingService mUrlMappingService;
+    @Autowired
+    RealWebInfoRepository mRealWebInfoRepository;
 
     /**
      * 记录微信点击
@@ -83,11 +88,71 @@ public class StatisticsController {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
+                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
         return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER,AppConsts.JS_ADD_COPY_LISTENER);
+                ,wechatId,city, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+    }
+
+
+    /**
+     * 记录静态网页点击
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/setweb", method = RequestMethod.GET)
+    public String setRedirectWeb(HttpServletRequest request) {
+        String ip = CommonUtils.getIpAddr(request);
+        String urlPath = request.getParameter("urlPath");
+        String keyWord = request.getParameter("keyword");
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
+        String city = "北京";
+        if(webInfo != null) {
+            //如果为空，就取推广的记录页面，否则随便取
+            if(StringUtils.isEmptyOrWhitespace(wechatId)) {
+                wechatId = webInfo.getWechatId();
+            }
+            city = webInfo.getCity();
+            if(StringUtils.isEmptyOrWhitespace(keyWord)) {
+                keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
+            }
+            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
+            HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
+                    wechatId, keyWord, e_keywordid,city);
+            if(!"fxc".equals(urlPath)) {
+                mUrlMappingService.savaHtmlWebInfo(htmlInfo);
+            }
+            String backparams = String.format(AppConsts.JS_ADD_BACK_LISTENER,webInfo.toString());
+            String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,backparams,AppConsts.JS_ADD_COPY_LISTENER);
+            return str;
+        }
+        return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                ,wechatId,city, "fengxiong","fengxiong","\"fengxiong\"");
+    }
+
+
+    @RequestMapping(value = "/fxhold", method = RequestMethod.GET)
+    public String getRedirectWeb(HttpServletRequest request) {
+        Map<String,String[]> map = request.getParameterMap();
+        WebInfo webInfo = new WebInfo();
+        for (Map.Entry<String, String[]> entry : map.entrySet()) {
+            Field f = null;
+            try {
+                f = webInfo.getClass().getDeclaredField(entry.getKey());
+                f.setAccessible(true);
+                f.set(webInfo, entry.getValue()[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        mUrlMappingService.savaWebInfo(webInfo,webInfo.getUrlPath(),webInfo.getIp());
+        String url = String.format("redirect:/fxn.html??word=%s",webInfo.getKeyWord());
+        return url;
     }
 
     /**

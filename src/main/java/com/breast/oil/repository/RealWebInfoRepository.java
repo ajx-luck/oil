@@ -43,4 +43,6 @@ public interface RealWebInfoRepository extends JpaRepository<RealWebInfo, Long> 
     Long countByEKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("eKeywordid") String eKeywordid,
                                                                              @Param("startTime") Long startTime,
                                                                              @Param("endTime") Long endTime);
+
+    RealWebInfo findByIp( @Param("ip") String ip);
 }
