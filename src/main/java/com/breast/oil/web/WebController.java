@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -381,7 +382,12 @@ public class WebController {
         }
         webInfo.setCreateTime(new Date().getTime());
         mUrlMappingService.savaWebInfo(webInfo,webInfo.getUrlPath(),webInfo.getIp());
-        String url = String.format("redirect:/baidu/form.html?word=%s",webInfo.getKeyWord());
+        String url = "redirect:/baidu/form.html?";
+        try {
+            url = String.format("redirect:/baidu/form.html?word=%s",URLEncoder.encode(webInfo.getKeyWord(),"utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         return url;
     }
 
