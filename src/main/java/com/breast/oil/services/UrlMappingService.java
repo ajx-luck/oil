@@ -229,7 +229,7 @@ public class UrlMappingService {
     public void savaWebInfo(WebInfo info,String url, String ip) {
         cacheWeb(url,ip);
         //真实有效点击
-        if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) && (!"上海".equals(info.getCity()))){
+        if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) && (!"上海".equals(info.getCity())) && (!"北京".equals(info.getCity()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
             RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
                     info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh());
