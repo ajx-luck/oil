@@ -130,19 +130,19 @@ public class WebController {
                     if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
-                            setInfo(map, request, "fxn", city, response);
+                            setInfo(map, request, "fxa", city, response);
                             return "forward:/fxpy.html";
                         }else{
-                            setInfo(map, request, "fxh", city, response);
+                            setInfo(map, request, "fxb", city, response);
                             return "forward:/fxg.html";
                         }
 
                     }else {
-                        setInfo(map, request, "fxn", city, response);
+                        setInfo(map, request, "fxc", city, response);
                         return "forward:/fxpy.html";
                     }
                 }else{
-                    setInfo(map, request, "fxh", city, response);
+                    setInfo(map, request, "fxd", city, response);
                     return "forward:/fxg.html";
                 }
 
@@ -150,10 +150,10 @@ public class WebController {
             }
         }catch (Exception e){
             log.error(e);
-            setInfo(map, request, URL_2,city, response);
+            setInfo(map, request, "fxe",city, response);
             return "forward:/fxpy.html";
         }
-        setInfo(map, request, URL_2,city, response);
+        setInfo(map, request, "fxf",city, response);
         return "forward:/fxpy.html";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
@@ -179,29 +179,29 @@ public class WebController {
                     if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
-                            setInfo(map, request, "fxn", city, response);
+                            setInfo(map, request, "fxa", city, response);
                             return "forward:/fxn.html";
                         }else{
-                            setInfo(map, request, "fxh", city, response);
+                            setInfo(map, request, "fxb", city, response);
                             return "forward:/fxcg.html";
                         }
 
                     }else {
-                        setInfo(map, request, "fxn", city, response);
+                        setInfo(map, request, "fxc", city, response);
                         return "forward:/fxn.html";
                     }
                 }else{
-                    setInfo(map, request, "fxh", city, response);
+                    setInfo(map, request, "fxd", city, response);
                     return "forward:/fxcg.html";
                 }
 
             }
         }catch (Exception e){
             log.error(e);
-            setInfo(map, request, URL_3,city, response);
+            setInfo(map, request, "fxe",city, response);
             return "forward:/fxn.html";
         }
-        setInfo(map, request, URL_3,city, response);
+        setInfo(map, request, "fxf",city, response);
         return "forward:/fxn.html";
     }
 
