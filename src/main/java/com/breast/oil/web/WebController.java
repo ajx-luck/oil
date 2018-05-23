@@ -134,7 +134,7 @@ public class WebController {
                             return "forward:/fxpy.html";
                         }else{
                             setInfo(map, request, "fxh", city, response);
-                            return "forward:/fxcg.html";
+                            return "forward:/fxg.html";
                         }
 
                     }else {
@@ -143,7 +143,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxh", city, response);
-                    return "forward:/fxcg.html";
+                    return "forward:/fxg.html";
                 }
 
 
@@ -151,10 +151,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_2,city, response);
-            return "forward:/fxn.html";
+            return "forward:/fxpy.html";
         }
         setInfo(map, request, URL_2,city, response);
-        return "forward:/fxn.html";
+        return "forward:/fxpy.html";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
