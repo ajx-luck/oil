@@ -108,13 +108,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/"+URL_2,method = RequestMethod.GET)
-    public String fx2(ModelMap map, HttpServletRequest request){
-        setInfo(map, request, URL_2, mUrlMappingService.getPriceByUrl(URL_2));
-        return "fx5";
-    }
-    @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
-    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
-
+    public String fx2(ModelMap map, HttpServletRequest request,HttpServletResponse response){
         Map<String,Object> params = new HashMap<>();
         String ip = CommonUtils.getIpAddr(request);
         params.put("format","json");
@@ -152,10 +146,54 @@ public class WebController {
                     return "forward:/fxcg.html";
                 }
 
-//                }else if(TimeUtils.isAdTimes()){
-//                    setInfo(map, request, "fxn",city, response);
-//                    return "forward:/fxn.html";
-//                }
+
+            }
+        }catch (Exception e){
+            log.error(e);
+            setInfo(map, request, URL_2,city, response);
+            return "forward:/fxn.html";
+        }
+        setInfo(map, request, URL_2,city, response);
+        return "forward:/fxn.html";
+    }
+    @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
+    public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
+        Map<String,Object> params = new HashMap<>();
+        String ip = CommonUtils.getIpAddr(request);
+        params.put("format","json");
+        params.put("ip",ip);
+        String e_creative = request.getParameter("e_creative");
+        String audience = request.getParameter("audience");
+        String referer = request.getHeader("referer");
+        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
+        String city = "";
+        try {
+            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
+            System.out.println(result);
+            if (result != null) {
+                Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
+                });
+                city = location.city;
+                if ((!isMobile) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                    if (isMobile && location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
+                        if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
+                                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
+                            setInfo(map, request, "fxn", city, response);
+                            return "forward:/fxn.html";
+                        }else{
+                            setInfo(map, request, "fxh", city, response);
+                            return "forward:/fxcg.html";
+                        }
+
+                    }else {
+                        setInfo(map, request, "fxn", city, response);
+                        return "forward:/fxn.html";
+                    }
+                }else{
+                    setInfo(map, request, "fxh", city, response);
+                    return "forward:/fxcg.html";
+                }
 
             }
         }catch (Exception e){
