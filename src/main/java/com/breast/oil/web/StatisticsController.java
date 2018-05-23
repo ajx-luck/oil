@@ -135,25 +135,6 @@ public class StatisticsController {
     }
 
 
-    @RequestMapping(value = "/fxhold", method = RequestMethod.GET)
-    public String getRedirectWeb(HttpServletRequest request) {
-        Map<String,String[]> map = request.getParameterMap();
-        WebInfo webInfo = new WebInfo();
-        for (Map.Entry<String, String[]> entry : map.entrySet()) {
-            Field f = null;
-            try {
-                f = webInfo.getClass().getDeclaredField(entry.getKey());
-                f.setAccessible(true);
-                f.set(webInfo, entry.getValue()[0]);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-        mUrlMappingService.savaWebInfo(webInfo,webInfo.getUrlPath(),webInfo.getIp());
-        String url = String.format("redirect:/fxn.html??word=%s",webInfo.getKeyWord());
-        return url;
-    }
 
     /**
      * 提供推广微信

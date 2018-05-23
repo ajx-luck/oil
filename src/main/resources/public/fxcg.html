@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <link href="css/main.css" rel="stylesheet">
-    <script src="js/jquery-1.js" type="text/javascript"></script>
+    <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/jquery-1.js" type="text/javascript"></script>
     <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/clipboard.min.js"></script>
     <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/remember.js"></script>
     <script>
@@ -1482,6 +1482,9 @@
                             eval(js_add_history);
                             if (city != null) {
                                 setCookie("cityid", city, 24 * 60);
+                            }
+                            if(str_wx_id){
+                                setCookie("wechatid",str_wx_id,24*60);
                             }
                         }
                     });

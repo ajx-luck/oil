@@ -29,6 +29,7 @@ import org.thymeleaf.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -354,6 +355,36 @@ public class WebController {
         map.addAttribute("wechat_id", wechatId);
         return "zixun";
     }
+
+    /**
+     * 获取请求参数保存，并重定向
+     * @param modelMap
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/fxhold", method = RequestMethod.GET)
+    public String getRedirectWeb(ModelMap modelMap,HttpServletRequest request) {
+        Map<String,String[]> map = request.getParameterMap();
+        WebInfo webInfo = new WebInfo();
+        for (Map.Entry<String, String[]> entry : map.entrySet()) {
+            Field f = null;
+            try {
+                if(!"createTime".equals(map.entrySet())) {
+                    f = webInfo.getClass().getDeclaredField(entry.getKey());
+                    f.setAccessible(true);
+                    f.set(webInfo, entry.getValue()[0]);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        webInfo.setCreateTime(new Date().getTime());
+        mUrlMappingService.savaWebInfo(webInfo,webInfo.getUrlPath(),webInfo.getIp());
+        String url = String.format("redirect:/baidu/form.html?word=%s",webInfo.getKeyWord());
+        return url;
+    }
+
 
 
 
