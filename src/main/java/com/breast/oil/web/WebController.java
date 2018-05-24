@@ -199,10 +199,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, "fxe",city, response);
-            return "redirect:/fxn.html";
+            return "redirect:/hu6.html";
         }
         setInfo(map, request, "fxf",city, response);
-        return "redirect:/fxn.html";
+        return "redirect:/hu6.html";
     }
 
 
