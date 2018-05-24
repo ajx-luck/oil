@@ -131,19 +131,19 @@ public class WebController {
                         if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, "fxa", city, response);
-                            return "forward:/fxpy.html";
+                            return "redirect:/fxpy.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "forward:/fxg.html";
+                            return "redirect:/fxg.html";
                         }
 
                     }else {
                         setInfo(map, request, "fxc", city, response);
-                        return "forward:/fxpy.html";
+                        return "redirect:/fxpy.html";
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "forward:/fxg.html";
+                    return "redirect:/fxg.html";
                 }
 
 
@@ -151,10 +151,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, "fxe",city, response);
-            return "forward:/fxpy.html";
+            return "redirect:/fxpy.html";
         }
         setInfo(map, request, "fxf",city, response);
-        return "forward:/fxpy.html";
+        return "redirect:/fxpy.html";
     }
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
@@ -180,7 +180,7 @@ public class WebController {
                         if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, "fxa", city, response);
-                            return "forward:/hu6.html";
+                            return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
                             return "forward:/fxgy.html";
@@ -188,21 +188,21 @@ public class WebController {
 
                     }else {
                         setInfo(map, request, "fxc", city, response);
-                        return "forward:/hu6.html";
+                        return "redirect:/hu6.html";
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "forward:/fxgy.html";
+                    return "redirect:/fxgy.html";
                 }
 
             }
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, "fxe",city, response);
-            return "forward:/fxn.html";
+            return "redirect:/fxn.html";
         }
         setInfo(map, request, "fxf",city, response);
-        return "forward:/fxn.html";
+        return "redirect:/fxn.html";
     }
 
 
