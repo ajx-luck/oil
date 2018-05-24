@@ -25,6 +25,101 @@
     <script type="text/javascript" src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-1_files/images-wx.js"></script>
     <link rel="stylesheet" type="text/css" href="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-1_files/images-common.css">
     <link rel="stylesheet" type="text/css" href="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-1_files/images-common_1.css">
+    <link rel="stylesheet" href="/fxn/base.css" >
+    <link rel="stylesheet" href="/fxn/nkEB5N.css" >
+    <link rel="stylesheet" href="/fxn/share.css" >
+    <!--<link type="text/css" rel="stylesheet" href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxn/nav.css"  >-->
+    <style>
+
+        .clear {
+            clear:both;
+        }
+
+        .fwtop .fwtop_head {
+            height:auto;
+            overflow: hidden;
+            max-width:640px;
+            margin:0 auto;
+            background:url("toptel.png");
+            background-repeat: no-repeat ;
+            background-position:center right;
+        }
+
+        .fwtop_banner img {
+        }
+        /*头部信息*/
+        .fwtop_info {
+            float:right;
+        }
+
+        .select_language ul li a {
+            padding:2px 5px;
+            display:block;
+            width:65px;
+        }
+        .select_language ul li a:hover {
+            background:#e8e8e8;
+        }
+
+        .fwmain_right .index_company {
+            float:left;
+            width:735px;
+        }
+        .fwmain_right .index_news {
+            width:260px;
+            float:right;
+        }
+        .fwmain_right .index_pro {
+            float:left;
+            width:735px;
+        }
+
+        .nav ul li{display: inline-block;margin:0 20px;}
+
+        .fwtop .fwtop_head {
+            height:auto;
+            overflow: hidden;
+            max-width:640px;
+            margin:0 auto;
+            background:url("toptel.png");
+            background-repeat: no-repeat ;
+            background-position:center right;
+        }
+
+        .fwtop_banner img {
+        }
+        /*头部信息*/
+        .fwtop_info {
+            float:right;
+        }
+
+        .fwnavlink li {
+            float: left;
+            height:69px;
+        }
+        .fwnavlink a {
+            display:  inline-block;
+            height: 73px;
+            text-decoration: none;
+            text-align: center;
+            width:108px;
+            color:#fff;
+            line-height:73px;
+            font-size:15px;
+
+        }
+
+        .fwnavlink .open a {
+            color:#fff;
+
+        }
+        .fwnavlink a:selected {
+            background: #9D0A05;
+            color: #FFFFFF;
+            display:inline-block;
+            text-decoration: none;
+        }
+    </style>
     <style>
         * { margin:0; padding:0; font-style:normal }
         img {
@@ -240,7 +335,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-1",keyword:getCookie("word")},
+                data: {urlPath: "fxc",keyword:getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = jsonobj.wechatId;
@@ -297,7 +392,41 @@
 </style>
 <div id="dht" style="margin:0px auto;background:#FFF;border-left:1px solid #eee;border-right:1px solid #eee;max-width: 660px;">
     <header id="header">
-  
+        <div class="fwtop_head">
+            <div style="float:left; font-size:18px; font-weight:bolder; color:#bbb; margin:10px 0px 0px 10px">广州标邦医药科技有限公司</div>
+            <!--         <div style="float:right; font-size:18px; font-weight:100; color:#000; margin-bottom:10px; margin-right:10px;">24小时服务热线：400-839-6110</div>
+             -->        <div class="fwtop_info"></div>
+            <div class="clear"></div>
+        </div>
+        <nav id="menu">
+            <ul id="main-menu" class="menu">
+                <li class="menuitem">
+                    <a href="/fxc" >
+                        首页
+                    </a>
+                </li>
+                <li class="menuitem">
+                    <a href="/fxbig/product.html" >
+                        产品中心
+                    </a>
+                </li>
+                <!-- <li class="menuitem">
+                    <a href="#">
+                        新闻中心
+                    </a>
+                </li> -->
+                <li class="menuitem">
+                    <a href="/fxbig/about.html" >
+                        公司简介
+                    </a>
+                </li>
+                <li class="menuitem">
+                    <a href="/fxbig/contact.html" >
+                        联系我们
+                    </a>
+                </li>
+            </ul>
+        </nav>
             <!-- 内容开始 -->
             <div class="content">
 
@@ -554,8 +683,7 @@
 
                         </div>
                         <br>
-                        <p style="text-align: center;">Copyright © 2017,江门伍叁贰科技有限公司,All rights reserved </p>
-                        <p style="text-align: center;">地 址：江门市蓬江区白石大道25号 备案号：粤ICP备16046413号<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action"></a></p>
+                        <p style="text-align: center;">版权所有：广州标邦医药科技有限公司<br>   <a href="http://www.miibeian.gov.cn/">备案号：粤ICP备17019548号-2</a> <br>广州市白云区均禾街加石路29.31.33号7楼784房</p>
                         <br><br><br>
                         <div style="position: fixed; z-index: 999; left: 0px; bottom: 0px; width: 100%; min-height: 20px; padding: 0px; margin: 0px;">
                             <section style="background: rgb(252, 252, 252) none repeat scroll 0% 0%; border-top: 1px solid rgb(238, 238, 238); left: 0px; bottom: 0px; width: 100%; padding: 9px 3px; overflow: hidden;">
