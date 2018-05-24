@@ -134,7 +134,7 @@ public class WebController {
                             return "redirect:/fxpy.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "redirect:/fxg.html";
+                            return "redirect:/fxgy.html";
                         }
 
                     }else {
@@ -143,7 +143,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "redirect:/fxg.html";
+                    return "redirect:/fxgy.html";
                 }
 
 
