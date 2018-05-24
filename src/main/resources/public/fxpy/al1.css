@@ -19,7 +19,7 @@ body,div,p,span,form,iframe,table,td,th,input,textarea,button,label,ul,ol,li,dl,
 ul,ol,li,dl{list-style-type:none;}
 
 
-em,i,dfn,cite,strong,small{font-style:normal;}
+em,i,dfn,cite,strong,small{font-style:normal;} 
 
 
 
@@ -199,7 +199,7 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 @media only screen and (min-width:361px){
 
 
-    html{font-size:72%!important}
+	html{font-size:72%!important}
 
 
 }
@@ -208,7 +208,7 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 @media only screen and (min-width:381px){
 
 
-    html{font-size:78%!important}
+	html{font-size:78%!important}
 
 
 }
@@ -217,7 +217,7 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 @media only screen and (min-width:481px){
 
 
-    html{font-size:94%!important}
+	html{font-size:94%!important}
 
 
 }
@@ -226,7 +226,7 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 @media only screen and (min-width:561px){
 
 
-    html{font-size:109%!important}
+	html{font-size:109%!important}
 
 
 }
@@ -235,7 +235,7 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 @media only screen and (min-width:641px){
 
 
-    html{font-size:125%!important}
+	html{font-size:125%!important}
 
 
     body{max-width:640px; margin:0 auto;}
@@ -269,18 +269,18 @@ h3{margin: 1.5rem 0;background: #2680d8;color: #FFF;font-size: 1.3rem;line-heigh
 
 
 #banquan{
-    text-align:center;
-    padding-top:0px;
-    height:30px;
-    color:#A4A4A4;
-    font-size:13px;}
-
+	text-align:center;
+	padding-top:0px;
+	height:30px;
+	color:#A4A4A4;
+	font-size:13px;}	
+	
 #lxwm{
-    text-align:center;
-    color:#A4A4A4;
-    margin-top:50px;}
+	text-align:center;
+	color:#A4A4A4;
+	margin-top:50px;}	
 #lxwm a{
-    color:#A4A4A4;}
+	color:#A4A4A4;}	
 
 
 .title{  font-size:1.2rem; color:#7E7E7E; line-height:2.5rem;}
