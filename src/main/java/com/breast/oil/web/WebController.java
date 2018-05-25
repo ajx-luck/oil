@@ -178,7 +178,6 @@ public class WebController {
         String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
-            result = "{\"code\":0,\"data\":{\"ip\":\"59.42.128.209\",\"country\":\"中国\",\"area\":\"\",\"region\":\"广东\",\"city\":\"广州\",\"county\":\"XX\",\"isp\":\"电信\",\"country_id\":\"CN\",\"area_id\":\"\",\"region_id\":\"440000\",\"city_id\":\"440100\",\"county_id\":\"xx\",\"isp_id\":\"100017\"}}";
 //            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
             System.out.println(result);
             if (result != null) {
