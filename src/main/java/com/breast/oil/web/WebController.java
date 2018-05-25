@@ -139,6 +139,9 @@ public class WebController {
 
                     }else {
                         setInfo(map, request, "fxc", city, response);
+                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            return "foword:/blocked";
+                        }
                         return "redirect:/fxpy.html";
                     }
                 }else{
@@ -188,6 +191,9 @@ public class WebController {
 
                     }else {
                         setInfo(map, request, "fxc", city, response);
+                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            return "foword:/blocked";
+                        }
                         return "redirect:/hu6.html";
                     }
                 }else{
