@@ -195,7 +195,7 @@ public class WebController {
                             return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "forward:/fxgy.html";
+                            return "forward:/fxg.html";
                         }
 
                     }else {
@@ -208,7 +208,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "redirect:/fxgy.html";
+                    return "redirect:/fxg.html";
                 }
 
             }
