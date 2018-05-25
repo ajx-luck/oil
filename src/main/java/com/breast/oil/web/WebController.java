@@ -7,6 +7,7 @@ import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.po.Location;
+import com.breast.oil.po.LocationTaobao;
 import com.breast.oil.repository.StatisticsInfoRepository;
 import com.breast.oil.repository.StatisticsRepository;
 import com.breast.oil.repository.WXInfoRepository;
@@ -74,7 +75,9 @@ public class WebController {
         }
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
-            CookieUtils.set(response, AppConsts.CITY_NAME,URLEncoder.encode(city),60*60*24*15);
+            if(!StringUtils.isEmptyOrWhitespace(city)) {
+                CookieUtils.set(response, AppConsts.CITY_NAME, URLEncoder.encode(city), 60 * 60 * 24 * 15);
+            }
         }
         String keyword = request.getParameter("keyword");
         String referer = request.getHeader("referer");
@@ -111,24 +114,26 @@ public class WebController {
     public String fx2(ModelMap map, HttpServletRequest request,HttpServletResponse response){
         Map<String,Object> params = new HashMap<>();
         String ip = CommonUtils.getIpAddr(request);
-        params.put("format","json");
+//        params.put("format","json");
         params.put("ip",ip);
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
         String referer = request.getHeader("referer");
         boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
         String city = "";
+
         try {
-            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
+            String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php?ip=", params, "UTF-8");
             System.out.println(result);
             if (result != null) {
-                Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
+                LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
                 });
+                Location location = locationTaobao.data;
                 city = location.city;
                 if ( StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                         || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
-                        if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
+                        if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, "fxa", city, response);
                             return "redirect:/fxpy.html";
@@ -140,7 +145,7 @@ public class WebController {
                     }else {
                         setInfo(map, request, "fxc", city, response);
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            return "foword:/blocked";
+                            return "forward:/blocked.html";
                         }
                         return "redirect:/fxpy.html";
                     }
@@ -163,7 +168,7 @@ public class WebController {
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
         Map<String,Object> params = new HashMap<>();
         String ip = CommonUtils.getIpAddr(request);
-        params.put("format","json");
+//        params.put("format","json");
         params.put("ip",ip);
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
@@ -171,16 +176,18 @@ public class WebController {
         boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
         String city = "";
         try {
-            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
+            String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php?ip=", params, "UTF-8");
+//            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
             System.out.println(result);
             if (result != null) {
-                Location location = JSONObject.parseObject(result, new TypeReference<Location>() {
+                LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
                 });
+                Location location = locationTaobao.data;
                 city = location.city;
                 if ( StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                         || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
-                        if("北京".equals(city) || "北京".equals(location.province) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
+                        if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, "fxa", city, response);
                             return "redirect:/hu6.html";
@@ -192,7 +199,7 @@ public class WebController {
                     }else {
                         setInfo(map, request, "fxc", city, response);
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            return "foword:/blocked";
+                            return "forward:/blocked.html";
                         }
                         return "redirect:/hu6.html";
                     }
