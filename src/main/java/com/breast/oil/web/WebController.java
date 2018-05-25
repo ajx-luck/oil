@@ -143,7 +143,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "redirect:/fxgy.html";
+                    return "redirect:/tuijian.html";
                 }
 
 
