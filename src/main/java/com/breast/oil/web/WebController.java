@@ -74,7 +74,7 @@ public class WebController {
         }
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
-            CookieUtils.set(response, AppConsts.CITY_NAME,city,60*60*24*15);
+            CookieUtils.set(response, AppConsts.CITY_NAME,URLEncoder.encode(city),60*60*24*15);
         }
         String keyword = request.getParameter("keyword");
         String referer = request.getHeader("referer");
