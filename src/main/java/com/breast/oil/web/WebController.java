@@ -143,10 +143,11 @@ public class WebController {
                         }
 
                     }else {
-                        setInfo(map, request, "fxc", city, response);
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            setInfo(map, request, "fxf", city, response);
                             return "forward:/blocked.html";
                         }
+                        setInfo(map, request, "fxc", city, response);
                         return "redirect:/fxpy.html";
                     }
                 }else{
@@ -197,10 +198,11 @@ public class WebController {
                         }
 
                     }else {
-                        setInfo(map, request, "fxc", city, response);
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            setInfo(map, request, "fxf", city, response);
                             return "forward:/blocked.html";
                         }
+                        setInfo(map, request, "fxc", city, response);
                         return "redirect:/hu6.html";
                     }
                 }else{
