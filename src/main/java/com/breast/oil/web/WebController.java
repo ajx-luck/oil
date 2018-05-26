@@ -105,6 +105,7 @@ public class WebController {
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 
+
     @RequestMapping("/show")
     public String show(ModelMap map){
         return "show";
@@ -139,12 +140,12 @@ public class WebController {
                             return "redirect:/fxpy.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "redirect:/fxgy.html";
+                            return "redirect:/fxx.html";
                         }
 
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, "fxf", city, response);
+                            setInfo(map, request, "fxg", city, response);
                             return "forward:/blocked.html";
                         }
                         setInfo(map, request, "fxc", city, response);
@@ -152,7 +153,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "redirect:/tuijian.html";
+                    return "redirect:/fxx.html";
                 }
 
 
@@ -199,7 +200,7 @@ public class WebController {
 
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, "fxf", city, response);
+                            setInfo(map, request, "fxg", city, response);
                             return "forward:/blocked.html";
                         }
                         setInfo(map, request, "fxc", city, response);
