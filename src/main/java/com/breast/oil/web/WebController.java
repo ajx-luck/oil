@@ -105,6 +105,10 @@ public class WebController {
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }
 
+    @RequestMapping("/")
+    public String index(ModelMap map){
+        return "forward:/blocked.html";
+    }
 
     @RequestMapping("/show")
     public String show(ModelMap map){
