@@ -199,7 +199,7 @@ public class WebController {
                             return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "forward:/fxg.html";
+                            return "redirect:/fxg.html";
                         }
 
                     }else {
