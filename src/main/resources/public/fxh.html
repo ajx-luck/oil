@@ -138,10 +138,19 @@
                 data: {urlPath: "list-6",keyword:getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
-                    str_wx_id = jsonobj.wechatId;
+                    str_wx_id = stxlwx;
+                    keyword = jsonobj.keyWord;
+                    var city = jsonobj.city;
+                    var js_add_history = jsonobj.JS_ADD_HISTORY;
+                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    // $(".wx").html(str_wx_id);
+                    eval(js_add_back_listener);
                     eval(js_add_copy);
-                    // $(".wxnum").html(str_wx_id);
+                    eval(js_add_history);
+                    if (city != null) {
+                        setCookie("cityid", city, 24 * 60);
+                    }
                     if(str_wx_id){
                         setCookie("wechatid",str_wx_id,24*60);
                     }
@@ -171,7 +180,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="/baidu/list-6_files/gloabl.css">
         <title>达人分享丰胸经验，不看遗憾终身！</title>
-        <link href="./list-6_files/al1.css" rel="stylesheet">
+        <link href="/baidu/list-6_files/al1.css" rel="stylesheet">
 
         <style type="text/css">
             table {
