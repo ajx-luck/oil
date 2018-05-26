@@ -52,31 +52,8 @@
         else {
             refer = "word=怎么丰胸"
         };
-        setTimeout(function(){
-            location.hash="bp_baidu_";
-        },250);
-        var hash = location.hash;
-        if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1 || true) {
-            if (location.hash.indexOf("bp_baidu") == -1) {
-                history.pushState(
-                    {
-                        page: 1
-                    }
-                    , "bd", hash + "#bp_baidu_")
-
-            }
-
-        };
-        window.onpopstate = function (a) {
-            if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
-                window.location.href = "https://m.baidu.com/";
-            }
-        }
 
 
-        function next() {
-            window.location.href = "./list2.html?word="+getQueryString("word")
-        }
     </script>
 
     <script type="text/javascript" src="list_files/jquery-min.js"></script>
@@ -94,14 +71,10 @@
 
 
         function getQueryString(name) {
-            // 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
-            var url = window.location.search;
-            // 正则筛选地址栏
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-            // 匹配目标参数
-            var result = url.substr(1).match(reg);
-            //返回参数值
-            return result ? decodeURIComponent(result[2]) : null;
+            //var refer = document.referrer;
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]); return null;
         }
         $(document).ready(function () {
             if (getQueryString("word") == null) {
@@ -1696,23 +1669,56 @@
     <style id="css_onlyanswer" type="text/css"></style><div id="page-bd">
     <div id="page-tips"></div><div id="results" class="results">
 
-    <div class="c-container"><a href="./list-1.html" class="c-blocka"><h3 class="c-title c-gap-top-small">天生平胸<em>怎么</em>办,七个小窍门教你<em>如何</em>自己<em>丰胸</em>_网易女人</h3></a><a name="bp_baidu_"></a> <div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-1.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg.png"></div></a></div><div class="c-span9"><a href="./list-1.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2013年3月27日&nbsp;-&nbsp;</span>纵使有中国女性80%以上的人都在问平胸<em>怎么</em>办...很多人都听说过沐浴可以<em>丰胸</em>,但是很少有人知道...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">uu.qiaouumen.com</span><span class="koubei-entrance c-gap-left"><a href="./list-1.html" class="koubei-a"><span class="c-gray">239条评价</span></a></span></div></div></div></div>
+    <div class="c-container"><a href="/fxx.html" class="c-blocka"><h3 class="c-title c-gap-top-small"><em>木瓜</em>怎么样吃<em>丰胸</em>_睡前五分钟_<em>丰胸</em>必看</h3></a> <div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="/fxx.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/fx11.jpg"></div></a></div><div class="c-span9"><a href="/fxx.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small"></span>木瓜有<em>丰胸</em>作用吗 坚持每天5分钟,很多MM都表示,小小的胸部伤不起,<em>丰胸</em>工程大效果慢更是伤不起.其实,悄悄在这告诉大家,只要每晚花上5分钟的时间,做3个...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">uu.qiaouumen.com</span><span class="koubei-entrance c-gap-left"><a href="./list-1.html" class="koubei-a"><span class="c-gray">239条评价</span></a></span></div></div></div></div>
 
-    <div class="c-container"><a href="./list-6.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【自然<em>丰胸</em>】<em>如何</em>用自然方法<em>丰胸</em>,日常简单的<em>丰胸</em>方法,....</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-6.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(1).png"></div></a></div><div class="c-span9"><a href="./list-6.html" class="c-blocka"><p class="c-line-clamp3 c-color">那么<em>怎么丰胸</em>最快?……查看全文&gt;&gt; 丰胸 自然丰胸 丰胸方法 美胸  [丰胸]先天不足后天补 你也能养出蜜桃...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">xiong.entranceasd.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-6.html" class="koubei-a"><span class="c-gray">421评价</span></a></span></div></div></div></div>
-
-    <div class="c-container"><a href="./list-3.html" class="c-blocka"><h3 class="c-title c-gap-top-small"><em>如何丰胸</em>,从A杯升到D杯很容易!</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-3.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(2).png"></div></a></div><div class="c-span9"><a href="./list-3.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2016年6月13日&nbsp;-&nbsp;</span><em>如何丰胸</em>,从A杯升D杯很容易!,凹凸有致的身材一直是女人所追求的,而胸部自然是其中最在意的一个标准,...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">mx.showurlyx.com</span><span class="c-showurl">&nbsp;›&nbsp;...</span><span class="koubei-entrance c-gap-left"><a href="./list-3.html" class="koubei-a"><span class="c-gray">1627条评价</span></a></span></div></div></div></div>
-
-    <div class="c-container"><a href="./list-8.html" class="c-blocka"><h3 class="c-title c-gap-top-small">真实有效的<em>丰胸产品</em>,怎么让胸自然变大?成功取决于好的<em>丰胸方法</em></h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-8.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2018年5月16日&nbsp;-&nbsp;</span>分享真实<em>丰胸</em>经验，丰胸达人定制<em>丰胸方案</em>让你彻底摆脱平胸，教你自信挺起来.</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">m.chanhouabc.com</span><span class="koubei-entrance c-gap-left"><a href="./list-8.html" class="koubei-a"><span class="c-gray">1060条评价</span></a></span></div></div></div></div>
-
-    <div class="c-container"><a href="./list-2.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【<em>产后丰胸</em>】<em>产后丰胸</em>的最佳方法_<em>产后丰胸</em>哪个产品好_....</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-2.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(4).png"></div></a></div><div class="c-span9"><a href="./list-2.html" class="c-blocka"><p class="c-line-clamp3 c-color">[丰胸]<em>产后丰胸</em>误区 跟着春秋的渐增,女性最早泛起老化现象的也许不是皮肤,而是乳房。<em>产后丰胸</em>误区很多。现在...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">fx.pclady.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-2.html" class="koubei-a"><span class="c-gray">286条评价</span></a></span></div></div></div></div>
-
-    <div class="c-container"><a href="./list-7.html" class="c-blocka"><h3 class="c-title c-gap-top-small">求助：<em>丰胸</em>的最快方法,产后<em>丰胸</em>的最快方法千...39健康网</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-7.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2017年-2月-14日&nbsp;-&nbsp;</span>详情描述 ：我今年30岁，性别女，本来胸就比较小，生了孩子后<em>胸部</em>干瘪下垂，松弛的一 点弹性都没有，睡下来感觉都是平的，好自卑啊！更打击的是因为这个和老公的夫妻生活越来越少，就是勉强一次，也是像在完成任务！生活工作都影响很大，好苦 恼。请问有什么方法能帮我呢？希望能食疗，要健康不反弹的！跪谢！！...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">ask.39.net</span><span class="koubei-entrance c-gap-left"><a href="./list-7.html" class="koubei-a"><span class="c-gray">2060条评价</span></a></span></div></div></div></div>
+    <div class="c-container"><a href="./list-6.html" class="c-blocka"><h3 class="c-title c-gap-top-small">成功<em>丰胸经验</em>分享，不看后悔 <em>丰胸效果</em>如何？</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-6.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/fx22.jpg"></div></a></div><div class="c-span9"><a href="./list-6.html" class="c-blocka"><p class="c-line-clamp3 c-color"><em>丰胸</em>效果如何?傲人的<em>胸围</em>加上丰腴的臀围,让s型身材尽显,女人味十足,就是你想要的!<em>丰胸</em>效果如何?咨询送<em>丰胸</em>食谱!</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">xiong.entranceasd.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-6.html" class="koubei-a"><span class="c-gray">421评价</span></a></span></div></div></div></div>
 
     <div class="c-container"><a href="./list-4.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【<em>丰胸</em>】<em>丰胸</em>食物,<em>丰胸</em>的最快方法,<em>丰胸</em>产品介绍,打造...</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-4.html" class="c-blocka"><p class="c-line-clamp3 c-color">太平洋女性网<em>丰胸</em>专区包括<em>丰胸</em>运动、<em>丰胸</em>食谱、按摩丰胸、<em>丰胸</em>产品、针灸<em>丰胸</em>、药物<em>丰胸</em>,整形<em>丰胸</em>,让您的胸部...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">moile.koubbc.com.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-4.html" class="koubei-a"><span class="c-gray">89评价</span></a></span></div></div></div></div>
 
+    <div class="c-container"><a href="./list-8.html" class="c-blocka"><h3 class="c-title c-gap-top-small">真实有效的<em>丰胸产品</em>,怎么让胸自然变大?成功取决于好的<em>丰胸方法</em></h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-8.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2018年5月16日&nbsp;-&nbsp;</span>分享真实<em>丰胸</em>经验，丰胸达人定制<em>丰胸方案</em>让你彻底摆脱平胸，教你自信挺起来.</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">m.chanhouabc.com</span><span class="koubei-entrance c-gap-left"><a href="./list-8.html" class="koubei-a"><span class="c-gray">1060条评价</span></a></span></div></div></div></div>
+
+    <div class="c-container"><a href="./list-2.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【<em>产后丰胸</em>】<em>产后丰胸</em>的最佳方法_<em>产后丰胸</em>哪个产品好_....</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-2.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/fx44.jpg"></div></a></div><div class="c-span9"><a href="./list-2.html" class="c-blocka"><p class="c-line-clamp3 c-color">[丰胸]<em>产后丰胸</em>误区 跟着春秋的渐增,女性最早泛起老化现象的也许不是皮肤,而是乳房。<em>产后丰胸</em>误区很多。现在...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">fx.pclady.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-2.html" class="koubei-a"><span class="c-gray">286条评价</span></a></span></div></div></div></div>
+
+    <div class="c-container"><a href="./list-3.html" class="c-blocka"><h3 class="c-title c-gap-top-small"><em>如何丰胸</em>,从A杯升到D杯很容易!</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-3.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/fx33.jpg"></div></a></div><div class="c-span9"><a href="./list-3.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2016年6月13日&nbsp;-&nbsp;</span><em>如何丰胸</em>,从A杯升D杯很容易!,凹凸有致的身材一直是女人所追求的,而胸部自然是其中最在意的一个标准,...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">mx.showurlyx.com</span><span class="c-showurl">&nbsp;›&nbsp;...</span><span class="koubei-entrance c-gap-left"><a href="./list-3.html" class="koubei-a"><span class="c-gray">1627条评价</span></a></span></div></div></div></div>
+
+    <div class="c-container"><a href="./list-7.html" class="c-blocka"><h3 class="c-title c-gap-top-small">求助：<em>丰胸</em>的最快方法,产后<em>丰胸</em>的最快方法千...39健康网</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-7.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2017年-2月-14日&nbsp;-&nbsp;</span>详情描述 ：我今年30岁，性别女，本来胸就比较小，生了孩子后<em>胸部</em>干瘪下垂，松弛的一 点弹性都没有，睡下来感觉都是平的，好自卑啊！更打击的是因为这个和老公的夫妻生活越来越少，就是勉强一次，也是像在完成任务！生活工作都影响很大，好苦 恼。请问有什么方法能帮我呢？希望能食疗，要健康不反弹的！跪谢！！...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">ask.39.net</span><span class="koubei-entrance c-gap-left"><a href="./list-7.html" class="koubei-a"><span class="c-gray">2060条评价</span></a></span></div></div></div></div>
+
+
     <div class="c-container"><a class="c-blocka" href="./list-1.html"><h3 class="c-title c-gap-top-small">胸部太小怎么办 自我<em>丰胸</em>的最快方法(全文)_网易女人</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a class="c-blocka" href="./list-1.html"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(5).png"></div></a></div><div class="c-span9"><a class="c-blocka" href="./list-5.html"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2013年3月27日&nbsp;-&nbsp;</span>因此,适度地增加胸部的脂肪量,可以提高胸部的丰挺度,是自我<em>丰胸</em>的最快方法、胸部太小怎么办...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">3g.lady163.com</span><span class="koubei-entrance c-gap-left"><a href="./list-5.html" class="koubei-a"><span class="c-gray">99条评价</span></a></span></div></div></div></div>
 
-    <div class="c-container"><a class="c-blocka" href="./list-3.html"><h3 class="c-title c-gap-top-small">胸部太小怎么办 自我<em>丰胸</em>的最快方法(全文)_网易女人</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a class="c-blocka" href="./list-1.html"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(5).png"></div></a></div><div class="c-span9"><a class="c-blocka" href="./list-5.html"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2013年3月27日&nbsp;-&nbsp;</span>因此,适度地增加胸部的脂肪量,可以提高胸部的丰挺度,是自我<em>丰胸</em>的最快方法、胸部太小怎么办...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">3g.lady163.com</span><span class="koubei-entrance c-gap-left"><a href="./list-5.html" class="koubei-a"><span class="c-gray">99条评价</span></a></span></div></div></div></div>
+    <div class="c-container">
+        <a data-plugin="null" class="c-blocka" href="http://tieba.baidu.com/f?kw=%B7%E1%D0%D8">
+            <h3 class="c-title c-gap-top-small"><em>丰胸</em>吧_百度贴吧</h3>
+        </a>
+
+        <style data-merge="">
+            .wa-we-tiebanewxml-list {
+                margin-top: -4px;
+            }
+
+            .wa-we-tiebanewxml-text-info {
+                padding-right: 4px;
+            }
+
+            .wa-we-tiebanewxml-com {
+                position: relative;
+                padding-left: 5px;
+            }
+
+            .wa-we-tiebanewxml-con-left {
+                padding-right: 0;
+            }
+
+            .wa-we-tiebanewxml-con-right {
+                text-align: right;
+                min-width: 75px;
+                float: right;
+                overflow: hidden;
+                height: 22px;
+                line-height: 24px;
+            }
+        </style><div class="c-gap-top-small c-gap-bottom"><div class="c-color-gray">43.7W人关注<em>丰胸</em>吧</div><div class="wa-we-tiebanewxml-list"><a class="c-blocka" data-plugin="null" href="./list-4.html"><div class="c-line-bottom"><div class="c-gap-top c-gap-bottom"><div class="c-gray wa-we-tiebanewxml-con-right"><span class="wa-we-tiebanewxml-com">评论:314</span></div><div class="wa-we-tiebanewxml-con-left"><p class="c-line-clamp1">有多少人是为了男朋友而<em>丰胸</em>的呢</p></div></div></div></a><a href="./list-4.html" class="c-blocka" data-plugin="null"><div class="c-line-bottom"><div class="c-gap-top c-gap-bottom"><div class="c-gray wa-we-tiebanewxml-con-right"><span class="wa-we-tiebanewxml-com">评论:61</span></div><div class="wa-we-tiebanewxml-con-left"><p class="c-line-clamp1">不得不看的经验分享：产后哺乳结束两年，成功<em>丰胸</em>，从A到C！</p></div></div></div></a><a href="./list-4.html" class="c-blocka" data-plugin="null"><div class="c-line-bottom"><div class="c-gap-top c-gap-bottom"><div class="c-gray wa-we-tiebanewxml-con-right"><span class="wa-we-tiebanewxml-com">评论:16</span></div><div class="wa-we-tiebanewxml-con-left"><p class="c-line-clamp1">【<em>丰胸</em>日记】放弃过！真的没想到能变大???</p></div></div></div></a></div></div><div class="c-row"><div class="c-span6"><div class="c-line-clamp1  c-color-gray"><span class="c-foot-source">百度贴吧</span><span class="c-foot-icon c-foot-icon-16 c-foot-icon-16-aladdin c-gap-left-small"></span></div></div><div class="c-span6"><a class="c-blocka c-moreinfo" data-plugin="null"><i class="c-icon c-gap-left-small"></i></a></div></div>
+    </div>
 
     <div id="relativewords" style="margin:10px 0px 10px 0px" class="se-relativewords">
         <div class="rw-title">相关搜索</div>
@@ -1720,20 +1726,12 @@
     </div>
 
 
-    <div id="next" style="margin:10px 0px 10px 0px;background-color: #ffffff;" >
-        <div  style="text-align: center;"><a style="font-size: 17px;
-                height: 41px;
-                line-height: 45px;
-                color: #262626;
-                padding: 0 10px;" href="javascript:void(0);" onclick="next();">下一页</a></div>
-    </div>
-
     <div id="ft-wrap">
-
-            <form data-formposition="b" class="se-form" id="se-form2" action="./list2.html?word=" method="get" autocomplete="off">
+        <div id="footer-wrap">
+            <form data-formposition="b" class="se-form" id="se-form2" action="./list-3.html?word=" method="get" autocomplete="off">
                 <div class="con-wrap"><input type="hidden" name="id" value="MDAwMDAwMDAwMIB2hps"><textarea autocomplete="off" autocorrect="off" maxlength="64" id="kw2" name="word" class="se-input adjust-input">怎么丰胸</textarea><div class="se-inner"><div id="cross2" class="cross"></div><div class="callicon-wrap"><div class="baiduapp-icon"></div><div class="baiduappcall-wrap"><div class="qrcode call" data-ac="active"></div><div class="voice call" data-ac="active"></div></div></div><button id="se-bn2" class="se-bn" type="submit"><span>百度一下</span></button></div></div><div id="se-box2" class="se-box"></div><input type="hidden" name="sa" value="阳痿早泄治疗"><input type="hidden" name="ts" value="0"> <input type="hidden" name="t_kt" value="0">
             </form>
-        <div class="footerlink"></div>
+        </div><div class="footerlink"></div>
     </div>
 
     <div id="page-copyright">
