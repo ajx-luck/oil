@@ -114,7 +114,7 @@ public class WebController {
     public String show(ModelMap map){
         return "show";
     }
-
+    //户7
     @RequestMapping(value = "/"+URL_2,method = RequestMethod.GET)
     public String fx2(ModelMap map, HttpServletRequest request,HttpServletResponse response){
         Map<String,Object> params = new HashMap<>();
@@ -170,6 +170,7 @@ public class WebController {
         setInfo(map, request, "fxf",city, response);
         return "redirect:/fxpy.html";
     }
+    //户6
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
         Map<String,Object> params = new HashMap<>();
