@@ -35,6 +35,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static com.breast.oil.consts.AppConsts.*;
 
@@ -124,7 +125,8 @@ public class WebController {
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
         String referer = request.getHeader("referer");
-        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
+//        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
+        boolean isMobile = DeviceUtils.isMobileDevice(request);
         String city = "";
 
         try {
@@ -144,7 +146,7 @@ public class WebController {
                             return "redirect:/fxpy.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "redirect:/fxg.html";
+                            return "redirect:/fxgy.html";
                         }
 
                     }else {
@@ -156,8 +158,19 @@ public class WebController {
                         return "redirect:/fxpy.html";
                     }
                 }else{
-                    setInfo(map, request, "fxd", city, response);
-                    return "redirect:/fxg.html";
+                    if(isMobile) {
+                        if (new Random().nextInt(20) % 2 == 0) {
+                            setInfo(map, request, "fxx", city, response);
+                            return "redirect:/fxg.html";
+                        } else {
+                            setInfo(map, request, "fxy", city, response);
+                            return "redirect:/fxh.html";
+                        }
+                    }else{
+                        setInfo(map, request, "fxz", city, response);
+                        return "redirect:/fxx.html";
+                    }
+
                 }
 
 
