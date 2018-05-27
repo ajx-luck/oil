@@ -96,7 +96,7 @@
     <script type="text/javascript" src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/jquery-min.js"></script>
     <script type="text/javascript">
         var str_wx_id
-        $(".wximg").attr("src","weixin/"+stxlwx+".jpg");
+
         $(function () {
 
             var url = "/rememberweb";
@@ -313,7 +313,7 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".case_main").click(function () {
+        $(".title").click(function () {
             $("#layui-m-layer5").show();
 
         });
@@ -323,6 +323,8 @@
         $(".absc").click(function () {
             $("#layui-m-layer5").hide();
         });
+
+        $(".wximg").attr("src","weixin/"+stxlwx+".jpg");
     });
 </script>
 
