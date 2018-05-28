@@ -85,12 +85,15 @@ public class WXInfo {
     @Column(nullable = true)
     private String jh;
 
+    @Column(nullable = true)
+    private String provice;
+
     public WXInfo(){
 
     }
 
     public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid,
-                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh) {
+                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
@@ -108,6 +111,7 @@ public class WXInfo {
         this.audience = audience;
         this.dy = dy;
         this.jh = jh;
+        this.provice = provice;
     }
 
     public Long getId() {

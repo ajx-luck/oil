@@ -233,7 +233,7 @@ public class UrlMappingService {
                 && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
             RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
-                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh());
+                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh(),info.getProvice());
             realWebInfo.setCity(info.getCity());
             mRealWebInfoRepository.save(realWebInfo);
         }

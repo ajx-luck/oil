@@ -83,12 +83,15 @@ public class RealWebInfo {
     @Column(nullable = true)
     private String jh;
 
+    @Column(nullable = true)
+    private String provice;
+
     public RealWebInfo(){
 
     }
 
     public RealWebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype,
-                       String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh) {
+                       String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh,String provice) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -105,6 +108,7 @@ public class RealWebInfo {
         this.audience = audience;
         this.dy = dy;
         this.jh = jh;
+        this.provice = provice;
     }
 
 

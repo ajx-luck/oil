@@ -46,7 +46,7 @@ public class StatisticsController {
         if(webInfo != null) {
             WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
                     type, webInfo.getKeyWord(), webInfo.geteKeywordid(), null,
-                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh());
+                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
             return "{code:0}";
@@ -72,18 +72,20 @@ public class StatisticsController {
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
         String city = "北京";
+        String provice = "";
         if(webInfo != null) {
             //如果为空，就取推广的记录页面，否则随便取
             if(StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
             }
             city = webInfo.getCity();
+            provice = webInfo.getProvice();
             if(StringUtils.isEmptyOrWhitespace(keyWord)) {
                 keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
             }
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city);
+                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath());
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
@@ -110,18 +112,20 @@ public class StatisticsController {
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
         String city = "北京";
+        String provice = "";
         if(webInfo != null) {
             //如果为空，就取推广的记录页面，否则随便取
             if(StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
             }
             city = webInfo.getCity();
+            provice = webInfo.getProvice();
             if(StringUtils.isEmptyOrWhitespace(keyWord)) {
                 keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
             }
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city);
+                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath());
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }

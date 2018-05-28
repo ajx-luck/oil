@@ -29,6 +29,10 @@ public class HtmlInfo {
     private String keyWord;
     @Column(nullable = true)
     private String eKeywordid;
+    @Column(nullable = true)
+    private String urlRefer;
+    @Column(nullable = true)
+    private String provice;
     /**
      * 定位的位置
      */
@@ -39,7 +43,7 @@ public class HtmlInfo {
 
     }
 
-    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid,String city) {
+    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid,String city,String provice,String urlRefer) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -48,6 +52,8 @@ public class HtmlInfo {
         this.eKeywordid = e_keywordid;
         this.displayTime = TimeUtils.timesToDate(createTime);
         this.city = city;
+        this.provice = provice;
+        this.urlRefer = urlRefer;
     }
 
     public String getUrlPath() {
@@ -105,4 +111,6 @@ public class HtmlInfo {
     public void setDisplayTime(String displayTime) {
         this.displayTime = displayTime;
     }
+
+
 }
