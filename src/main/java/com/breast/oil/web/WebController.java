@@ -140,7 +140,7 @@ public class WebController {
                 provice = location.getProvince();
                 if ( StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                         || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
-                    if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
+                    if (location != null && (!location.toString().contains("广东"))  && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, URL_2,"fxa", city, provice,response);
