@@ -61,13 +61,11 @@
                         page: 1
                     }
                     , "bd", hash + "#bp_baidu_")
-
             }
-
         };
         window.onpopstate = function (a) {
             if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
-                window.location.href = "https://m.baidu.com/";
+                window.location.href = "https://m.baidu.com";
             }
         }
 

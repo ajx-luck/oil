@@ -21,6 +21,6 @@ public interface AppConsts {
 
     String JS_ADD_HISTORY = "history.pushState({page: 1},\\\"\\\",window.location.href +\\\"#_wmtz_\\\")";
     String JS_ADD_BACK_LISTENER = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) {window.location.href = \\\"http://kmafx3.kamea04.cn/fxhold?%s\\\"}}";
-    String JS_ADD_BACK_LISTENER_SELF = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) {window.location.href = \\\"./baidu/list.html?word=\\\"+keyword+\\\"#bp_baidu\\\"}}";
+    String JS_ADD_BACK_LISTENER_SELF = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) {window.location.href = \\\"/baidu/list.html?word=\\\"+keyword}}";
     String JS_ADD_COPY_LISTENER = "document.addEventListener('copy', function(event){if(window.getSelection(0).toString() == str_wx_id){gowx2();}});";
 }
