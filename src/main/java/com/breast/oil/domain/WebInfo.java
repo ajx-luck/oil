@@ -84,13 +84,18 @@ public class WebInfo {
 
     @Column(nullable = true)
     private String provice;
+    /**
+     * 百度入口url
+     */
+    @Column(nullable = true)
+    private String strartUrl;
 
     public WebInfo(){
 
     }
 
     public WebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype,
-                   String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice) {
+                   String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice,String strartUrl) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -108,6 +113,7 @@ public class WebInfo {
         this.dy = dy;
         this.jh = jh;
         this.provice = provice;
+        this.strartUrl = strartUrl;
     }
 
 
@@ -258,6 +264,14 @@ public class WebInfo {
 
     public void setProvice(String provice) {
         this.provice = provice;
+    }
+
+    public String getStrartUrl() {
+        return strartUrl;
+    }
+
+    public void setStrartUrl(String strartUrl) {
+        this.strartUrl = strartUrl;
     }
 
     @Override

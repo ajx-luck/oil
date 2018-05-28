@@ -46,7 +46,7 @@ public class StatisticsController {
         if(webInfo != null) {
             WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
                     type, webInfo.getKeyWord(), webInfo.geteKeywordid(), null,
-                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice());
+                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice(),webInfo.getStrartUrl());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
             return "{code:0}";
@@ -74,6 +74,7 @@ public class StatisticsController {
         String city = "北京";
         String provice = "";
         if(webInfo != null) {
+            wechatId = mUrlMappingService.getRandomWechatIdByUrl(webInfo.getStrartUrl());
             //如果为空，就取推广的记录页面，否则随便取
             if(StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
@@ -85,7 +86,7 @@ public class StatisticsController {
             }
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath());
+                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath(),webInfo.getStrartUrl());
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
@@ -125,7 +126,7 @@ public class StatisticsController {
             }
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath());
+                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath(),webInfo.getStrartUrl());
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }

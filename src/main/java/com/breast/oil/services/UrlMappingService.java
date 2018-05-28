@@ -52,6 +52,8 @@ public class UrlMappingService {
         return list.get(i).getWechatId();
     }
 
+
+
     public String getWechatIdByIP(String ip){
         List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
         if(list == null || list.size() == 0 || StringUtils.isEmptyOrWhitespace(list.get(0).getWechatId())){
@@ -233,7 +235,7 @@ public class UrlMappingService {
                 && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
             RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
-                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh(),info.getProvice());
+                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh(),info.getProvice(),info.getStrartUrl());
             realWebInfo.setCity(info.getCity());
             mRealWebInfoRepository.save(realWebInfo);
         }

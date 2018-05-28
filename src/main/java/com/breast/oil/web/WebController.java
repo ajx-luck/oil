@@ -101,7 +101,7 @@ public class WebController {
         }*/
         map.addAttribute("ticket", "weixin://");
         WebInfo info = new WebInfo(url1,new Date().getTime(),CommonUtils.getIpAddr(request),
-                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum,price,audience,dy,jh,provice);
+                wechatId,keyword,e_keywordid,referer,e_matchtype,e_creative,e_adposition,e_pagenum,price,audience,dy,jh,provice,url);
         info.setCity(city);
         mUrlMappingService.savaWebInfo(info,url1,ip);
     }

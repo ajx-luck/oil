@@ -88,12 +88,18 @@ public class WXInfo {
     @Column(nullable = true)
     private String provice;
 
+    /**
+     * 百度入口url
+     */
+    @Column(nullable = true)
+    private String strartUrl;
+
     public WXInfo(){
 
     }
 
     public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid,
-                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice) {
+                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice,String strartUrl) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;
@@ -112,6 +118,7 @@ public class WXInfo {
         this.dy = dy;
         this.jh = jh;
         this.provice = provice;
+        this.strartUrl = strartUrl;
     }
 
     public Long getId() {

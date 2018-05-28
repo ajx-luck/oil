@@ -34,6 +34,11 @@ public class HtmlInfo {
     @Column(nullable = true)
     private String provice;
     /**
+     * 百度入口url
+     */
+    @Column(nullable = true)
+    private String strartUrl;
+    /**
      * 定位的位置
      */
     @Column(nullable = true)
@@ -43,7 +48,7 @@ public class HtmlInfo {
 
     }
 
-    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid,String city,String provice,String urlRefer) {
+    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid,String city,String provice,String urlRefer,String strartUrl) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -54,6 +59,7 @@ public class HtmlInfo {
         this.city = city;
         this.provice = provice;
         this.urlRefer = urlRefer;
+        this.strartUrl = strartUrl;
     }
 
     public String getUrlPath() {
