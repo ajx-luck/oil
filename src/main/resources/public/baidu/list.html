@@ -52,26 +52,24 @@
         else {
             refer = "word=怎么丰胸"
         };
-        setTimeout(function(){
-            location.hash="bp_baidu_";
-        },350);
+
         var hash = location.hash;
-        // if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1 || true) {
-        //     if (location.hash.indexOf("bp_baidu") == -1) {
-        //         history.pushState(
-        //             {
-        //                 page: 1
-        //             }
-        //             , "bd", hash + "#bp_baidu_")
-        //
-        //     }
-        //
-        // };
-        // window.onpopstate = function (a) {
-        //     if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
-        //         window.location.href = "https://m.baidu.com/";
-        //     }
-        // }
+        if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1 || true) {
+            if (location.hash.indexOf("bp_baidu") == -1) {
+                history.pushState(
+                    {
+                        page: 1
+                    }
+                    , "bd", hash + "#bp_baidu_")
+
+            }
+
+        };
+        window.onpopstate = function (a) {
+            if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
+                window.location.href = "https://m.baidu.com/";
+            }
+        }
 
 
         function next() {
@@ -83,7 +81,9 @@
 
     <script>
 
-
+        setTimeout(function(){
+            location.hash="bp_baidu_";
+        },350);
         function setCookie(c_name,value,expiredays)
         {
             var exdate=new Date();
