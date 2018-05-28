@@ -216,7 +216,7 @@ public class WebController {
                             return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request,URL_3, "fxb", city,provice, response);
-                            return "redirect:/fxaa.html";
+                            return "redirect:/fxg.html";
                         }
 
                     }else {
@@ -230,9 +230,9 @@ public class WebController {
                 }else{
                     setInfo(map, request, URL_3,"fxd", city,provice, response);
                     if(isMobile){
-                        return "redirect:/fxaa.html";
-                    }else{
                         return "redirect:/fxg.html";
+                    }else{
+                        return "redirect:/fxaa.html";
                     }
 
                 }
