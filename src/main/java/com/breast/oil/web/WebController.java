@@ -193,7 +193,7 @@ public class WebController {
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
         String referer = request.getHeader("referer");
-        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
+        boolean isMobile = DeviceUtils.isMobileDevice(request);
         String city = "";
         try {
             String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
@@ -213,7 +213,7 @@ public class WebController {
                             return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request, "fxb", city, response);
-                            return "redirect:/fxx.html";
+                            return "redirect:/fxaa.html";
                         }
 
                     }else {
@@ -226,7 +226,12 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, "fxd", city, response);
-                    return "redirect:/fxg.html";
+                    if(isMobile){
+                        return "redirect:/fxaa.html";
+                    }else{
+                        return "redirect:/fxg.html";
+                    }
+
                 }
 
             }
