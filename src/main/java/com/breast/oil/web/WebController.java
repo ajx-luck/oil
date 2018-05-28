@@ -65,14 +65,14 @@ public class WebController {
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
-        setInfo(map, request, url1,"","",null);
+        setInfo(map, request,"fxc", url1,"","",null);
     }
 
-    private void setInfo(ModelMap map, HttpServletRequest request, String url1,String city,String provice,HttpServletResponse response) {
+    private void setInfo(ModelMap map, HttpServletRequest request, String url,String url1,String city,String provice,HttpServletResponse response) {
         String ip = CommonUtils.getIpAddr(request);
-        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1,ip);
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(url,ip);
         if(wechatId == null){
-            wechatId = mUrlMappingService.getRandomWechatIdByUrl(url1);
+            wechatId = mUrlMappingService.getRandomWechatIdByUrl(url);
         }
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
@@ -143,32 +143,32 @@ public class WebController {
                     if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(audience)) && (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
-                            setInfo(map, request, "fxa", city, provice,response);
+                            setInfo(map, request, URL_2,"fxa", city, provice,response);
                             return "redirect:/fxpy.html";
                         }else{
-                            setInfo(map, request, "fxb", city,provice, response);
+                            setInfo(map, request, URL_2,"fxb", city,provice, response);
                             return "redirect:/fxgy.html";
                         }
 
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, "fxg", city,provice, response);
+                            setInfo(map, request, URL_2,"fxg", city,provice, response);
                             return "forward:/blocked.html";
                         }
-                        setInfo(map, request, "fxc", city,provice, response);
+                        setInfo(map, request,URL_2, "fxc", city,provice, response);
                         return "redirect:/fxpy.html";
                     }
                 }else{
                     if(isMobile) {
                         if (new Random().nextInt(20) % 2 == 0) {
-                            setInfo(map, request, "fxx", city,provice, response);
+                            setInfo(map, request, URL_2,"fxx", city,provice, response);
                             return "redirect:/fxg.html";
                         } else {
-                            setInfo(map, request, "fxy", city,provice, response);
+                            setInfo(map, request,URL_2, "fxy", city,provice, response);
                             return "redirect:/fxh.html";
                         }
                     }else{
-                        setInfo(map, request, "fxz", city,provice, response);
+                        setInfo(map, request, URL_2,"fxz", city,provice, response);
                         return "redirect:/fxx.html";
                     }
 
@@ -178,10 +178,10 @@ public class WebController {
             }
         }catch (Exception e){
             log.error(e);
-            setInfo(map, request, "fxe",city, provice,response);
+            setInfo(map, request, URL_2,"fxe",city, provice,response);
             return "redirect:/fxpy.html";
         }
-        setInfo(map, request, "fxf",city,provice, response);
+        setInfo(map, request, URL_2,"fxf",city,provice, response);
         return "redirect:/fxpy.html";
     }
     //户6
@@ -212,23 +212,23 @@ public class WebController {
                     if (location != null && (!location.toString().contains("广东")) &&  (!StringUtils.isEmptyOrWhitespace(referer)) && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海")
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
-                            setInfo(map, request, "fxa", city,provice, response);
+                            setInfo(map, request,URL_3, "fxa", city,provice, response);
                             return "redirect:/hu6.html";
                         }else{
-                            setInfo(map, request, "fxb", city,provice, response);
+                            setInfo(map, request,URL_3, "fxb", city,provice, response);
                             return "redirect:/fxaa.html";
                         }
 
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, "fxg", city,provice, response);
+                            setInfo(map, request, URL_3,"fxg", city,provice, response);
                             return "forward:/blocked.html";
                         }
-                        setInfo(map, request, "fxc", city,provice, response);
+                        setInfo(map, request, URL_3,"fxc", city,provice, response);
                         return "redirect:/hu6.html";
                     }
                 }else{
-                    setInfo(map, request, "fxd", city,provice, response);
+                    setInfo(map, request, URL_3,"fxd", city,provice, response);
                     if(isMobile){
                         return "redirect:/fxaa.html";
                     }else{
@@ -240,10 +240,10 @@ public class WebController {
             }
         }catch (Exception e){
             log.error(e);
-            setInfo(map, request, "fxe",city, provice,response);
+            setInfo(map, request, URL_3,"fxe",city, provice,response);
             return "redirect:/hu6.html";
         }
-        setInfo(map, request, "fxf",city,provice, response);
+        setInfo(map, request, URL_3,"fxf",city,provice, response);
         return "redirect:/hu6.html";
     }
 
