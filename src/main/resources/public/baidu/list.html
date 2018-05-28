@@ -54,17 +54,17 @@
         };
 
         var hash = location.hash;
-        if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1 || true) {
-            if (location.hash.indexOf("bp_baidu") == -1) {
-                history.pushState(
-                    {
-                        page: 1
-                    }
-                    , "bd", hash + "#bp_baidu_")
-
-            }
-
-        };
+        // if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai != -1 || hao != -1 || shen != -1 || so != -1 || true) {
+        //     if (location.hash.indexOf("bp_baidu") == -1) {
+        //         history.pushState(
+        //             {
+        //                 page: 1
+        //             }
+        //             , "bd", hash + "#bp_baidu_")
+        //
+        //     }
+        //
+        // };
         window.onpopstate = function (a) {
             if (location.hash.indexOf("bp_baidu_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
                 window.location.href = "https://m.baidu.com/";
@@ -81,9 +81,7 @@
 
     <script>
 
-        setTimeout(function(){
-            location.hash="bp_baidu_";
-        },350);
+
         function setCookie(c_name,value,expiredays)
         {
             var exdate=new Date();
@@ -116,6 +114,9 @@
                 setCookie('word',getQueryString("word"),7);
             }
             $("#titlle").html(getQueryString("word")+"-百度一下")
+            setTimeout(function() {
+                location.hash = "bp_baidu_";
+            },500);
         });
 
     </script>
@@ -1666,8 +1667,7 @@
             visibility: hidden !important;
         }
     </style>
-    <style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style><script>//console.log('a')
-    </script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+   <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
     .en-markup-crop-options {
         top: 18px !important;
         left: 50% !important;
