@@ -31,7 +31,7 @@ CREATE TABLE `path_to_wechat` (
 -- ----------------------------
 -- Records of path_to_wechat
 -- ----------------------------
-INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fxb', 'jbjx6572');
+INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fxa', 'ivy163169');
 INSERT INTO `path_to_wechat` VALUES ('1', '1000', '129', 'fxb', 'jbjx6572');
 INSERT INTO `path_to_wechat` VALUES ('2', '1000', '129', 'fxc', 'ivy136158');
 INSERT INTO `path_to_wechat` VALUES ('3', '1000', '129', 'fxc', 'ivy75654');
