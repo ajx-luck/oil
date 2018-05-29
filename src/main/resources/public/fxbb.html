@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/index.css" media="all">
     <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/jquery-1.js" type="text/javascript"></script>
     <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/clipboard.min.js"></script>
     <script src="http://picket.oss-cn-shenzhen.aliyuncs.com/js/remember.js"></script>
@@ -1032,14 +1033,104 @@
 
 </style>
 
+<style>
+
+    #pl {
+        text-align: left;
+    }
+    #pl .box3 {
+        position: relative;
+    }
+    #pl .box3 h6 {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 20px;
+    }
+    #pl .xian3 {
+        height: 1px;
+        width: 40%;
+        margin-top: 10px;
+        background-color: #000;
+        position: absolute;
+        top: 3px;
+    }
+    #pl .xian3-1 {
+        right: 0;
+    }
+    #pl .photo {
+        width: 40px;
+        height: 40px;
+        float: left
+    }
+    #pl .tot_pin {
+        width: 100%;
+        margin-left: 5px;
+        padding-right: 30px;
+        font-size: 14px;
+        background: #FFF;
+    }
+    #pl .content {
+        float: left;
+        margin-left: 10px;
+        width: 85%;
+        margin-bottom: 20px
+    }
+    #pl .ni_name {
+        color: #999;
+        width: 80%;
+        margin-top: 10px;
+    }
+    #pl .read_class {
+        color: #CCC;
+        margin: 20px;
+    }
+    #pl .like {
+        float: right;
+        color: #999;
+        padding-right: 1px;
+    }
+    #pl .xian2 {
+        display: block;
+        width: 80%;
+        height: 1px;
+        background-color: #666;
+        margin-top: 20px;
+    }
+    @media( max-width:670px) {
+        #pl .box1 {
+            margin-left: 1px;
+            margin-top: -5px;
+        }
+        #pl .box2 {
+            width: 100%;
+            padding-right: 10px;
+        }
+</style>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .t1 {
+        text-align: left;
+        color: rgb(192, 0, 0);
+        height: 35px;
+        line-height: 35px;
+    }
+    .btcode { width: 100%; max-width:640px; background: #0553F8; color: #FFF; font-size: 1.2em; line-height: 3em; text-align: center; position: fixed; bottom: 0;  z-index:999;font-weight:bold;   }
+
+</style>
+
 <div class="dhlma">
     <h2 class="tpbqa">北京庆好康商贸有限公司</h2>
     <div class="dhk">
         <ul class="dhul">
             <li style="width: 28%;"><a href="#">庆好康【首页】</a></li>
-            <li><a href="/fxb/about.html">关于我们</a></li>
-            <li><a href="/fxb/list.html">产品中心</a></li>
-            <li style="width: 22%;"><a href="/fxb/contact.html">服务与帮助</a></li>
+            <li><a href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/about.html">关于我们</a></li>
+            <li><a href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/list.html">产品中心</a></li>
+            <li style="width: 22%;"><a href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/contact.html">服务与帮助</a></li>
         </ul>
     </div>
 
@@ -1059,7 +1150,7 @@
             <div class="warp">
                 <div class="min">
                     <p align=" center">
-                        <img style="height: 80px;width: auto" src="/fxb/swlmrnj_logo.jpg">
+                        <img style="height: 100px;width: auto" src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/prd.jpg">
                         <nav class="m-nav" style="padding-top:.7rem;padding-bottom:.5rem;">
                             <img src="/fxn/st.jpg">
                         </nav>
@@ -1076,7 +1167,6 @@
                     <a name="sub"></a>
 
                     <h2>亲身公布逆天丰胸方法，太平公主逆袭变波霸！</h2>
-                    <div class="read">阅读量 762838</div>
                     <div>
                         <img style="width: 30px; vertical-align: middle;"
                              src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/sinaico.jpg">&nbsp;美丽资讯
@@ -1151,244 +1241,353 @@
                         </tbody>
                     </table>
 
+                    <div class="read_class" style="text-align:left;">阅读&nbsp;<span id="read_zon">100000</span>+&nbsp;&nbsp;<img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" id="zong_id" style="width:23px; height:18px">&nbsp;<span id="total_zan">8256</span></div>
+                    <br/><br/>
+                    <div class="box3">
+                        <div class="xian3"></div>
+                        <h6>精彩评论</h6>
+                        <div class=" xian3 xian3-1"></div>
+                    </div>
 
-                    <!--<p class="red">老师的微信：<span class="wx" oncopy="copyWechat()" ontouchstart="_czc.push(['_trackEvent', '微信', '复制']);"><script>document.write(stxlwx);</script></span>（←长按复制加微信）这里说明一下，因为每天加老师微信咨询的姐妹很多，所以老师每天只通过50个姐妹。所以想丰胸的姐妹加不上的可以第二天试试！要丰胸的姐妹赶紧加老师微信。</p>-->
-                    <article class="detaillist">
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">猫扑走天涯</a>
-                                <span class="fr ">2楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    <p>已经加了美胸达人ivy老师有一段时间了，胸部明显有了变化，皮肤也变的细腻光滑了，胸部变的坚挺了，现在穿上内衣感觉有点紧了</p>
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131303366" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">泰兰德的叹息</a>
-                                <span class="fr ">3楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    <p>
-                                        是什么神奇的丰胸方法，能让我也试试吗？我也是先天胸部发育不良，试过各种方法都没任何改善，夏天最是痛苦，哎！！胸前无料真的好自卑，看到你的帖子如获至宝，这个丰胸的真这么好吗？</p>
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131303366" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div id="131303366" class="detail">
-                            <div class="title">
-                                <a class="bc">豆儿宝贝</a>
-                                <span class="fr ">4楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    <p>楼上，可以加美胸达人ivy老师微信了解下，我已经丰胸成功了。老师微信号：<span class="wx" oncopy="copyWechat()"
-                                                                                 ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>&nbsp;
-                                    </p>
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131303366" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">嘟嘟</a>
-                                <span class="fr ">5楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    我发育迟缓，一直平胸，大二时加了老师，胸大了许多，舍友说我是童颜巨乳！！后来我们一起减肥，舍友瘦了胸也变小了，而我瘦了4斤，胸还是那么大 哈哈哈哈
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">我爱自由和你</a>
-                                <span class="fr ">6楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content"> 舍友竟然说我胸像她小学三年纪，好生气，我也要加美胸达人ivy老师！</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">疯我</a>
-                                <span class="fr ">7楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    丰胸若是一个人默默的坚持，真的很辛苦，很容易放弃！还好有美胸达人ivy老师帮助，和众多姐妹一起丰胸，坚持下去，效果自然也就看得见。
-                                </div>
-                                <p style="white-space: normal; text-align:center;"><img
-                                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/8.jpg"><span
-                                        style="color: #000000;"></span></p>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">何求</a>
-                                <span class="fr ">8楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">楼上的美女，还有楼主美女，你们都好强悍，这效果﹏﹏</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">逝去的青春</a>
-                                <span class="fr ">9楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    丰胸都四五年了，一直还是老样子，特别有损形象，非常不自信。美胸达人ivy老师的丰胸方法真的很神奇，我之前胸也很平，现在居然已经达到了我满意的罩杯了。
-                                </div>
+                    <div id="pl">
 
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w1.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">夏木~~</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>358</span></span><br>
+        <span class="box2">我是那种先天小，每次穿衣服都是空空很郁闷死了！也尝试着去改变。哎，用了很多产品，什么丰胸霜乳，一点都没效果。完全是死心。抱着最后试试心态，现在用了增大很多，肉感也有，说不出的惊喜与感动！平胸姐妹 ，真的可以试试！
+</span> <br>        <span class="ni_name">昨天</span> <br>
+		  <span class="xian2"></span> <br>
+        <span class="ni_name">一朵喇叭花   回复</span> <br>
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">陵云壮志</a>
-                                <span class="fr ">10楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">看着还不错，帮老婆试试</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">云中的誓言</a>
-                                <span class="fr ">11楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">我也苦恼很多年了，从生完孩子到现在，用过很多方法都不行，我前天就加老师微信号
-                                    <span class="wx" oncopy="copyWechat()"
-                                          ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
-                                    咨询过了
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">牛肉干</a>
-                                <span class="fr ">12楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">我产后胸部萎缩下垂很严重，不知道能不能恢复</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+		   <span class="box2">同是漫漫丰胸路	</span><br>
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">夏木~~ 回复</span><br>
+        <span class="box2">我能体会你的心情 希望你也能成功</span><br>
+		<span class="xian2"></span> <br>
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">水晶爱恋</a>
-                                <span class="fr ">13楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    我胸平也就算了，还大小胸！和美胸达人ivy老师巴拉完烦恼之后，她给了专业建议，现在，不但没了大小胸的烦恼，胸部还大了很多，意外获得一对漂亮的"胸器"。
-                                </div>
-                                <p style="white-space: normal; text-align:center;"><img
-                                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/9.jpg"><span
-                                        style="color: #000000;"></span></p>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+      </div>
+      </span> </div>
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">馨馨</a>
-                                <span class="fr ">14楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">看来美胸达人ivy老师名气真不小呢，原来楼主也加了！</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w6.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">寸寸青丝</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>147</span></span><br>
+        <span class="box2">我平胸也很严重，真的可以变大吗？
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">作者 回复</span><br>
+        <span class="box2">具体你问问夏美吧，你可以发照片给她看看，他微信号：<script>document.write(stxlwx);</script> </span><br>
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">爱哭鬼</a>
-                                <span class="fr ">15楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">已经坚持了一段时间，现在感觉就是有点肉肉了，会继续坚持的，期待过年的时候可以给老公一惊喜！</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w2.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">致我们逝去的青春</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>97</span></span><br>
+        <span class="box2">生完孩子后乳头因为母乳喂养比较黑还缩水 现在用了不仅仅增大 乳头也变得和青春期一样粉嫩了
 
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">雅姿</a>
-                                <span class="fr ">16楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">
-                                    我已经36岁了，做姑娘时候胸部还是可以的，那时候姐妹们还羡慕我。自从生了孩子后胸部就干瘪了，也没有一点弹性了。经过美胸达人ivy老师的指导，没想到胸部竟然"复活"了，又大又弹还很翘，很不错。
-                                </div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="title">
-                                <a class="bc">鱼非鱼</a>
-                                <span class="fr ">17楼</span></div>
-                            <div class="content_box">
-                                <div class="content wap_content">真心不错，我表姐也加美胸达人ivy老师咨询了！</div>
-                                <small class="fl">.</small>
-                                <span class="fr">
-                  <a data-reply="#" data-pid="131307002" class="fl quotereply"><i class="icon huifu"></i>回复</a>                  </span>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div id="131307002" class="detail">
-                            <div class="title"></div>
-                            <div class="content_box">
-                                <div class="content wap_content"></div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/r1.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">黑玫瑰</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>201</span></span><br>
+        <span class="box2">多吃木瓜、吃坚果、橄榄油和鱼类脂肪、黄豆、花生还有很多方法都可以丰胸的
+
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">海底的℃一颗沙粒 回复</span><br>
+        <span class="box2">能不在这诱惑嘛，这些方法能行，我们还用在这苦恼吗，网上一搜一大片。</span><br>
+
+      </div>
+      </span> </div>
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/e1.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">悠悠我心~</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>361</span></span><br>
+        <span class="box2">说的那么好，这个丰胸法真的有用么？有什么保障？
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">青云志小师妹 回复</span><br>
+        <span class="box2">这个你按照老师给你定制的丰胸方案认真执行就好了</span><br>
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">悠悠我心~ 回复</span><br>
+        <span class="box2">关键就怕没效果</span><br>
+		     <span class="xian2"></span> <br>
+        <span class="ni_name">青云志小师妹 回复</span><br>
+        <span class="box2">		我买的时候跟其他姐妹一样担心！</span><br>
+	     <span class="xian2"></span> <br>
+        <span class="ni_name">悠悠我心~ 回复</span><br>
+        <span class="box2">还能这样啊，那我去试试看！</span><br>
+
+
+      </div>
+      </span> </div>
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w3.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">刘曼文</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>108</span></span><br>
+        <span class="box2">大学的时候有一点儿下垂，结婚产后下垂的更严重了，本以为就这样了。后来闺蜜介绍我用它，没想到用了一个套装之后开始变得坚挺了！老公都说我越来越有女人味
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w4.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">kitty</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>85</span></span><br>
+        <span class="box2">我是好姐妹介绍来用的，只是抱着试试的心态，毕竟这些年都过来了，没想真的变大了，以前的内衣穿着都变紧了很多。
+
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+
+
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w5.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">白萍</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>35</span></span><br>
+        <span class="box2">刚开始收到产品 ，真是各种担心 担心和以前一样 但是用了之后证明我担心是多余 ，想增大 和改变真的可以给自己一次机会。不为别的，就是因为女人要对自己好点
+
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w12.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">娃他娘</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>174</span></span><br>
+        <span class="box2">我吗 一直乳房都不大 想不到生完我娃之后，就更惨不忍睹，我老公老说我现在胸部连小馒头都没，想用产品又怕担心生二胎影响母乳喂养，咨询了很多，也对比了很多，现在用完很久，不仅仅增大，也变得比以前更坚挺。最重要是的是一点不影响二胎， 现在奶水比较好也没像第一次那样下垂萎缩。
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/r2.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">我是茜茜公主</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>174</span></span><br>
+        <span class="box2">夏美老师微信号为什么不存在，加不了的？
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+
+
+  <span class="xian2"></span> <br>
+        <span class="ni_name">飘絮浮尘89 回复</span><br>
+		  <span class="box2">我加可以的，没输入错吧，不行就复制，夏美老师微信号：<script>document.write(stxlwx);</script>	</span><br>
+      </div>
+      </span> </div>
+
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w7.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">爱丽丝</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>488</span></span><br>
+        <span class="box2">为了买这个东西我老公和我吵架，死活不同意，后来拗不过我让我买了。本来他也不抱啥希望，现在看到我慢慢的变大了就改口了~：老婆，要不咱在订两套？哈哈，男人呐就这德行
+
+  </span> <br>
+        <span class="ni_name">昨天</span> <br>
+
+  <span class="xian2"></span> <br>
+        <span class="ni_name">佳佳 回复</span><br>
+        <span class="box2">楼上能发个效果对比图看看么	</span><br>
+		<span class="xian2"></span> <br>
+		   <span class="ni_name">爱丽丝　回复</span><br>
+        <span class="box2">嗯，发图好像得审核....通过了你再看		</span>
+		<span class="xian2"></span> <br>
+		   <span class="ni_name">爱丽丝　回复</span><br>
+        <span class="box2"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/111.jpg" width="30%"/><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/222.jpg" width="30%"/><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/333.jpg" width="30%"/>		</span>
+		<span class="xian2"></span> <br>
+		        <span class="ni_name">佳佳 回复</span><br>
+        <span class="box2"> 哇，羡慕	</span><br>
+				<span class="xian2"></span> <br>
+		        <span class="ni_name">佳佳 回复</span><br>
+        <span class="box2"> 唉，我家那个也是，但是还没答应我买 看见你有效果我就放心了 这次非要我老公给我订不可，加 <script>document.write(stxlwx);</script> 这个微信号是吧。
+ 	</span><br>
+				<span class="xian2"></span> <br>
+		   <span class="ni_name">爱丽丝　回复</span><br>
+        <span class="box2">哈哈，去吧去吧		</span> <br>
+		<span class="xian2"></span> <br>
+      </div>
+      </span> </div>
+
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w9.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">幸福安康</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>452</span></span><br>
+        <span class="box2">我算是人到中年了 是产后一直拖着不去改善 胸部小的厉害 现在用了 真的大了 真的想不到我这个年龄都可以再增大</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/w10.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">Andy</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>138</span></span><br>
+        <span class="box2">我是用完三个套装了，现在大了两个杯  以前因为胸小经纪公司都拒绝了我，现在终于圆了我的梦 感动！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_1.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">赵敏　</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>328</span></span><br>
+        <span class="box2">跟她咨询了很多问题，都很耐心的解答了，一开始还担心效果问题呢，用了一个多星期了，有效果，比原来大了1cm呢，确实不错</span> <br>
+        <span class="ni_name">昨天</span> <br>
+		  <span class="xian2"></span> <br>
+        <span class="ni_name">叫我女王大人 回复</span><br>
+        <span class="box2">效果真这么快？	</span><br>
+		<span class="xian2"></span> <br>
+		   <span class="ni_name">赵敏　回复</span><br>
+        <span class="box2">我不亲自用过，说实在的连我自己都不信！去加夏美老师微信: <script>document.write(stxlwx);</script> 试试吧</span>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_2.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">王倩</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>57</span></span><br>
+        <span class="box2">效果还可以，特意用了一段时间才来评介的，胸部的确像其他买家那样有涨的效果。后来因为某种原因没再坚持下去，但也没见反弹。会介绍更多的朋友的哦！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_3.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">欧阳雨晴</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>74</span></span><br>
+        <span class="box2"> 已经使用了两个套装了，现在准备用第三个，效果确实很不错，一个多月长了一个罩杯，大了很多。现在不用挤... 太惊喜了，现在上街都特别自信！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+				  <span class="xian2"></span> <br>
+        <span class="ni_name">玲珑骰子 回复</span><br>
+        <span class="box2">买都没啥就怕对身体有影响什么的	</span><br>
+		<span class="xian2"></span> <br>
+		   <span class="ni_name">欧阳雨晴　回复</span><br>
+        <span class="box2">我用到现在了也觉着还好吧，也没什么不适的地方		</span>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_4.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">赵晓霞</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>96</span></span><br>
+        <span class="box2">一直都在关注着，看着别人都丰胸成功了，心里痒痒的。也试着给自己订个沁润产后装，我生过2个小孩了.</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_5.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">青青</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>141</span></span><br>
+        <span class="box2">生完宝宝之后一直胸部缩水，可苦恼了，后来在一个宝妈得了夏美的微信，说她的丰胸方法很不错，是根据体质定制的。加了她讨了方法，老实执行。没想到真的 丰起来了，开心死了！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_6.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">林道玲</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>33</span></span><br>
+        <span class="box2">胸部确实比之前改善了很多，下垂没有那么明显了，按摩时候能感觉到胸部肉感增加了，用后没有什么不舒服的感觉</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_7.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">班安</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>15</span></span><br>
+        <span class="box2">没生孩子之前是36A的，产后干瘪瘪的只有34了，很难看，用了这1个多月后，又回到了36A，还挺了很多！谢谢你啦！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_8.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">邓培培</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>286</span></span><br>
+        <span class="box2">胸部一直很小，后来咨询了夏美，她根据我的情况定制性感强效装，2个月后还真的丰起来了，闺蜜们看到都让我介绍给她们，哈哈，真赞，效果很不错。爱你 夏美！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+
+				  <span class="xian2"></span> <br>
+        <span class="ni_name">小绵羊 回复</span><br>
+        <span class="box2">用了两个月才大啊- -	</span><br>
+		<span class="xian2"></span> <br>
+		   <span class="ni_name">邓培培　回复</span><br>
+        <span class="box2">做个胸你都得隔半年才恢复呢。你还嫌久，关键是健康才好	</span><br>
+	   <span class="ni_name">邓培培　回复</span><br>
+        <span class="box2">不多说了上图	<Br/><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/q2.jpg" height="200"/>&nbsp;&nbsp;&nbsp;<img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/q1.jpg" height="200"/></span><br>
+
+
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_9.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">雯雯</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>56</span></span><br>
+        <span class="box2">都说胸部是女人的第二张脸，非常正确，没有使用夏美的产品之前，胸部简直就是个飞机场，非常的的懊恼</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_10.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">囫囵吞枣</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>66</span></span><br>
+        <span class="box2">不错哦，乳房一直涨涨的，我坚持下来已经可以看到增大的变化啦，还不是很明显，需要继续努力，不过真的挺好的，使用过程中没有不适感，温和且滋润的，继续加油使用，期待更进一步的变化哟。</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_11.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">清风萧雨</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>24</span></span><br>
+        <span class="box2">摸起来肉肉再也不是以前松松瘪瘪的了，只是还没到挺的效果，躺下还是平的，我相信坚持使用会有效果的，用完全新体验装，我还要再订一套产后装！有兴趣的姐妹们，可以试试看，真的有效果的！</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_12.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">悸动</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>48</span></span><br>
+        <span class="box2">刚开始非常担心怕有不良反应，因为我还没结婚呢。不过现在好了，我用了几天确实没什么不适 。希望效果早点出现哦。夏天已经来了。</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+
+                        <div style="clear:left;"></div>    <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_14.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">流霖飄媛</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>123</span></span><br>
+        <span class="box2">我本来胸不算小,只是抱着试试的心态来的，给我的感受就是每次用了过后就感觉胸部会比较紧实。现在越来越有弹性了</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_1.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">暖色系</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>32</span></span><br>
+        <span class="box2">用了一个星期，胸部开始有明显变化了，闺蜜们都说比之前紧实了，我开始有点相信了，现在每天都在用和按摩，期望是大一个杯</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>    <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/tou_15.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">清雨墨云</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>85</span></span><br>
+        <span class="box2">我以前用过这个，但是我也用过别家的，这个确实还行，1个月大了一个罩杯</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+                        <div class="tot_pin "> <span class="photo"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/4.jpg" class="photo"></span> <span class="content">
+      <div class="borde box1 "><span class="ni_name">夏天</span><span class="like"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/hand.jpg" name="zambia" style="width:25px; height:25px">&nbsp;<span>55</span></span><br>
+        <span class="box2">用了一段时间后，胸围真的大了不少，以前的胸围都不能穿了，B杯的胸 罩，现在变成C杯了。</span> <br>
+        <span class="ni_name">昨天</span> <br>
+      </div>
+      </span> </div>
+                        <div style="clear:left;"></div>
+
+
+                    </div>
+                    <br/>
+                </div>
+                <br/>
+                <br/>
+
                         <section class="bttn">
                             <a class="btnWx"> 查看全部评论&gt;</a>
                             <p style="padding-bottom:15px;"></p>
