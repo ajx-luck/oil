@@ -1,0 +1,280 @@
+/* ::::: http://wxv0106.moyuso.org/jfwx/20160119/css/style.css ::::: */
+
+body { font: 14px "Microsoft YaHei"; margin: 0px auto; color: rgb(51, 51, 51); min-width: 320px; max-width: 640px; background-color: rgb(255, 255, 255); }
+body * { box-sizing: inherit; }
+p { margin: 0px; padding: 0px; }
+h5 { margin: 0px; padding: 0px; }
+a { text-decoration: none; }
+#content img { max-width: 100%; }
+ #content { padding: 6px 10px 0px; text-align: center; }
+.erweima { padding: 10px 30% 0px; }
+#content .tip { margin: 6px 0px; text-align: center; }
+#content .wxh { padding: 5px 0px; border-radius: 4px; text-align: center; color: rgb(255, 255, 255); font-size: 36px; font-weight: 700; margin-bottom: 20px; background-color: rgb(237, 108, 0); }
+#tip { margin: 6px auto 0px; padding: 10px; border-radius: 20px; border: 1px solid rgb(224, 224, 224); text-align: center; color: rgb(0, 107, 208); background-color: rgb(251, 251, 251); }
+.anli { width: 100%; margin-top: 20px; }
+.anli p { text-align: left; }
+.anlipic { padding: 10px 1% 0px; }
+.clearfix::after { height: 0px; clear: both; display: block; visibility: hidden; content: " "; }
+a { color: rgb(51, 51, 51); text-decoration: none; }
+a:visited { color: rgb(51, 51, 51); text-decoration: none; }
+.fl { float: left; }
+.fr { float: right; }
+.bc { color: rgb(49, 126, 203); }
+.clear { width: 0px; height: 0px; overflow: hidden; clear: both; display: block; visibility: hidden; }
+.icon {  }
+.fot_nav .triangle::before { border-width: 18px 0px 18px 10px; border-style: solid; top: 0px; width: 0px; height: 0px; right: -10px; display: block; position: absolute; content: " "; }
+.fot_nav .triangle::after { border-width: 18px 0px 18px 10px; border-style: solid; top: 0px; width: 0px; height: 0px; right: -10px; display: block; position: absolute; content: " "; }
+.fot_nav .triangle::before { border-color: transparent transparent transparent rgb(31, 117, 203); }
+.fot_nav .triangle::after { border-color: transparent transparent transparent rgb(58, 140, 225); right: -9px; }
+.client a .client_text > p:nth-child(1) { font-weight: bold; }
+.content { padding: 0px 10px; }
+article.list li a div:nth-child(1) { margin: 2px 5px 0px 0px; width: 16px; height: 17px; }
+article.list li a div:nth-child(2) {  }
+article.list li a div:nth-child(2) .title { line-height: 20px; }
+article.list li a div:nth-child(2) small { margin: 8px 0px; height: 20px; line-height: 20px; }
+article.list li a div:nth-child(2) small span { width: 70px; color: rgb(153, 153, 153); float: left; display: inline-block; }
+article.list li a div:nth-child(2) small .s_left { width: 55px; overflow: hidden; }
+article.list li a div:nth-child(2) small .s_left i { float: left; }
+article.list li a div:nth-child(2) small .s_left em { float: left; }
+article.list li a div:nth-child(2) small .s_left em { width: 31px; overflow: hidden; display: inline-block; }
+article.list li a div:nth-child(2) small i { top: 3px; width: 17px; height: 13px; margin-right: 2px; display: inline-block; position: relative; }
+article.list li a div:nth-child(2) small i.hui { background-position: 0px -240px; }
+article.list li a div:nth-child(2) small i.kan { background-position: -19px -240px; }
+article.list li a div:nth-child(2) .scsc { color: rgb(221, 221, 221); }
+article.list li a.list_item .post_meta dd p span:nth-child(2) { color: rgb(51, 103, 161); }
+article.list li a.list_item .post_meta dd p span:nth-child(2) i { margin: 0px 5px 0px 0px; top: 4px; width: 15px; height: 15px; display: inline-block; position: relative; }
+article.list li a.list_item .post_meta dd p span:nth-child(2) .huifu { background-position: -40px -20px; }
+.detaillist { text-align: left; margin-top: 20px; }
+.detaillist .detail { line-height: 20px; border-top: 1px solid rgb(221, 221, 221); min-height: 40px; }
+.detaillist .detail .title { padding: 6px 10px; color: rgb(153, 153, 153); line-height: 24px; font-size: 14px; position: relative; }
+.detaillist .detail .title span { line-height: 24px; font-size: 12px; margin-left: 5px; display: inline-block; }
+.detaillist .detail .content_box .content { color: rgb(51, 51, 51); line-height: 24px; font-size: 16px; display: block; }
+.detaillist .detail .content_box small { margin: 8px 0px 8px 10px; height: 20px; color: rgb(153, 153, 153); line-height: 20px; }
+.detaillist .detail .content_box span { line-height: 22px; }
+.detaillist .detail .content_box span a { text-align: center; color: rgb(51, 96, 166); line-height: 22px; display: inline-block; }
+.detaillist .detail .content_box span a i { margin: 0px 5px 0px 0px; top: 4px; width: 15px; height: 15px; display: inline-block; position: relative; }
+.detaillist .detail .content_box span a .huifu { background-position: -40px -20px; }
+.wap_content p { line-height: 1.6; }
+.wap_content a { color: rgb(31, 114, 197); }
+.float_qb dl, .float_qb dd, .float_qb p { margin: 0px; padding: 0px; list-style: outside none none; }
+.float_qb { position: fixed; z-index: 1000; top: 0px; width: 100%; left: 0px; background: rgb(252, 252, 252) none repeat scroll 0% 0%; padding: 5px 10px; line-height: 22px; color: rgb(0, 0, 0); font-weight: normal; border: 1px solid rgb(238, 238, 238); box-sizing: border-box; font-size: 14px; }
+.float_qb h5 { font-weight: bold; font-size: 16px; }
+.float_qb dt { float: left; width: 40px; margin-right: 10px; }
+.float_qb dt img { width: 100%; }
+.float_qb dd { overflow: hidden; }
+.float_qb dd span { background: rgb(255, 0, 0) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 0px 5px; font-weight: bold; font-size: 16px; }
+.w_head {
+    background: rgb(243, 242, 242) none repeat scroll 0% 0%;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    font-size: 1.0em;
+    padding: 10px 5px;
+    z-index:999;
+}
+.w_head img {
+    width: 12%;
+    vertical-align: top;
+    border: 0px none;
+}
+.w_head p {
+    display: inline-block;
+    width: 85%;
+    font-size: 16px;
+}
+.w_head p span {
+    font-size: 1.4em;
+}
+.w_head p   strong {
+	color: #F00;
+}
+
+.anli p {
+	box-sizing: inherit;
+	margin: 10px 0px;
+	padding: 0px;
+	text-align: left;
+	color: rgb(51, 51, 51);
+	font-family: 'Microsoft YaHei';
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 24px;
+	orphans: auto;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	background-color: rgb(255, 255, 255);
+}
+span.style1 {
+	color: rgb(51, 51, 51);
+	font-family: 'Microsoft YaHei';
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 24px;
+	orphans: auto;
+	text-align: left;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	display: inline !important;
+	float: none;
+	background-color: rgb(255, 255, 255);
+}
+.style2 {
+	color: rgb(51, 51, 51);
+	font-family: 'Microsoft YaHei';
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 25px;
+	orphans: auto;
+	text-align: left;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	display: inline !important;
+	float: none;
+	background-color: rgb(255, 255, 255);
+}
+.style3 {
+	box-sizing: inherit;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	color: rgb(51, 51, 51);
+	font-family: 'Microsoft YaHei';
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 24px;
+	orphans: auto;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	background-color: rgb(255, 255, 255);
+}
+.style4 {
+	box-sizing: inherit;
+	color: rgb(51, 51, 51);
+	font-family: 'Microsoft YaHei';
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 25px;
+	orphans: auto;
+	text-align: left;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	background-color: rgb(255, 255, 255);
+}
+.style5 {
+	box-sizing: inherit;
+	font-family: 'Microsoft YaHei';
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 24px;
+	orphans: auto;
+	text-align: left;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	background-color: rgb(255, 255, 255);
+}
+.style6 {
+	box-sizing: inherit;
+	margin: 10px 0px;
+	padding: 0px;
+	text-align: center;
+	font-family: 'Microsoft YaHei';
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 24px;
+	orphans: auto;
+	text-indent: 0px;
+	text-transform: none;
+	white-space: normal;
+	widows: auto;
+	word-spacing: 0px;
+	-webkit-text-stroke-width: 0px;
+	color: rgb(255, 0, 0);
+	background-color: rgb(255, 255, 255);
+}
+.wx{font-weight:bold; color: rgb(230, 0, 19);}
+.style7{font-size: 16px; line-height: 25px; text-align: left;text-indent:2em; margin:8px 0; }
+.pwx{font-size: 1.1em; line-height: 35px; text-align: left;text-indent:0em; margin:25px 0;color:#f00; }
+.pwx span{font-size: 1.1em; line-height:35px;} 
+.pwx span.wq-id{font-size: 1.3em; }
+.brg{font-weight: bold; color: rgb(192, 0, 0); font-size: 16px; margin-bottom: 15px; text-align: left;}
+.style8{box-sizing: inherit; font-family: 'Microsoft YaHei'; font-size: 17px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);}
+.style9{box-sizing: inherit; color: rgb(230, 0, 19); font-weight:bold; font-size: 21px; background-color: rgb(255, 244, 92);}
+.style10{color: rgb(51, 51, 51); font-family: 'Microsoft YaHei'; font-size: 16px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 25.6000003814697px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);}
+.style11{line-height: 24px; margin: 10px 0px"> <b style="box-sizing: inherit; font-family: 'Microsoft YaHei'; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(192, 0, 0); font-size: 16px; margin-bottom: 15px; background-color: rgb(255, 255, 255);}
+.xian2{
+	display:block;
+	width:80%; 
+	height:1px; 
+	background-color:#666; 
+	margin-top:20px;
+}
+
+.box3{ position:relative;}
+.box3 h6{ 
+	text-align:center; 
+	margin:0; padding:0; 
+	font-size:1.3em;
+	padding-bottom:20px;
+}
+.xian3{
+	height:1px;
+	width:35%; 
+	margin-top:10px;
+	background-color:#000;
+	position:absolute;
+	top:3px;
+}
+.xian3-1{
+	right:0;
+	
+}
+.botwx{background: rgb(192, 0, 0) none repeat scroll 0% 0%; line-height: 40px; color: rgb(255, 255, 255); margin-bottom: 10px; text-align: center;  }
+.read_class{ color:#aaa; margin:0px; font-size:16px; padding-left:5px;}
+.like{ float:right;color:#999; padding-right:5px; font-size:16px; }
