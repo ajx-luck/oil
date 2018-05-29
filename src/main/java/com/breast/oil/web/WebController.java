@@ -59,9 +59,59 @@ public class WebController {
     private static Log log = LogFactory.getLog(WebController.class);
 
     @RequestMapping(value = "/"+URL_1,method = RequestMethod.GET)
-    public String fx1(ModelMap map, HttpServletRequest request){
-        setInfo(map, request, URL_1, mUrlMappingService.getPriceByUrl(URL_1));
-        return "fx5";
+    public String fx1(ModelMap map, HttpServletRequest request,HttpServletResponse response){
+        Map<String,Object> params = new HashMap<>();
+        String ip = CommonUtils.getIpAddr(request);
+        params.put("ip",ip);
+        String e_creative = request.getParameter("e_creative");
+        String audience = request.getParameter("audience");
+        String referer = request.getHeader("referer");
+        boolean isMobile = DeviceUtils.isMobileDevice(request);
+        String city = "";
+        String provice = "";
+        try {
+            String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
+            System.out.println(result);
+            if (result != null) {
+                LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
+                });
+                Location location = locationTaobao.data;
+                city = location.city;
+                provice = location.getProvince();
+                if ( StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                    if (location != null && (!location.toString().contains("广东"))  && (!StringUtils.isEmptyOrWhitespace(e_creative))) {
+                        if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)
+                                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
+                            setInfo(map, request,URL_1, "fxa", city,provice, response);
+                            return "redirect:/fxbb.html";
+                        }else{
+                            setInfo(map, request,URL_1, "fxb", city,provice, response);
+                            return "redirect:/fxbb.html";
+                        }
+
+                    }else {
+                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            setInfo(map, request, URL_1,"fxg", city,provice, response);
+                            return "forward:/blocked.html";
+                        }
+                        setInfo(map, request, URL_1,"fxc", city,provice, response);
+                        return "redirect:/fxbb.html";
+                    }
+                }else{
+                    setInfo(map, request, URL_1,"fxd", city,provice, response);
+                    return "redirect:/fxbb.html";
+
+                }
+
+            }
+        }catch (Exception e){
+            log.error(e);
+            setInfo(map, request, URL_1,"fxe",city, provice,response);
+            return "redirect:/fxbb.html";
+        }
+        setInfo(map, request, URL_1,"fxf",city,provice, response);
+        return "redirect:/fxbb.html";
     }
 
     private void setInfo(ModelMap map, HttpServletRequest request, String url1, Long priceByUrl){
@@ -189,7 +239,6 @@ public class WebController {
     public String fx3(ModelMap map, HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
         Map<String,Object> params = new HashMap<>();
         String ip = CommonUtils.getIpAddr(request);
-//        params.put("format","json");
         params.put("ip",ip);
         String e_creative = request.getParameter("e_creative");
         String audience = request.getParameter("audience");
@@ -199,7 +248,6 @@ public class WebController {
         String provice = "";
         try {
             String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
-//            String result = HttpClientHelper.sendGet("http://int.dpool.sina.com.cn/iplookup/iplookup.php", params, "UTF-8");
             System.out.println(result);
             if (result != null) {
                 LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
