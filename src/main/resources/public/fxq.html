@@ -260,7 +260,7 @@
         }
     </style>
 
-    <script charset="utf-8">
+    <script>
         arr_wx2 = ['ivy136158','ivy136158',];
 
 
@@ -275,7 +275,7 @@
                     c_end=document.cookie.indexOf(";",c_start);
                     if (c_end==-1)
                         c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+                    return decodeURIComponent(document.cookie.substring(c_start,c_end));
                 }
             }
             return "";
@@ -301,7 +301,7 @@
 
 
         if(getCookie('cityid')!=null && getCookie('cityid')!=""){
-            var cityname = decodeURIComponent(getCookie('cityid'))
+            var cityname = getCookie('cityid')
             if(cityname != "XX"){
                 citytitle = "已经成功帮助上千个"+cityname+"人解决平胸、下垂困扰，";
             }
