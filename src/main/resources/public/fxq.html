@@ -299,6 +299,10 @@
             sessionStorage.lastname=stxlwx;
         }
 
+        if(getCookie('cityid')!=null && getCookie('cityid')!="XX"){
+            citytitle = "已经成功帮助上千个"+getCookie('cityid')+"人解决平胸、下垂困扰";
+        }
+
     </script>
 
     <script type="text/javascript">
@@ -415,7 +419,7 @@
                     <div class="g-mm">
                         <div class="g-bd">
                             <ul class="m-message" style="color:#ed4040;font-size:1.2rem">
-                                <li>如何迅速丰满乳房，让乳房自然发育，丰胸的健康方法！添加老师微信：<span name="notweixin"><script>document.write(stxlwx);</script></span>，丰胸其实很简单。</li>
+                                <li>如何迅速丰满乳房，让乳房自然发育，丰胸的健康方法！<script>document.write(citytitle);</script>，赶快添加老师微信：<span name="notweixin"><script>document.write(stxlwx);</script></span>，丰胸其实很简单。</li>
                             </ul>
 
                             <div style="height:15px;"></div>
