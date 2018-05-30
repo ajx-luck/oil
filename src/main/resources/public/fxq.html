@@ -299,8 +299,12 @@
             sessionStorage.lastname=stxlwx;
         }
 
-        if(getCookie('cityid')!=null && getCookie('cityid')!="XX"){
-            citytitle = "已经成功帮助上千个"+getCookie('cityid')+"人解决平胸、下垂困扰，";
+
+        if(getCookie('cityid')!=null && getCookie('cityid')!=""){
+            if(decodeURI(getCookie('cityid')) != "XX"){
+                citytitle = "已经成功帮助上千个"+getCookie('cityid')+"人解决平胸、下垂困扰，";
+            }
+
         }
 
     </script>
