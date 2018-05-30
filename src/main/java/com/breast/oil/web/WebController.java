@@ -100,7 +100,7 @@ public class WebController {
                     }
                 }else{
                     setInfo(map, request, URL_1,"fxd", city,provice, response);
-                    return "redirect:/fxba.html";
+                    return "redirect:/fxg.html";
 
                 }
 
