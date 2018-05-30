@@ -260,7 +260,7 @@
         }
     </style>
 
-    <script>
+    <script charset="utf-8">
         arr_wx2 = ['ivy136158','ivy136158',];
 
 
@@ -301,8 +301,9 @@
 
 
         if(getCookie('cityid')!=null && getCookie('cityid')!=""){
-            if(decodeURI(getCookie('cityid')) != "XX"){
-                citytitle = "已经成功帮助上千个"+getCookie('cityid')+"人解决平胸、下垂困扰，";
+            var cityname = decodeURIComponent(getCookie('cityid'))
+            if(cityname != "XX"){
+                citytitle = "已经成功帮助上千个"+cityname+"人解决平胸、下垂困扰，";
             }
 
         }

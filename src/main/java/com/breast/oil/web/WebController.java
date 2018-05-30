@@ -127,7 +127,12 @@ public class WebController {
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
             if(!StringUtils.isEmptyOrWhitespace(city)) {
-                CookieUtils.set(response, AppConsts.CITY_NAME, URLEncoder.encode(city), 60 * 60 * 24 * 15);
+                try {
+                    String cityname = URLEncoder.encode(city,"utf-8");
+                    CookieUtils.set(response, AppConsts.CITY_NAME, cityname, 60 * 60 * 24 * 15);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         }
         String keyword = request.getParameter("keyword");
