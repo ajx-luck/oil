@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telphone=no"/>
+    <meta name="renderer" content="webkit"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="appl ication"/>
+    <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
+    <title>加老师微信，免费领取丰胸秘籍</title>
+    <script>
+        arr_wx2 = ['ivy136158','ivy136158',];
+
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return decodeURIComponent(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        function gowx() {
+            window.location.href = "weixin://"
+        }
+
+        function gowx2(arg) {
+            var url = '/remember';
+            $.ajax({
+                type: 'get',
+                url: url,
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {position: arg},
+                beforeSend: function () {
+//                window.location.href = "weixin://"
+                }, success: function (json) {
+
+                }
+            });
+
+        }
+    </script>
+    <script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
+    <script type="text/javascript">
+        var str_wx_id
+        $(function () {
+            var url = "/rememberweb";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {urlPath: "wx",keyword:getCookie("word")},
+                success: function (msg) {
+                    var jsonobj = jQuery.parseJSON(msg);
+                    str_wx_id = stxlwx;
+                    keyword = jsonobj.keyWord;
+                    var city = jsonobj.city;
+                    var js_add_history = jsonobj.JS_ADD_HISTORY;
+                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    // $(".wx").html(str_wx_id);
+                    eval(js_add_back_listener);
+                    eval(js_add_copy);
+                    eval(js_add_history);
+                    if (city != null) {
+                        setCookie("cityid", city, 24 * 60);
+                    }
+                    if(str_wx_id){
+                        setCookie("wechatid",str_wx_id,24*60);
+                    }
+                }
+            })
+
+            $(".wximg").attr("src","/weixin/"+stxlwx+".jpg");
+
+
+        });
+
+
+
+    </script>
+</head>
+<script src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+<script type="text/javascript" src="js/flexible.js"></script>
+
+
+
+<style type="text/css">
+    *{margin: 0;padding: 0;}
+    body{width: 100%;max-width: 640px;margin: 0 auto;font-family: "微软雅黑","Microsoft YaHei",Arial,sans-serif;font-size: 16px;line-height: 1.5;}
+    .main{padding-top: 50px;text-align: center;color: #0066c2;letter-spacing: 2px;overflow: hidden;}
+    .main b{font-size: 0.6rem;display: inline-block;}
+    .main .sx{background: #0066c2;color: #fff;padding: 5px 20px; margin-top: 15px;}
+    .num,.code_box{color: #ff0;}
+    .main p{color: #03abf4;font-size: 0.5rem;}
+    #code{width: 70%;}
+</style>
+
+
+<body style="font-size: 12px;">
+<div class="main">
+    <b>加微信号<span name="notweixin"><script>document.write(stxlwx);</script></span><span style="font-size: 0.6rem;">,<span style="color: #ff2d46;font-size: 0.6rem;">限时免费</span>开启一对一问题咨询</span></b>
+    <br/>
+    <br/>
+    <img width='95%'  src="/baidu/list-2_files/photolist.jpg"/>
+    <br/>
+    <span style="color: #ff2d46;font-size: 0.6rem;">⬇长按下方二维码添加老师微信⬇</span>
+    <br/>
+    <img width='80%' class="wximg"/>
+</div>
+
+</body>
+</html>

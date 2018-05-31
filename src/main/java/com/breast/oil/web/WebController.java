@@ -478,12 +478,19 @@ public class WebController {
         return "wxinfo";
     }
 
-    @RequestMapping(value = "/zixun",method = RequestMethod.GET)
-    public String zixun(ModelMap map, HttpServletRequest request){
+    @RequestMapping(value = "/wx",method = RequestMethod.GET)
+    public String zixun(ModelMap map, HttpServletRequest request,HttpServletResponse response){
         String ip = request.getRemoteAddr();
-        String wechatId = mUrlMappingService.getLastWechatIdByIp(ip);
-        map.addAttribute("wechat_id", wechatId);
-        return "zixun";
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        String wechatId = mUrlMappingService.getRandomWechatIdByUrl("fxc");
+        if(webInfo != null){
+            wechatId = webInfo.getWechatId();
+        }
+        if(response != null){
+            CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
+        }
+
+        return "redirect:/zixun.html";
     }
 
     /**
