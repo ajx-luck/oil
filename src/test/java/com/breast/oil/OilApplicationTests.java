@@ -4,6 +4,7 @@ import com.breast.oil.domain.KeyWord;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.*;
+import com.breast.oil.services.WxTicketService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class OilApplicationTests {
 	private WebInfoRepository mWebInfoRepository;
 	@Autowired
 	private KeyWordRepository mKeyWordRepository;
+	@Autowired
+	private WxTicketService mWxTicketService;
 	@Test
 	public void contextLoads() {
 
@@ -63,5 +66,11 @@ public class OilApplicationTests {
 	public void testUpdateKeyWord(){
 		KeyWord keyWord = new KeyWord("55","9",new Date().getTime());
 		mKeyWordRepository.save(keyWord);
+	}
+
+
+	@Test
+	public void testgetTicket(){
+		mWxTicketService.getTicket();
 	}
 }

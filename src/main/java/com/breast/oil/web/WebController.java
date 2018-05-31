@@ -269,7 +269,7 @@ public class WebController {
                             return "redirect:/hu6.html";
                         }else{
                             setInfo(map, request,URL_3, "fxb", city,provice, response);
-                            return "redirect:/fxg.html";
+                            return "redirect:/fxq.html";
                         }
 
                     }else {
