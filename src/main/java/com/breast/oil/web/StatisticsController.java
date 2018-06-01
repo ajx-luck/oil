@@ -49,7 +49,8 @@ public class StatisticsController {
                     webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice(),webInfo.getStrartUrl());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
-            return String.format("{\"JS_ADD_BACK_LISTENER\":\"%s\"}",AppConsts.JS_ADD_BACK_LISTENER_BAIDU);
+            return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                    ,webInfo.getWechatId(),webInfo.getCity(),webInfo.getKeyWord(),webInfo.geteKeywordid(), AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_BAIDU,AppConsts.JS_ADD_COPY_LISTENER);
         }else{
             return "{code:1}";
         }
