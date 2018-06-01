@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon-precomposed"
           href="https://gss0.bdstatic.com/5bd1bjqh_Q23odCf/static/wiseindex/img/screen_icon.png">
     <meta name="format-detection" content="telephone=no">
-    <script type="text/javascript" src="./list_files/jquery-min.js"></script>
+    <script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
     <title>百度一下</title>
     <style type="text/css" id="spa-base-style">
         #search-card {
@@ -1669,10 +1669,9 @@
             return null;
     }
 
-    $(function () {
-        var city = getCookie("cityid")
-        $(".city").html(city);
-    });
+
+
+
 
 </script>
 <div id="page">
@@ -1681,7 +1680,7 @@
             <div class="weather-outline" data-stats="10|2|weather|a1_b1">
                 <div class="icon-weather-default"></div>
                 <div class="weather-num">28°</div>
-                <div class="weather-status"><p class="city">北京</p>
+                <div class="weather-status"><p><span id="city-name">北京</span></p>
                     <p>空气&nbsp;54</p></div>
                 <i class="icon-down"></i></div>
             <div class="weather-shield" data-height="248" style="height: 248px"></div>
@@ -5595,7 +5594,10 @@ var sDomain = {
 ;</script>
 
 
-<script type="text/javascript" src="./duIndex_files/duIndex.html"></script>
+<script type="text/javascript">
+    var city = getCookie("cityid")
+    document.getElementById("city-name").innerHTML = city;
+</script>
 
 
 <div style="display:none;">
