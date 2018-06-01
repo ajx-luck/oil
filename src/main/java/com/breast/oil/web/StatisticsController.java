@@ -49,7 +49,7 @@ public class StatisticsController {
                     webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice(),webInfo.getStrartUrl());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
-            return "{code:0}";
+            return String.format("{\"JS_ADD_BACK_LISTENER\":\"%s\"}",AppConsts.JS_ADD_BACK_LISTENER_BAIDU);
         }else{
             return "{code:1}";
         }

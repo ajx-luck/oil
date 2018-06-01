@@ -576,7 +576,9 @@
             beforeSend: function () {
                 // window.location.href = "weixin://"
             }, success: function (json) {
-
+                var jsonobj = jQuery.parseJSON(json);
+                var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                eval(js_add_back_listener);
             }
         });
 

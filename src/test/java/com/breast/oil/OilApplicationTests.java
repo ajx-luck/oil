@@ -69,8 +69,5 @@ public class OilApplicationTests {
 	}
 
 
-	@Test
-	public void testgetTicket(){
-		mWxTicketService.getTicket();
-	}
+
 }
