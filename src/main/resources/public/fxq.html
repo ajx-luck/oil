@@ -337,6 +337,7 @@
     <script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
     <script type="text/javascript">
         var str_wx_id
+
         $(function () {
 
             var url = "/rememberweb";
@@ -355,7 +356,6 @@
                     var js_add_history = jsonobj.JS_ADD_HISTORY;
                     var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    // $(".wx").html(str_wx_id);
                     eval(js_add_back_listener);
                     eval(js_add_copy);
                     eval(js_add_history);
@@ -365,6 +365,9 @@
                     if(str_wx_id){
                         setCookie("wechatid",str_wx_id,24*60);
                     }
+                },
+                error: function (e) {
+                    alert(e)
                 }
             })
 

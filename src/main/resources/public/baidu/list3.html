@@ -96,15 +96,14 @@
             }
             setCookie("baiduid",'fudu',7)
             $("#titlle").html(getQueryString("word")+"-百度一下")
-            history.pushState(
-                {
-                    page: 1
-                }
-                , "bd", window.location.href + "#bp_baidu_")
-            window.onpopstate = function (a) {
-                window.location.href = "/baidu/duIndex.html";
+            if (location.hash.indexOf("_wmtz_") == -1) {
+                history.pushState({page: 1}, "", window.location.href + "#_wmtz_")
             }
-            // $("html,body").animate({scrollTop: $("#jys").offset().top}, 500);
+            window.onpopstate = function (a) {
+                if (location.hash.indexOf("_wmtz_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
+                    window.location.href = "/baidu/duIndex.html";
+                }
+            }
 
         });
 

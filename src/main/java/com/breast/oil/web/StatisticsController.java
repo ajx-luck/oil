@@ -36,7 +36,6 @@ public class StatisticsController {
     @Autowired
     WebInfoRepository mWebInfoRepository;
 
-    final static String[] urls = {"list3"};
 
     /**
      * 记录微信点击
@@ -72,8 +71,6 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/rememberweb", method = RequestMethod.GET)
     public String rememberWeb(HttpServletRequest request) {
-        int index = (int) (Math.random() * urls.length);
-        String backself = String.format(AppConsts.JS_ADD_BACK_LISTENER_SELF,urls[index]);
         String ip = CommonUtils.getIpAddr(request);
         String urlPath = request.getParameter("urlPath");
         String keyWord = request.getParameter("keyword");
@@ -101,11 +98,11 @@ public class StatisticsController {
                 mWebInfoRepository.save(webInfo);
             }
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,backself,AppConsts.JS_ADD_COPY_LISTENER);
+                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
         return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city, AppConsts.JS_ADD_HISTORY,backself,AppConsts.JS_ADD_COPY_LISTENER);
+                ,wechatId,city, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
     }
 
 
