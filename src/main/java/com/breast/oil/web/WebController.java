@@ -84,7 +84,7 @@ public class WebController {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request,URL_1, "fxa", city,provice, response);
-                            return "redirect:/fxbb.html";
+                            return "redirect:/fxq.html";
                         }else{
                             setInfo(map, request,URL_1, "fxb", city,provice, response);
                             return "redirect:/fxq.html";
@@ -93,7 +93,7 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_1,"fxg", city,provice, response);
-                            return "forward:/blocked.html";
+                            return "forward:/fxq.html";
                         }
                         setInfo(map, request, URL_1,"fxc", city,provice, response);
                         return "redirect:/fxbb.html";
@@ -126,7 +126,8 @@ public class WebController {
         }
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
-            CookieUtils.set(response, AppConsts.BAIDU_NAME, "baidu",60);
+            CookieUtils.set(response, AppConsts.BAIDU_NAME, "baidu",180
+            );
             if(!StringUtils.isEmptyOrWhitespace(city)) {
                 try {
                     String cityname = URLEncoder.encode(city,"utf-8");

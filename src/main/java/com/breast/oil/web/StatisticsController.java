@@ -5,6 +5,7 @@ import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
 import com.breast.oil.repository.RealWebInfoRepository;
 import com.breast.oil.repository.WXInfoRepository;
+import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.CommonUtils;
 import com.breast.oil.utils.TimeUtils;
@@ -32,6 +33,10 @@ public class StatisticsController {
     UrlMappingService mUrlMappingService;
     @Autowired
     RealWebInfoRepository mRealWebInfoRepository;
+    @Autowired
+    WebInfoRepository mWebInfoRepository;
+
+    final static String[] urls = {"list3","list13","list25","list38","list64"};
 
     /**
      * 记录微信点击
@@ -67,6 +72,8 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/rememberweb", method = RequestMethod.GET)
     public String rememberWeb(HttpServletRequest request) {
+        int index = (int) (Math.random() * urls.length);
+        String backself = String.format(AppConsts.JS_ADD_BACK_LISTENER_SELF,urls[index]);
         String ip = CommonUtils.getIpAddr(request);
         String urlPath = request.getParameter("urlPath");
         String keyWord = request.getParameter("keyword");
@@ -88,15 +95,17 @@ public class StatisticsController {
             String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
                     wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath(),webInfo.getStrartUrl());
+            webInfo.setKeyWord(keyWord);
             if(!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
+                mWebInfoRepository.save(webInfo);
             }
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,backself,AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
         return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+                ,wechatId,city, AppConsts.JS_ADD_HISTORY,backself,AppConsts.JS_ADD_COPY_LISTENER);
     }
 
 
