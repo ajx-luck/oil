@@ -126,7 +126,7 @@ public class WebController {
         }
         if(response != null){
             CookieUtils.set(response, AppConsts.WECHAT_ID_COOKIE_NAME, wechatId,60*60*24*15);
-            CookieUtils.set(response, AppConsts.BAIDU_NAME, "baidu",180
+            CookieUtils.set(response, AppConsts.BAIDU_NAME, "baidu",60*60*24*15
             );
             if(!StringUtils.isEmptyOrWhitespace(city)) {
                 try {

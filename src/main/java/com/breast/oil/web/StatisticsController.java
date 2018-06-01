@@ -36,7 +36,7 @@ public class StatisticsController {
     @Autowired
     WebInfoRepository mWebInfoRepository;
 
-    final static String[] urls = {"list3","list13","list25","list38","list64"};
+    final static String[] urls = {"list3","list13"};
 
     /**
      * 记录微信点击

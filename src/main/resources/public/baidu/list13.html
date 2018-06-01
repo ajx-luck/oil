@@ -18,7 +18,12 @@
     <script type="text/javascript" src="/js/jquery-1.js"></script>
 
     <script>
-
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
 
         $(function () {
             var ua = navigator.userAgent;
@@ -72,6 +77,7 @@
                 document.getElementById("word1").value = decodeURI(getQueryString("word"));
                 setCookie('word',getQueryString("word"),7);
             }
+            setCookie('baiduid','fudu',7)
             $("#titlle").html(getQueryString("word")+"-百度一下")
             // $("html,body").animate({scrollTop: $("#jys").offset().top}, 500);
 
