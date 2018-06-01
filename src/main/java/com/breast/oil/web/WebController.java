@@ -84,7 +84,7 @@ public class WebController {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request,URL_1, "fxa", city,provice, response);
-                            return "redirect:/fxq.html";
+                            return "redirect:/fxbb.html";
                         }else{
                             setInfo(map, request,URL_1, "fxb", city,provice, response);
                             return "redirect:/fxq.html";
@@ -93,7 +93,7 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_1,"fxg", city,provice, response);
-                            return "forward:/fxq.html";
+                            return "forward:/blocked.html";
                         }
                         setInfo(map, request, URL_1,"fxc", city,provice, response);
                         return "redirect:/fxbb.html";
