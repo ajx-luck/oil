@@ -87,7 +87,7 @@ public class WebController {
                             return "redirect:/fxbb.html";
                         }else{
                             setInfo(map, request,URL_1, "fxb", city,provice, response);
-                            return "redirect:/fxq.html";
+                            return "redirect:/fxh.html";
                         }
 
                     }else {
