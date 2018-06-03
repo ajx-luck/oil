@@ -75,11 +75,11 @@ public class StatisticsController {
         String urlPath = request.getParameter("urlPath");
         String keyWord = request.getParameter("keyword");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
-        String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
+        String wechatId ;
         String city = "北京";
         String provice = "";
         if(webInfo != null) {
-            wechatId = mUrlMappingService.getRandomWechatIdByUrl(webInfo.getStrartUrl());
+            wechatId = mUrlMappingService.getRandomWechatId();
             //如果为空，就取推广的记录页面，否则随便取
             if(StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
@@ -155,7 +155,7 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/wechatid", method = RequestMethod.GET)
     public String wechatid(HttpServletRequest request) {
-        return mUrlMappingService.getWechatIdByIP(CommonUtils.getIpAddr(request));
+        return mUrlMappingService.getRandomWechatId();
     }
 
     /**

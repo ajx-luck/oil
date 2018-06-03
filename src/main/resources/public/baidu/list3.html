@@ -42,6 +42,21 @@
             document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
         }
 
+        function getWechat() {
+            var url = '/wechatid';
+
+            $.ajax({
+                type: 'get',
+                url: url,
+                contentType: "application/json;charset=utf-8",
+                beforeSend: function () {
+                }, success: function (json) {
+                    setCookie('wechatid',json,7);
+                }
+            });
+
+        }
+
         $(function () {
             var ua = navigator.userAgent;
             var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
@@ -51,13 +66,13 @@
             if (isMobile) {
 
             } else {
-                var kwd = getQueryString("word");
-                if(kwd == null){
-                    kwd = "百度"
-                }
-                window.location.href = "/baidu.html?word="+kwd+"&pn=0"
+                // var kwd = getQueryString("word");
+                // if(kwd == null){
+                //     kwd = "百度"
+                // }
+                // window.location.href = "/baidu.html?word="+kwd+"&pn=0"
             }
-
+            getWechat()
             var ritems = ["<a href=\"/baidu/list13.html?word=胸怎么变大\" class=\"rw-item\">胸怎么变大</a>",
                 "<a href=\"/baidu/list13.html?word=木瓜能丰胸吗\" class=\"rw-item\">木瓜能丰胸吗</a>","<a href=\"/baidu/list13.html?word=自我丰胸的按摩手法\" class=\"rw-item\">自我丰胸的按摩手法</a>","<a href=\"/baidu/list13.html?word=丰胸的最快方法最安全\" class=\"rw-item\">丰胸的最快方法最安全</a>","<a href=\"/baidu/list13.html?word=生完孩子怎么能丰胸\" class=\"rw-item\">生完孩子怎么能丰胸</a>","<a href=\"/baidu/list13.html?word=吃什么丰胸\" class=\"rw-item\">吃什么丰胸</a>","<a href=\"/baidu/list13.html?word=丰胸内衣\" class=\"rw-item\">丰胸内衣</a>","<a href=\"/baidu/list13.html?word=怎么按摩丰胸效果好\" class=\"rw-item\">怎么按摩丰胸效果好</a>"
             ]
@@ -114,6 +129,8 @@
         function next() {
             window.location.href = "/baidu/list13.html?word="+getQueryString("word")
         }
+
+
 
     </script>
 
