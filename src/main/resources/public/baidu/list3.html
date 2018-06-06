@@ -66,11 +66,11 @@
             if (isMobile) {
 
             } else {
-                // var kwd = getQueryString("word");
-                // if(kwd == null){
-                //     kwd = "百度"
-                // }
-                // window.location.href = "/baidu.html?word="+kwd+"&pn=0"
+                var kwd = getQueryString("word");
+                if(kwd == null){
+                    kwd = "百度"
+                }
+                window.location.href = "/baidu.html?word="+kwd+"&pn=0"
             }
             getWechat()
             var ritems = ["<a href=\"/baidu/list13.html?word=胸怎么变大\" class=\"rw-item\">胸怎么变大</a>",
@@ -101,6 +101,7 @@
                 document.getElementById("word").value = "怎么丰胸";
                 document.getElementById("word1").innerText = "怎么丰胸";
                 document.getElementById("word1").value = "怎么丰胸";
+                setCookie('word',"怎么丰胸",7);
             }
             else {
                 document.getElementById("word").innerText = decodeURI(getQueryString("word"));
