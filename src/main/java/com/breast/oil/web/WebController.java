@@ -201,7 +201,7 @@ public class WebController {
                         if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
                             setInfo(map, request, URL_2,"fxa", city, provice,response);
-                            return "redirect:/fxpy.html";
+                            return "redirect:/hu7.html";
                         }else{
                             setInfo(map, request, URL_2,"fxb", city,provice, response);
                             return "redirect:/fxaa.html";
@@ -210,10 +210,10 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_2,"fxg", city,provice, response);
-                            return "forward:/blocked.html";
+                            return "forward:/hu7.html";
                         }
                         setInfo(map, request,URL_2, "fxc", city,provice, response);
-                        return "redirect:/fxpy.html";
+                        return "redirect:/hu7.html";
                     }
                 }else{
                     if(isMobile) {
@@ -236,10 +236,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_2,"fxe",city, provice,response);
-            return "redirect:/fxpy.html";
+            return "redirect:/hu7.html";
         }
         setInfo(map, request, URL_2,"fxf",city,provice, response);
-        return "redirect:/fxpy.html";
+        return "redirect:/hu7.html";
     }
     //户6
     @RequestMapping(value = "/"+URL_3,method = RequestMethod.GET)
@@ -277,7 +277,7 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_3,"fxg", city,provice, response);
-                            return "forward:/blocked.html";
+                            return "forward:/hu6.html";
                         }
                         setInfo(map, request, URL_3,"fxc", city,provice, response);
                         return "redirect:/hu6.html";
