@@ -1,0 +1,231 @@
+@charset "utf-8";
+
+body{ background: #f9f9f9 !important;}
+.clearfix:after{content:'';display:table;clear:both}
+/*header*/
+.mainNav .navBtn {width:43px;height:43px;position:absolute;top:0px;right:0px;outline:none;text-indent: 999em; no-repeat; background-size:100px auto; background-position:11px -22px;}
+
+/*顶部评论框*/
+.input_wrap{ clear: both; overflow: hidden; *zoom:1; position: relative;}
+.discipline{font-size: 12px;color: #3990e6;padding-left: 12px;}
+a.input_smt{ display: block; width: 50px; height: 28px; line-height: 28px; text-align: center; color: #fff; font-size: 13px; background: #21acfd; float: right; margin-top: 8px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px;}
+
+/*评论*/
+.cmnt_article{ clear: both; overflow: hidden; *zoom:1;  }
+.cmnt_title{ height: 24px; position: relative; margin: 5px 0;}
+.cmnt_title span{ display: block; position: absolute; left: -15px; top: 0; height: 24px; width: 72px; background: #21acfd; line-height: 24px; text-align: center; font-size: 12px; color: #fff;}
+
+.cmnt_item{ clear:both; overflow:hidden; *zoom:1; padding:0 0 12px 38px; border-bottom: 1px solid #f0f0f0; position: relative;}
+.cmnt_item:last-child{ border-bottom: none;}
+.cmnt_top{ clear:both; overflow:hidden; height:30px; line-height:30px; font-size:13px; color:#00a0fe; margin: 14px 0 -8px -38px;position: relative;}
+.cmnt_base .cmnt_top{ height:40px; line-height:24px; font-size:12px; margin: 0 0 2px; color:#333;}
+
+.cmnt_top span:first-child{ display: block; color:#3990e6; position: relative; padding-left: 38px;  no-repeat; background-size:100px auto; background-position:0 -336px;}
+.cmnt_top .cmnt_source{ display: block; color: #999; font-size: 10px; height: 16px; line-height: 16px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+.cmnt_top .cmnt_nick{ display: block; height: 20px; line-height: 20px; font-style: normal; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;font-size: 1.2em;}
+.cmnt_top .cmnt_nick em{ display:inline-block; font-size:10px; color:#aaa; margin-left:4px; font-style:normal;font-size: 0.8em;}
+.phone{ display: inline-block; vertical-align: middle; width: 0;}
+.cmnt_top .cmnt_time{ display: block; height: 14px; line-height: 14px; font-size: 10px; color: #999; font-style: normal; white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+.cmnt_base .cmnt_top span{ padding-left: 0; background: none; white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+.cmnt_top span img{ position: absolute; left: 0; top: 0; width: 30px; height: 30px; -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;}
+.cmnt_top code{ font-size:10px; color:#999; position: absolute; right: 0; top: 0; display: block; height: 24px; line-height: 24px; width: 45px; text-align: right;}
+.cmnt_top .editor{font-size: 9px;font-style:normal;line-height: 19px;padding: 0 10px 1px 21px; border: 1px solid #fe7358;border-radius: 10px;color:#fe7358;margin-left: 10px; no-repeat;background-size: 100px auto;  background-position: 9px -539px;}
+.cmnt_base .cmnt_top code{ font-size:12px; color:#8b8b7e; top: 7px; width: 30px; text-align: center;}
+.cmnt_text{ font-size:1em; line-height:20px; text-align:justify; color: #333; padding: 2px 0;  word-break:break-all; word-wrap:break-word; margin-top:2px;}
+.cmnt_quote{ font-size: 12px; color:#3990e6;padding:10px 5px; text-indent: 2em; background:#f2f2f2; margin:10px 0 0 0; clear:both;}
+.cmnt_text a{ margin-left: 10px; color: #5494EA; font-size: 12px;}
+.cmnt_op{ position: absolute; right: 0; top: 13px; display: block; height:16px; line-height:16px; text-align:right; overflow: visible;}
+.cmnt_op_all{ position: absolute; right: -284px; top:0; z-index: 9; background: rgba(54,62,71,0.95); width: 264px; text-align: center; height: 44px; line-height: 44px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; padding-left: 20px;}
+.cmnt_op a, .cmnt_op_all a{no-repeat; background-size:100px auto; color:#aaa}
+.cmnt_op a, .cmnt_op_all a{ display:inline-block; vertical-align: middle; height: 16px; line-height: 16px;}
+.cmnt_op a.good{ padding-left: 20px; color:#999; background-position:0 -105px; font-size:12px; position: relative; padding-right: 10px;font-size: 1.5em;margin-top: 1em;}
+.cmnt_op a.good::after{ width: 1px; content: ''; display: inline-block; height: 14px; position: absolute; right: -1px; top: 1px;}
+.cmnt_op a.good.on{ background-position:0 -136px}
+.cmnt_op a.cmntico{ padding-left: 22px; color:#aaa; margin-left:10px;background-position: 0 -69px; font-size:12px; position: relative; padding-right: 5px;}
+
+.cmnt_op a.unfold{ width: 28px; background-position:-50px -190px;}
+.cmnt_op .fly, .cmnt_op_all .fly{ position: absolute; display: inline-block;  no-repeat; background-size: 100px auto; background-position: 0 -140px; width: 16px; height: 16px; left: 0; top: 0; opacity: 1;
+animation:flying 0.6s;
+-moz-animation:flying 0.6s; /* Firefox */
+-webkit-animation:flying 0.6s; /* Safari and Chrome */
+-o-animation:flying 0.6s; /* Opera */
+animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;
+-webkit-animation-fill-mode: forwards;
+-o-animation-fill-mode: forwards;
+}
+@keyframes flying {
+	0% { background-size: 100px auto; background-position: 0 -136px; width: 16px; height: 16px; left: 0; top: 0; opacity: 1;}
+	100% { background-size: 200px auto; background-position: 0 -204px; width: 32px; height: 32px; left: -8px; top: -16px; opacity: 0;}
+}
+@-moz-keyframes flying {
+	0% { background-size: 100px auto; background-position: 0 -136px; width: 16px; height: 16px; left: 0; top: 0; opacity: 1;}
+	100% { background-size: 200px auto; background-position: 0 -272px; width: 32px; height: 32px; left: -8px; top: -16px; opacity: 0;}
+}
+@-webkit-keyframes flying {
+	0% { background-size: 100px auto; background-position: 0 -136px; width: 16px; height: 16px; left: 0; top: 0; opacity: 1;}
+	100% { background-size: 200px auto; background-position: 0 -272px; width: 32px; height: 32px; left: -8px; top: -16px; opacity: 0;}
+}
+@-o-keyframes flying {
+	0% { background-size: 100px auto; background-position: 0 -136px; width: 16px; height: 16px; left: 0; top: 0; opacity: 1;}
+	100% { background-size: 200px auto; background-position: 0 -272px; width: 32px; height: 32px; left: -8px; top: -16px; opacity: 0;}
+}
+.fadeIn{
+animation:fadeIn 0.4s;
+-moz-animation:fadeIn 0.4s; /* Firefox */
+-webkit-animation:fadeIn 0.4s; /* Safari and Chrome */
+-o-animation:fadeIn 0.4s; /* Opera */
+animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;
+-webkit-animation-fill-mode: forwards;
+-o-animation-fill-mode: forwards;
+}
+@keyframes fadeIn
+{
+0%   {right: -284px;}
+100% {right: 0;}
+}
+@-moz-keyframes fadeIn /* Firefox */
+{
+0%   {right: -284px;}
+100% {right: 0;}
+}
+@-webkit-keyframes fadeIn /* Safari 和 Chrome */
+{
+0%   {right: -284px;}
+100% {right: 0;}
+}
+@-o-keyframes fadeIn /* Opera */
+{
+0%   {right: -284px;}
+100% {right: 0;}
+}
+.fadeOut{
+animation:fadeOut 0.4s;
+-moz-animation:fadeOut 0.4s; /* Firefox */
+-webkit-animation:fadeOut 0.4s; /* Safari and Chrome */
+-o-animation:fadeIn 0.4s; /* Opera */
+animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;
+-webkit-animation-fill-mode: forwards;
+-o-animation-fill-mode: forwards;
+}
+@keyframes fadeOut
+{
+0%   {right: 0;}
+100% {right: -284px;}
+}
+@-moz-keyframes fadeOut /* Firefox */
+{
+0%   {right: 0;}
+100% {right: -284px;}
+}
+@-webkit-keyframes fadeOut /* Safari 和 Chrome */
+{
+0%   {right: 0;}
+100% {right: -284px;}
+}
+@-o-keyframes fadeOut /* Opera */
+{
+0%   {right: 0;}
+100% {right: -284px;}
+}
+
+
+.loadingArt{
+display:block; vertical-align:middle;
+margin:5px auto;
+height:30px; width:30px;
+background:url("../images/loading_40.40.png") 0 0 no-repeat;
+background-position:0 100%;
+background-size:30px auto;
+animation-name:loading;
+animation-duration:1s;
+animation-iteration-count:infinite;
+animation-timing-function:linear;
+-moz-animation-name:loading;
+-moz-animation-duration:1s;
+-moz-animation-iteration-count:infinite;
+-moz-animation-timing-function:linear;
+-webkit-animation-name:loading;
+-webkit-animation-duration:1s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-timing-function:linear;
+-o-animation-name:loading;
+-o-animation-duration:1s;
+-o-animation-iteration-count:infinite;
+-o-animation-timing-function:linear;
+}
+@keyframes loading {
+	from { transform:rotate(0deg) translateZ(0);}
+	to { transform:rotate(360deg) translateZ(0);}
+}
+@-moz-keyframes loading {
+	from { -moz-transform:rotate(0deg) translateZ(0);}
+	to { -moz-transform:rotate(360deg) translateZ(0);}
+}
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0);}
+	to { -webkit-transform:rotate(360deg) translateZ(0);}
+}
+@-o-keyframes loading {
+	from { -o-transform:rotate(0deg) translateZ(0);}
+	to { -o-transform:rotate(360deg) translateZ(0);}
+}
+
+
+.op_remind{ position: fixed; top: 0; left: 0; display: none; z-index: 999; opacity: 0; width: 100%; height: 44px; line-height: 44px; font-size: 14px; text-align: center; color: #fff; background: rgba(68,68,68,.9);}
+@keyframes myfirst
+{
+0%   {opacity: 0;}
+50%  {opacity: 1;}
+100% {opacity: 0;}
+}
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {opacity: 0;}
+50%  {opacity: 1;}
+100% {opacity: 0;}
+}
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {opacity: 0;}
+50%  {opacity: 1;}
+100% {opacity: 0;}
+}
+@-o-keyframes myfirst /* Opera */
+{
+0%   {opacity: 0;}
+50%  {opacity: 1;}
+100% {opacity: 0;}
+}
+.animate{
+animation:myfirst 3s;
+-moz-animation:myfirst 3s; /* Firefox */
+-webkit-animation:myfirst 3s; /* Safari and Chrome */
+-o-animation:myfirst 3s; /* Opera */
+}
+
+/*评论活动*/
+.cmnt_op_bottom{ clear:both; font-size:10px;margin-top:8px; margin-bottom:4px; position:relative; color:#aaa}
+.cmnt_op_bottom_times{ float:left; line-height:16px;font-size:1.6em;}
+.cmnt_op{ position: absolute; right: 0; top: 0; display: block; height:16px; line-height:16px; text-align:right; overflow: visible;}
+.cmnt_op_bottom_report{float:left; line-height:16px; padding-left: 12px; color:#aaa;}
+.cmnt_op_bottom_report.on{color:#d2d2d2;}
+
+/*公共加载更多*/
+.loadingbtn{margin:2px 0;display:inline-block; vertical-align:middle;height:30px; width:30px; overflow:hidden; text-indent:999em; line-height:30px;
+background:url("../images/loading_40.40.png") 0 0 no-repeat;
+background-position:0 100%;
+background-size:30px auto;
+-webkit-animation-name:loading;
+-webkit-animation-duration:1s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-timing-function:linear;
+}
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0);}
+	to { -webkit-transform:rotate(360deg) translateZ(0);}
+}
+
+.transparent{ position: absolute; top: 0; left: 0; height: 90px; width: 100%; }

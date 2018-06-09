@@ -204,7 +204,7 @@ public class WebController {
                             return "redirect:/hu7.html";
                         }else{
                             setInfo(map, request, URL_2,"fxb", city,provice, response);
-                            return "redirect:/fxaa.html";
+                            return "redirect:/fxm.html";
                         }
 
                     }else {
@@ -219,10 +219,10 @@ public class WebController {
                     if(isMobile) {
                         if (new Random().nextInt(20) % 2 == 0) {
                             setInfo(map, request, URL_2,"fxx", city,provice, response);
-                            return "redirect:/fxaa.html";
+                            return "redirect:/fxm.html";
                         } else {
                             setInfo(map, request,URL_2, "fxy", city,provice, response);
-                            return "redirect:/fxh.html";
+                            return "redirect:/fxaa.html";
                         }
                     }else{
                         setInfo(map, request, URL_2,"fxz", city,provice, response);

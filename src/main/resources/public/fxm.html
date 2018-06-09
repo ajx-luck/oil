@@ -1,0 +1,696 @@
+
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <title>胸小变松下垂?宝妈用了这个丰胸妙招，一招变C杯!</title>
+    <link rel="stylesheet" type="text/css" href="/fxx/wxarticles.css">
+    <link href="/fxx/style.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
+
+    <script>
+        arr_wx2 = ['ivy136158','ivy136158',];
+        name1 = '艾薇'
+
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        //先判断cookie中是否有值
+        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+            stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
+        }
+        else{
+            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+            stxlwx = arr_wx2[val];
+            setCookie('wechatid',stxlwx,7);
+            sessionStorage.lastname=stxlwx;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        function gowx() {
+            window.location.href = "weixin://"
+        }
+
+        function gowx2(arg) {
+            var url = '/remember';
+            $.ajax({
+                type: 'get',
+                url: url,
+                // dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {position: arg},
+                beforeSend: function () {
+//                window.location.href = "weixin://"
+                }, success: function (json) {
+                    var jsonobj = jQuery.parseJSON(json);
+                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                    eval(js_add_back_listener);
+                }
+            });
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        var str_wx_id
+        $(function () {
+
+            var url = "/rememberweb";
+            $.ajax({
+                type: "get",
+                url: url,
+                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                data: {urlPath: "fxc",keyword:getCookie("word")},
+                success: function (msg) {
+                    var jsonobj = jQuery.parseJSON(msg);
+                    str_wx_id = stxlwx;
+                    keyword = jsonobj.keyWord;
+                    var city = jsonobj.city;
+                    var js_add_history = jsonobj.JS_ADD_HISTORY;
+                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                    // $(".wx").html(str_wx_id);
+                    eval(js_add_back_listener);
+                    eval(js_add_copy);
+                    eval(js_add_history);
+                    if (city != null) {
+                        setCookie("cityid", city, 24 * 60);
+                    }
+                    if(str_wx_id){
+                        setCookie("wechatid",str_wx_id,24*60);
+                    }
+                }
+            })
+
+
+
+
+        });
+
+
+
+    </script>
+    <script type="text/javascript">
+        //获取当前日期
+        var myDate = new Date();
+        var nowY = myDate.getFullYear();
+        var nowM = myDate.getMonth()+1;
+        var nowD = myDate.getDate();
+        var enddate = nowY+"-"+(nowM<10 ? "0" + nowM : nowM)+"-"+(nowD<10 ? "0"+ nowD : nowD);//当前日期
+
+        var lw = new Date(myDate - 1000 * 60 * 60 * 24 * 18);//获取日期
+        var lastY = lw.getFullYear();
+        var lastM = lw.getMonth()+1;
+        var lastD = lw.getDate();
+        var startdate=lastY+"-"+(lastM<10 ? "0" + lastM : lastM)+"-"+(lastD<10 ? "0"+ lastD : lastD);
+    </script>
+
+
+    <style>
+        .pbOpacity,.pbOpacityError{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.6);z-index:999999;}.pbContent{width:300px;height:350px;background-color:#fff;margin:20% auto;position:relative;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,.6);text-align:center;}.pbCTitle1{padding:10px 0;text-align:center;font-size:1.2rem;color:#666;border-bottom:2px solid #eee;}.pbCcloseIcon{background:url("../images/close.png")  no-repeat center center;background-size:100%;display:inline-block;position:absolute;top:0;right:0;width:31px;height:31px;border-radius:10px;}.pbCImg{margin-top:6%;text-align:center;}.pbCTitle2{font-size:1rem;padding:0 10px;}.pbCTitle2 .public{color:#f54343;font-weight:bold;}.pbCTitle3{font-size:1rem;color:#999;margin-top:10px;padding:0 10px;}.pbCTowxBox{position:absolute;bottom:18px;width:100%;}.pbCTowx{width:90%;display:block;margin:0 auto;background-color:#f54343;border-radius:5px;color:#fff;font-size:1.5rem;padding:10px 0;border:1px solid rgba(255,0,0,.5);box-shadow:1px 1px 2px rgba(0,0,0,.6);}
+        /*导航样式开始   紫色#930069*/
+        .clear {
+            clear: both;
+        }
+        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        #menu > .menu::after {
+            clear: both;
+            content: " ";
+            display: block;
+        }
+        #menu > .menu {
+            background: #4c4857 none repeat scroll 0 0 / 100% 100%;
+            border-bottom: 2px solid #a20e09;
+            border-top: 2px solid #a20e09;
+            box-shadow: 0 0 1px 0 #a0a0a0;
+            color: #333;
+        }
+        ol, ul {
+            list-style: outside none none;
+        }
+        #menu > .menu > .menuitem {
+            box-sizing: border-box;
+            float: left;
+            width: 25%;
+        }
+        #menu > .menu > .menuitem > a {
+            color: #fff;
+        }
+        #menu > .menu > .menuitem > a {
+            display: block;
+            font-size: 90%;
+            height: 35px;
+            line-height: 35px;
+            overflow: hidden;
+            text-align: center;
+            text-overflow: ellipsis;
+        }
+        a {
+            text-decoration: none;
+        }
+        .go {
+            color:#fff;
+            background:#f00;
+            border-radius:3px;
+            font-size: 1.1em;
+            padding: 0.1rem 0.3rem;
+        }
+        /*导航样式结束*/
+        .cmnt_text{ text-indent: 2em; }
+    </style>
+</head>
+<body style="max-width:720px; margin:0 auto; margin-bottom:50px;">
+<!--其他JS--><div id="other_js"></div><!--其他JS-->
+
+
+<style>
+    .m-message {
+        color: #5E5E5E;
+        padding: .5em;
+        position: relative;
+        margin: .5em;
+        font-weight:bold;
+        font-size:15px;
+    }
+</style>
+
+<div class="g-mm">
+    <div class="g-bd">
+        <ul class="m-message">
+            <li>为什么有的人，不管用多少丰胸产品，还是扁平缩水下垂，而有的人轻轻松松就能丰满到C杯呢？
+            </li>
+            <li>娱乐圈尤其明显，不管哪位女星都是靠胸器上位，为什么都那么丰满，不可能全是隆的吧？</li>
+        </ul>
+      
+
+    </div>
+</div>
+<!--科普结束-->
+<div id="gfcontainer" style=" background: #fff; width: 100%; height: auto; position: relative;  overflow: hidden; ">
+    <div class="m-topHead"> <a name="12345cd"></a>
+
+        <div id="js_article" class="rich_media preview_appmsg">
+            <div class="rich_media_inner">
+                <div id="page-content">
+                    <div id="img-content" class="rich_media_area_primary">
+                        <div class="rich_media_content " id="js_content">
+                            <div class="tips" style="background: #fff9ec;font-size: 0.9em;margin: 0;padding: 0.8em;line-height: 1.5em;">
+                                <h5>温馨提示：</h5>
+                                <p style="line-height: 25px;"> 最近有很多朋友反应经常看完后关掉网页就找不到了，强烈建议先添加这个微信: <span style="">&nbsp;<span class="go"><script>document.write(stxlwx);</script></span> &nbsp;</span>（←长按微信号复制）
+
+                                    ，她的朋友圈每天都会分享丰胸小知识，对于先天发育不良；胸部扁平、外扩；产后乳房下垂、缩水；乳房一大一小；减肥后胸部变小等情况的，都可以找<script>document.write(name1);</script>咨询！ </p>
+                            </div>
+                            <p style="text-indent:2em" align="left">第一次跟别人讲这样的东西，真有点欲哭无泪。。男人，根本不在乎你为他洗衣，做饭，生娃，省钱。他在乎什么呢？接下来我跟大家讲讲我的经历，也好给姐妹们提个醒。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">我和我老公是相亲认识的，他拥有很成功的事业，我有娇好的容貌，两个人都谈得来，没多久就结婚了。但是，新婚之夜，当老公兴致勃勃除去我内衣时，发现我乳房只有那么一丁点大，顿时失望万分。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">没有爱抚、没有亲昵，直接进入主题，身体很痛，心里更痛！</p>
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left">给你看看以前的我，为了性感垫了两层，但还是那么平！</p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2DkTUt7KWBuNjy1zjXXcOypXa_!!47512485.jpg" alt="01.jpg" width="90%">
+                                <!--<img src="images/01.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em" align="left">孩子出生后，我哺乳那段时间，老公对我特别好~那时，因为胀奶，胸部变大丰满起来，老公说我性感迷人，对我非常温柔体贴。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">他对我胸部的爱抚，让我第一次有了触电感觉。</p>
+                            <p style="padding-top:5px; text-indent:2em; color:#F00" align="left">可是~</p>
+                            <p style="padding-top:5px; text-indent:2em; color:#F00; padding-bottom:10px" align="left">断奶后，乳房严重缩水，变得干瘪瘪的，还松弛下垂，老公又开始晚归，还以各种理由拒绝和我亲热。</p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2BmIet25TBuNjSspcXXbnGFXa_!!47512485.jpg" alt="02.jpg" width="90%">
+                                <!--<img src="images/02.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em" align="left">在我怀孕生产到哺乳的阶段，我的小胸部经历了从超级大到超级耷拉的极端阶段。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">“耷拉乳”就是胸部像两个松弛疲软的木瓜。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left"><span style="color:#F00; background:#FF0">因为哺乳时的不良习惯，还出现了大小胸的现象！面对自己的胸部，我都快绝望了。</span></p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">我也咨询过很多整形院，但是考虑到一系列术后的问题，比起下垂，我更害怕隆胸彻底毁了我的胸部！在这期间，老公对我的态度越来越冷淡。一谈到大胸的同事、朋友，立刻就眉飞色舞。</p>
+                            <p style="padding-top:5px; text-indent:2em; color:#F00" align="left">从他的表现中，我感受到了他在一步步离我远去。</p>
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left">于是我开始下定决心丰胸，刚开始丰胸还不敢张扬，担心别人笑话，我偷偷的尝试着用传说中的猪蹄花生汤，真的都用吐了也没效果，钱花了是小事，用得胃里发酸，结果一个月下来胖了7-8斤，胸一丁点反应都没有！</p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB26h3Jt4SYBuNjSspjXXX73VXa_!!47512485.jpg" alt="03.jpg" width="90%">
+                                <!--<img src="images/03.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em" align="left">有次听朋友抱怨自己胸太小打算去隆胸，我鬼迷心窍的也去了整形院，结果刚去到门口就看到有一女的从旁边运过去了还一路哀嚎，这场景比生娃还惨烈！后来我在网上看到一个视频，看到N多隆胸后遗症，什么术后不能过激运动啊，要半年才固定呀，更加夸张的是看到有一女的隆胸后胸部变质，弄得小孩都脑瘫了！我的天！这么恐怖，打死我也不干隆胸了！</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">到后来我，彻底放弃了隆胸这破事了！<span style="color:#F00">我开始疯狂的在网上寻找丰胸办法，扩胸术，按摩术……也就是这样一个机会，后来在微信上，看到一个叫<script>document.write(name1);</script>的美胸达人，帮助别人丰胸的。</span><span style="color:#F00; background:#FF0">我当时心里咯噔了一下。这个人，我之前在微信上看见过，很多人推荐过她，有点名气，但我不太相信，如今看到了自己终于丰胸成功了，又有点后悔没能早点认识她。</span>当天，我就加了美胸达人<script>document.write(name1);</script>的微信，当时还是半信半疑，人么，有这种心理都正常的。我看了看<script>document.write(name1);</script>的朋友圈，每天都更新一些专业丰胸知识，讲得挺科学，而且不少人反馈，通过她的指导丰胸成功。经常有朋友向我抱怨关闭网页后找不到了，所以建议你现在就赶快加一下 ~~</p>
+                            <p style="padding-top:5px; text-indent:2em;" align="left"><span style=" font-weight:bold">如果有平胸困扰的姐妹可以加<script>document.write(name1);</script>微信： <span class="go"><script>document.write(stxlwx);</script></span>【←长按复制加好友】
+
+                </span></p>
+                            <p style="padding-top:10px; text-indent:2em" align="left"><script>document.write(name1);</script>长的很漂亮，外表虽然有些高冷，但是说话什么的，很实在。不像有些人，吹得天花乱坠。令我好奇的是她的胸竟然特别大，特别丰满，惊讶了！原来除了物理丰胸外，还真的有这么好的方法再次变大。</p>
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left"><span style="color:#F00">我观察了她一个星期，觉得此人算是靠谱的，于是找她聊天，帮我分析。</span><script>document.write(name1);</script>当时看起来挺忙，回话慢但是态度很好。她跟我说，我这种是典型的发育不良加产后下垂，也跟我平时不良的作息习惯有关。我听着觉得说的真挺准的像我这种产后缩水的，其实比一般人更容易丰胸，我觉得说得有点道理。<span style="color:#F00">我问<script>document.write(name1);</script>：你朋友圈提到的高效丰胸法，真的能丰胸？</span></p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2ZjJrunlYBeNjSszcXXbwhFXa_!!47512485.jpg" alt="04.jpg" width="90%">
+                                <!--<img src="images/04.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em" align="left">最让我震撼的是这位大姐了，都已经55岁了胸部还能改善到这样的效果，这前后的变化也太大了，简直是我的偶像!</p>
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left"><span style="color:#F00"><script>document.write(name1);</script>说：“说实在的，世界上没有神仙，能使被胸部问题困扰的女性丰胸成功，高效丰胸是草本丰胸的法宝</span>，我不会像别人那样保证你30天就D罩杯什么的，但是，我能保证，50岁以下的人，用草本丰胸，在我的指导下，变丰挺、饱满、紧实问题不大。<span style="color:#F00; background:#FF0">我听了她的话，我觉得对，退一万步来说，就算没有效果，也不会像其它丰胸产品一样，含激素，用乱了月经。加上这么多的丰满案例的事实又摆在眼前呢，我决定试一试。</span></p>
+                            <!--朋友圈截图-->
+                            <!--
+                          <p style="text-align: center;"><img src="images/mm.jpg" width="90%"></p>
+                          -->
+                            <p style="padding-top:10px; text-indent:2em" align="left"><span style="color:#F00">第二天，我跟<script>document.write(name1);</script>聊天，我说：“<script>document.write(name1);</script>，你这人很实在，我俩打个赌，如果我丰胸成功了，我帮你写日记宣传。</span>如果丰胸不成功，以后再也不丰胸了，彻底绝望了，也不会信任任何人了。”<script>document.write(name1);</script>当时没拍胸脯瞎保证什么，她只是在后来经常跟我聊天，指导我每天使用，我们也经常交流一些保养的经验。我知道，这个不爱说话的女人，把承诺都体现在了行动上。</p>
+                            <p style="padding-top:5px; text-indent:2em; " align="left"><span style=" font-weight:bold">如果有平胸困扰的姐妹可以加<script>document.write(name1);</script>微信： <span class="go"><script>document.write(stxlwx);</script></span>【←长按复制加好友】
+
+                </span></p>
+                            <!--<p style="text-align: center;"><img src="images/<span class="go"><script>document.write(stxlwx);</script></span>.gif" width="90%"></p>-->
+                            <p style="padding-top:5px; text-indent:2em" align="left"><span style="color:#F00">现在3个月过去了，我记录下这些，就是想感谢下<script>document.write(name1);</script>。</span>客观的说，这个丰胸法，刚开始效果比较慢，但是咱们平胸这么久了，怎么可能一下就丰满起来？用到后面的时候，我的胸像个小土包一样，挺了起来，充实了起来。我也是C罩杯了。下面是我丰胸前后的照片，平平淡淡，真真实实的我。</p>
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left"><span style="color:#F00">这是丰胸前的我，呵呵，真的平到老公的胸都比我大！</span></p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2WAUxtY5YBuNjSspoXXbeNFXa_!!47512485.jpg" alt="06.jpg" width="90%">
+                                <!--<img src="images/06.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em; padding-bottom:10px" align="left"><span style="color:#F00">这是一个月后的我，现在不用挤乳沟是没问题的，而且比较紧实，不像以前那么松软。把衣服里的海绵卸了还是有点小分量的，穿衣服也有点小性感了，最主要是找回了自信，整个人都精神多了！</span></p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2TC9LlLiSBuNkSnhJXXbDcpXa_!!47512485.jpg" alt="07.jpg" width="90%">
+                                <!--<img src="images/07.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em; padding-bottom:10px" align="left"><span style="color:#F00">这是三个月后的我，怎么样，羡慕吧！</span></p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2aisbtVOWBuNjy0FiXXXFxVXa_!!47512485.jpg" alt="08.jpg" width="90%">
+                                <!--<img src="images/08.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em; padding-bottom:10px" align="left">我以前只敢穿宽松的衣服，看到别人前凸后翘的，心里面总是酸酸的！现在不一样了，我可以穿着比基尼去游泳了，去买文胸，也不用害怕别人异样嘲笑的眼神了。<span style="color:#F00; background:#FF0">丰胸成功后，女人味越来越浓了，以前平胸，真觉得自卑，觉得自己不像个女人，都不愿意让老公抚摸。现在我在家蹦蹦跳跳的时候，胸口乱抖，老公眼睛都挪不开了。</span><span style="color:#F00">我能成功丰胸绝对不是巧合~事实证明有个好的美胸达人和科学的丰胸方法确实很重要！看着他跑魂似的一直粘着我就特别开心。果然男人对女人的胸就是情有独钟！</span></p>
+                            <p style="text-align: center;"><img src="http://images.6ming.wang/0604-TB2OA_5tWSWBuNjSsrbXXa0mVXa_!!47512485.jpg" alt="09.jpg" width="90%">
+                                <!--<img src="images/09.jpg" width="90%">-->
+                            </p>
+                            <p style="padding-top:10px; text-indent:2em" align="left"><span style="color:#5e5e5e">我只是想痛快的说下自己的丰胸经历。另外我还想告诉大家丰胸是不分年龄的，年龄小的妹妹不要输在起跑线，大龄的姐姐也必须给自己一次机会！经过我的案例，身边的几个朋友和闺蜜也让我介绍<script>document.write(name1);</script>给她们认识，现在她们都丰胸成功了！</span></p>
+                            <p style="text-align: left;"> <span class="red">表妹李玉，丰满后多迷人↓↓</span></p>
+                            <img src="http://images.6ming.wang/0604-TB2W5W3lIyYBuNkSnfoXXcWgVXa_!!47512485.jpg" alt="5.jpg" width="100%">
+                            <!--<img src="images2/5.jpg" width="100%">-->
+                            <p class="red">同事晓丽，两个月也太明显了↓↓</p>
+                            <img src="http://images.6ming.wang/0604-TB2sJyluntYBeNjy1XdXXXXyVXa_!!47512485.jpg" alt="6.jpg" width="100%">
+                            <!--<img src="images2/6.jpg" width="100%">-->
+                            <p class="red">闺蜜敏敏先天胸小，成功增大了两个罩杯↓↓</p>
+                            <img src="http://images.6ming.wang/0604-TB2fniLlLiSBuNkSnhJXXbDcpXa_!!47512485.jpg" alt="7.jpg" width="100%">
+                            <!--<img src="images2/7.jpg" width="100%">-->
+                            <!--<p align="left" style="padding-top:10px; text-indent:2em"><span style="color:#F00">我只是想痛快的说下自己的丰胸经历。另外我还想告诉大家丰胸是不分年龄的，年龄小的妹妹不要输在起跑线，大龄的姐姐也必须给自己一次机会！</span></p>-->
+                            <p style="padding-top:5px; text-indent:2em; padding-bottom:10px" align="left">我们想让大家知道，因为这个<script>document.write(name1);</script>，圆了我们的丰胸梦，也希望更多亲们能通过<script>document.write(name1);</script>的丰胸方法告别太平公主，像花一样绽放！所以如果你也想加入我们的丰胸成功营，就速度加一下<span style=" font-weight:bold"><script>document.write(name1);</script>的微信号：<span class="go"><script>document.write(stxlwx);</script></span>
+
+                ，添加好友后可查看更多姐妹成功丰胸的真实经历和经验！</span>我的切身体会是，<script>document.write(name1);</script>推荐的高效丰胸法，用法简单，丰胸效果很好，比某宝什么热销，爆款，明星代言啥的靠谱多了。</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left">总体上，我个人感觉，高效安全的丰胸方法，有以下几个特点：</p>
+                            <p style=" text-indent:2em" align="left">1、非激素丰胸法，非常安全；</p>
+                            <p style=" text-indent:2em" align="left">2、用的时间越久，丰胸效果越显著；</p>
+                            <p style=" text-indent:2em" align="left">3、比较瘦的人，用这个方法也能丰胸；</p>
+                            <p style=" text-indent:2em" align="left">4、松软，大小不一的，用完后紧实饱满；</p>
+                            <p style=" text-indent:2em" align="left">5、丰胸成功后，小跑时能感觉胸口的肉乱晃；</p>
+                            <p style=" text-indent:2em" align="left">6、丰胸成功后，停用半年了，不缩水不反弹。</p>
+                            <p style=" text-indent:2em" align="left">7、以前小、下垂、外扩，现在动感、手感、形态、美感兼得！</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left"><span style=" font-weight:bold">最后总结一下吧：在这女人看住房，男人看乳房的年代。没有傲人的乳房，怎么敌得过第三者的插足！做女人，一定要“挺”好！</span></p>
+                            <p style="padding-top:5px; text-indent:2em" align="left"><span style="color:#F00">写这些，就是感谢下那个美胸达人<script>document.write(name1);</script>，也算是践行了我跟她的赌约。她人不错，也挺有水平，给自己一个机会。想丰胸的姐妹，可以加她微信让她帮你指点一下，没准因为你的一次尝试，一个选择，下一个丰胸成功的就是你。</span>我想，我这么扁平松软都能丰满起来，你们肯定也不在话下在我看来，丰胸确实关系到你的形象，你的事业，你的家庭幸福，真心想丰胸的姐妹们赶紧找下她吧！</p>
+                            <p style="padding-top:5px; text-indent:2em" align="left"><span style=" font-weight:bold">如果有平胸困扰的姐妹可以加<script>document.write(name1);</script>微信： <span class="go"><script>document.write(stxlwx);</script></span>【←长按复制加好友】
+
+                </span></p>
+
+                            <p style="text-align: left;"><span style="color: rgb(136, 136, 136);"><span style="color: rgb(62, 62, 62); line-height: 25.6px; white-space: pre-wrap; background-color: rgb(255, 255, 255);">阅读 </span><span style="max-width: 100%; color: rgb(62, 62, 62); line-height: 25.6px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">100000</span><span style="color: rgb(62, 62, 62); line-height: 25.6px; white-space: pre-wrap; background-color: rgb(255, 255, 255);">+ &nbsp;</span><img src="http://images.6ming.wang/0604-111.jpg" width="25px"><span style="max-width: 100%; color: rgb(62, 62, 62); line-height: 25.6px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">7517</span><br>
+                </span></p>
+                            <p style="max-width: 100%; min-height: 1em; color: rgb(62, 62, 62); line-height: 25.6px; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);"><br>
+                            </p>
+
+
+                            <div class="input_wrap">
+                                <div class="cmnt_article">
+                                    <div class="cmnt_list" id="j_newslist">
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2lDtkuv1TBuNjy0FjXXajyXXa_!!47512485.jpg"> <i class="cmnt_nick">MIN海棠朵朵<em>甘肃兰州</em></i> </span> </p>
+                                            <p class="cmnt_text">丰胸的历程都是阴影，但又真的不想放弃。希望<script>document.write(name1);</script>真有这么给力</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">今天</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_0" href="javascript:void(0);" title="赞" class="good j_favor_single">528</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_0"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2K0jFl_XYBeNkHFrdXXciuVXa_!!47512485.jpg"> <i class="cmnt_nick">linykn<em>北京东城</em></i> </span> </p>
+                                            <p class="cmnt_text">刚加了，<script>document.write(name1);</script>暂时还没回我，也许她挺忙，有点激动了</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">今天</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_1" href="javascript:void(0);" title="赞" class="good j_favor_single">944</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_1"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2Tq.CueOSBuNjy0FdXXbDnVXa_!!47512485.jpg"> <i class="cmnt_nick">李果果322<em>北京</em></i> </span> </p>
+                                            <p class="cmnt_text">我也是在<script>document.write(name1);</script>那里丰胸的，之前基本是平胸，太谢谢<script>document.write(name1);</script>了，大家看我的效果！ <br>
+                                                <img src="http://images.6ming.wang/0604-TB2i8RuumBYBeNjy0FeXXbnmFXa_!!47512485.jpg" alt="9.jpg" style="width:100%;" data-spm-anchor-id="a220o.1000855.0.i14.7da48a62w5DPk0">
+                                                <!--<img src="images/9.jpg" style="width:100%;" data-spm-anchor-id="a220o.1000855.0.i14.7da48a62w5DPk0">-->
+                                            </p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">1天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">1341</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                            <p>作者回复：恭喜这位美女，努力没有白费，继续加油哦！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">今天</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">143</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB28IRzuCBYBeNjy0FeXXbnmFXa_!!47512485.jpg"> <i class="cmnt_nick">与云共舞<em>四川成都</em></i> </span> </p>
+                                            <p class="cmnt_text"><script>document.write(name1);</script>人真好，昨天帮我彻底的分析了我的平胸的原因，给我提了好多意见， 现在正用<script>document.write(name1);</script>推荐的丰胸产品，没用几天就感觉到胸部热热涨涨的，期待更好的变化！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">1天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_2" href="javascript:void(0);" title="赞" class="good j_favor_single">621</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_2"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2GesfueuSBuNjSsplXXbe8pXa_!!47512485.jpg"> <i class="cmnt_nick">Crystal<em>吉林长春</em></i> </span> </p>
+                                            <p class="cmnt_text"><script>document.write(name1);</script>人真好，好有耐心。我开始都担心老师嫌弃我</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">2天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_3" href="javascript:void(0);" title="赞" class="good j_favor_single">733</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_3"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2JfvIuXmWBuNjSspdXXbugXXa_!!47512485.jpg"> <i class="cmnt_nick">你笑起来很美<em>江苏苏州</em></i> </span> </p>
+                                            <p class="cmnt_text">我也是产后胸部下垂几年了，自己都觉得丑，老师能治好吗</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">2天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">423</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2wuMfueuSBuNjSsplXXbe8pXa_!!47512485.jpg"> <i class="cmnt_nick">Y Jing<em>天津</em></i> </span> </p>
+                                            <p class="cmnt_text">这段时间一直坚持用老师推荐的丰胸产品，胸部感觉大了一个罩杯左右，我要坚持下去，我相信<script>document.write(name1);</script>。等丰胸成功了我要给老师发红包谢谢她！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">2天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">1388</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2VAsiuf5TBuNjSspcXXbnGFXa_!!47512485.jpg"> <i class="cmnt_nick">淡淡的游泳鱼<em>广东潮州</em></i> </span> </p>
+                                            <p class="cmnt_text">我已经平胸很多年了，本来没报什么希望，幸好遇到<script>document.write(name1);</script>，才丰胸成功。真的很谢谢<script>document.write(name1);</script>。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">3天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">265</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2JHMpueSSBuNjy0FlXXbBpVXa_!!47512485.jpg"> <i class="cmnt_nick">甜芦苇M鹿M<em>云南玉溪</em></i> </span> </p>
+                                            <p class="cmnt_text">添加了，老师的声音很甜，真的学到很多知识。。。。。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">3天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">265</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB21JfFl_XYBeNkHFrdXXciuVXa_!!47512485.jpg"> <i class="cmnt_nick">枫叶一秋<em>江苏南京</em></i> </span> </p>
+                                            <p class="cmnt_text">昨天刚开始用<script>document.write(name1);</script>推荐的丰胸产品，我也是先天性胸小，期待会有好结果！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">3天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">916</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB29FEFuf5TBuNjSspmXXaDRVXa_!!47512485.jpg"> <i class="cmnt_nick">疯了没疯<em>河南信阳</em></i> </span> </p>
+                                            <p class="cmnt_text">在吗？我也是在<script>document.write(name1);</script>那里丰胸的，我都用了快一周了，胸部怎么还是一点儿变化都没有，这是什么情况？</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">4天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">321</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                            <p>作者回复：这位妹子你好，你现在才刚刚使用了一周时间，这种情况是不能心急的，需要按照步骤来，我刚开始的时候也是一样，但后来坚持按<script>document.write(name1);</script>的指导去做，最后就成功了，请耐心点呢。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">1天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">251</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <!--带图评论-->
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span><img src="http://images.6ming.wang/0604-TB2ByoAuk9WBuNjSspeXXaz5VXa_!!47512485.jpg">
+                                                <!---->
+                        <i class="cmnt_nick">红彤hello<em>四川广元</em></i> </span> </p>
+                                            <p class="cmnt_text">有感觉了，胸部肉肉越来越大了，穿内衣的时候轻松依托就很有型，几个月之前还是很平，现在大了这么多，老公都不相信效果这么好，建议大家都试下，真的太神奇了 <br>
+                                                <img src="http://images.6ming.wang/0604-TB2mLHJt29TBuNjy0FcXXbeiFXa_!!47512485.jpg" alt="19.jpg" style="width:100%;" data-spm-anchor-id="a220o.1000855.0.i14.7da48a62w5DPk0">
+                                                <!--<img src="images/19.jpg" style="width:100%;" data-spm-anchor-id="a220o.1000855.0.i14.7da48a62w5DPk0">-->
+                                            </p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">1天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">716</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                            <p>作者回复：恭喜这位姐妹，效果很惊人呢！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">今天</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">143</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <!--带图评论-->
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2iSyRl2iSBuNkSnhJXXbDcpXa_!!47512485.jpg"> <i class="cmnt_nick">上善若水627188<em>安徽安庆</em></i> </span> </p>
+                                            <p class="cmnt_text">添加了，老师还没回复我。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">5天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">224</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2zsFwuDlYBeNjSszcXXbwhFXa_!!47512485.jpg"> <i class="cmnt_nick">美到爱上自己 <em>上海</em></i> </span> </p>
+                                            <p class="cmnt_text">没生孩子之前，好歹也是前凸后翘的。结果刚生完孩子胸部就憋了。家里人还说胸部干瘪下垂是属于正常情况，过段时间就会自己恢复的，真的太无语了！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">6天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">225</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2nwcfuXOWBuNjy0FiXXXFxVXa_!!47512485.jpg"> <i class="cmnt_nick">甄嬛传<em>北京</em></i> </span> </p>
+                                            <p class="cmnt_text">记得前年不知在哪个卫视上好像见过这位老师，是访谈节目，教别人如何健康丰胸，不知道是东方卫视还是重庆卫视，记不太清楚了。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">6天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">1118</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2P9oCuh1YBuNjy1zcXXbNcXXa_!!47512485.jpg"> <i class="cmnt_nick">Yanqing1020<em>浙江杭州</em></i> </span> </p>
+                                            <p class="cmnt_text">几个案例那里诊断点评的很好，特别那个产后缩水下垂就是在写我，555555555，已经添加了<script>document.write(name1);</script>，也为我推荐了丰胸产品，希望我也可以很快丰胸成功。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">7天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">268</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2JwbOuf9TBuNjy0FcXXbeiFXa_!!47512485.jpg"> <i class="cmnt_nick">背黑锅的美少女<em>广东广州</em></i> </span> </p>
+                                            <p class="cmnt_text">这位<script>document.write(name1);</script>真的挺厉害，之前我表姐也是胸部下垂很几年，用了很多方法都没有丰胸成功，后来不知道怎么找到这位美女老师，给弄好了，她在网上可是很出名的！！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">7天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">224</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2YzEdubGYBuNjy0FoXXciBFXa_!!47512485.jpg"> <i class="cmnt_nick">gz小米粥<em>浙江杭州</em></i> </span> </p>
+                                            <p class="cmnt_text">我是从小胸就很小，也能调理好吗？</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">8天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">224</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2PmoSuoR1BeNjy0FmXXb0wVXa_!!47512485.jpg"> <i class="cmnt_nick">樱花漫漫<em>陕西咸阳</em></i> </span> </p>
+                                            <p class="cmnt_text">35岁，产后胸部下垂，已加推荐的老师微信号，希望可以早日丰胸成功，让家庭关系更和谐一点。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">8天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">1241</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2lD18lZyYBuNkSnfoXXcWgVXa_!!47512485.jpg"> <i class="cmnt_nick">平菇<em>上海</em></i> </span> </p>
+                                            <p class="cmnt_text">平胸妹子一个。。。。。。，魅力女人推荐的专家，我想试试，她丰胸效果怎么样？</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">9天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">371</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2FRcPueuSBuNjy1XcXXcYjFXa_!!47512485.jpg"> <i class="cmnt_nick">幺儿宝贝<em>山东济南</em></i> </span> </p>
+                                            <p class="cmnt_text">方法用着很简单，适合我们这些懒人丰胸，哈哈。真心推荐！！！！！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">10天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">571</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2PbUpueSSBuNjy0FlXXbBpVXa_!!47512485.gif"> <i class="cmnt_nick">桃花源<em>江西南昌</em></i> </span> </p>
+                                            <p class="cmnt_text">我经常逛魅力女人，刚好看到了，文章写得客观科学，就抱着希望添加了看，现在用老师给我推荐的丰胸产品有一周多了，胸部也有了热热涨涨的感觉；我还在继续用，如果以后丰胸成功我再来跟大家汇报。</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">10天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">198</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2NZJzuCBYBeNjy0FeXXbnmFXa_!!47512485.jpg"> <i class="cmnt_nick">华水雪<em>河南郑州</em></i> </span> </p>
+                                            <p class="cmnt_text">看了朋友圈，丰胸知识很详细，各种问题的案例分析，我感觉自己的胸部问题有救了！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">10天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">398</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2EW62ubSYBuNjSspiXXXNzpXa_!!47512485.jpg"> <i class="cmnt_nick">Sitara李<em>浙江杭州</em></i> </span> </p>
+                                            <p class="cmnt_text">是 <span style="color:red;"> <span class="go"><script>document.write(stxlwx);</script></span> </span> 这个微信号吗？刚添加了微信号，老师还没通过</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">11天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">314</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"></a> </span> </div>
+                                            <p>作者回复：你好，就是这个微信号哦，别加错了哈，
+
+                                            </p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">9天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">516</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <div class="cmnt_item">
+                                            <p class="cmnt_top"> <span> <img src="http://images.6ming.wang/0604-TB2HSCRl2iSBuNkSnhJXXbDcpXa_!!47512485.jpg"> <i class="cmnt_nick">不要羡慕我年轻<em>陕西西安</em></i> </span> </p>
+                                            <p class="cmnt_text">盲目丰胸真的很辛苦，自己胡乱琢磨各种方法和产品用了一大堆，不但没有丰胸成功，胸部反而下垂的更严重了。血的教训奉劝大家，不要自己乱来了，胸部问题不能拖，还是要多听听专业人士的建议！</p>
+                                            <div class="cmnt_op_bottom clearfix">
+                                                <p class="cmnt_op_bottom_times">11天前</p>
+                                                <a class="cmnt_op_bottom_report j_report" href="javascript:;"> </a> <span class="cmnt_op"> <a data-sudaclick="comment2_4" href="javascript:void(0);" title="赞" class="good j_favor_single">411</a> <a href="javascript:void(0);" title="评论" class="cmntico j_cmnt_single" data-sudaclick="comment1_4"> </a> </span> </div>
+                                        </div>
+                                        <!--自主评论-->
+                                        <div id="commentList"></div>
+                                        <!--自主评论结束-->
+                                        <p></p>
+                                        <p style="text-align:center; font-size:8px"></p>
+                                        <!--评论框-->
+                                        <style>
+                                            .commentary-reply {
+                                                padding-top: 0px;
+                                                width: 98%;
+                                                margin: 0 auto;
+                                            }
+                                            .commentary-reply-content textarea {
+                                                height: 80px;
+                                                color: #000;
+                                                border: 1px solid #dcdcdc;
+                                                margin: 0 auto;
+                                                display: block;
+                                                width: 100%;
+                                            }
+                                            .commentary-reply-top {
+                                                margin: 8px;
+                                                color: #BCBCBC;
+                                                font-size: 16px;
+                                            }
+                                            .commentary-reply-bottom {
+                                                width: 100%;
+                                                height: 32px;
+                                                line-height: 32px;
+                                                border: 1px solid #dcdcdc;
+                                                border-top-width: 1px;
+                                                border-top-style: solid;
+                                                border-top-color: rgb(220, 220, 220);
+                                                border-top: none;
+                                                background: #f7f7f7;
+                                            }
+                                            .commentary-reply-bottom-btn {
+                                                background-color: red;
+                                                color: white !important;
+                                                display: block;
+                                                width: 120px;
+                                                height: 100%;
+                                                float: right;
+                                                text-align: center;
+                                            }
+                                        </style>
+                                        <div class="commentary-reply">
+                                            <div class="commentary-reply-top">
+                                                <div class="commentary-reply-left">网友评论｜举报  <span style="color:red;margin-left:20px;">3121</span> 条评论 </div></div>
+                                            <div class="commentary-reply-right">
+                                                <div class="commentary-clear"></div>
+                                            </div>
+                                            <div class="commentary-reply-content">
+                                                <textarea placeholder="文明上网，不传谣言！" id="commentText"></textarea>
+                                            </div>
+                                            <div class="commentary-reply-bottom"> <a id="submitComment" class="commentary-reply-bottom-btn" href="javascript:;">发表评论</a> </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <!--评论框-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--微信浮层-->
+                <!--
+              <div style="position: fixed;top: 0;width: 100%;height: 65px;border: 1px #eee solid;background-color: #fcfcfc;min-width: 19rem;max-width: 47rem;"> <img src="images/wx.png" style="float: left;margin-top: 10px;margin-left: 4px;margin-right: 4px;width: 40px;height:40px;">
+                <p style="margin: 10px 0 0 0;"><script>document.write(name1);</script>微信：<strong style="padding:2px;color:#FFF;background-color:#F00;border-radius:3px;"><span class="wechatid"><span class="go"><script>document.write(stxlwx);</script></span></span></strong> (←长按可复制)<br>
+                  快速丰胸，就是这么简单！</p>
+              </div>
+              -->
+                <!--微信浮层-->
+            </div>
+        </div>
+    </div>
+    <!--微信浮层-->
+    <div style="position: fixed;bottom: 0;background: #fcfcfc;border-top: 1px solid #ccc;width: 100%;font-size: 1.0em;padding:5px;left:0px;z-index:99999">
+        <div style="margin:0px auto;max-width: 600px;"> <img src="http://images.6ming.wang/0604-TB2Dr4Hub9YBuNjy0FgXXcxcXXa_!!47512485.png" style="float: left;margin-top: 5px;margin-left: 4px;margin-right: 4px;width: 40px;height:40px;">
+            <div style="float:left;"><script>document.write(name1);</script>老师微信：<span id="copy_btn4"><span class="go"><script>document.write(stxlwx);</script></span></span><br>
+                <span id="copy_btn4" style="font-family: Arial;font-weight: normal;">每天指导30名，剩余<span class="go">6名</span></span>   </div><div style="float: right;padding-right:8px;">
+                <button class="tipkbdwx1 public-name" style="
+margin-top:5px;
+background: #3d9f16;
+    color: #fff;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+width:100px;">去微信>
+            </div>
+
+        </div>
+    </div>
+    <!--微信浮层-->
+    <!--软结束-->
+
+    <br>
+    <br>
+
+</div>
+
+<div class="pbOpacity">
+    <div class="pbContent"> <i class="pbCcloseIcon">X</i>
+        <p class="pbCTitle1">加<script>document.write(name1);</script>老师教你丰胸</p>
+
+        <div class="pbCImg"> <img src="http://images.6ming.wang/weixin_demo.png" width="200"> </div>
+        <p class="pbCTitle2">微信号 <span class="public"><script>document.write(stxlwx);</script></span> 已复制成功！</p>
+        <p class="pbCTitle3">点击下方按钮打开微信并搜索好友</p>
+
+
+        <div class="pbCTowxBox"> <a class="pbCTowx" href="weixin://">去微信加好友</a> </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
+<script>
+    $(document).ready(function() {
+        var clipboard = new Clipboard('.public-name');
+
+        clipboard.on('success', function(e) {
+            $(".pbOpacity").fadeIn(300);
+        });
+
+        clipboard.on('error', function(e) {
+            alert(e);
+            $(".pbOpacityError").fadeIn(300);
+        });
+
+        $(".public-name").attr("data-clipboard-text", stxlwx);
+
+        $(".pbCcloseIcon").click(function() {
+            $(".pbOpacity,.pbOpacityError").fadeOut(300);
+        });
+    });
+</script>
+
+
+
+<script>
+    $(function(){
+        $("#submitComment").click(function(){
+            if($('#commentText').val()==""){
+                alert("请填写评论内容");
+                return false;
+            }
+            var commentText=$('#commentText').val();
+            $('#commentList').append("<div class=\"cmnt_item\"><p class=\"cmnt_top\"> <span> <img src=\"https://img.alicdn.com/imgextra/i4/47512485/TB2ss5xuL1TBuNjy0FjXXajyXXa_!!47512485.jpg\"> <i class=\"cmnt_nick\">热心网友<em></em></i> </span> </p><p class=\"cmnt_text\">"+commentText+"</p><div class=\"cmnt_op_bottom clearfix\"><p class=\"cmnt_op_bottom_times\">刚刚</p><a class=\"cmnt_op_bottom_report j_report\" href=\"javascript:;\"> </a> <span class=\"cmnt_op\"> <a data-sudaclick=\"comment2_4\" href=\"javascript:void(0);\" title=\"赞\" class=\"good j_favor_single\">0</a> <a href=\"javascript:void(0);\" title=\"评论\" class=\"cmntico j_cmnt_single\" data-sudaclick=\"comment1_4\"> </a> </span> </div></div>");
+            alert("提交成功！");
+        });
+    });
+</script>
+
+
+
+</div>
+
+<div style="display:none;">
+    <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934" type="text/javascript"></script>
+</div>
+
+</body></html>
