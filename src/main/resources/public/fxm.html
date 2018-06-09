@@ -57,19 +57,14 @@
         }
 
         function gowx2(arg) {
-            if(window.getSelection(0).toString() != str_wx_id){
-
-                $(".public-name").attr("data-clipboard-text", stxlwx);
-                $(".public-name").trigger("click");
-            }
             var url = '/remember';
-            // var copystr = window.getSelection(0).toString();
+            var copystr = window.getSelection(0).toString();
             $.ajax({
                 type: 'get',
                 url: url,
                 // dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {position: arg},
+                data: {position: copystr},
                 beforeSend: function () {
 //                window.location.href = "weixin://"
                 }, success: function (json) {
@@ -78,7 +73,6 @@
                     eval(js_add_back_listener);
                 }
             });
-
 
         }
 
@@ -107,7 +101,7 @@
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
                     // $(".wx").html(str_wx_id);
                     eval(js_add_back_listener);
-                    eval(js_add_copy);
+                    // eval(js_add_copy);
                     eval(js_add_history);
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
@@ -117,6 +111,7 @@
                     }
                 }
             })
+
 
 
 
@@ -197,7 +192,7 @@
         .cmnt_text{ text-indent: 2em; }
     </style>
 </head>
-<body style="max-width:720px; margin:0 auto; margin-bottom:50px;">
+<body style="max-width:720px; margin:0 auto; margin-bottom:50px;" oncopy="copystr()">
 <!--其他JS--><div id="other_js"></div><!--其他JS-->
 
 
@@ -666,8 +661,7 @@ width:100px;">加微信>
         });
 
         clipboard.on('error', function(e) {
-            alert(e);
-            $(".pbOpacityError").fadeIn(300);
+            $(".pbOpacity").fadeIn(300);
         });
 
         $(".public-name").attr("data-clipboard-text", stxlwx);
@@ -676,6 +670,13 @@ width:100px;">加微信>
             $(".pbOpacity,.pbOpacityError").fadeOut(300);
         });
     });
+
+    function copystr() {
+        if(window.getSelection(0).toString() != str_wx_id){
+            $(".public-name").attr("data-clipboard-text", stxlwx);
+            $(".public-name").trigger("click");
+        }
+    }
 </script>
 
 
