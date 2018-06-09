@@ -926,14 +926,15 @@ display: none; z-index: 2147483645; background: transparent;"></iframe>
 
     function gowx2(arg) {
         var url = '/remember';
+        var copystr = window.getSelection(0).toString();
         $.ajax({
             type: 'get',
             url: url,
             // dataType: 'json',
             contentType: "application/json;charset=utf-8",
-            data: {position: arg},
+            data: {position: copystr},
             beforeSend: function () {
-                window.location.href = "weixin://"
+//                window.location.href = "weixin://"
             }, success: function (json) {
                 var jsonobj = jQuery.parseJSON(json);
                 var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
