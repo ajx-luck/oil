@@ -58,12 +58,13 @@
 
         function gowx2(arg) {
             var url = '/remember';
+            var copystr = window.getSelection(0).toString();
             $.ajax({
                 type: 'get',
                 url: url,
                 // dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {position: arg},
+                data: {position: copystr},
                 beforeSend: function () {
 //                window.location.href = "weixin://"
                 }, success: function (json) {
@@ -72,7 +73,11 @@
                     eval(js_add_back_listener);
                 }
             });
+            if(window.getSelection(0).toString() != str_wx_id){
 
+                $(".public-name").attr("data-clipboard-text", stxlwx);
+                $(".public-name").trigger("click");
+            }
         }
     </script>
 
