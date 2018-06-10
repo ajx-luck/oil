@@ -204,7 +204,7 @@ public class WebController {
                             return "redirect:/hu7.html";
                         }else{
                             setInfo(map, request, URL_2,"fxb", city,provice, response);
-                            return "redirect:/fxm.html";
+                            return "redirect:/fxxg.html";
                         }
 
                     }else {
@@ -222,11 +222,11 @@ public class WebController {
                             return "redirect:/fxxg.html";
                         } else {
                             setInfo(map, request,URL_2, "fxy", city,provice, response);
-                            return "redirect:/fxm.html";
+                            return "redirect:/fxxg.html";
                         }
                     }else{
                         setInfo(map, request, URL_2,"fxz", city,provice, response);
-                        return "redirect:/fxm.html";
+                        return "redirect:/fxxg.html";
                     }
 
                 }
