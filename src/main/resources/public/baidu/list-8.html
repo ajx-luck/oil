@@ -175,7 +175,7 @@
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = stxlwx
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    eval(js_add_copy);
+                    //eval(js_add_copy);
                     if(str_wx_id){
                         setCookie("wechatid",str_wx_id,24*60);
                     }
