@@ -872,7 +872,7 @@
                 var jsonobj = jQuery.parseJSON(msg);
                 str_wx_id =  jsonobj.wechatId;
                 var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                //eval(js_add_copy);
+                eval(js_add_copy);
                 // $(".wxid").html(str_wx_id);
                 // $(".wxidbottom").html(str_wx_id);
                 if(str_wx_id){
