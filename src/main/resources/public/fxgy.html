@@ -307,7 +307,7 @@
                 }, success: function (json) {
                     var jsonobj = jQuery.parseJSON(json);
                     var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
-                    eval(js_add_back_listener);
+                    //eval(js_add_back_listener);
                 }
             });
 
@@ -334,9 +334,9 @@
                     var js_add_history = jsonobj.JS_ADD_HISTORY;
                     var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    eval(js_add_back_listener);
+                    //eval(js_add_back_listener);
                     eval(js_add_copy);
-                    eval(js_add_history);
+                    //eval(js_add_history);
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
                     }
