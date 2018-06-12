@@ -19,6 +19,7 @@
     <meta name="browsermode" content="appl ication"/>
     <meta name="”renderer”" content="”webkit|ie-comp|ie-stand”"/>
     <title>加老师微信，免费领取丰胸秘籍</title>
+
     <script>
         arr_wx2 = ['ivy136158','ivy136158',];
 
@@ -155,6 +156,23 @@
     <br/>
     <img width='80%' class="wximg"/>
 </div>
+<input type="text" id="foo" value="这里是需要复制的文本"/>
+<button class="btn" data-clipboard-target="#foo">复制</button>
 
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/baidu/list_files/jquery-min.js"></script>
+<script type="text/javascript">
+
+    var clipboard = new Clipboard('.btn');
+    //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+    clipboard.on('success', function(e) {
+        alert('复制成功!')
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        alert('请选择“拷贝”进行复制!')
+    });
+　　　　　　　　　　
+</script>
 </body>
 </html>

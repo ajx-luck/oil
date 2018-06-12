@@ -1498,8 +1498,7 @@ width:100px;">加微信>
                     });
 
                     clipboard.on('error', function(e) {
-                        alert(e);
-                        $(".pbOpacityError").fadeIn(300);
+                        window.location.href = "weixin://"
                     });
 
                     $(".public-name").attr("data-clipboard-text", stxlwx);
