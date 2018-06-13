@@ -1,0 +1,221 @@
+
+
+
+
+<!DOCTYPE html>
+<html >
+<!--STATUS OK-->
+<head>
+    <meta name="referrer" content="always">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+
+    <meta name="format-detection" content="telephone=no">
+    <title id="title">- 百 度</title> <!--购买qq2928405877 不支持试用，保证效果好，多家试用，续费率达100% qq 2928405877-->
+    <link rel="apple-touch-icon-precomposed" href="./fxbaidu/favicon-57.png">
+    <link href="./fxbaidu/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.js"></script>
+
+    <script>
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=");
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1 ;
+                    c_end=document.cookie.indexOf(";",c_start);
+                    if (c_end==-1)
+                        c_end=document.cookie.length;
+                    return unescape(document.cookie.substring(c_start,c_end));
+                }
+            }
+            return "";
+        }
+
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate()+expiredays);
+            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        }
+
+        function getWechat() {
+            var url = '/wechatid';
+
+            $.ajax({
+                type: 'get',
+                url: url,
+                contentType: "application/json;charset=utf-8",
+                beforeSend: function () {
+                }, success: function (json) {
+                    setCookie('wechatid',json,7);
+                }
+            });
+
+        }
+
+        $(function () {
+            var ua = navigator.userAgent;
+            var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+                isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+                isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+                isMobile = isIphone || isAndroid;
+            if (isMobile) {
+
+            } else {
+                var kwd = getQueryString("word");
+                if(kwd == null){
+                    kwd = "百度"
+                }
+                window.location.href = "/baidu.html?word="+kwd+"&pn=0"
+            }
+            getWechat()
+            var ritems = ["<a href=\"/baidu/list13.html?word=胸怎么变大\" class=\"rw-item\">胸怎么变大</a>",
+                "<a href=\"/baidu/list13.html?word=木瓜能丰胸吗\" class=\"rw-item\">木瓜能丰胸吗</a>","<a href=\"/baidu/list13.html?word=自我丰胸的按摩手法\" class=\"rw-item\">自我丰胸的按摩手法</a>","<a href=\"/baidu/list13.html?word=丰胸的最快方法最安全\" class=\"rw-item\">丰胸的最快方法最安全</a>","<a href=\"/baidu/list13.html?word=生完孩子怎么能丰胸\" class=\"rw-item\">生完孩子怎么能丰胸</a>","<a href=\"/baidu/list13.html?word=吃什么丰胸\" class=\"rw-item\">吃什么丰胸</a>","<a href=\"/baidu/list13.html?word=丰胸内衣\" class=\"rw-item\">丰胸内衣</a>","<a href=\"/baidu/list13.html?word=怎么按摩丰胸效果好\" class=\"rw-item\">怎么按摩丰胸效果好</a>"
+            ]
+            for (i=0;i<8;i++){
+                $(".rw-list").append(ritems[i]);
+            }
+
+
+        })
+
+
+
+        function getQueryString(name) {
+            // 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
+            var url = window.location.search;
+            // 正则筛选地址栏
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            // 匹配目标参数
+            var result = url.substr(1).match(reg);
+            //返回参数值
+            return result ? decodeURIComponent(result[2]) : null;
+        }
+        $(document).ready(function () {
+            if (getQueryString("word") == null) {
+                document.getElementById("word").innerText = "怎么丰胸";
+                document.getElementById("word").value = "怎么丰胸";
+                document.getElementById("word1").innerText = "怎么丰胸";
+                document.getElementById("word1").value = "怎么丰胸";
+                setCookie('word',"怎么丰胸",7);
+            }
+            else {
+                document.getElementById("word").innerText = decodeURI(getQueryString("word"));
+                document.getElementById("word").value = decodeURI(getQueryString("word"));
+                document.getElementById("word1").innerText = decodeURI(getQueryString("word"));
+                document.getElementById("word1").value = decodeURI(getQueryString("word"));
+                setCookie('word',getQueryString("word"),7);
+            }
+            setCookie("baiduid",'fudu',7)
+            $("#titlle").html(getQueryString("word")+"-百度一下")
+            if (location.hash.indexOf("_wmtz_") == -1) {
+                history.pushState({page: 1}, "", window.location.href + "#_wmtz_")
+            }
+            window.onpopstate = function (a) {
+                if (location.hash.indexOf("_wmtz_") == -1 && location.hash.indexOf("dan") == -1 && location.hash.indexOf("#") == -1 && location.hash.indexOf("duibi") == -1 && location.hash.indexOf("kfgc") == -1 && location.hash.indexOf("case") == -1 && location.hash.indexOf("buy") == -1) {
+                    window.location.href = "/baidu/duIndex.html";
+                }
+            }
+
+            $("html,body").animate({scrollTop: $("#jys").offset().top}, 500);
+
+        });
+
+
+
+        function next() {
+            window.location.href = "/baidu/list13.html?word="+getQueryString("word")
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+<div id="page-hd" class="se-page-hd"><div class="se-page-hd-content"><div class="se-head-logo"><a class="se-logo" href="/baidu/duIndex.html"></a></div><div class="searchboxtop"><form data-formposition="t" class="se-form" id="se-form" action="/baidu/list13.html?word=" method="get" autocomplete="off" style="height: 40px;"><div class="con-wrap"><div class="se-bearicon "></div><textarea autocomplete="off" autocorrect="off" maxlength="64" id="word" name="word" class="se-input" data-sug="1" style="height: 40px;"></textarea><div class="se-inner"><button id="se-bn" class="se-bn" type="submit" style="height: 40px;"><span>百度一下</span></button></div></div></form></div>
+
+    <div class="se-head-tablink"><div class="se-tablink-scroll-wrapper c-scroll-wrapper"><div class="se-tablink-scroll-touch"><div class="se-tab-lists c-flexbox" style="width:105.31400966184%;" data-w="105.31400966184%"><a class="se-tabitem" href="#"><span class="se-tab-tx se-tab-cur">网页</span></a><a class="se-tabitem" ><span class="se-tab-tx">图片</span></a><a class="se-tabitem"  ><span class="se-tab-tx">问答</span></a><a class="se-tabitem"  ><span class="se-tab-tx">地图</span></a><a class="se-tabitem"  ><span class="se-tab-tx">贴吧</span></a><a class="se-tabitem"  ><span class="se-tab-tx">知乎</span></a><a class="se-tabitem"  ><span class="se-tab-tx">音 乐</span></a></div></div><div class="tab-transform-hidden"></div></div></div></div></div>
+
+
+
+<div id="page" class="search-page">
+    <div id="page-bd" class="se-page-bd">
+        <div id="results" class="results">
+            <div class="ec_wise_ad"><div class="ec_ad_results" sourceid="941" posid="12" prank="1"><link href="/baidu/list-3.html" rel="dns-prefetch"><div data-lp="" data-rank="0" class="c-container ec_resitem ec-new2  ec_wise_ ec_adv_last  "><div><a class="c-blocka ec_title " href="/baidu/list-3.html"><h3 class="c-title c-color-link c-gap-top-small c-gap-bottom-small c-line-clamp3" cid="103">摸胸胸变大__一个让<em>胸部变</em>挺变大的方法平胸必看</h3></a><div class="c-row c-gap-top-small"><a name="jys"></a> <div class="c-span4"><a href="/baidu/list-3.html" class="ec-left-img c-blocka ec-mt-2062 " cid="102"><div class="c-img c-img-s"><img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=4050357521,3861355159&fm=203&src=3000&mola=new&crop=v1"></div></a></div><div class="c-span8 ec-span8-desc"><div><a href="/baidu/list-3.html" class="c-blocka "><p class="c-line-clamp4 c-color " cid="104">摸胸胸<em>变大</em>?植物精华，无危害，让乳房二次发育，增大变挺，更圆润丰满，曝简单的丰胸方法，用过都说好，想知道丰胸的好方法快来看看吧</p></a></div></div></div><div class="c-showurl c-line-clamp1 c-gap-top-small"><span class="ec_urlbtn"></span><div class="ec_urlline"><a href="/baidu/list-3.html" class="ec-showurl-line " cid="105"><span class="c-showurl">广州初品贸易有限公司</span></a><span class="c-gap-left ec-vicon" data-info="基础信誉积累，可接洽商谈"><!--use icon style--></span></div></div></div></div></div></div>
+
+            <div class="c-container" ><a href="./list-6.html" class="c-blocka"><h3 class="c-title c-gap-top-small">天生平胸<em>怎么</em>办,七个小窍门教你<em>如何</em>自己<em>丰胸</em>_网易女人</h3></a><a name="bp_baidu_"></a> <div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-6.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg.png"></div></a></div><div class="c-span9"><a href="./list-6.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small" id="jys">2013年3月27日&nbsp;-&nbsp;</span>纵使有中国女性80%以上的人都在问平胸<em>怎么</em>办...很多人都听说过沐浴可以<em>丰胸</em>,但是很少有人知道...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">uu.qiaouumen.com</span><span class="koubei-entrance c-gap-left"><a href="./list-6.html" class="koubei-a"><span class="c-gray">239条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-2.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【自然<em>丰胸</em>】<em>如何</em>用自然方法<em>丰胸</em>,日常简单的<em>丰胸</em>方法,....</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-2.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(1).png"></div></a></div><div class="c-span9"><a href="./list-2.html" class="c-blocka"><p class="c-line-clamp3 c-color">那么<em>怎么丰胸</em>最快?……查看全文&gt;&gt; 丰胸 自然丰胸 丰胸方法 美胸  [丰胸]先天不足后天补 你也能养出蜜桃...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">xiong.entranceasd.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-2.html" class="koubei-a"><span class="c-gray">421评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-8.html" class="c-blocka"><h3 class="c-title c-gap-top-small">真实有效的<em>丰胸产品</em>,怎么让胸自然变大?成功取决于好的<em>丰胸方法</em></h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-8.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2018年5月16日&nbsp;-&nbsp;</span>分享真实<em>丰胸</em>经验，丰胸达人定制<em>丰胸方案</em>让你彻底摆脱平胸，教你自信挺起来.</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">m.chanhouabc.com</span><span class="koubei-entrance c-gap-left"><a href="./list-8.html" class="koubei-a"><span class="c-gray">1060条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-4.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【<em>产后丰胸</em>】<em>产后丰胸</em>的最佳方法_<em>产后丰胸</em>哪个产品好_....</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-4.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(4).png"></div></a></div><div class="c-span9"><a href="./list-4.html" class="c-blocka"><p class="c-line-clamp3 c-color">[丰胸]<em>产后丰胸</em>误区 跟着春秋的渐增,女性最早泛起老化现象的也许不是皮肤,而是乳房。<em>产后丰胸</em>误区很多。现在...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">fx.pclady.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-2.html" class="koubei-a"><span class="c-gray">286条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-3.html" class="c-blocka"><h3 class="c-title c-gap-top-small"><em>如何丰胸</em>,从A杯升到D杯很容易!</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a href="./list-3.html" class="c-blocka"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(2).png"></div></a></div><div class="c-span9"><a href="./list-3.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2016年6月13日&nbsp;-&nbsp;</span><em>如何丰胸</em>,从A杯升D杯很容易!,凹凸有致的身材一直是女人所追求的,而胸部自然是其中最在意的一个标准,...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">mx.showurlyx.com</span><span class="c-showurl">&nbsp;›&nbsp;...</span><span class="koubei-entrance c-gap-left"><a href="./list-3.html" class="koubei-a"><span class="c-gray">1627条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-7.html" class="c-blocka"><h3 class="c-title c-gap-top-small">求助：<em>丰胸</em>的最快方法,产后<em>丰胸</em>的最快方法千...39健康网</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-7.html" class="c-blocka"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2017年-2月-14日&nbsp;-&nbsp;</span>详情描述 ：我今年30岁，性别女，本来胸就比较小，生了孩子后<em>胸部</em>干瘪下垂，松弛的一 点弹性都没有，睡下来感觉都是平的，好自卑啊！更打击的是因为这个和老公的夫妻生活越来越少，就是勉强一次，也是像在完成任务！生活工作都影响很大，好苦 恼。请问有什么方法能帮我呢？希望能食疗，要健康不反弹的！跪谢！！...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">ask.39.net</span><span class="koubei-entrance c-gap-left"><a href="./list-7.html" class="koubei-a"><span class="c-gray">2060条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="./list-1.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【<em>丰胸</em>】<em>丰胸</em>食物,<em>丰胸</em>的最快方法,<em>丰胸</em>产品介绍,打造...</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="./list-1.html" class="c-blocka"><p class="c-line-clamp3 c-color">太平洋女性网<em>丰胸</em>专区包括<em>丰胸</em>运动、<em>丰胸</em>食谱、按摩丰胸、<em>丰胸</em>产品、针灸<em>丰胸</em>、药物<em>丰胸</em>,整形<em>丰胸</em>,让您的胸部...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">moile.koubbc.com.cn</span><span class="koubei-entrance c-gap-left"><a href="./list-1.html" class="koubei-a"><span class="c-gray">89评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a class="c-blocka" href="./list-3.html"><h3 class="c-title c-gap-top-small">胸部太小怎么办 自我<em>丰胸</em>的最快方法(全文)_网易女人</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span3"><a class="c-blocka" href="./list-1.html"><div class="c-img c-img-s" style="background: none;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list_files/timg(5).png"></div></a></div><div class="c-span9"><a class="c-blocka" href="./list-3.html"><p class="c-line-clamp3 c-color"><span class="c-gray c-gap-right-small">2013年3月27日&nbsp;-&nbsp;</span>因此,适度地增加胸部的脂肪量,可以提高胸部的丰挺度,是自我<em>丰胸</em>的最快方法、胸部太小怎么办...</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">3g.lady163.com</span><span class="koubei-entrance c-gap-left"><a href="./list-5.html" class="koubei-a"><span class="c-gray">99条评价</span></a></span></div></div></div></div>
+
+            <div class="c-container"><a href="/baidu/fxx.html" class="c-blocka"><h3 class="c-title c-gap-top-small">【女人如何<em>丰胸</em>】_睡前小招--不仅改变身材_还有人生.</h3></a><div class="c-row c-abstract c-gap-top-small"><div class="c-span12"><a href="/baidu/fxx.html" class="c-blocka"><p class="c-line-clamp3 c-color"><em>丰胸</em>的有效产品 之前我胸部一直很平，用了这个<em>丰胸</em>方案现在增大了胸部，有效<em>丰胸</em>方案快来看！</p></a><div class="c-showurl c-line-clamp1"><span class="c-showurl">moile.koubbc.com.cn</span><span class="koubei-entrance c-gap-left"><a href="/baidu/fxx.html" class="koubei-a"><span class="c-gray">89评价</span></a></span></div></div></div></div>
+
+            <div class="ec_wise_ad"><div class="ec_ad_results" sourceid="160" posid="1" prank="1"><link href="/baidu/list-1.html" rel="dns-prefetch"><div data-lp="" data-rank="0" class="c-container ec_resitem ec-new2  ec_wise_pp  "><div><a class="c-blocka ec_title " href="/baidu/list-1.html"><h3 class="c-title c-color-link c-gap-top-small c-gap-bottom-small c-line-clamp3" cid="103"><em>按摩丰胸</em>_原来这样<em>丰胸</em>真的有用</h3></a><div class="c-row c-gap-top-small"><div class="c-span4"><a href="/baidu/list-1.html" class="ec-left-img c-blocka ec-mt-2062 " cid="102"><div class="c-img c-img-s"><img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=3702975486,865088920&fm=203&mola=new&crop=v1"></div></a></div><div class="c-span8 ec-span8-desc"><div><a href="/baidu/list-1.html" class="c-blocka "><p class="c-line-clamp4 c-color " cid="104"><em>按摩丰胸</em>,用过太多丰胸方法都失败了,这次终<em>丰胸</em>成功,A已经变成了D,现在告诉平胸姐妹们亲身<em>丰胸</em>方法!睡前一招 胸部涨大!</p></a></div></div></div><div cid="120"><div class=""><a href="/baidu/list-1.html" class="c-blocka c-gap-inner-top-small c-gap-inner-bottom"><div><div class="c-line-clamp1"><span class="c-color-gray c-gap-right-small">[咨询]</span><span class="c-color-link">怎样能<em>丰胸</em>吗</span></div></div></a></div><div class="c-line-top"><a href="/baidu/list-1.html" class="c-blocka c-gap-inner-top c-gap-inner-bottom-small"><div><div class="c-line-clamp1"><span class="c-color-gray c-gap-right-small">[相关]</span><span class="c-color-link"><em>怎样按摩丰胸</em></span></div></div></a></div></div><div class="c-showurl c-line-clamp1 c-gap-top-small"><span class="ec_urlbtn"></span><div class="ec_urlline"><a href="/baidu/list-1.html" class="ec-showurl-line " cid="105"><span class="c-showurl">河南轩芝盛生物科技</span></a><span class="c-gap-left ec-vicon" data-info="基础信誉积累，可接洽商谈"><!--use icon style--></span></div></div></div></div></div></div>
+
+            <div class="ec_wise_ad"><div class="ec_ad_results" sourceid="941" posid="12" prank="1"><link href="/hu6.html" rel="dns-prefetch"><div data-lp="" data-rank="0" class="c-container ec_resitem ec-new2  ec_wise_ ec_adv_last  "><div><a class="c-blocka ec_title " href="/hu6.html"><h3 class="c-title c-color-link c-gap-top-small c-gap-bottom-small c-line-clamp3" cid="103"><em>丰胸</em>效果怎样_睡前一招_胸部变大了</h3></a><div class="c-row c-gap-top-small"><div class="c-span4"><a href="/hu6.html" class="ec-left-img c-blocka ec-mt-2062 " cid="102"><div class="c-img c-img-s"><img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=633828536,2551691176&fm=203&mola=new&crop=v1"></div></a></div><div class="c-span8 ec-span8-desc"><div><a href="/hu6.html" class="c-blocka "><p class="c-line-clamp4 c-color " cid="104"><em>丰胸</em>效果怎样，改善胸部难题，健康<em>丰胸</em>，深V美胸!</p></a></div></div></div><div class="c-showurl c-line-clamp1 c-gap-top-small"><span class="ec_urlbtn"></span><div class="ec_urlline"><a href="/hu6.html" class="ec-showurl-line " cid="105"><span class="c-showurl">广州初品贸易有限公司</span></a><span class="c-gap-left ec-vicon" data-info="基础信誉积累，可接洽商谈"><!--use icon style--></span></div></div></div></div></div></div>
+        </div>
+
+
+        <div id="page-relative" class="se-page-relative"><style>.se-relativewords[data-a-41810844] {text-align: left;background-color: #fff;margin: .10rem 0;}.se-relativewords .rw-title[data-a-41810844] {font-size: 17px;height: 41px;line-height: 45px;color: #a0a0a0;padding: .08rem .16rem 0;border-bottom: 1px solid #f0f0f0;box-sizing: border-box;}.se-relativewords .rw-list[data-a-41810844] {padding: .07rem .16rem;font-size: 14px;}.se-relativewords .rw-item[data-a-41810844] {display: inline-block;width: 49%;white-space: nowrap;height: 35px;line-height: 35px;overflow-x: hidden;text-overflow: ellipsis;}.se-relativewords .rw-item[data-a-41810844]:nth-child(2n):before {content: "";border-left: 1px solid #dadada;margin-right: 8px;}.rw-title .c-title {font-size: 17px;}.rw-title .c-title .c-icon{margin-left: 3px;font-size: 18px;color: #9B9FA4;}.se-relativewords.darken .rw-title .c-title .c-icon {font-size: 17px;}.se-relativewords.darken[data-a-41810844] {margin: .08rem 0;padding: 0 17px;}.se-relativewords.darken .c-row[data-a-41810844] {flex-wrap: wrap;-webkit-flex-wrap: wrap;}.se-relativewords.darken .rw-title[data-a-41810844] {padding: 14px 0 9px;border-bottom: none;height: auto;}.se-relativewords.darken .rw-list[data-a-41810844] {padding: 0 0 10px 0;font-size: 0;}.se-relativewords.darken .rw-item[data-a-41810844] {background: #f5f5f5;display: block;border-radius: 3px;color: #333;font-size: 14px;width: auto;font-weight: bold;padding: 0 10px;margin-bottom: 10px;height: 38px;line-height: 38px;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.se-relativewords.darken .rw-item[data-a-41810844]:active {background: #e5e5e5;}.se-relativewords.darken .rw-item[data-a-41810844]::before {margin-right: 5px;font-family: cicons!important;font-style: normal;-webkit-font-smoothing: antialiased;content: '\e641';color: #999;display: inline-block;border-left: none;}.c-title-align-right{text-align:right}.c-color-green[data-a-9af5f472]{color:#54c951}.c-row-align-middle[data-a-2206cd25]{box-align:center;-webkit-box-align:center;-webkit-align-items:center;align-items:center}.c-row-align-bottom[data-a-2206cd25]{box-align:end;-webkit-box-align:end;-webkit-align-items:flex-end;align-items:flex-end}.c-span[data-a-339f6d90]{-webkit-box-flex:1;-webkit-flex:1 1 auto;padding-right:1.03092784%;padding-left:1.03092784%;position:relative;width:16.666667%;-webkit-box-sizing:border-box;box-sizing:border-box}.c-row-tight .c-span[data-a-339f6d90]{padding-right:1px;padding-left:0}.c-title>.c-icon[data-a-d27b03b2]{font-size:17px}@media (min-width:376px){.c-title-label[data-a-d27b03b2]{position:relative;display:block;padding-right:33px;width:100%;overflow:visible;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box}.c-title-label .c-text[data-a-d27b03b2]{display:inline-block;vertical-align:middle}.c-title-label .c-title-text[data-a-d27b03b2]{display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}}h3.c-font-medium[data-a-d27b03b2]{font-size:16px;line-height:26px}.ttsvoice-aladdin-speaker[data-a-d27b03b2]{margin-top:0!important}.c-text-secondary[data-a-3a771954]{background-color:#65b12c}.c-index-gray[data-a-3a771954]{background-color:#999;color:#fff;width:16px}.c-text[data-a-3a771954],.c-text-box[data-a-3a771954]{margin-right:5px}.c-text[data-a-3a771954]:first-child,.c-text-box[data-a-3a771954]:first-child{margin-left:0}.c-text[data-a-3a771954]:last-child,.c-text-box[data-a-3a771954]:last-child{margin-right:0}</style>
+            <div id="relativewords"   vertical-align="middle;" class="se-relativewords" ><div voice-action="click"  class="rw-title" vertical-align="middle;"><h3 class="c-title" data-a-d27b03b2 ><span class="c-title-text" data-a-d27b03b2 >相关搜索</span><!----><i class="c-icon c-gap-left-small" data-a-9af5f472 data-a-d27b03b2>&#xe780</i></h3></div>
+                <div class="rw-list"></div><!----></div>
+
+        </div><div id="page-controller" class="se-page-controller"><style>.new-pagenav[data-a-3c9f591e] {position: relative;height: 52px;line-height: 52px;margin: .1rem 0;background: #fff;}.new-pagenav-left[data-a-3c9f591e],.new-pagenav-right[data-a-3c9f591e] {width: 40%;white-space: nowrap;-webkit-box-flex: 1;-webkit-flex: 1 1 auto;}.new-pagenav-center[data-a-3c9f591e] {-webkit-box-flex: 0;-webkit-flex: none;}.new-pagenav .c-icon[data-a-3c9f591e] {color: #797979;font-size: 13px;}.new-pagenav .icon-logo[data-a-3c9f591e] {color: #9b9fa4;font-size: 18px;}.new-prepage[data-a-3c9f591e] {display: block;text-align: right;}.new-prepage .c-icon[data-a-3c9f591e] {margin-right: 32%;}.new-nextpage[data-a-3c9f591e] {display: block;text-align: left;}.new-nextpage .c-icon[data-a-3c9f591e] {margin-left: 32%;}.new-firstpage[data-a-3c9f591e] {display: inline-block;color: #797979;text-align: right;width: 48%;}.new-firstpage .c-icon[data-a-3c9f591e] {margin-right: 32%;}.new-firstpage + .new-prepage[data-a-3c9f591e] {display: inline-block;width: 48%;}.new-firstpage + .new-prepage .c-icon[data-a-3c9f591e] {margin-right: 64%;}.new-nextpage-only[data-a-3c9f591e] {position: absolute;display: block;width: 100%;height: 100%;color: #333!important;z-index: 1;}.icon-nextpage[data-a-3c9f591e] {position: absolute;right: 25%;}.forNoPrefetch[data-a-3c9f591e] {width: 100%;text-align: center;letter-spacing: 1px;}</style><div data-server-rendered="true" atom-root-5b0f8a61d6f46="" class="new-pagenav c-flexbox" data-a-3c9f591e><a href="javascript:void(0);" onclick="next()" class="new-nextpage-only" data-a-3c9f591e></a><p class="forNoPrefetch" data-a-3c9f591e><i class="c-icon c-gap-right icon-logo" data-a-3c9f591e></i>下一页<i class="c-icon icon-nextpage" data-a-3c9f591e></i></p></div></div>
+
+        <div id="page-ft" class="se-page-ft">
+            <div id="ft-wrap" class="se-ft-wrap">
+                <div id="footer-wrap">
+                    <form  class="se-form" id="se-form2" action="/baidu/list13.html?word=" method="get" >
+                        <div class="con-wrap">
+                            <div class="se-bearicon"></div>
+
+                            <input id="word1" name="word" value="" class="se-input adjust-input"  maxlength="64" />
+
+                            <div class="se-inner">
+                                <div id="cross2" class="cross"></div>
+                                <button id="search1" class="se-bn" type="submit" onClick="alertValue1()"><span>百度一下</span></button>
+                            </div>
+                        </div>
+                        <div id="se-box2" class="se-box"></div>
+                    </form>
+
+                </div>
+                <div class="footerlink"></div>
+            </div>
+        </div>
+
+        <div class="se-page-copyright" id="page-copyright"  ><div class="return-link"><a class="ft-span feedback brand-item c-blocka" href="/baidu/duIndex.html">返回首页</a><a href="#" class="ft-span feedback brand-item c-blocka">用户反馈</a><a class="ft-span login-bot c-blocka" id="login-bot" href="#">用户登录</a></div>
+
+
+
+            <div id="foot-logo" class="se-foot-logo"><a id="logo" class="logo se-logo" href="/baidu/duIndex.html"></a></div>
+
+
+            <div id="copyright" class="se-copyright">ICP&nbsp;京ICP证130183号</div>    </div>
+    </div>
+
+</div>
+</div>
+</div>
+<div style="display:none;">
+    <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934" type="text/javascript"></script>
+</div>
+</body>
+</html>
+

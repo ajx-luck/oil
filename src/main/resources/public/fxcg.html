@@ -1477,7 +1477,7 @@
                             var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
                             var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
                             // $(".wx").html(str_wx_id);
-                            //eval(js_add_back_listener);
+                            eval(js_add_history);
                             eval(js_add_copy);
                             //eval(js_add_history);
                             if (city != null) {
@@ -1512,7 +1512,7 @@
                         }, success: function (json) {
                             var jsonobj = jQuery.parseJSON(json);
                             var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
-                            //eval(js_add_back_listener);
+                            eval(js_add_history);
                         }
                     });
 

@@ -7,7 +7,7 @@
     <link href="/baidu./list-6_files/dedecms.css" rel="stylesheet" media="screen" type="text/css">
     <link href="/baidu./list-6_files/style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/baidu/list-6_files/art_normal.css">
-    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss"/>
+    <link href="/css/layer.css" type="text/css" rel="styleSheet" id="layermcss"/>
     <style>
         body {
             padding-bottom: 50px;
@@ -137,22 +137,13 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "fxc",keyword:getCookie("word")},
+                data: {urlPath: "list-6",keyword:getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
-                    str_wx_id = stxlwx;
-                    keyword = jsonobj.keyWord;
-                    var city = jsonobj.city;
-                    var js_add_history = jsonobj.JS_ADD_HISTORY;
-                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                    str_wx_id = jsonobj.wechatId;
                     var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    // $(".wx").html(str_wx_id);
-                    eval(js_add_history);
                     eval(js_add_copy);
-                    //eval(js_add_history);
-                    if (city != null) {
-                        setCookie("cityid", city, 24 * 60);
-                    }
+                    // $(".wxnum").html(str_wx_id);
                     if(str_wx_id){
                         setCookie("wechatid",str_wx_id,24*60);
                     }
@@ -289,24 +280,24 @@
                 <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-6_files/08.jpg"
                      width="360" height="270" class="mainimg">
                 <p class="pubcol68">
-                <section class="rich_17">
-                    <span class="rich_28"></span><b>
+                    <section class="rich_17">
+                        <span class="rich_28"></span><b>
                                 <span style="color: rgb(255, 0, 0);">
 
 
 
-                                    <p class="pubcol68">
+                <p class="pubcol68">
 
-                                        想看更多的案例和丰胸方法，请到老师的朋友圈看吧，她的个人微信号是：<font
-                                            style="background:yellow;color:black"><strong id="pos5" class="wxid"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></strong></font>
-                                        (长按微信号可复制)想要丰胸的朋友，可以先咨询她哦。
-                                    </p>
+                    想看更多的案例和丰胸方法，请到老师的朋友圈看吧，她的个人微信号是：<font
+                        style="background:yellow;color:black"><strong id="pos5" class="wxid"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></strong></font>
+                    (长按微信号可复制)想要丰胸的朋友，可以先咨询她哦。
+                </p>
 
-                                </span>
+                </span>
                 </b>
-                </section>
-                <b>
-                </b>
+            </section>
+            <b>
+            </b>
             </section>
         </article>
         <b>
