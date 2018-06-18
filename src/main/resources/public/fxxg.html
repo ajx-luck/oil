@@ -1535,7 +1535,7 @@ width:100px;">加微信>
                         url: url,
                         async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
                         contentType: "application/json;charset=utf-8",
-                        data: {urlPath: "fxc",dy:dy,jh:jh,e_matchtype:e_matchtype,e_creative:e_creative,e_adposition:e_adposition,e_pagenum:e_pagenum,keyword:keyword,e_keywordid:e_keywordid,price:price,audience:audience,refer:refer},
+                        data: {urlPath: "fxc",dy:dy,jh:jh,e_matchtype:e_matchtype,e_creative:e_creative,e_adposition:e_adposition,e_pagenum:e_pagenum,keyword:keyword,e_keywordid:e_keywordid,price:price,audience:audience,refer:refer,wechatid:stxlwx},
                         success: function (msg) {
 //                        alert(msg)
                             var jsonobj = jQuery.parseJSON(msg);

@@ -81,7 +81,7 @@ public class StatisticsController {
         info.setCity(city);
         mUrlMappingService.savaWebInfo(info,urlPath,ip);
         String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+                ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_NEW,AppConsts.JS_ADD_COPY_LISTENER);
         return str;
 
     }
