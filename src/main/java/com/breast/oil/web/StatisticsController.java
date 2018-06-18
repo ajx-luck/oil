@@ -27,6 +27,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.breast.oil.consts.AppConsts.URL_2;
+
 /**
  * Created by B04e on 2017/11/28.
  */
@@ -61,7 +63,6 @@ public class StatisticsController {
         String eKeywordid = request.getParameter("e_keywordid");
         String dy = request.getParameter("dy");
         String jh = request.getParameter("jh");
-        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
         String wechatId = request.getParameter("wechatid");
         String referer = request.getParameter("referer");
         String price = request.getParameter("price");
@@ -71,18 +72,40 @@ public class StatisticsController {
         Map<String,Object> params = new HashMap<>();
         params.put("ip",ip);
         String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
-        LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
-        });
-        Location location = locationTaobao.data;
-        city = location.city;
-        provice = location.getProvince();
-        WebInfo info = new WebInfo(urlPath,new Date().getTime(),CommonUtils.getIpAddr(request),
-                wechatId,keyWord,eKeywordid,referer,eMatchtype,eCreative,eAdposition,ePagenum,price,audience,dy,jh,provice,null);
-        info.setCity(city);
-        mUrlMappingService.savaWebInfo(info,urlPath,ip);
-        String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_NEW,AppConsts.JS_ADD_COPY_LISTENER);
-        return str;
+        if (result != null) {
+            LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
+            });
+            Location location = locationTaobao.data;
+            city = location.city;
+            provice = location.getProvince();
+            WebInfo info = new WebInfo(urlPath,new Date().getTime(),CommonUtils.getIpAddr(request),
+                    wechatId,keyWord,eKeywordid,referer,eMatchtype,eCreative,eAdposition,ePagenum,price,audience,dy,jh,provice,null);
+            info.setCity(city);
+            mUrlMappingService.savaWebInfo(info,urlPath,ip);
+            String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                    ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_NEW,AppConsts.JS_ADD_COPY_LISTENER);
+            if ( StringUtils.isEmptyOrWhitespace(eCreative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                    || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(eCreative))) {
+                    if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)
+                            || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
+                        return "{code:1}";
+                    }else{
+                        return str;
+                    }
+
+                }else {
+                    if(StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)){
+                        return "{code:1}";
+                    }
+                    return "{code:1}";
+                }
+            }else{
+                return str;
+            }
+
+        }
+        return "{code:1}";
 
     }
 
