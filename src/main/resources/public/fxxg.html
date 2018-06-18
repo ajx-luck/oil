@@ -1039,13 +1039,7 @@
 
             </ul>
         </div>
-        <div style="max-width:980px;margin:0 auto;font-size:14px; background:#fff;">
 
-
-            <img
-                    src="/fxb/fxb123456.jpg" alt="" width="40%" height="20%"></p>
-
-        </div>
         <!-- 屏蔽结束 -->
 
 
@@ -1053,56 +1047,20 @@
 </div>
 <!-- 新导航 -->
 <div id="wrapper" style="width:100%;margin:0 auto;"><!--head start-->
-    <div id="head"><!--top start -->
-        <div class="top">
-            <div class="TopLogo" style="width:100%;margin:0 auto;">
 
-
-            </div>
-        </div><!--top end--><!--nav start-->
-
-
-    </div>
 
 
     <div>
         <div>
-            <div class="g-under-ask">
-                <!-- banner开始 -->
 
-                <!--<div class="flash">
-                   <ul class="bxslider">
-                     <li><a href=""><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxbig/top1.jpg"></a></li>
-                   </ul>
-               </div> -->
-                <!-- banner结束 -->
-                <!--
-                <script type="text/javascript">
-                $('.bxslider').bxSlider({
-                  adaptiveHeight: true,
-                  infiniteLoop: true,
-                  hideControlOnEnd: true,
-                  auto:true
-                });
-            </script>
-            -->
-
-
-                <!--<div class="footer clears">
-
-                  <div style="visibility:hidden"></div>
-                    <div style="text-align:center;padding:10px; line-height:1.724"> <script>document.write(name);</script>  </div>
-                  </div>-->
-
-
-            </div>
             <div class="warp">
                 <div class="min">
                     <div id="ok_frame_wrapper">
 
                         <div class="pro_" style="font-size: 14px; padding-left: 10px; padding-right: 10px;">
 
-                            <p></p>
+                            <img
+                                    src="/fxb/fxb123456.jpg" alt="" style="width: 20%"></p>
                         </div>
 
                     </div>
@@ -1517,6 +1475,18 @@ width:100px;">加微信>
 
 
             <script>
+
+                function getUrlParam(name){
+                    // 用该属性获取页面 URL 地址从问号 (?) 开始的 URL（查询部分）
+                    var url = window.location.search;
+                    // 正则筛选地址栏
+                    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                    // 匹配目标参数
+                    var result = url.substr(1).match(reg);
+                    //返回参数值
+                    return result ? decodeURIComponent(result[2]) : null;
+                }
+
                 var keyword
                 var str_wx_id
                 var bdpar;
@@ -1548,14 +1518,24 @@ width:100px;">加微信>
                 })
 
                 function setHash() {
-
-                    var url = "/rememberweb";
+                    var dy = getUrlParam("dy");
+                    var jh = getUrlParam("jh");
+                    var e_matchtype = getUrlParam("e_matchtype");
+                    var e_creative = getUrlParam("e_creative");
+                    var e_adposition = getUrlParam("e_adposition");
+                    var e_pagenum = getUrlParam("e_pagenum");
+                    var keyword = getUrlParam("keyword");
+                    var e_keywordid = getUrlParam("e_keywordid");
+                    var price = getUrlParam("price");
+                    var audience = getUrlParam("audience");
+                    var refer = window.refer;
+                    var url = "/rememberall";
                     $.ajax({
                         type: "get",
                         url: url,
                         async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
                         contentType: "application/json;charset=utf-8",
-                        data: {urlPath: "fxc"},
+                        data: {urlPath: "fxc",dy:dy,jh:jh,e_matchtype:e_matchtype,e_creative:e_creative,e_adposition:e_adposition,e_pagenum:e_pagenum,keyword:keyword,e_keywordid:e_keywordid,price:price,audience:audience,refer:refer},
                         success: function (msg) {
 //                        alert(msg)
                             var jsonobj = jQuery.parseJSON(msg);

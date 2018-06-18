@@ -1,13 +1,18 @@
 package com.breast.oil.web;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
+import com.breast.oil.po.Location;
+import com.breast.oil.po.LocationTaobao;
 import com.breast.oil.repository.RealWebInfoRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.utils.CommonUtils;
+import com.breast.oil.utils.HttpClientHelper;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -19,6 +24,7 @@ import org.thymeleaf.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,6 +41,52 @@ public class StatisticsController {
     RealWebInfoRepository mRealWebInfoRepository;
     @Autowired
     WebInfoRepository mWebInfoRepository;
+
+
+    /**
+     * 记录静态网页点击
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/rememberall", method = RequestMethod.GET)
+    public String rememberAll(HttpServletRequest request) {
+        String ip = CommonUtils.getIpAddr(request);
+        String urlPath = request.getParameter("urlPath");
+        String keyWord = request.getParameter("keyword");
+        String eMatchtype = request.getParameter("e_matchtype");
+        String eCreative = request.getParameter("e_creative");
+        String eAdposition = request.getParameter("e_adposition");
+        String ePagenum = request.getParameter("e_pagenum");
+        String eKeywordid = request.getParameter("e_keywordid");
+        String dy = request.getParameter("dy");
+        String jh = request.getParameter("jh");
+        WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
+        String wechatId = request.getParameter("wechatid");
+        String referer = request.getParameter("referer");
+        String price = request.getParameter("price");
+        String audience = request.getParameter("audience");
+        String city = "北京";
+        String provice = "";
+        Map<String,Object> params = new HashMap<>();
+        params.put("ip",ip);
+        String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
+        LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
+        });
+        Location location = locationTaobao.data;
+        city = location.city;
+        provice = location.getProvince();
+        WebInfo info = new WebInfo(urlPath,new Date().getTime(),CommonUtils.getIpAddr(request),
+                wechatId,keyWord,eKeywordid,referer,eMatchtype,eCreative,eAdposition,ePagenum,price,audience,dy,jh,provice,null);
+        info.setCity(city);
+        mUrlMappingService.savaWebInfo(info,urlPath,ip);
+        String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
+                ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+        return str;
+
+    }
+
+
 
 
     /**
