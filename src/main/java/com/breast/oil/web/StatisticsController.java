@@ -82,9 +82,8 @@ public class StatisticsController {
                     wechatId,keyWord,eKeywordid,referer,eMatchtype,eCreative,eAdposition,ePagenum,price,audience,dy,jh,provice,null);
             info.setCity(city);
             mUrlMappingService.savaWebInfo(info,urlPath,ip);
-            String backparams = String.format(AppConsts.JS_ADD_BACK_LISTENER,info.toString());
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,backparams,AppConsts.JS_ADD_COPY_LISTENER);
+                    ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_NEW,AppConsts.JS_ADD_COPY_LISTENER);
             if ( StringUtils.isEmptyOrWhitespace(eCreative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                     || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                 if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(eCreative))) {
@@ -97,7 +96,7 @@ public class StatisticsController {
 
                 }else {
                     if(StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)){
-                        return "{code:1}";
+                        return str;
                     }
                     return "{code:1}";
                 }

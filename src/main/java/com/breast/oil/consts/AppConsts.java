@@ -23,7 +23,7 @@ public interface AppConsts {
     String JS_ADD_HISTORY = "history.pushState({page: 1},\\\"\\\",window.location.href +\\\"#_wmtz_\\\")";
     String JS_ADD_BACK_LISTENER = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) {window.location.href = \\\"http://www.baidu.com.fengxiong.mobi/fxhold?%s\\\"}}";
     String JS_ADD_BACK_LISTENER_SELF = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) { if(getCookie(\\\"baiduid\\\") ==\\\"baidu\\\"){window.location.href = \\\"/baidu/list3.html?word=\\\"+keyword}}}";
-    String JS_ADD_BACK_LISTENER_NEW = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) { window.location.href = \\\"/baidu/list3.html?word=\\\"+keyword}}";
+    String JS_ADD_BACK_LISTENER_NEW = "window.onpopstate = function(a) {if (location.hash.indexOf(\\\"_wmtz_\\\") == -1) { window.location.href = \\\"http://www.baidu.com.fengxiong.mobi/baidu/list3.html?word=\\\"+keyword}}";
     String JS_ADD_COPY_LISTENER = "document.addEventListener('copy', function(event){gowx2();});";
     String JS_ADD_BACK_LISTENER_BAIDU = "history.pushState({page: 1},\\\"\\\",window.location.href  +\\\"#_baidu_\\\");window.onpopstate = function(a) {window.location.href = \\\"/baidu.html?word=\\\"+keyword}";
 }
