@@ -96,7 +96,7 @@ public class StatisticsController {
 
                 }else {
                     if(StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)){
-                        return str;
+                        return "{code:1}";
                     }
                     return "{code:1}";
                 }
