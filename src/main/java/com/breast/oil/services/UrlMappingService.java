@@ -232,7 +232,7 @@ public class UrlMappingService {
         cacheWeb(url,ip);
         //真实有效点击
         if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) && (!"上海".equals(info.getCity()))
-                && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity()))){
+                && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity())) && ("fxb".equals(info.getUrlPath()) || "fxd".equals(info.getUrlPath()) || "fxy".equals(info.getUrlPath()) || "fxz".equals(info.getUrlPath()))){
             addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
             RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
                     info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh(),info.getProvice(),info.getStrartUrl());
