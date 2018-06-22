@@ -164,8 +164,69 @@ public class WebController {
     }
 
     @RequestMapping("/")
-    public String index(ModelMap map){
-        return "forward:/blocked.html";
+    public String index(ModelMap map, HttpServletRequest request,HttpServletResponse response){
+        Map<String,Object> params = new HashMap<>();
+        String ip = CommonUtils.getIpAddr(request);
+//        params.put("format","json");
+        params.put("ip",ip);
+        String e_creative = request.getParameter("e_creative");
+        String audience = request.getParameter("audience");
+        String referer = request.getHeader("referer");
+        String adposition = request.getParameter("e_adposition");
+        String pagenum = request.getParameter("e_pagenum");
+//        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
+        boolean isMobile = DeviceUtils.isMobileDevice(request);
+        String city = "";
+        String provice = "";
+        try {
+            String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
+            System.out.println(result);
+            if (result != null) {
+                LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
+                });
+                Location location = locationTaobao.data;
+                city = location.city;
+                provice = location.getProvince();
+                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
+                    if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(e_creative)) && (!StringUtils.isEmptyOrWhitespace(adposition)) && (!StringUtils.isEmptyOrWhitespace(pagenum))) {
+                        if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)
+                                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city) || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(adposition)){
+                            setInfo(map, request, URL_2,"fxa", city, provice,response);
+                            return "redirect:http://www.niceclinic.com.tw/zh_tw/services/content/44/BreastSurgery";
+                        }else{
+                            setInfo(map, request, URL_2,"fxb", city,provice, response);
+                            return "redirect:/fxxg.html";
+                        }
+
+                    }else {
+                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
+                            setInfo(map, request, URL_2,"fxg", city,provice, response);
+                            return "redirect:http://www.niceclinic.com.tw/zh_tw/services/content/44/BreastSurgery";
+                        }
+                        setInfo(map, request,URL_2, "fxc", city,provice, response);
+                        return "redirect:http://www.niceclinic.com.tw/zh_tw/services/content/44/BreastSurgery";
+                    }
+                }else{
+                    if(isMobile) {
+                        setInfo(map, request,URL_2, "fxy", city,provice, response);
+                        return "redirect:/fxxg.html";
+                    }else{
+                        setInfo(map, request, URL_2,"fxz", city,provice, response);
+                        return "redirect:/fxxg.html";
+                    }
+
+                }
+
+
+            }
+        }catch (Exception e){
+            log.error(e);
+            setInfo(map, request, URL_2,"fxe",city, provice,response);
+            return "redirect:/hu7.html";
+        }
+        setInfo(map, request, URL_2,"fxf",city,provice, response);
+        return "redirect:/hu7.html";
     }
 
     @RequestMapping("/show")
