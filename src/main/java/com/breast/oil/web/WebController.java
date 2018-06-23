@@ -262,7 +262,7 @@ public class WebController {
                             return "forward:/f.html";
                         }else{
                             setInfo(map, request, URL_1,"fxb", city,provice, response);
-                            return "redirect:/fxxg.html";
+                            return "redirect:/ffz.html";
                         }
 
                     }else {
@@ -276,10 +276,10 @@ public class WebController {
                 }else{
                     if(isMobile) {
                         setInfo(map, request,URL_1, "fxy", city,provice, response);
-                        return "redirect:/fxxg.html";
+                        return "redirect:/ffz.html";
                     }else{
                         setInfo(map, request, URL_1,"fxz", city,provice, response);
-                        return "redirect:/fxxg.html";
+                        return "redirect:/ffz.html";
                     }
 
                 }
