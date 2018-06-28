@@ -187,7 +187,7 @@ public class WebController {
                 Location location = locationTaobao.data;
                 city = location.city;
                 provice = location.getProvince();
-                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                         || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(e_creative)) && (!StringUtils.isEmptyOrWhitespace(adposition)) && (!StringUtils.isEmptyOrWhitespace(pagenum))) {
                         if(StringUtils.isEmptyOrWhitespace(referer)  || "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
@@ -253,7 +253,7 @@ public class WebController {
                 Location location = locationTaobao.data;
                 city = location.city;
                 provice = location.getProvince();
-                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                         || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                     if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(e_creative)) && (!StringUtils.isEmptyOrWhitespace(adposition)) && (!StringUtils.isEmptyOrWhitespace(pagenum))) {
                         if(StringUtils.isEmptyOrWhitespace(referer) ||  "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
@@ -274,11 +274,11 @@ public class WebController {
                         return "forward:/h1.html";
                     }
                 }else{
-                    if(isMobile) {
-                        setInfo(map, request,URL_1, "fxy", city,provice, response);
-                        return "redirect:/ffz.html";
-                    }else{
-                        setInfo(map, request, URL_1,"fxz", city,provice, response);
+                    if("{gclid}".equals(pagenum)){
+                        setInfo(map, request,URL_1, "fxc", city,provice, response);
+                        return "forward:/h1.html";
+                    }else {
+                        setInfo(map, request, URL_1, "fxz", city, provice, response);
                         return "redirect:/ffz.html";
                     }
 
