@@ -193,7 +193,7 @@ public class WebController {
                         if(StringUtils.isEmptyOrWhitespace(referer)  || "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum)){
                             setInfo(map, request, URL_2,"fxa", city, provice,response);
-                            return "forward:/h.html";
+                            return "forward:/h1.html";
                         }else{
                             setInfo(map, request, URL_2,"fxb", city,provice, response);
                             return "redirect:/fxxg.html";
@@ -202,10 +202,10 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_2,"fxg", city,provice, response);
-                            return "forward:/h.html";
+                            return "forward:/h1.html";
                         }
                         setInfo(map, request,URL_2, "fxc", city,provice, response);
-                        return "forward:/h.html";
+                        return "forward:/h1.html";
                     }
                 }else{
                     if(isMobile) {
@@ -223,10 +223,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_2,"fxe",city, provice,response);
-            return "forward:/h.html";
+            return "forward:/h1.html";
         }
         setInfo(map, request, URL_2,"fxf",city,provice, response);
-        return "forward:/h.html";
+        return "forward:/h1.html";
     }
 
     @RequestMapping("/ff")
@@ -259,7 +259,7 @@ public class WebController {
                         if(StringUtils.isEmptyOrWhitespace(referer) ||  "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
                                 || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum)){
                             setInfo(map, request, URL_1,"fxa", city, provice,response);
-                            return "forward:/h.html";
+                            return "forward:/h1.html";
                         }else{
                             setInfo(map, request, URL_1,"fxb", city,provice, response);
                             return "redirect:/ffz.html";
@@ -268,10 +268,10 @@ public class WebController {
                     }else {
                         if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
                             setInfo(map, request, URL_1,"fxg", city,provice, response);
-                            return "forward:/h.html";
+                            return "forward:/h1.html";
                         }
                         setInfo(map, request,URL_1, "fxc", city,provice, response);
-                        return "forward:/h.html";
+                        return "forward:/h1.html";
                     }
                 }else{
                     if(isMobile) {
@@ -289,10 +289,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_1,"fxe",city, provice,response);
-            return "forward:/h.html";
+            return "forward:/h1.html";
         }
         setInfo(map, request, URL_1,"fxf",city,provice, response);
-        return "forward:/h.html";
+        return "forward:/h1.html";
     }
 
     @RequestMapping("/show")
