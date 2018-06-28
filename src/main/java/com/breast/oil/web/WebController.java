@@ -208,13 +208,14 @@ public class WebController {
                         return "forward:/h1.html";
                     }
                 }else{
-                    if(isMobile) {
-                        setInfo(map, request,URL_2, "fxy", city,provice, response);
-                        return "redirect:/fxxg.html";
+                    if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative) ||"{gclid}".equals(pagenum)  || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(adposition)  || "none".equals(adposition)){
+                        setInfo(map, request, URL_2,"fxg", city,provice, response);
+                        return "forward:/h1.html";
                     }else{
-                        setInfo(map, request, URL_2,"fxz", city,provice, response);
+                        setInfo(map, request,URL_2, "fxd", city,provice, response);
                         return "redirect:/fxxg.html";
                     }
+
 
                 }
 
@@ -274,11 +275,11 @@ public class WebController {
                         return "forward:/h1.html";
                     }
                 }else{
-                    if("{gclid}".equals(pagenum)){
-                        setInfo(map, request,URL_1, "fxc", city,provice, response);
+                    if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative) ||"{gclid}".equals(pagenum)  || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(adposition)  || "none".equals(adposition)){
+                        setInfo(map, request,URL_1, "fxg", city,provice, response);
                         return "forward:/h1.html";
                     }else {
-                        setInfo(map, request, URL_1, "fxz", city, provice, response);
+                        setInfo(map, request, URL_1, "fxd", city, provice, response);
                         return "redirect:/ffz.html";
                     }
 
