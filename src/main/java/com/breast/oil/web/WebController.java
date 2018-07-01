@@ -174,6 +174,12 @@ public class WebController {
         String referer = request.getHeader("referer");
         String adposition = request.getParameter("e_adposition");
         String pagenum = request.getParameter("e_pagenum");
+        String keyword = request.getParameter("keyword");
+        String e_keywordid = request.getParameter("e_keywordid");
+        String e_matchtype = request.getParameter("e_matchtype");
+        String price = request.getParameter("price");
+        String dy = request.getParameter("dy");
+        String jh = request.getParameter("jh");
 //        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
         boolean isMobile = DeviceUtils.isMobileDevice(request);
         String city = "";
@@ -187,35 +193,22 @@ public class WebController {
                 Location location = locationTaobao.data;
                 city = location.city;
                 provice = location.getProvince();
-                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
-                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
-                    if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(e_creative)) && (!StringUtils.isEmptyOrWhitespace(adposition)) && (!StringUtils.isEmptyOrWhitespace(pagenum))) {
-                        if(StringUtils.isEmptyOrWhitespace(referer)  || "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
-                                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum)){
-                            setInfo(map, request, URL_2,"fxa", city, provice,response);
-                            return "forward:/h1.html";
-                        }else{
-                            setInfo(map, request, URL_2,"fxb", city,provice, response);
-                            return "redirect:/fxxg.html";
-                        }
-
-                    }else {
-                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, URL_2,"fxg", city,provice, response);
-                            return "forward:/h1.html";
-                        }
-                        setInfo(map, request,URL_2, "fxc", city,provice, response);
-                        return "forward:/h1.html";
-                    }
+                if ( StringUtils.isEmptyOrWhitespace(adposition)  || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience)
+                        || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(price)|| StringUtils.isEmptyOrWhitespace(keyword) || StringUtils.isEmptyOrWhitespace(e_keywordid) || StringUtils.isEmptyOrWhitespace(e_matchtype) ||
+                        StringUtils.isEmptyOrWhitespace(e_matchtype) || StringUtils.isEmptyOrWhitespace(dy) || StringUtils.isEmptyOrWhitespace(jh) || "{keyword}".equals(e_keywordid) || "{keyword}".equals(keyword)
+                        || "{matchtype}".equals(e_matchtype) || "{creative}".equals(e_creative) || "{adposition}".equals(adposition) || "{device}".equals(price) || "{gclid}".equals(pagenum) ||
+                        "{adgroupid}".equals(dy) || "{campaignid}".equals(jh) || "none".equals(adposition)) {
+                    setInfo(map, request,URL_1, "fxa", city,provice, response);
+                    return "f";
                 }else{
                     if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative) ||"{gclid}".equals(pagenum)  || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(adposition)  || "none".equals(adposition)){
-                        setInfo(map, request, URL_2,"fxg", city,provice, response);
-                        return "forward:/h1.html";
-                    }else{
-                        setInfo(map, request,URL_2, "fxd", city,provice, response);
-                        return "redirect:/fxxg.html";
+                        setInfo(map, request,URL_1, "fxg", city,provice, response);
+                        return "f";
+                    }else {
+                        setInfo(map, request, URL_1, "fxd", city, provice, response);
+//                        return "redirect:/ffz.html";
+                        return "f";
                     }
-
 
                 }
 
@@ -224,10 +217,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_2,"fxe",city, provice,response);
-            return "forward:/h1.html";
+            return "f";
         }
         setInfo(map, request, URL_2,"fxf",city,provice, response);
-        return "forward:/h1.html";
+        return "f";
     }
 
     @RequestMapping("/ff")
@@ -241,6 +234,12 @@ public class WebController {
         String referer = request.getHeader("referer");
         String adposition = request.getParameter("e_adposition");
         String pagenum = request.getParameter("e_pagenum");
+        String keyword = request.getParameter("keyword");
+        String e_keywordid = request.getParameter("e_keywordid");
+        String e_matchtype = request.getParameter("e_matchtype");
+        String price = request.getParameter("price");
+        String dy = request.getParameter("dy");
+        String jh = request.getParameter("jh");
 //        boolean isMobile = ip.equals(request.getRemoteAddr()) && DeviceUtils.isMobileDevice(request);
         boolean isMobile = DeviceUtils.isMobileDevice(request);
         String city = "";
@@ -254,33 +253,21 @@ public class WebController {
                 Location location = locationTaobao.data;
                 city = location.city;
                 provice = location.getProvince();
-                if ( StringUtils.isEmptyOrWhitespace(adposition) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
-                        || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
-                    if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(e_creative)) && (!StringUtils.isEmptyOrWhitespace(adposition)) && (!StringUtils.isEmptyOrWhitespace(pagenum))) {
-                        if(StringUtils.isEmptyOrWhitespace(referer) ||  "北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(adposition) || "{creative}".equals(e_creative) || "none".equals(adposition)
-                                || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city) || StringUtils.isEmptyOrWhitespace(pagenum) || "{gclid}".equals(pagenum)){
-                            setInfo(map, request, URL_1,"fxa", city, provice,response);
-                            return "forward:/h1.html";
-                        }else{
-                            setInfo(map, request, URL_1,"fxb", city,provice, response);
-                            return "redirect:/ffz.html";
-                        }
-
-                    }else {
-                        if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative)){
-                            setInfo(map, request, URL_1,"fxg", city,provice, response);
-                            return "forward:/h1.html";
-                        }
-                        setInfo(map, request,URL_1, "fxc", city,provice, response);
-                        return "forward:/h1.html";
-                    }
+                if ( StringUtils.isEmptyOrWhitespace(adposition)  || StringUtils.isEmptyOrWhitespace(pagenum) || StringUtils.isEmptyOrWhitespace(e_creative) || StringUtils.isEmptyOrWhitespace(audience)
+                        || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(price)|| StringUtils.isEmptyOrWhitespace(keyword) || StringUtils.isEmptyOrWhitespace(e_keywordid) || StringUtils.isEmptyOrWhitespace(e_matchtype) ||
+                        StringUtils.isEmptyOrWhitespace(e_matchtype) || StringUtils.isEmptyOrWhitespace(dy) || StringUtils.isEmptyOrWhitespace(jh) || "{keyword}".equals(e_keywordid) || "{keyword}".equals(keyword)
+                        || "{matchtype}".equals(e_matchtype) || "{creative}".equals(e_creative) || "{adposition}".equals(adposition) || "{device}".equals(price) || "{gclid}".equals(pagenum) ||
+                        "{adgroupid}".equals(dy) || "{campaignid}".equals(jh) || "none".equals(adposition)) {
+                    setInfo(map, request,URL_1, "fxa", city,provice, response);
+                    return "f";
                 }else{
                     if(StringUtils.isEmptyOrWhitespace(e_creative) || "{creative}".equals(e_creative) ||"{gclid}".equals(pagenum)  || StringUtils.isEmptyOrWhitespace(referer) || StringUtils.isEmptyOrWhitespace(adposition)  || "none".equals(adposition)){
                         setInfo(map, request,URL_1, "fxg", city,provice, response);
-                        return "forward:/h1.html";
+                        return "f";
                     }else {
                         setInfo(map, request, URL_1, "fxd", city, provice, response);
-                        return "redirect:/ffz.html";
+//                        return "redirect:/ffz.html";
+                        return "f";
                     }
 
                 }
@@ -290,10 +277,10 @@ public class WebController {
         }catch (Exception e){
             log.error(e);
             setInfo(map, request, URL_1,"fxe",city, provice,response);
-            return "forward:/h1.html";
+            return "f";
         }
         setInfo(map, request, URL_1,"fxf",city,provice, response);
-        return "forward:/h1.html";
+        return "f";
     }
 
     @RequestMapping("/show")
