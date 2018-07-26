@@ -6,7 +6,7 @@ if (window.history && window.history.pushState) {
         if (hashName !== '') {
             var hash = window.location.hash;
             if (hash === '') {
-                $("#myModal").css("display","block");
+                $("#myModal").css("display", "block");
                 $("#myModal").addClass('in');
             }
         }

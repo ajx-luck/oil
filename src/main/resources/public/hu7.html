@@ -61,42 +61,38 @@
     }
     </style>
     <script>
-        arr_wx2 = ['ivy136158','ivy136158',];
+        arr_wx2 = ['ivy136158', 'ivy136158',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
 
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
 
     </script>
@@ -138,7 +134,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "fxc",keyword:getCookie("word")},
+                data: {urlPath: "fxc", keyword: getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = stxlwx;
@@ -150,17 +146,14 @@
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
                     }
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
+                    if (str_wx_id) {
+                        setCookie("wechatid", str_wx_id, 24 * 60);
                     }
                 }
             })
 
 
-
-
         });
-
 
 
     </script>
@@ -193,8 +186,6 @@
         </style>
 
 
-
-
         <article class="pubmainbox pubwarp">
             <h2 style="text-align:center;font-size:11px; line-height:20px">焦作市绿洲怀药生物科技有限公司</h2>
             <nav class="sinaHead" data-sudaclick="mainNav" style="line-height:20px">
@@ -221,7 +212,7 @@
                     </li>
                 </ul>
             </nav>
-            <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/fxb123456.jpg" >
+            <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxb/fxb123456.jpg">
 
             <div class="avatarbox">
                 <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-6_files/tb24pmkiuj8pufjy1xbxxagqvxa_!!2778885080.jpg"
@@ -261,7 +252,8 @@
                 </p>
                 <p class="pubcol68">
                     也是出于好奇心吧，还是加了丰胸老师微信号：<font style="background:yellow;color:black"><strong id="pos2" class="wxid">
-                    <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                    <span class="wx" oncopy="gowx2();"
+                          ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                 </strong></font>
                     （长按微信号可复制）.她会经常在微信朋友圈发一些丰胸常识，都是网上搜不到的那种，也有很多关于丰胸的知识和案例，特别的专业。我才知道，原来不同的人不同的情况，丰胸后吸收的效果也可以一样这么棒，但一定要跟老师说明自己的情况，正确选择适合自己的方子才会有好的吸收。
                 </p>
@@ -278,7 +270,8 @@
 
                 <p class="pubcol68">
                     我才意识到，老师微信号：<font style="background:yellow;color:black"><strong id="pos3" class="wxid">
-                    <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                    <span class="wx" oncopy="gowx2();"
+                          ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                 </strong></font>（长按可复制）说的是对的。身体的调理和乳房的2次发育都不是一天两天的事情。平胸本来就是身体内部的原因，从身体内分泌有问题到乳房发育不良，也不是一两天就能改善好的，冰冻三尺非一日之寒，你又怎么能要求一马平川的胸部能马上就丰满呢？是我自己的无知造成了对老师的误解。我还说她是骗子，介绍我买的真是好人。我感到非常内疚。
                 </p>
                 <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-6_files/05.jpg"
@@ -286,7 +279,8 @@
                 <p class="pubcol68">
                     现在每每回想过来，总觉得很后悔，是自己当时太心急，太冲动。这些年总想着要跟她道个歉，却又不知怎么说出口，唯有写下这篇日记。我记得老师说过，她最大的愿望是希望能用自己的经历帮助到更多有需要的人。如果你也有丰胸的烦恼，就加她吧，她一定会乐于帮助你。她的个人微信号是：<font
                         style="background:yellow;color:black"><strong id="pos4" class="wxid">
-                    <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                    <span class="wx" oncopy="gowx2();"
+                          ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                 </strong></font>
                     （长按可复制）如果你还没有下定决心要丰胸，就请你不要加她，把机会留给更有需要的人。因为一个微信号只能加5000人的，一个人的精力也是有限的。
                 </p>
@@ -314,24 +308,25 @@
                 <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/list-6_files/08.jpg"
                      width="360" height="270" class="mainimg">
                 <p class="pubcol68">
-                <section class="rich_17">
-                    <span class="rich_28"></span><b>
+                    <section class="rich_17">
+                        <span class="rich_28"></span><b>
                                 <span style="color: rgb(255, 0, 0);">
 
 
+                <p class="pubcol68">
 
-                                    <p class="pubcol68">
+                    想看更多的案例和丰胸方法，请到老师的朋友圈看吧，她的个人微信号是：<font
+                        style="background:yellow;color:black"><strong id="pos5" class="wxid"><span class="wx"
+                                                                                                   oncopy="gowx2();"
+                                                                                                   ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></strong></font>
+                    (长按微信号可复制)想要丰胸的朋友，可以先咨询她哦。
+                </p>
 
-                                        想看更多的案例和丰胸方法，请到老师的朋友圈看吧，她的个人微信号是：<font
-                                            style="background:yellow;color:black"><strong id="pos5" class="wxid"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></strong></font>
-                                        (长按微信号可复制)想要丰胸的朋友，可以先咨询她哦。
-                                    </p>
-
-                                </span>
+                </span>
                 </b>
-                </section>
-                <b>
-                </b>
+            </section>
+            <b>
+            </b>
             </section>
         </article>
         <b>
@@ -473,7 +468,8 @@
                     <h3 class="pubcol32">
                         大家不要私信咨询我了，我也不专业，平常时间也不多，你们直接加老师的微信：<font style="background:yellow;color:black"><strong
                             id="pos6" class="wxid">
-                        <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span class="wx" oncopy="gowx2();"
+                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                     </strong></font>，可以说是刘琳推荐的~~
                     </h3>
                     <p class="pubcolccc">2017.03.13 20:39</p>
@@ -873,7 +869,6 @@
             </div>
 
 
-
             <div class="commentbox pubbacf5f pubwarp">
 
                 <div class="avatarbox">
@@ -959,10 +954,10 @@
         </b>
 
         <div id="uc_recommend_ad" style="display:none;"></div>
-        <div class="links mt10 oh cb" align="center" style="height: 150px"><br />
-            <font color="#666666">版权：焦作市绿洲怀药生物科技有限公司 <br />
-                <br />
-            </font><br />
+        <div class="links mt10 oh cb" align="center" style="height: 150px"><br/>
+            <font color="#666666">版权：焦作市绿洲怀药生物科技有限公司 <br/>
+                <br/>
+            </font><br/>
 
         </div>
     </div>
@@ -983,7 +978,9 @@
                         <p style="text-align: center; font-size: .9rem; color: #9b9b9b;">↓长按下方微信号可复制↓</p>
 
                         <h3 style="background: #f94b10;height:45px;line-height:45px;padding:0 0.7rem;text-align: center;color: #fff;font-size: 1.6rem;width: 78%;margin: 0.6rem auto 0;border-radius: .5rem;">
-                            <b><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b></h3>
+                            <b><span class="wx" oncopy="gowx2();"
+                                     ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>
+                        </h3>
                     </div>
                     <div class="absc"
                          style="width:20px;height:20px;position:absolute;right:0;top:0;background:red;color:#fff;padding:3px;">
@@ -991,7 +988,8 @@
                     </div>
                 </div>
                 <div class="layui-m-layerbtn"><span yes="" type="1"><a href="javascript:void(0);"
-                                                                       onclick="gowx()"><font color="#c0004d">打开微信</font></a></span></div>
+                                                                       onclick="gowx()"><font
+                        color="#c0004d">打开微信</font></a></span></div>
             </div>
         </div>
     </div>
@@ -1017,12 +1015,13 @@
     });
 </script>
 
-<div style="position: fixed;bottom: 0;background: #f94b10;width: 100%;font-size: 16px;padding:5px;left:0px;z-index:99999"class="checktest" >
+<div style="position: fixed;bottom: 0;background: #f94b10;width: 100%;font-size: 16px;padding:5px;left:0px;z-index:99999"
+     class="checktest">
     <table>
         <tbody>
         <tr>
 
-            <td ><img src="/baidu/list-6_files/btns.gif"></td>
+            <td><img src="/baidu/list-6_files/btns.gif"></td>
         </tr>
         </tbody>
     </table>

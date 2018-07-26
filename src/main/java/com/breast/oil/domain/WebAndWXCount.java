@@ -13,12 +13,12 @@ public class WebAndWXCount {
     private Long webCount;
     private String percentage;
 
-    public WebAndWXCount(String keyWord, String keyWordDesc,Long wxCount, Long webCount) {
+    public WebAndWXCount(String keyWord, String keyWordDesc, Long wxCount, Long webCount) {
         this.keyWord = keyWord;
         this.wxCount = wxCount;
         this.webCount = webCount;
         this.keyWordDesc = keyWordDesc;
-        percentage = FormatUtils.percentage(wxCount,webCount);
+        percentage = FormatUtils.percentage(wxCount, webCount);
     }
 
     public String getKeyWord() {
@@ -53,7 +53,7 @@ public class WebAndWXCount {
         this.webCount = webCount;
     }
 
-    public String getPercentage(){
+    public String getPercentage() {
         return percentage;
     }
 

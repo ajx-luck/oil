@@ -1,149 +1,466 @@
-﻿.sec_one{background-color: #fff; overflow: hidden;}
-.sec_one2{background-color: #fff; overflow: hidden; font-size:16px; padding:0 10px;}
-.sec_one2 img{ width:100%!important;} 
-.sec_one .text1,.sec_one .text4,.sec_one .text5,.sec_one .text6{ color: #fff;
-width:90%;text-align: center;margin:0 auto;border-radius:1rem;padding: 5px 0px;margin-top: 0.5rem;}
-.sec_one .text1{font-size: 16px; border-bottom: 3px solid #0f840f;
-background-color:#33aa33;}
-.sec_one .text2{color:#fff;background-color:#33aa33;border-bottom: 3px solid #0f840f;
-border-radius:1rem;padding:2px 8px;}
-.sec_one .text3{color:#fff;background-color:#f94e10;border-bottom: 3px solid #bd1b17;
-border-radius:1rem;padding:2px 8px;}
-.sec_one .text4{font-size: 16px;border-bottom: 3px solid #3a5a98;
-background-color:#5074b8;}
-.sec_one .text5{font-size: 16px;border-bottom: 3px solid #0f840f;
-background-color:#33aa33;}
-.sec_one .text6{border-bottom: 3px solid #bd1b17;background-color:#f94e10;font-size: 14px;}
-.orange{color:#f94e10;text-decoration:underline;}
-.sec_one p{font-size:0.9rem;}
-.sec_one .ren{width:90%;margin-left:1rem;}
-#js_content{width:99.6%;}
-.green{background-color: #33aa33;border-bottom:3px solid #0f840f;border-radius: 1rem;width:14%;
-margin:0.2rem 0;text-align: center;color:#fff;}
-.green2{color:#33aa33;text-decoration:underline;}
-.kuang{width:90%;margin:0 auto;border:1px solid #cacaca;margin-top:-1px;}
-.fspl img{width:90%;}
-.user_txt p{padding-right:0.5rem;}
-.addwei{max-width:640px;bottom:0;left:50%;z-index:99;margin-left:-320px;}
-.sptxt1{border:1px solid #cacaca;padding:0.3rem 0.5rem;}
-.sptxt2{margin-top:-1px;}
-.text7{text-align:center;font-size:20px;color:#565656;}
-.blue{color:#5074b8;text-decoration: underline;}
-.sec_one .blue2{width:88%;border-radius:1rem;color: #fff;
-    background-color: #5074b8;padding: 5px 10px;margin-top:0.3rem;
-    font-size: 14px;    margin: 0 auto;}
+﻿.sec_one {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sec_one2 {
+    background-color: #fff;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.sec_one2 img {
+    width: 100% !important;
+}
+
+.sec_one .text1, .sec_one .text4, .sec_one .text5, .sec_one .text6 {
+    color: #fff;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 1rem;
+    padding: 5px 0px;
+    margin-top: 0.5rem;
+}
+
+.sec_one .text1 {
+    font-size: 16px;
+    border-bottom: 3px solid #0f840f;
+    background-color: #33aa33;
+}
+
+.sec_one .text2 {
+    color: #fff;
+    background-color: #33aa33;
+    border-bottom: 3px solid #0f840f;
+    border-radius: 1rem;
+    padding: 2px 8px;
+}
+
+.sec_one .text3 {
+    color: #fff;
+    background-color: #f94e10;
+    border-bottom: 3px solid #bd1b17;
+    border-radius: 1rem;
+    padding: 2px 8px;
+}
+
+.sec_one .text4 {
+    font-size: 16px;
+    border-bottom: 3px solid #3a5a98;
+    background-color: #5074b8;
+}
+
+.sec_one .text5 {
+    font-size: 16px;
+    border-bottom: 3px solid #0f840f;
+    background-color: #33aa33;
+}
+
+.sec_one .text6 {
+    border-bottom: 3px solid #bd1b17;
+    background-color: #f94e10;
+    font-size: 14px;
+}
+
+.orange {
+    color: #f94e10;
+    text-decoration: underline;
+}
+
+.sec_one p {
+    font-size: 0.9rem;
+}
+
+.sec_one .ren {
+    width: 90%;
+    margin-left: 1rem;
+}
+
+#js_content {
+    width: 99.6%;
+}
+
+.green {
+    background-color: #33aa33;
+    border-bottom: 3px solid #0f840f;
+    border-radius: 1rem;
+    width: 14%;
+    margin: 0.2rem 0;
+    text-align: center;
+    color: #fff;
+}
+
+.green2 {
+    color: #33aa33;
+    text-decoration: underline;
+}
+
+.kuang {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #cacaca;
+    margin-top: -1px;
+}
+
+.fspl img {
+    width: 90%;
+}
+
+.user_txt p {
+    padding-right: 0.5rem;
+}
+
+.addwei {
+    max-width: 640px;
+    bottom: 0;
+    left: 50%;
+    z-index: 99;
+    margin-left: -320px;
+}
+
+.sptxt1 {
+    border: 1px solid #cacaca;
+    padding: 0.3rem 0.5rem;
+}
+
+.sptxt2 {
+    margin-top: -1px;
+}
+
+.text7 {
+    text-align: center;
+    font-size: 20px;
+    color: #565656;
+}
+
+.blue {
+    color: #5074b8;
+    text-decoration: underline;
+}
+
+.sec_one .blue2 {
+    width: 88%;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: #5074b8;
+    padding: 5px 10px;
+    margin-top: 0.3rem;
+    font-size: 14px;
+    margin: 0 auto;
+}
 
 /*导师团队*/
-#tuan{position: relative;}
-.tuandui{width:100%;position:absolute;top:-9px;left:19px;}
-.tuandui ul li{float: left;width:162px;height:216px;
-margin-top:36px;margin-left:14px;}
+#tuan {
+    position: relative;
+}
+
+.tuandui {
+    width: 100%;
+    position: absolute;
+    top: -9px;
+    left: 19px;
+}
+
+.tuandui ul li {
+    float: left;
+    width: 162px;
+    height: 216px;
+    margin-top: 36px;
+    margin-left: 14px;
+}
+
 .teach_Mask {
     position: fixed;
     left: 50%;
-    margin-left:-320px;
+    margin-left: -320px;
     top: 0;
     width: 640px;
     height: 900px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 10000;
     display: none;
 }
-.Mask_txt1{
-	width:80%;
-	position: absolute;
+
+.Mask_txt1 {
+    width: 80%;
+    position: absolute;
     left: 59px;
     top: 388px;
 }
-.Mask_txt1 h3{font-size:30px;font-family: "微软雅黑";text-align: center;color:#94c529;}
-.Mask_txt1 p{font-size:18px;font-family: "微软雅黑";}
-.teach_Mask .close_mark1{width:44px;height:44px;position: absolute;
-	right:0px;top:341px;}
-.active{display: block;}
+
+.Mask_txt1 h3 {
+    font-size: 30px;
+    font-family: "微软雅黑";
+    text-align: center;
+    color: #94c529;
+}
+
+.Mask_txt1 p {
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+
+.teach_Mask .close_mark1 {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 0px;
+    top: 341px;
+}
+
+.active {
+    display: block;
+}
 
 /*整体布局长度*/
-#web{min-height:610px;}
+#web {
+    min-height: 610px;
+}
 
 /*视屏管理*/
-#video{width:100%;height:458px;}
+#video {
+    width: 100%;
+    height: 458px;
+}
 
 /*评价*/
-.pingjia{width:99%;background-color: #fff;margin:8px auto;}
-.pingjia .pjlis{width:20%;float: left;text-align: center;cursor: pointer;font-size: 1rem;}
-.kindBox{background-color: #fff;width:100%;border-bottom:1px solid #d3d3d3;border-top: 1px solid #d3d3d3;
-height:3.2rem;padding:0.3rem 0;}
-.red2{color:#dc3f3a;}
-.pingOn{color:#dc3f3a;}
-.all,.hao, .zho, .cha, .pic{display: none;}
-.dis{display: block;}
-.biaoq{width:96%;padding:0.3rem 2%;height:3.7rem;}
-.biaoq a{width:30%;margin-right: 0.5rem;display:block;float: left;color:#828387;text-align: center;
-background-color: #eff2f7;margin-top:0.2rem;border: 1px solid #fff;font-size: 0.8rem;}
-.biaoq .activeA{color:#101010;background-color:#fff;border: 1px solid #828387;}
+.pingjia {
+    width: 99%;
+    background-color: #fff;
+    margin: 8px auto;
+}
+
+.pingjia .pjlis {
+    width: 20%;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.kindBox {
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3;
+    height: 3.2rem;
+    padding: 0.3rem 0;
+}
+
+.red2 {
+    color: #dc3f3a;
+}
+
+.pingOn {
+    color: #dc3f3a;
+}
+
+.all, .hao, .zho, .cha, .pic {
+    display: none;
+}
+
+.dis {
+    display: block;
+}
+
+.biaoq {
+    width: 96%;
+    padding: 0.3rem 2%;
+    height: 3.7rem;
+}
+
+.biaoq a {
+    width: 30%;
+    margin-right: 0.5rem;
+    display: block;
+    float: left;
+    color: #828387;
+    text-align: center;
+    background-color: #eff2f7;
+    margin-top: 0.2rem;
+    border: 1px solid #fff;
+    font-size: 0.8rem;
+}
+
+.biaoq .activeA {
+    color: #101010;
+    background-color: #fff;
+    border: 1px solid #828387;
+}
+
 /*.dianji{margin-left:100px;}*/
-.swiper-container1{margin: 0 auto;
+.swiper-container1 {
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
-    z-index: 1;}
-
+    z-index: 1;
+}
 
 /*浮窗foot*/
-.foot {width: 640px;background:#f94e10;height: 110px;border-bottom: 5px solid #bd1b17;
-position:fixed;left:50%;bottom:0;z-index:1000;margin-left:-320px; }
-.foot .bottomBtns{width:60%;position:relative;float: left;}
-.foot #sech,.foot #gwc,.foot #member{
-	z-index:1005;
-	position: absolute;
-	width: 18%;
-	height:75%;
-	display: block;
-	top:19%;
-	/*background-color: rgba(255,255,255,0.5);*/
+.foot {
+    width: 640px;
+    background: #f94e10;
+    height: 110px;
+    border-bottom: 5px solid #bd1b17;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 1000;
+    margin-left: -320px;
 }
-/*.foot #zaixian{left:3%;}*/
-.foot #sech{right:9%;}
-.foot #gwc{left:43%;}
-.foot #member{}
 
-.foot #home {width:35%; float: left; display: block;margin-top: -20px;margin-left: 4%;}
+.foot .bottomBtns {
+    width: 60%;
+    position: relative;
+    float: left;
+}
+
+.foot #sech, .foot #gwc, .foot #member {
+    z-index: 1005;
+    position: absolute;
+    width: 18%;
+    height: 75%;
+    display: block;
+    top: 19%;
+    /*background-color: rgba(255,255,255,0.5);*/
+}
+
+/*.foot #zaixian{left:3%;}*/
+.foot #sech {
+    right: 9%;
+}
+
+.foot #gwc {
+    left: 43%;
+}
+
+.foot #member {
+}
+
+.foot #home {
+    width: 35%;
+    float: left;
+    display: block;
+    margin-top: -20px;
+    margin-left: 4%;
+}
+
 /*.foot a:hover, .foot a:active, .foot a.current { opacity: 1; background-color: #121212; }*/
 /*notice*/
-.sec_one #notice{width:90%;margin: 0.5rem auto;color:#555;} 
+.sec_one #notice {
+    width: 90%;
+    margin: 0.5rem auto;
+    color: #555;
+}
 
 @media only screen and (max-width: 640px) {
-	.addwei{width:100%;margin-left:0;left:0;}
-	#video{width:100%;height:12.45rem;}
-	#web{min-height:15.25rem;}
-	/*导师团队*/
-	.tuandui{width:100%;position:absolute;top:-0.4rem;left:0.8rem;}
-	.tuandui ul li{float: left;width:5.6rem;height:7.9rem;margin-top:1.6rem;margin-left:0.9rem;}
-	.teach_Mask {
-    left: 0;
-    margin-left:0px;
-    top: 0;
-    width: 100%;
-    height: 100%;
-	}
-	.Mask_txt1{
-	position: absolute;
-    left: 2.2rem;
-    top: 14rem;
-	}
-	.Mask_txt1 h3{font-size:1.4rem;}
-	.Mask_txt1 p{font-size:0.9rem;}
-	.teach_Mask .close_mark1{width:1.5rem;height:1.5rem;position: absolute;
-	right:0rem;top:13rem;}
-	#comment li {height:5.625rem;}
-	.text7{font-size:0.9rem;}
-	.dianji{margin-left:3.5rem;}
-	/*浮窗foot*/
-	.foot {width:100%;background:#f94e10;height:3.8rem;border-bottom: 5px solid #bd1b17;
-	position:fixed;left:0;bottom:0;z-index:1000;margin-left:0; }
-	.foot #home {margin-top: -1.1rem;}
+    .addwei {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+    }
 
-	
+    #video {
+        width: 100%;
+        height: 12.45rem;
+    }
+
+    #web {
+        min-height: 15.25rem;
+    }
+
+    /*导师团队*/
+    .tuandui {
+        width: 100%;
+        position: absolute;
+        top: -0.4rem;
+        left: 0.8rem;
+    }
+
+    .tuandui ul li {
+        float: left;
+        width: 5.6rem;
+        height: 7.9rem;
+        margin-top: 1.6rem;
+        margin-left: 0.9rem;
+    }
+
+    .teach_Mask {
+        left: 0;
+        margin-left: 0px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .Mask_txt1 {
+        position: absolute;
+        left: 2.2rem;
+        top: 14rem;
+    }
+
+    .Mask_txt1 h3 {
+        font-size: 1.4rem;
+    }
+
+    .Mask_txt1 p {
+        font-size: 0.9rem;
+    }
+
+    .teach_Mask .close_mark1 {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        right: 0rem;
+        top: 13rem;
+    }
+
+    #comment li {
+        height: 5.625rem;
+    }
+
+    .text7 {
+        font-size: 0.9rem;
+    }
+
+    .dianji {
+        margin-left: 3.5rem;
+    }
+
+    /*浮窗foot*/
+    .foot {
+        width: 100%;
+        background: #f94e10;
+        height: 3.8rem;
+        border-bottom: 5px solid #bd1b17;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        margin-left: 0;
+    }
+
+    .foot #home {
+        margin-top: -1.1rem;
+    }
+
 }
-@media only screen and (max-width: 320px){
-	.tuandui{width:100%;position:absolute;top:-0.4rem;left:0.8rem;}
-	.tuandui ul li{float: left;width:5.6rem;height:7.6rem;margin-top:1.5rem;margin-left:0.8rem;}
+
+@media only screen and (max-width: 320px) {
+    .tuandui {
+        width: 100%;
+        position: absolute;
+        top: -0.4rem;
+        left: 0.8rem;
+    }
+
+    .tuandui ul li {
+        float: left;
+        width: 5.6rem;
+        height: 7.6rem;
+        margin-top: 1.5rem;
+        margin-left: 0.8rem;
+    }
 }

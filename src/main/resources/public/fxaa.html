@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,42 +29,38 @@
     <link rel="stylesheet" type="text/css" href="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/style.css">
     <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss"/>
     <script>
-        arr_wx2 = ['ivy136158','ivy136158',];
+        arr_wx2 = ['ivy136158', 'ivy136158',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
 
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
 
     </script>
@@ -108,7 +102,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "fxc",keyword:getCookie("word")},
+                data: {urlPath: "fxc", keyword: getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = stxlwx;
@@ -124,17 +118,14 @@
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
                     }
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
+                    if (str_wx_id) {
+                        setCookie("wechatid", str_wx_id, 24 * 60);
                     }
                 }
             })
 
 
-
-
         });
-
 
 
     </script>
@@ -142,35 +133,35 @@
 <body>
 
 
-
 <style>
-    @media screen and (min-width: 300px) and (max-width:667px){
-        body{
+    @media screen and (min-width: 300px) and (max-width: 667px) {
+        body {
             overflow-x: hidden;
         }
-        .js_txt{
+
+        .js_txt {
             /*clear: both;*/
         }
-        .js_01{
+
+        .js_01 {
             width: 100%;
         }
-        #img{
+
+        #img {
             width: 80px;
         }
     }
 </style>
 <style>
-    .span1{
-        color:#ea2143;
-        font-weight:bold;
-        font-size:15px
+    .span1 {
+        color: #ea2143;
+        font-weight: bold;
+        font-size: 15px
     }
 </style>
 </head>
 
 <body>
-
-
 
 
 <div class="content">
@@ -180,52 +171,98 @@
             <h1 style="margin-left: 0.5em">丰胸经验分享</h1>
             <div class="case_main">
                 <div id="my_article">
-                    <div class="article dy"><p><span>导语：</span>如果你胸小想要丰胸，我可以肯定的告诉你，<font style="background:#f9eb73;">盲目丰胸用再多的方法都会以失败告终！</font>请不要天真的认为所有的丰胸方法都适合你，别人能成功并不代表就适合你！现在请你花5分钟时间仔细看看，<font color="#e5004f;">先了解下自己到底适合用哪种方法丰胸？</font></p></div>
+                    <div class="article dy"><p><span>导语：</span>如果你胸小想要丰胸，我可以肯定的告诉你，<font style="background:#f9eb73;">盲目丰胸用再多的方法都会以失败告终！</font>请不要天真的认为所有的丰胸方法都适合你，别人能成功并不代表就适合你！现在请你花5分钟时间仔细看看，<font
+                            color="#e5004f;">先了解下自己到底适合用哪种方法丰胸？</font></p></div>
                 </div>
                 <div class="title">
                     <h3>看我怎么解决平胸的苦恼</h3>
                 </div>
                 <div id="my_article">
-                    <div class="article spe_bg" style="margin-top:1rem;background:#fff1f1"><p style="text-align:left">先声明，我分享的方法适合:先天发育不良；胸部扁平、外扩；产后乳房下垂、缩水；乳房一大一小；减肥后胸部变小等情况，年龄在16-60岁的都可以使用。</p></div>
+                    <div class="article spe_bg" style="margin-top:1rem;background:#fff1f1"><p style="text-align:left">
+                        先声明，我分享的方法适合:先天发育不良；胸部扁平、外扩；产后乳房下垂、缩水；乳房一大一小；减肥后胸部变小等情况，年龄在16-60岁的都可以使用。</p></div>
                 </div>
                 <div id="my_article">
                     <div class="article noborder">
                         <p><font color="#e5004f;">无图无真相，看看我丰胸前后的对比照，丰胸效果非常明显</font></p>
-                        <p><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2QkkPfxPI8KJjSspoXXX6MFXa_!!628100164.jpg"></p>
+                        <p>
+                            <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2QkkPfxPI8KJjSspoXXX6MFXa_!!628100164.jpg">
+                        </p>
                     </div>
-                    <div class="article">我今年25岁，在没丰胸之前我的胸部就很小，只有32A，而且生完宝宝后，原本就小的可怜的胸，又出现了萎缩、松弛、下垂等情况。胸部这样，穿什么衣服都不好看，就连老公都嫌弃，和老公爱爱的时候，他明显变了。没有前戏，基本没摸过我的胸。</div>
+                    <div class="article">
+                        我今年25岁，在没丰胸之前我的胸部就很小，只有32A，而且生完宝宝后，原本就小的可怜的胸，又出现了萎缩、松弛、下垂等情况。胸部这样，穿什么衣服都不好看，就连老公都嫌弃，和老公爱爱的时候，他明显变了。没有前戏，基本没摸过我的胸。
+                    </div>
                     <div class="article">男人都是这样，为他洗衣做饭。为他生小孩，到头来还遭嫌弃，有时看到他看别的女人的眼神，心里真的非常难受！那时心里真的非常难受。</div>
-                    <div class="article">渐渐的，老公加班、应酬的频率变多，回家时间越来越少，我跟他谈过几次，他搪塞说工作忙没办法，心里还是很爱我的。可是后来有时半夜居然看到他，在偷偷看黄色网页，画面中一个个大胸妹啊，看得我是又气又羞！</div>
-                    <div class="article">我百感交集，也不知该不该恨他，<span style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">女人如果自己不爱惜自己说什么也没用！于是我下定决心来丰胸！在这个充满诱惑和欲望的时代，我要丰胸，我要变性感!!</span></div>
-                    <div class="article">期间尝试过各种丰胸方法，也去美容院买了乱七八糟的东西，还到处买各种丰胸产品，结果根本没用。后来听说胸小是因为体内的营养物质脂肪蛋白质之类的不够，于是我开始四处搜集丰胸食谱，什么猪蹄汤，木瓜汤，蜂蜜，牛奶，连续用了三个月，都要吐了，结果胸部没有变化，反而体重一路狂飙，让我苦不堪言，从此就再也不敢狂吃了。</div>
+                    <div class="article">
+                        渐渐的，老公加班、应酬的频率变多，回家时间越来越少，我跟他谈过几次，他搪塞说工作忙没办法，心里还是很爱我的。可是后来有时半夜居然看到他，在偷偷看黄色网页，画面中一个个大胸妹啊，看得我是又气又羞！
+                    </div>
+                    <div class="article">我百感交集，也不知该不该恨他，<span
+                            style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">女人如果自己不爱惜自己说什么也没用！于是我下定决心来丰胸！在这个充满诱惑和欲望的时代，我要丰胸，我要变性感!!</span>
+                    </div>
+                    <div class="article">
+                        期间尝试过各种丰胸方法，也去美容院买了乱七八糟的东西，还到处买各种丰胸产品，结果根本没用。后来听说胸小是因为体内的营养物质脂肪蛋白质之类的不够，于是我开始四处搜集丰胸食谱，什么猪蹄汤，木瓜汤，蜂蜜，牛奶，连续用了三个月，都要吐了，结果胸部没有变化，反而体重一路狂飙，让我苦不堪言，从此就再也不敢狂吃了。
+                    </div>
                     <div class="article">后来在网上看到做胸部spa可以促进发育，于是我满怀期待又一次开始，结果...呜呜……钱是没少浪费，可是胸部依然没有改变!</div>
-                    <div class="article">最后想到去隆胸，但隆胸失败的案例让我望而却步····<p style="text-indent: 0em;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2NwAifBfH8KJjy1XbXXbLdXXa_!!628100164.jpg"></p></div>
+                    <div class="article">最后想到去隆胸，但隆胸失败的案例让我望而却步····<p style="text-indent: 0em;"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2NwAifBfH8KJjy1XbXXbLdXXa_!!628100164.jpg">
+                    </p></div>
                     <div class="article">心灰意冷的我跑去找闺蜜散心，见到她却大吃一惊，1年不见，记得她以前也是B杯啊，怎么现在变得那么大，我试探着问“去哪里整了个假胸啦？”</div>
                     <div class="article">闺蜜马上拉着我的手去摸，“这是货真价实的真胸啦”。</div>
-                    <div class="article">看到闺蜜这样的身材，真让我羡慕，于是跟他一顿诉苦，她又好气又好笑，“这下你有救了，看我，你也可以像我这样的”，挺了挺她起码有D的胸。<p style="text-indent: 0em;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2MsotfDnI8KJjSszbXXb4KFXa_!!628100164.jpg"></p></div>
-                    <div class="article">闺蜜推荐我加美胸老师艾薇，我有点怀疑。我以前用过一些其他老师的办法，但没啥效果，这个真的有效么?她说至少她是变丰满了，还叫我先加丰胸达人艾薇微信，看看朋友圈里面的反馈。</div>
+                    <div class="article">看到闺蜜这样的身材，真让我羡慕，于是跟他一顿诉苦，她又好气又好笑，“这下你有救了，看我，你也可以像我这样的”，挺了挺她起码有D的胸。<p
+                            style="text-indent: 0em;"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2MsotfDnI8KJjSszbXXb4KFXa_!!628100164.jpg">
+                    </p></div>
+                    <div class="article">
+                        闺蜜推荐我加美胸老师艾薇，我有点怀疑。我以前用过一些其他老师的办法，但没啥效果，这个真的有效么?她说至少她是变丰满了，还叫我先加丰胸达人艾薇微信，看看朋友圈里面的反馈。
+                    </div>
                 </div>
             </div>
             <div class="case_main">
-                <section class="search"><h4>在微信中搜索 <span class="k"><img  src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2YA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png" class="imgk"><b ><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b></span></h4>
+                <section class="search">
+                    <h4>在微信中搜索 <span class="k"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2YA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png"
+                            class="imgk"><b><span class="wx" oncopy="gowx2();"
+                                                  ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b></span>
+                    </h4>
                 </section>
                 <div class="skey">
-                    <p style="text-align: center; font-size: 1.1rem;width: 85%;height: auto;margin: auto;"><img class="wximg" style="width: 85%;height: auto;" src="images/weixin_erweima.png" ></p>
-                    <p> 2017年新晋美胸营养老师艾薇<span class="strong">，</span>已通过微信平台，帮助全国上万名平胸女性成功丰胸。<br><span class="strong">《如何从飞机场逆袭成D杯女神》全揭秘</span>，每日朋友圈连载直播，赶紧关注吧！<br>丰胸达人艾薇微信号：<span name="notweixin"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span></b> <span class="copy">(←长按微信号复制)</span>
+                    <p style="text-align: center; font-size: 1.1rem;width: 85%;height: auto;margin: auto;"><img
+                            class="wximg" style="width: 85%;height: auto;" src="images/weixin_erweima.png"></p>
+                    <p> 2017年新晋美胸营养老师艾薇<span class="strong">，</span>已通过微信平台，帮助全国上万名平胸女性成功丰胸。<br><span class="strong">《如何从飞机场逆袭成D杯女神》全揭秘</span>，每日朋友圈连载直播，赶紧关注吧！<br>丰胸达人艾薇微信号：<span
+                            name="notweixin"><span class="wx" oncopy="gowx2();"
+                                                   ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span></b>
+                        <span class="copy">(←长按微信号复制)</span>
                     </p>
                 </div>
             </div>
             <div class="case_main">
                 <div id="my_article">
-                    <div class="article">有了我同学的案例，我谨慎的心有了一点信服力，就大胆的加了丰胸达人艾薇，她的朋友圈里面满满的是姐妹的反馈，更有各种各样的关于胸部的保养方法，真的算是一部小型的胸部保养的说明书。通过郭老师我了解到，<font style="background:#f9eb73;">乳房大小主要取决于胸部里的脂肪细胞，如果脂肪细胞发育成熟，胸部自然就丰满。所以要想实现丰胸，就必须要唤醒乳房的脂肪细胞，激发再度发育的能力。</font><span style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">丰胸达人艾薇会根据每个人胸部不同的情况，单独定制一套适合每个人的丰胸方案，非常有针对性，非常的专业，并且全程一对一专业指导。</span></div>
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2l9sEfC_I8KJjy0FoXXaFnVXa_!!628100164.jpg" alt="">
-                    <div class="article">在丰胸达人艾薇的帮助下，<span style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">大概三星期后，明显觉得乳房开始发热、发胀了。</span>一个月过去，内衣变得很紧，平时穿的内衣变得很紧，感觉透不过气来，于是去内衣店换了一批新的内衣回来，试的时候心情是从来没有过的喜悦，一个月，这效果让我看到了希望啊！</div>
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2T8.GfBTH8KJjy0FiXXcRsXXa_!!628100164.jpg" alt="">
-                    <div class="article"><span style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">第二个月，我胸围增大了将近6CM，乳房已经开始挺起来了，效果出来啦。</span>丰胸的大工程进行到现在，还是第一次那么明显感觉到成效啊！也是，效果是一点一滴累积起来的！</div>
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB27CkEfsjI8KJjSsppXXXbyVXa_!!628100164.jpg" alt="">
-                    <div class="article">第三个月，36C，增大了2罩杯，属于我的传说，慢慢的，后面效果越来越好，我就激动了，还<span style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">没过完3个月，华丽丽呈现出D杯啊！！</span>圆润饱满有弹性，别说是男生看了会被诱惑到，我自己都爱不释手了。我算了一下，3个月的时间里，我这乳房平均每个月增大3CM左右。然后我的胸部变成了D杯，增大了3个罩杯。其实我想说，可能不止三罩杯哦，因为D杯已经有点挤了！！</div>
-                    <div class="article spe_bg" style="margin-top:1rem;text-indent: 0;font-size:1rem ;text-align: left;">艾薇的整个丰胸过程都会让人亲身感觉的到，乳房又挺又翘，还变得超有弹性。停了几个月，用软尺量也没变化，后续效果也让我很满意。</div>
-                    <div class="article">以上就是我的丰胸故事，我希望更多的人能看到我的文章，让更多的人能早日摆脱平胸的自卑与苦恼。也希望我的经历能给大家在丰胸路上带来一点点帮助，因为我深知平胸的痛苦！</div>
+                    <div class="article">
+                        有了我同学的案例，我谨慎的心有了一点信服力，就大胆的加了丰胸达人艾薇，她的朋友圈里面满满的是姐妹的反馈，更有各种各样的关于胸部的保养方法，真的算是一部小型的胸部保养的说明书。通过郭老师我了解到，<font
+                            style="background:#f9eb73;">乳房大小主要取决于胸部里的脂肪细胞，如果脂肪细胞发育成熟，胸部自然就丰满。所以要想实现丰胸，就必须要唤醒乳房的脂肪细胞，激发再度发育的能力。</font><span
+                            style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">丰胸达人艾薇会根据每个人胸部不同的情况，单独定制一套适合每个人的丰胸方案，非常有针对性，非常的专业，并且全程一对一专业指导。</span>
+                    </div>
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2l9sEfC_I8KJjy0FoXXaFnVXa_!!628100164.jpg"
+                         alt="">
+                    <div class="article">在丰胸达人艾薇的帮助下，<span
+                            style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">大概三星期后，明显觉得乳房开始发热、发胀了。</span>一个月过去，内衣变得很紧，平时穿的内衣变得很紧，感觉透不过气来，于是去内衣店换了一批新的内衣回来，试的时候心情是从来没有过的喜悦，一个月，这效果让我看到了希望啊！
+                    </div>
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2T8.GfBTH8KJjy0FiXXcRsXXa_!!628100164.jpg"
+                         alt="">
+                    <div class="article"><span
+                            style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">第二个月，我胸围增大了将近6CM，乳房已经开始挺起来了，效果出来啦。</span>丰胸的大工程进行到现在，还是第一次那么明显感觉到成效啊！也是，效果是一点一滴累积起来的！
+                    </div>
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB27CkEfsjI8KJjSsppXXXbyVXa_!!628100164.jpg"
+                         alt="">
+                    <div class="article">第三个月，36C，增大了2罩杯，属于我的传说，慢慢的，后面效果越来越好，我就激动了，还<span
+                            style="max-width: 100%; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;">没过完3个月，华丽丽呈现出D杯啊！！</span>圆润饱满有弹性，别说是男生看了会被诱惑到，我自己都爱不释手了。我算了一下，3个月的时间里，我这乳房平均每个月增大3CM左右。然后我的胸部变成了D杯，增大了3个罩杯。其实我想说，可能不止三罩杯哦，因为D杯已经有点挤了！！
+                    </div>
+                    <div class="article spe_bg"
+                         style="margin-top:1rem;text-indent: 0;font-size:1rem ;text-align: left;">
+                        艾薇的整个丰胸过程都会让人亲身感觉的到，乳房又挺又翘，还变得超有弹性。停了几个月，用软尺量也没变化，后续效果也让我很满意。
+                    </div>
+                    <div class="article">
+                        以上就是我的丰胸故事，我希望更多的人能看到我的文章，让更多的人能早日摆脱平胸的自卑与苦恼。也希望我的经历能给大家在丰胸路上带来一点点帮助，因为我深知平胸的痛苦！
+                    </div>
 
                 </div>
             </div>
@@ -235,33 +272,49 @@
                     <div class="title">
                         <h3>身边的朋友纷纷加入丰胸行列</h3>
                     </div>
-                    <div class="article">这么明显的改变，让我朋友圈的很多朋友都找上门来，我只好一一介绍给丰胸达人艾薇了。没想到，她们也成功了。为了能让更多的姐妹用到这个调理型的丰胸方法，很多姐妹发来了丰胸成功后的照片做口碑宣传。</div>
+                    <div class="article">
+                        这么明显的改变，让我朋友圈的很多朋友都找上门来，我只好一一介绍给丰胸达人艾薇了。没想到，她们也成功了。为了能让更多的姐妹用到这个调理型的丰胸方法，很多姐妹发来了丰胸成功后的照片做口碑宣传。
+                    </div>
                     <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2dlI2fr_I8KJjy1XaXXbsxpXa_!!628100164.jpg">
-                    <div class="article"><span class="strong">筱笛</span><br>我的好朋友筱笛，自从生完孩子后，胸部就缩水变小，且还一大一小不匀称，在添加丰胸达人艾薇微信后<span class="strong">突然意识到，丰胸要从疏通乳腺导管开始，乳腺导管畅通了然后才能帮助激活胸大肌细胞，调整乳房组织，促进血液循环，使养分充分的吸收才能强化胸部组织，才能促进胸部再次发育的。</span>在丰胸达人艾薇的帮助下，两个月就逆袭拥有饱满坚挺的美胸！</div>
+                    <div class="article"><span class="strong">筱笛</span><br>我的好朋友筱笛，自从生完孩子后，胸部就缩水变小，且还一大一小不匀称，在添加丰胸达人艾薇微信后<span
+                            class="strong">突然意识到，丰胸要从疏通乳腺导管开始，乳腺导管畅通了然后才能帮助激活胸大肌细胞，调整乳房组织，促进血液循环，使养分充分的吸收才能强化胸部组织，才能促进胸部再次发育的。</span>在丰胸达人艾薇的帮助下，两个月就逆袭拥有饱满坚挺的美胸！
+                    </div>
                     <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2mWs4fCfD8KJjSszhXXbIJFXa_!!628100164.jpg">
-                    <div class="article"><span class="strong">刘晓芸</span><br>我的好朋友刘晓芸，胸部跟丝瓜瓤子一样，又扁又平，一点手感都没有！就是在丰胸达人艾薇的指导下，很快的，胸就挺了，罩杯也升级了，轻轻松松就拥有饱满的美胸，现在的她老爱穿一些布料少的衣服，她说以前太自卑了，这下要扬眉吐气！</div>
+                    <div class="article"><span class="strong">刘晓芸</span><br>我的好朋友刘晓芸，胸部跟丝瓜瓤子一样，又扁又平，一点手感都没有！就是在丰胸达人艾薇的指导下，很快的，胸就挺了，罩杯也升级了，轻轻松松就拥有饱满的美胸，现在的她老爱穿一些布料少的衣服，她说以前太自卑了，这下要扬眉吐气！
+                    </div>
                     <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2QbMzfv2H8KJjy0FcXXaDlFXa_!!628100164.jpg">
-                    <div class="article"><span class="strong">李露</span><br>		我的表妹李露，因为遗传了我小姨，胸部就不是很大，连32A的内衣都撑不起来！哪怕去海边玩，都没有穿比基尼的勇气，看到别人的美胸总是特别羡慕。后来遇到现在的男友就特别自悲“自己的胸部”问题，后面在我的推荐下加了艾薇美胸老师的微信，在丰胸达人艾薇的帮助下，</div>
+                    <div class="article"><span class="strong">李露</span><br>
+                        我的表妹李露，因为遗传了我小姨，胸部就不是很大，连32A的内衣都撑不起来！哪怕去海边玩，都没有穿比基尼的勇气，看到别人的美胸总是特别羡慕。后来遇到现在的男友就特别自悲“自己的胸部”问题，后面在我的推荐下加了艾薇美胸老师的微信，在丰胸达人艾薇的帮助下，
+                    </div>
                     <div class="title">
                         <h3>用过的人说好，才是真的好</h3>
                     </div>
-                    <div class="article spe_bg" style="margin-top:1rem;text-indent: 0;font-size:.95rem ;text-align: center;">下面给大家分享一些丰胸达人艾薇粉丝女神的对比照</div>
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2Jtk2fwDD8KJjy0FdXXcjvXXa_!!628100164.jpg" alt="">
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB29AM0fv6H8KJjSspmXXb2WXXa_!!628100164.jpg" alt="">
-                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2cv3VfznD8KJjSspbXXbbEXXa_!!628100164.jpg" alt="">
+                    <div class="article spe_bg"
+                         style="margin-top:1rem;text-indent: 0;font-size:.95rem ;text-align: center;">
+                        下面给大家分享一些丰胸达人艾薇粉丝女神的对比照
+                    </div>
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2Jtk2fwDD8KJjy0FdXXcjvXXa_!!628100164.jpg"
+                         alt="">
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB29AM0fv6H8KJjSspmXXb2WXXa_!!628100164.jpg"
+                         alt="">
+                    <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2cv3VfznD8KJjSspbXXbbEXXa_!!628100164.jpg"
+                         alt="">
                 </div>
             </div>
 
 
-
-
             <div class="case_main mt1">
                 <div class="middle_voice">
-                    <div class="m_voiceTop clf"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2sA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png" class="fl clf icon"><span class="fl clf fwb col_deepgreen">丰胸成功走上蜕变之路</span></div>
+                    <div class="m_voiceTop clf"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2sA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png"
+                            class="fl clf icon"><span class="fl clf fwb col_deepgreen">丰胸成功走上蜕变之路</span></div>
                     <div class="m_voiceBottom">
-                        <p>每个人都可以丰胸，为什么不是你呢？别再说丰胸困难、丰胸辛苦，那是你决心还不够方法不行。丰胸达人艾薇的丰胸方案适合所有需要丰胸的妹子。已帮助全国100000+朋友丰胸成功！你还不行动。</p>
-                        <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2wv7VfznD8KJjSspbXXbbEXXa_!!628100164.gif" alt="">
-                        <a href="javascript:void(0);" class="Link" style="margin-top:1rem"><b>&gt;&gt;快加<span class="wx-name">丰胸达人艾薇</span>微信，轻松丰胸！</b></a>
+                        <p>
+                            每个人都可以丰胸，为什么不是你呢？别再说丰胸困难、丰胸辛苦，那是你决心还不够方法不行。丰胸达人艾薇的丰胸方案适合所有需要丰胸的妹子。已帮助全国100000+朋友丰胸成功！你还不行动。</p>
+                        <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2wv7VfznD8KJjSspbXXbbEXXa_!!628100164.gif"
+                             alt="">
+                        <a href="javascript:void(0);" class="Link" style="margin-top:1rem"><b>&gt;&gt;快加<span
+                                class="wx-name">丰胸达人艾薇</span>微信，轻松丰胸！</b></a>
                         <p>为了更好地为大家服务，希望大家加我为微信好友后能主动咨询！因为每天加<span class="wx-name">丰胸达人艾薇</span>的人实在太多啦！你不问，我就不知道你是否需要帮助喔！
                             <br>
                             <br>
@@ -270,11 +323,20 @@
                 </div>
             </div>
             <div class="case_main">
-                <section class="search"><h4>在微信中搜索 <span class="k"><img  src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2YA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png" class="imgk"><b ><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b></span></h4>
+                <section class="search">
+                    <h4>在微信中搜索 <span class="k"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxa/TB2YA3rftfJ8KJjy0FeXXXKEXXa_!!628100164.png"
+                            class="imgk"><b><span class="wx" oncopy="gowx2();"
+                                                  ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b></span>
+                    </h4>
                 </section>
                 <div class="skey">
-                    <p style="text-align: center; font-size: 1.1rem;width: 75%;height: auto;margin: auto;"><img class="wximg" style="width: 75%;height: auto;" src="images/weixin_erweima.png" ></p>
-                    <p><span class="strong">美胸营养师艾薇，</span>提供一对一的解决方案帮你轻松丰满坚挺！<br><span class="strong">两个月快速A杯升C罩杯的丰胸方案全揭秘</span>，艾薇都发在朋友圈里了，欢迎学习交流。<br>丰胸达人艾薇微信号:<b><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b><span class="copy">(←长按微信号复制)</span>
+                    <p style="text-align: center; font-size: 1.1rem;width: 75%;height: auto;margin: auto;"><img
+                            class="wximg" style="width: 75%;height: auto;" src="images/weixin_erweima.png"></p>
+                    <p><span class="strong">美胸营养师艾薇，</span>提供一对一的解决方案帮你轻松丰满坚挺！<br><span class="strong">两个月快速A杯升C罩杯的丰胸方案全揭秘</span>，艾薇都发在朋友圈里了，欢迎学习交流。<br>丰胸达人艾薇微信号:<b><span
+                            class="wx" oncopy="gowx2();"
+                            ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b><span
+                            class="copy">(←长按微信号复制)</span>
                     </p>
                 </div>
             </div>
@@ -289,9 +351,11 @@
         </div>
 
 
-
-        <p style="text-align:center;color:#333;font-size:.3rem;"><script>document.write(bqxx);</script></p>
-        <p><br></p><p><br></p>
+        <p style="text-align:center;color:#333;font-size:.3rem;">
+            <script>document.write(bqxx);</script>
+        </p>
+        <p><br></p>
+        <p><br></p>
     </div>
 </div>
 
@@ -303,7 +367,9 @@
                 <div class="layui-m-layercont">
                     <div class="yaokuang">
                         <h3>2个月快速升罩杯<br>添加丰胸达人艾薇微信<span class="col_deepgreen">获取丰胸技巧！</span></h3>
-                        <p>丰胸达人艾薇微信号：<b><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b><span class="copy">(长按微信号复制)</span></p>
+                        <p>丰胸达人艾薇微信号：<b><span class="wx" oncopy="gowx2();"
+                                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b><span
+                                class="copy">(长按微信号复制)</span></p>
                         <p class="num"></p>
                     </div>
                     <div class="absc"
@@ -340,14 +406,21 @@
             $("#layui-m-layer5").hide();
         });
 
-        $(".wximg").attr("src","http://picket.oss-cn-shenzhen.aliyuncs.com/weixin/"+stxlwx+".jpg");
+        $(".wximg").attr("src", "http://picket.oss-cn-shenzhen.aliyuncs.com/weixin/" + stxlwx + ".jpg");
     });
 </script>
 
 
-
-
-<div style="position: fixed;bottom: 0;background: #eee;border-top: 1px solid #ccc;width: 100%;font-size: 16px;padding:5px;left:0px;z-index:99999"><div style="margin:0px auto;max-width: 600px;"><div style="float:left;">丰胸达人艾薇微信：<span style="color:#f00;"><span name="notweixin"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span></b>(长按复制) </span><br><br></div><a href="weixin://" id="weixin" style="background: #4fab0b;color: #fff;border-radius: 12px;height: 40px;line-height: 40px;text-align: center;box-shadow: 0 1px 3px 0 #000;display:inline-block;width:100px;float:right;text-decoration: none;margin-right:10px;">打开微信&gt;</a></div></div>
+<div style="position: fixed;bottom: 0;background: #eee;border-top: 1px solid #ccc;width: 100%;font-size: 16px;padding:5px;left:0px;z-index:99999">
+    <div style="margin:0px auto;max-width: 600px;">
+        <div style="float:left;">丰胸达人艾薇微信：<span style="color:#f00;"><span name="notweixin"><span class="wx"
+                                                                                                 oncopy="gowx2();"
+                                                                                                 ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span></b>
+            (长按复制) </span><br><br></div>
+        <a href="weixin://" id="weixin"
+           style="background: #4fab0b;color: #fff;border-radius: 12px;height: 40px;line-height: 40px;text-align: center;box-shadow: 0 1px 3px 0 #000;display:inline-block;width:100px;float:right;text-decoration: none;margin-right:10px;">打开微信&gt;</a>
+    </div>
+</div>
 
 
 <div style="display:none;">
@@ -355,7 +428,7 @@
 </div>
 
 
-
 <br>
 </p>
-</body></html>
+</body>
+</html>

@@ -24,10 +24,10 @@
 <script type="text/javascript" src="js/flexible.js"></script>
 
 <script type="text/javascript">
-    var newnum = new Array(32,30,29,28,25,23,21,19,17,16,15,14,12,11,10,8,7,6,4,2,1);
+    var newnum = new Array(32, 30, 29, 28, 25, 23, 21, 19, 17, 16, 15, 14, 12, 11, 10, 8, 7, 6, 4, 2, 1);
     var leg = newnum.length;
     var num = -1;
-    var t = setInterval(function(){
+    var t = setInterval(function () {
         num++;
         if (num >= leg) {
             clearInterval(t);
@@ -38,14 +38,52 @@
 </script>
 
 <style type="text/css">
-    *{margin: 0;padding: 0;}
-    body{width: 100%;max-width: 640px;margin: 0 auto;font-family: "微软雅黑","Microsoft YaHei",Arial,sans-serif;font-size: 16px;line-height: 1.5;}
-    .main{padding-top: 50px;text-align: center;color: #0066c2;letter-spacing: 2px;overflow: hidden;}
-    .main b{font-size: 0.8rem;display: inline-block;}
-    .main .sx{background: #0066c2;color: #fff;padding: 5px 20px; margin-top: 15px;}
-    .num,.code_box{color: #ff0;}
-    .main p{color: #03abf4;font-size: 0.5rem;}
-    #code{width: 70%;}
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        font-family: "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .main {
+        padding-top: 50px;
+        text-align: center;
+        color: #0066c2;
+        letter-spacing: 2px;
+        overflow: hidden;
+    }
+
+    .main b {
+        font-size: 0.8rem;
+        display: inline-block;
+    }
+
+    .main .sx {
+        background: #0066c2;
+        color: #fff;
+        padding: 5px 20px;
+        margin-top: 15px;
+    }
+
+    .num, .code_box {
+        color: #ff0;
+    }
+
+    .main p {
+        color: #03abf4;
+        font-size: 0.5rem;
+    }
+
+    #code {
+        width: 70%;
+    }
 </style>
 
 

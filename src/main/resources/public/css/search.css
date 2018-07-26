@@ -1,72 +1,451 @@
 
-header{width: 100%;position: relative;}
+header {
+    width: 100%;
+    position: relative;
+}
 
-.ls-header-bar{max-width:640px;position:relative;background:#fff;border-bottom:1px solid #d5d5d5;}
-.ls-header-icon-back span,.ls-header-icon-cancel span,.ls-header-icon-search span,.ls-header-icon-shortcut span{text-indent:-100px;overflow:hidden}
-.on-blur .ls-header-icon-cancel,.on-blur .ls-header-icon-close,.on-focus .ls-header-icon-back,.on-focus .ls-header-icon-shortcut{display:none}
-body.history-color{background:#f8f8f8!important}
-.ls-header-icon-back,.ls-header-icon-logo{position:absolute;width:2rem;height:2rem;top:.8rem;}
-.ls-header-icon-back span{width:1.2rem;height:2rem;background-position:-2.4rem 0;background-size:20rem 20rem;margin:.35rem 0 0 .5rem}
-.ls-header-icon-logo span{width:20px;height:25px;background-position:0 3px;margin:12px 0 0 10px}
-.ls-header-icon-category,.ls-header-icon-shortcut{position:absolute;right:0;top:.8rem;width:2rem;height:2.2rem;overflow:hidden;cursor: pointer;}
-.ls-header-icon-shortcut span{width:20px;height:20px;background-position:-60px 0;margin:.6rem 0 0 0}
-.ls-header-icon-category span{width:20px;height:30px;background-position:-2px -30px;margin:.4rem 0 0 .5rem;text-indent:-200px;overflow:hidden}
-.ls-header-icon-advisory span{width:2rem;height:1.65rem;background:url(../images/ls-sprites.png) no-repeat -10.5rem -15.7rem;background-size:20rem 20rem;margin:.6rem 0 0 0;display: inline-block;}
-.ls-header-icon-advisory{position:absolute;right:3.5rem;top:.8rem;width:2rem;height:2.5rem;overflow:hidden;cursor: pointer;}
-.ls-header-icon-cancel{position:absolute;width:2rem;height:2rem;top:.8rem;}
-.ls-header-icon-cancel span{width:1.5rem;height:1.5rem;background:url(../images/ls-sprites.png) no-repeat -3rem 0;background-size:15rem 15rem;margin:.5rem 0 0 .5rem;}
-.ls-header-icon-close{position:absolute;right:40px;width:30px;height:30px;top:7px}
-.ls-header-icon-close:after{content:'';width:14px;height:12px;background-position:-103px 0;margin:10px 0 0 5px}
-.ls-header-icon-search{width:1.6rem;height:1.5rem; float: right;margin:.5rem 1.5rem 0 0;}
-.ls-header-icon-search span{width:1.6rem;height:1.5rem;background:url(../images/ls-sprites.png) no-repeat -8.35rem 0;background-size:20rem 20rem;}
-.ls-header-title{margin:0 2.5rem;text-align:center;height:50px;line-height:50px;font-size:1.2rem}
-.ls-header-shortcut{display:table;width:10.8rem;background:rgba(0,0,0,0.75);border-radius:4px; position: absolute;right:0; z-index:10}
-.ls-header-shortcut .arrow-up {width:0; height:0; border-left:.7rem solid transparent;border-right:.7rem solid transparent;border-bottom:.7rem solid #404040; position: absolute; top:-.7rem;right:1rem;}
-.ls-header-shortcut li{width:100%;border-bottom: 1px solid #999; padding: .25rem 0}
-.ls-header-shortcut li:last-child{border-bottom:none}
-.ls-header-shortcut a{border:0;color:#fff;text-decoration:none;padding-left:1rem; display: block;}
-.ls-header-shortcut span,.ls-header-shortcut i{display: inline-block;margin:0 auto;color:#fff;font-size:16px; font-style:normal;vertical-align: middle;}
-.ls-header-shortcut span{width:30px;height:30px;margin-top:6px;background-size: 300px 300px}
-.ls-header-shortcut span.shortcut-home{background-position:-55px -48px}
-.ls-header-shortcut span.shortcut-categories{background-position:-100px -44px}
-.ls-header-shortcut span.shortcut-cart{background-position:-139px -48px}
-.ls-header-shortcut span.shortcut-my-account{background-position:-192px -48px}
-.ls-header-search-trigger{padding:0;margin:0 40px;width:auto;height:44px;overflow:hidden}
-.ls-header-inpt{display:table;width:100%;padding:0;margin-top:7px}
-.ls-header-inpt span{display:table-cell;vertical-align:middle;height:28px;overflow:hidden;background:#fff;border-radius:4px;border:1px solid #bfbfbf;padding:0 10px;font-size:12px}
-.placehoder{color:#d7d7d7}
-.ls-header-search-form{display:block;padding:.8rem 0;margin:0 .5rem 0 2.5rem;overflow:hidden}
-.ls-header-search-box{height:2.5rem;margin-right:2rem}
-.ls-header-search-input{display:block;width:100%;border-radius:1rem;height:2.5rem;overflow:hidden;background:#f6f6f6;font-size:12px;}
-.mlist .ls-header-search-input{width:auto}
-.mhome .on-blur .ls-header-search-input,.mhome.hide-landing .on-blur .ls-header-search-input{width:auto;margin-right:28px}
-.ls-header-search-input input{border:0;background:0 0;font-size:1.5rem;line-height:2.5rem;height:2.5rem;margin-left:1.8rem;width:15rem}
+.ls-header-bar {
+    max-width: 640px;
+    position: relative;
+    background: #fff;
+    border-bottom: 1px solid #d5d5d5;
+}
 
+.ls-header-icon-back span, .ls-header-icon-cancel span, .ls-header-icon-search span, .ls-header-icon-shortcut span {
+    text-indent: -100px;
+    overflow: hidden
+}
 
-.ls-not-found{background: #fff;color: #333; padding-bottom: 20%;text-align: center;font-size: 1.2rem}
-.ls-not-found .notice{content: "";display: block;width: 100%;padding: 30% 0;}
-.ls-not-found a.more{background: #f93538;color: #fff;border-radius:.25rem; display: inline-block;padding:.5rem 1rem}
+.on-blur .ls-header-icon-cancel, .on-blur .ls-header-icon-close, .on-focus .ls-header-icon-back, .on-focus .ls-header-icon-shortcut {
+    display: none
+}
 
+body.history-color {
+    background: #f8f8f8 !important
+}
 
-.ls-search-area{width: 100%;background: #fff}
-.ls-keyw-list{ display: block; }
-.ls-keyw-list li{height: 2rem; }
-.ls-keyw-list li a{display:block;height: 2rem;line-height: 2rem;font-size: 1.2rem; color: #999;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-left:4.5 rem}
+.ls-header-icon-back, .ls-header-icon-logo {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: .8rem;
+}
 
-.ls-hot-search{padding:1rem;}
-.hot-search-bar{height:2rem;line-height:2rem;padding:0 1rem;font-size: 1.2rem; overflow: hidden;}
-.hot-search-bar i{display:inline-block;width:1.3rem; float: left;margin:.5rem .5rem 0 0}
-.hot-search-bar i:before{width:1.3rem;height:1.3rem;content:"";display:block;background:url(../images/ls-sprites.png) no-repeat 0 -10.5rem;background-size:20rem 20rem;}
-.landing-tags{padding:1rem 0 0 .5rem;}
-.landing-tags a{line-height:3rem;height:3rem;display:inline-block;font-size:1rem;color:#666;width:28%;background:#f6f6f6;margin:0 .5rem 1.5rem .5rem;text-align:center;}
-.landing-tags span{width:80%;display:inline-block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.search-history{border-top: 1px solid #e6e6e6;overflow: hidden; }
-.search-history li{border-bottom: 1px solid #e6e6e6;height: 4rem;line-height: 4rem;padding:0 .5rem;}
-.search-history a{display:block;text-decoration:none;height: 4rem;line-height: 4rem;color:#666;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:1.2rem}
-.search-history a:before{content:"";display:block;width:1.4rem;height:1.4rem;background-position:-16rem -7.45rem;background-size:20rem 20rem;position:absolute;margin-top:1.4rem}
-.search-history span{display:block;height: 4rem;line-height: 4rem;margin-left:2rem}
-.landing-clear{padding:3rem 0;text-align:center;color:#999;font-size:1.2rem}
-.landing-clear span{display:inline-block;text-align:center;height:3rem;line-height:3rem;border-radius:.25rem;border:1px solid #999;background:#fff;width:12rem}
+.ls-header-icon-back span {
+    width: 1.2rem;
+    height: 2rem;
+    background-position: -2.4rem 0;
+    background-size: 20rem 20rem;
+    margin: .35rem 0 0 .5rem
+}
+
+.ls-header-icon-logo span {
+    width: 20px;
+    height: 25px;
+    background-position: 0 3px;
+    margin: 12px 0 0 10px
+}
+
+.ls-header-icon-category, .ls-header-icon-shortcut {
+    position: absolute;
+    right: 0;
+    top: .8rem;
+    width: 2rem;
+    height: 2.2rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ls-header-icon-shortcut span {
+    width: 20px;
+    height: 20px;
+    background-position: -60px 0;
+    margin: .6rem 0 0 0
+}
+
+.ls-header-icon-category span {
+    width: 20px;
+    height: 30px;
+    background-position: -2px -30px;
+    margin: .4rem 0 0 .5rem;
+    text-indent: -200px;
+    overflow: hidden
+}
+
+.ls-header-icon-advisory span {
+    width: 2rem;
+    height: 1.65rem;
+    background: url(../images/ls-sprites.png) no-repeat -10.5rem -15.7rem;
+    background-size: 20rem 20rem;
+    margin: .6rem 0 0 0;
+    display: inline-block;
+}
+
+.ls-header-icon-advisory {
+    position: absolute;
+    right: 3.5rem;
+    top: .8rem;
+    width: 2rem;
+    height: 2.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ls-header-icon-cancel {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: .8rem;
+}
+
+.ls-header-icon-cancel span {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../images/ls-sprites.png) no-repeat -3rem 0;
+    background-size: 15rem 15rem;
+    margin: .5rem 0 0 .5rem;
+}
+
+.ls-header-icon-close {
+    position: absolute;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+    top: 7px
+}
+
+.ls-header-icon-close:after {
+    content: '';
+    width: 14px;
+    height: 12px;
+    background-position: -103px 0;
+    margin: 10px 0 0 5px
+}
+
+.ls-header-icon-search {
+    width: 1.6rem;
+    height: 1.5rem;
+    float: right;
+    margin: .5rem 1.5rem 0 0;
+}
+
+.ls-header-icon-search span {
+    width: 1.6rem;
+    height: 1.5rem;
+    background: url(../images/ls-sprites.png) no-repeat -8.35rem 0;
+    background-size: 20rem 20rem;
+}
+
+.ls-header-title {
+    margin: 0 2.5rem;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.2rem
+}
+
+.ls-header-shortcut {
+    display: table;
+    width: 10.8rem;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    z-index: 10
+}
+
+.ls-header-shortcut .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: .7rem solid transparent;
+    border-right: .7rem solid transparent;
+    border-bottom: .7rem solid #404040;
+    position: absolute;
+    top: -.7rem;
+    right: 1rem;
+}
+
+.ls-header-shortcut li {
+    width: 100%;
+    border-bottom: 1px solid #999;
+    padding: .25rem 0
+}
+
+.ls-header-shortcut li:last-child {
+    border-bottom: none
+}
+
+.ls-header-shortcut a {
+    border: 0;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 1rem;
+    display: block;
+}
+
+.ls-header-shortcut span, .ls-header-shortcut i {
+    display: inline-block;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    vertical-align: middle;
+}
+
+.ls-header-shortcut span {
+    width: 30px;
+    height: 30px;
+    margin-top: 6px;
+    background-size: 300px 300px
+}
+
+.ls-header-shortcut span.shortcut-home {
+    background-position: -55px -48px
+}
+
+.ls-header-shortcut span.shortcut-categories {
+    background-position: -100px -44px
+}
+
+.ls-header-shortcut span.shortcut-cart {
+    background-position: -139px -48px
+}
+
+.ls-header-shortcut span.shortcut-my-account {
+    background-position: -192px -48px
+}
+
+.ls-header-search-trigger {
+    padding: 0;
+    margin: 0 40px;
+    width: auto;
+    height: 44px;
+    overflow: hidden
+}
+
+.ls-header-inpt {
+    display: table;
+    width: 100%;
+    padding: 0;
+    margin-top: 7px
+}
+
+.ls-header-inpt span {
+    display: table-cell;
+    vertical-align: middle;
+    height: 28px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #bfbfbf;
+    padding: 0 10px;
+    font-size: 12px
+}
+
+.placehoder {
+    color: #d7d7d7
+}
+
+.ls-header-search-form {
+    display: block;
+    padding: .8rem 0;
+    margin: 0 .5rem 0 2.5rem;
+    overflow: hidden
+}
+
+.ls-header-search-box {
+    height: 2.5rem;
+    margin-right: 2rem
+}
+
+.ls-header-search-input {
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    height: 2.5rem;
+    overflow: hidden;
+    background: #f6f6f6;
+    font-size: 12px;
+}
+
+.mlist .ls-header-search-input {
+    width: auto
+}
+
+.mhome .on-blur .ls-header-search-input, .mhome.hide-landing .on-blur .ls-header-search-input {
+    width: auto;
+    margin-right: 28px
+}
+
+.ls-header-search-input input {
+    border: 0;
+    background: 0 0;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    margin-left: 1.8rem;
+    width: 15rem
+}
+
+.ls-not-found {
+    background: #fff;
+    color: #333;
+    padding-bottom: 20%;
+    text-align: center;
+    font-size: 1.2rem
+}
+
+.ls-not-found .notice {
+    content: "";
+    display: block;
+    width: 100%;
+    padding: 30% 0;
+}
+
+.ls-not-found a.more {
+    background: #f93538;
+    color: #fff;
+    border-radius: .25rem;
+    display: inline-block;
+    padding: .5rem 1rem
+}
+
+.ls-search-area {
+    width: 100%;
+    background: #fff
+}
+
+.ls-keyw-list {
+    display: block;
+}
+
+.ls-keyw-list li {
+    height: 2rem;
+}
+
+.ls-keyw-list li a {
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.2rem;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 4.5rem
+}
+
+.ls-hot-search {
+    padding: 1rem;
+}
+
+.hot-search-bar {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.hot-search-bar i {
+    display: inline-block;
+    width: 1.3rem;
+    float: left;
+    margin: .5rem .5rem 0 0
+}
+
+.hot-search-bar i:before {
+    width: 1.3rem;
+    height: 1.3rem;
+    content: "";
+    display: block;
+    background: url(../images/ls-sprites.png) no-repeat 0 -10.5rem;
+    background-size: 20rem 20rem;
+}
+
+.landing-tags {
+    padding: 1rem 0 0 .5rem;
+}
+
+.landing-tags a {
+    line-height: 3rem;
+    height: 3rem;
+    display: inline-block;
+    font-size: 1rem;
+    color: #666;
+    width: 28%;
+    background: #f6f6f6;
+    margin: 0 .5rem 1.5rem .5rem;
+    text-align: center;
+}
+
+.landing-tags span {
+    width: 80%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.search-history {
+    border-top: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+
+.search-history li {
+    border-bottom: 1px solid #e6e6e6;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 .5rem;
+}
+
+.search-history a {
+    display: block;
+    text-decoration: none;
+    height: 4rem;
+    line-height: 4rem;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.2rem
+}
+
+.search-history a:before {
+    content: "";
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-position: -16rem -7.45rem;
+    background-size: 20rem 20rem;
+    position: absolute;
+    margin-top: 1.4rem
+}
+
+.search-history span {
+    display: block;
+    height: 4rem;
+    line-height: 4rem;
+    margin-left: 2rem
+}
+
+.landing-clear {
+    padding: 3rem 0;
+    text-align: center;
+    color: #999;
+    font-size: 1.2rem
+}
+
+.landing-clear span {
+    display: inline-block;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: .25rem;
+    border: 1px solid #999;
+    background: #fff;
+    width: 12rem
+}
 
 
 

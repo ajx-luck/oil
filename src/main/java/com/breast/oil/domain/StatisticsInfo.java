@@ -18,7 +18,7 @@ public class StatisticsInfo {
     @Column(nullable = false)
     public String start;
     @Column(nullable = false)
-    public String  end;
+    public String end;
     @Column(nullable = false)
     public int wechatAdd;
     @Column(nullable = false)

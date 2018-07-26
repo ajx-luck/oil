@@ -15,7 +15,7 @@ public class KeyWord {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String keyWord;
     @Column(nullable = true)
     private String e_keywordid;
@@ -34,12 +34,12 @@ public class KeyWord {
     public Long wxClick;
 
 
-    public KeyWord(){
+    public KeyWord() {
         this.createTime = new Date().getTime();
     }
 
     public KeyWord(String keyWord, String e_keywordid, Long createTime) {
-        this(keyWord,e_keywordid,createTime,1L,0L);
+        this(keyWord, e_keywordid, createTime, 1L, 0L);
     }
 
     public KeyWord(String keyWord, String e_keywordid, Long createTime, Long web, Long wxClick) {

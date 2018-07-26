@@ -1,9 +1,9 @@
-
 <html class="screen-desktop-wide device-desktop">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
@@ -19,42 +19,38 @@
 
         //
 
-        arr_wx2 = ['jbjx6572','jbjx6572',];
+        arr_wx2 = ['jbjx6572', 'jbjx6572',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
 
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
 
 
@@ -62,7 +58,6 @@
 
 </head>
 <body>﻿
-
 
 
 <div class="wrap">
@@ -87,112 +82,135 @@
         </div>
         <div class="anli">
             <p style="margin: 10px 0px;">
-                2月初，无意间在抖音看到一个网红推荐了一个美胸达人艾薇（她的微信号：<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）</span>。试着加了一下，看了很多的朋友圈，很多聊天截图，和一些丰胸成功的图片，大家最后自己加着看下再听我唠叨~~~
-                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/2.jpg"></div>
-                这个妹纸也是跟丰胸达人丰胸成功的，太性感了，简直是我的偶像！（她的微信号：<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）。
+                2月初，无意间在抖音看到一个网红推荐了一个美胸达人艾薇（她的微信号：<b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);"><span class="wx"
+                                                                                                              oncopy="gowx2();"
+                                                                                                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）</span>
+                。试着加了一下，看了很多的朋友圈，很多聊天截图，和一些丰胸成功的图片，大家最后自己加着看下再听我唠叨~~~
+            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/2.jpg"></div>
+            这个妹纸也是跟丰胸达人丰胸成功的，太性感了，简直是我的偶像！（她的微信号：<b
+                style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx"
+                                                                                                         oncopy="gowx2();"
+                                                                                                         ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）。
 
             <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/3.jpg"/>
-            跟我年龄相仿的一位大美女，男人看了肯定会流鼻血，哈哈
+                跟我年龄相仿的一位大美女，男人看了肯定会流鼻血，哈哈
 
-            <h3> 丰胸达人是偶然发现了这个食疗丰胸配方，自己丰胸成功之后，就一直在做，但很多人都找她帮忙~</h3>
-            我为啥加她微信号（<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）呢？
-           <p style="margin: 10px 0px;"> 第一，她的微信里更新了很多丰胸知识，而且，里面还有很多网友给她发的丰胸产品黑幕。能让我在丰胸路上少走很多弯路。</p><br><br>
+                <h3> 丰胸达人是偶然发现了这个食疗丰胸配方，自己丰胸成功之后，就一直在做，但很多人都找她帮忙~</h3>
+                我为啥加她微信号（<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span
+                        class="wx" oncopy="gowx2();"
+                        ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>）呢？
+                <p style="margin: 10px 0px;"> 第一，她的微信里更新了很多丰胸知识，而且，里面还有很多网友给她发的丰胸产品黑幕。能让我在丰胸路上少走很多弯路。</p><br><br>
 
 
-    <p style="margin: 10px 0px;"> 第二，她有几万粉丝，是丰胸红人，微信里写了好多关于丰胸女人的心事，说得是苦口婆心，那种无奈和凄凉我感同身受。<br/><br>
-        我加了她微信号，在聊天期间我发现这个人，很有个性，为人也很诚恳。聊了几天后，达人给我做了个诊断。随后我问：有没有靠谱的丰胸方法推荐下？沉默了下说：“你觉得我朋友圈那些姐妹丰的怎么样？”</p>
-            <br><br>
-    <p style="margin: 10px 0px;"> 我当时犹豫了一下，我问：真的有效果吗？美胸达人艾薇有点不高兴，说：“妹妹，我好歹也算是有点小名气，不敢拿自己的声誉开玩笑，我只是帮你丰胸，不是求你丰胸。我丰好那么多，你的情况有信心给你丰好，<span style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">做人要讲良心，我给你的推荐只是个建议，用不用在你</b>。”</p>
-            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/5.jpg"></div>
-            这也是圈里面丰胸成功的妹子<br><br><br>
+                <p style="margin: 10px 0px;"> 第二，她有几万粉丝，是丰胸红人，微信里写了好多关于丰胸女人的心事，说得是苦口婆心，那种无奈和凄凉我感同身受。<br/><br>
+                    我加了她微信号，在聊天期间我发现这个人，很有个性，为人也很诚恳。聊了几天后，达人给我做了个诊断。随后我问：有没有靠谱的丰胸方法推荐下？沉默了下说：“你觉得我朋友圈那些姐妹丰的怎么样？”</p>
+                <br><br>
+                <p style="margin: 10px 0px;">
+                    我当时犹豫了一下，我问：真的有效果吗？美胸达人艾薇有点不高兴，说：“妹妹，我好歹也算是有点小名气，不敢拿自己的声誉开玩笑，我只是帮你丰胸，不是求你丰胸。我丰好那么多，你的情况有信心给你丰好，<span
+                        style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">做人要讲良心，我给你的推荐只是个建议，用不用在你</b>
+                    。”</p>
+                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/5.jpg">
+                </div>
+                这也是圈里面丰胸成功的妹子<br><br><br>
 
-    <p style="margin: 10px 0px;"> 我想了想，挺靠谱的。我一琢磨，这个产品是食疗丰胸的，不像很多网上的有副作用，可以试一试，毕竟关系到自己终身幸福，花点钱算啥？<br><br>
-        有人问效果咋样？我不想多说，内心特别窃喜。老公虽然没说啥，但对我态度越来越好，偶尔还制造个小浪漫，像初恋的感觉…<span style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">实在的说，达不到手术隆胸的效果，但是不用挤乳沟是没问题的。而且比较紧实，不像以前是松软的</span>。</p>
-            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/6.jpg"></div>
-            这是我结婚时候的照片，结婚挤挤还能看到点肉，产后根本只敢穿宽松的衣服了。
-            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/7.jpg"></div>
-            这是用那个产品2个月时候的照片，明显看得到变大了
-            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/8.jpg"></div>
-            呵呵，下面我用美胸达人艾薇推荐的东东3个月后，怎么样？羡慕吗？干嘛羡慕我啊，赶紧找丰胸达人也帮你分析分析吧！
-            <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/9.jpg"></div>
-            最后总结一下吧：食疗丰胸效果确实很好，在美胸达人艾薇的专业指导下，90天我就实现C杯的梦想，虽然花了钱，但花的值的。现在老公天天抱着我睡觉，幸福满满的。相信食疗丰胸一定能对你丰胸起到决定性的作用。建议正在受丰胸煎熬的姐妹们，先加了丰胸达人的微信 <b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b> ，给自己一个机会。不管试多少次，有一次成功了，那就是百分之百的成功。<br><br>
-            特别感谢美胸达人艾薇，我上个月去了一趟她那里，打了好几个电话，请她吃了顿饭。席间，我喝得有点点醉，我问：“为啥你有几万粉丝呢？为啥这么多人信你推荐的方法呢？”她端起酒杯，沉默了一下，又说了一句：“因为，我比别人更懂得平胸对女人的折磨，我希望所有平胸的女人，都能活得漂漂亮亮的，能找到满意的工作，能找到最帅的男朋友。”
-            <br><br>
-            听到这里，我还能说什么呢？我只能竖起大拇指。我个人感觉，美胸达人艾薇（她的微信号：<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>），也许不是最牛的丰胸师，但，一定是最诚恳的丰胸师。在丰胸的路上，为了不走弯路，找个这样的导师，太有必要了！我很庆幸,我遇到了美胸达人艾薇，给了我C罩杯，给了我婚姻的幸福！
-            </p>
+                <p style="margin: 10px 0px;"> 我想了想，挺靠谱的。我一琢磨，这个产品是食疗丰胸的，不像很多网上的有副作用，可以试一试，毕竟关系到自己终身幸福，花点钱算啥？<br><br>
+                    有人问效果咋样？我不想多说，内心特别窃喜。老公虽然没说啥，但对我态度越来越好，偶尔还制造个小浪漫，像初恋的感觉…<span
+                            style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">实在的说，达不到手术隆胸的效果，但是不用挤乳沟是没问题的。而且比较紧实，不像以前是松软的</span>。
+                </p>
+                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/6.jpg">
+                </div>
+                这是我结婚时候的照片，结婚挤挤还能看到点肉，产后根本只敢穿宽松的衣服了。
+                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/7.jpg">
+                </div>
+                这是用那个产品2个月时候的照片，明显看得到变大了
+                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/8.jpg">
+                </div>
+                呵呵，下面我用美胸达人艾薇推荐的东东3个月后，怎么样？羡慕吗？干嘛羡慕我啊，赶紧找丰胸达人也帮你分析分析吧！
+                <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/baidu/list-8_files/9.jpg">
+                </div>
+                最后总结一下吧：食疗丰胸效果确实很好，在美胸达人艾薇的专业指导下，90天我就实现C杯的梦想，虽然花了钱，但花的值的。现在老公天天抱着我睡觉，幸福满满的。相信食疗丰胸一定能对你丰胸起到决定性的作用。建议正在受丰胸煎熬的姐妹们，先加了丰胸达人的微信
+                <b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span class="wx"
+                                                                                                            oncopy="gowx2();"
+                                                                                                            ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>
+                ，给自己一个机会。不管试多少次，有一次成功了，那就是百分之百的成功。<br><br>
+                特别感谢美胸达人艾薇，我上个月去了一趟她那里，打了好几个电话，请她吃了顿饭。席间，我喝得有点点醉，我问：“为啥你有几万粉丝呢？为啥这么多人信你推荐的方法呢？”她端起酒杯，沉默了一下，又说了一句：“因为，我比别人更懂得平胸对女人的折磨，我希望所有平胸的女人，都能活得漂漂亮亮的，能找到满意的工作，能找到最帅的男朋友。”
+                <br><br>
+                听到这里，我还能说什么呢？我只能竖起大拇指。我个人感觉，美胸达人艾薇（她的微信号：<b
+                        style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255)"><span
+                        class="wx" oncopy="gowx2();"
+                        ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>），也许不是最牛的丰胸师，但，一定是最诚恳的丰胸师。在丰胸的路上，为了不走弯路，找个这样的导师，太有必要了！我很庆幸,我遇到了美胸达人艾薇，给了我C罩杯，给了我婚姻的幸福！
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="wrapper2">
+
+        </div>
+
+        <div style="text-align:center; margin-bottom:50px;"></div>
 
 
-    <div class="wrapper2">
+        <script type="text/javascript">
+            function gowx() {
+                window.location.href = "weixin://"
+            }
 
-    </div>
-
-    <div style="text-align:center; margin-bottom:50px;"></div>
-
-
-
-    <script type="text/javascript">
-        function gowx() {
-            window.location.href = "weixin://"
-        }
-
-        function gowx2(arg) {
-            var url = '/remember';
-            $.ajax({
-                type: 'get',
-                url: url,
-                // dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                data: {position: arg},
-                beforeSend: function () {
-                    window.location.href = "weixin://"
-                }, success: function (json) {
-                    var jsonobj = jQuery.parseJSON(json);
-                    var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
-                    eval(js_add_history);
-                }
-            });
-
-        }
-    </script>
-
-    <script type="text/javascript">
-        var str_wx_id
-        $(function () {
-
-            var url = "/rememberweb";
-            $.ajax({
-                type: "get",
-                url: url,
-                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
-//                dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-8"},
-                success: function (msg) {
-                    var jsonobj = jQuery.parseJSON(msg);
-                    str_wx_id = stxlwx
-                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    eval(js_add_copy);
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
+            function gowx2(arg) {
+                var url = '/remember';
+                $.ajax({
+                    type: 'get',
+                    url: url,
+                    // dataType: 'json',
+                    contentType: "application/json;charset=utf-8",
+                    data: {position: arg},
+                    beforeSend: function () {
+                        window.location.href = "weixin://"
+                    }, success: function (json) {
+                        var jsonobj = jQuery.parseJSON(json);
+                        var js_add_back_listener = jsonobj.JS_ADD_BACK_LISTENER;
+                        eval(js_add_history);
                     }
-                }
+                });
+
+            }
+        </script>
+
+        <script type="text/javascript">
+            var str_wx_id
+            $(function () {
+
+                var url = "/rememberweb";
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+//                dataType: 'json',
+                    contentType: "application/json;charset=utf-8",
+                    data: {urlPath: "list-8"},
+                    success: function (msg) {
+                        var jsonobj = jQuery.parseJSON(msg);
+                        str_wx_id = stxlwx
+                        var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                        eval(js_add_copy);
+                        if (str_wx_id) {
+                            setCookie("wechatid", str_wx_id, 24 * 60);
+                        }
+                    }
+                })
+
+
             })
 
 
+        </script>
 
-
-        })
-
-
-    </script>
-
-    <div style="display:none;">
-        <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934"
-                type="text/javascript"></script>
-    </div>
+        <div style="display:none;">
+            <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934"
+                    type="text/javascript"></script>
+        </div>
 </body>
 </html>

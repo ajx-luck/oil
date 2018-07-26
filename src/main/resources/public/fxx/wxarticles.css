@@ -8,7 +8,7 @@ html {
 
 body {
     -webkit-touch-callout: none;
-    font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-family: -apple-system-font, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background-color: #f3f3f3;
     line-height: inherit
 }
@@ -21,7 +21,7 @@ body.rich_media_empty_extra .rich_media_area_primary:before {
     display: none
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     font-size: 16px
 }
@@ -136,7 +136,7 @@ a {
 
 .meta_enterprise_tag img {
     width: 30px;
-    height: 30px!important;
+    height: 30px !important;
     display: block;
     position: relative;
     margin-top: -3px;
@@ -192,9 +192,8 @@ rich_media_content p {
     border-left: 3px solid #dbdbdb
 }
 
-
-@media(min-device-width:375px) and (max-device-width:667px) and (-webkit-min-device-pixel-ratio:2) {
-    .mm_appmsg .rich_media_inner,.mm_appmsg .rich_media_meta,.mm_appmsg .discuss_list,.mm_appmsg .rich_media_extra,.mm_appmsg .title_tips .tips {
+@media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .mm_appmsg .rich_media_inner, .mm_appmsg .rich_media_meta, .mm_appmsg .discuss_list, .mm_appmsg .rich_media_extra, .mm_appmsg .title_tips .tips {
         font-size: 17px
     }
 
@@ -203,7 +202,7 @@ rich_media_content p {
     }
 }
 
-@media(min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3) {
+@media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
     .mm_appmsg .rich_media_title {
         font-size: 25px
     }
@@ -235,7 +234,7 @@ rich_media_content p {
     position: relative
 }
 
-.cell_hd,.cell_bd,.cell_ft {
+.cell_hd, .cell_bd, .cell_ft {
     display: table-cell;
     vertical-align: middle;
     word-wrap: break-word;
@@ -272,7 +271,7 @@ rich_media_content p {
 .original_tool_area {
     display: block;
     padding: .75em 1em 0;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: #3e3e3e;
     border: 1px solid #eaeaea;
     margin: 20px 0
@@ -306,7 +305,7 @@ rich_media_content p {
 }
 
 .original_tool_area .radius_avatar img {
-    height: 100%!important
+    height: 100% !important
 }
 
 .original_tool_area .flex_cell_bd {
@@ -332,20 +331,23 @@ rich_media_content p {
     border-width: 1px 1px 0 0;
     border-color: #cbcad0;
     border-style: solid;
-    transform: matrix(0.71,0.71,-0.71,0.71,0,0);
-    -ms-transform: matrix(0.71,0.71,-0.71,0.71,0,0);
-    -webkit-transform: matrix(0.71,0.71,-0.71,0.71,0,0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    -ms-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
     position: relative;
     top: -2px;
     top: -1px
 }
+
 .m-topHead {
     border-bottom: 1px solid #e9e9e9;
     width: 100%;
 }
+
 element.style {
     z-index: 1;
 }
+
 .m-headNav .sMenu {
     background: url("../img/top_left.png") no-repeat scroll 0 0 / 23.36px auto rgba(0, 0, 0, 0);
     height: 23.36px;
@@ -355,11 +357,13 @@ element.style {
     width: 23.36px;
     z-index: 5;
 }
+
 element.style {
     height: 100%;
     line-height: 51.5px;
     text-align: center;
 }
+
 .m-headNav .m-hdTop-user {
     background: url("../img/top_right.png") no-repeat scroll 0 0 / 24.96px auto rgba(0, 0, 0, 0);
     height: 24.96px;
@@ -367,6 +371,7 @@ element.style {
     right: 12.48px;
     top: 12.48px;
 }
+
 .sinaHead {
     background: none repeat scroll 0 0 #f8f8f8;
     border-bottom: 1px solid #dfdfdf;
@@ -377,10 +382,12 @@ element.style {
     overflow: hidden;
     position: relative;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
     font-weight: normal;
 }
+
 .h_logo::after, .h_txt::after {
     background: none repeat scroll 0 0 #fff;
     bottom: 0;
@@ -390,6 +397,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     width: 1px;
 }
+
 .h_user {
     background-position: 0 -164px;
     border-radius: 15px;
@@ -400,6 +408,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 6px;
     width: 30px;
 }
+
 .h_nav {
     background-position: 8px -44px;
     height: 20px;
@@ -410,20 +419,27 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     width: 40px;
 }
+
 .h_nav_items {
-    height:25px;
+    height: 25px;
     overflow: hidden;
 
 }
-.h_nav_items a,.h_nav_items{color:#FFF}
+
+.h_nav_items a, .h_nav_items {
+    color: #FFF
+}
+
 .h_nav_items li:last-child {
     background-position: right -800px;
     padding-right: 0;
 }
+
 .m-article {
     margin: 0 10px;
     padding: 20px 0;
 }
+
 .m-article h2 {
     font-size: 26px;
     font-weight: bold;
@@ -434,17 +450,21 @@ h1, h2, h3, h4, h5, h6 {
     word-break: break-all;
     word-wrap: break-word;
 }
+
 html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
 
 }
+
 .guide-nav, .artInfo .pubTime, .artInfo .source, .artInfo .author, .editAbout .pic-txt .txt-area .askWx, .editAbout .feelFace a span, .topList5 li, .guide a, .col-c .active .c-Title span, .hotPet .pet-list dt i, .guide a.wxMa .s_ma em {
     background: url("../img/art2016.png") no-repeat scroll -384px -32px rgba(0, 0, 0, 0);
 }
+
 element.style {
     float: right;
     margin: 0;
     padding-left: 1px;
 }
+
 element.style {
     float: right;
     margin-top: 2px;

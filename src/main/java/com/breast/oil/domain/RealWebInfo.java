@@ -31,7 +31,7 @@ public class RealWebInfo {
     private String keyWord;
     @Column(nullable = true)
     private String eKeywordid;
-    @Type(type="text")
+    @Type(type = "text")
     @Column(nullable = true)
     private String refer;
     /**
@@ -92,12 +92,12 @@ public class RealWebInfo {
     @Column(nullable = true)
     private String strartUrl;
 
-    public RealWebInfo(){
+    public RealWebInfo() {
 
     }
 
     public RealWebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype,
-                       String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh,String provice,String strartUrl) {
+                       String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh, String provice, String strartUrl) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;

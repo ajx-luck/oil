@@ -7,8 +7,8 @@ import static org.junit.Assert.assertFalse;
 
 public class TimeUtilsTests {
     @Test
-    public void isAdTimesTest(){
-        assertFalse (TimeUtils.isAdTimes());
+    public void isAdTimesTest() {
+        assertFalse(TimeUtils.isAdTimes());
     }
 
 }

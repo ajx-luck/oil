@@ -5,16 +5,17 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 判断访问设备为PC或者手机--工具类
  *
+ * @version 1.0.0
  * @description:
  * @fileName:HttpRequestDeviceUtils.java
  * @createTime:2015年12月15日 下午3:26:19
  * @author:liwenjian
- * @version 1.0.0
- *
  */
 public class DeviceUtils {
-    /** Wap网关Via头信息中特有的描述信息 */
-    private static String mobileGateWayHeaders[] = new String[] { "ZXWAP", // 中兴提供的wap网关的via信息，例如：Via=ZXWAP
+    /**
+     * Wap网关Via头信息中特有的描述信息
+     */
+    private static String mobileGateWayHeaders[] = new String[]{"ZXWAP", // 中兴提供的wap网关的via信息，例如：Via=ZXWAP
             // GateWayZTE
             // Technologies，
             "chinamobile.com", // 中国移动的诺基亚wap网关，例如：Via=WTP/1.1
@@ -30,11 +31,15 @@ public class DeviceUtils {
             "Bytemobile",// 貌似是一个给移动互联网提供解决方案提高网络运行效率的，例如：Via=1.1 Bytemobile OSN
             // WebProxy/5.1
     };
-    /** 电脑上的IE或Firefox浏览器等的User-Agent关键词 */
-    private static String[] pcHeaders = new String[] { "Windows 98", "Windows ME", "Windows 2000", "Windows XP",
-            "Windows NT", "Ubuntu" };
-    /** 手机浏览器的User-Agent里的关键词 */
-    private static String[] mobileUserAgents = new String[] { "Nokia", // 诺基亚，有山寨机也写这个的，总还算是手机，Mozilla/5.0
+    /**
+     * 电脑上的IE或Firefox浏览器等的User-Agent关键词
+     */
+    private static String[] pcHeaders = new String[]{"Windows 98", "Windows ME", "Windows 2000", "Windows XP",
+            "Windows NT", "Ubuntu"};
+    /**
+     * 手机浏览器的User-Agent里的关键词
+     */
+    private static String[] mobileUserAgents = new String[]{"Nokia", // 诺基亚，有山寨机也写这个的，总还算是手机，Mozilla/5.0
             // (Nokia5800
             // XpressMusic)UC
             // AppleWebkit(like
@@ -112,8 +117,7 @@ public class DeviceUtils {
     /**
      * 根据当前请求的特征，判断该请求是否来自手机终端，主要检测特殊的头信息，以及user-Agent这个header
      *
-     * @param request
-     *            http请求
+     * @param request http请求
      * @return 如果命中手机特征规则，则返回对应的特征字符串
      */
     public static boolean isMobileDevice(HttpServletRequest request) {
@@ -156,7 +160,7 @@ public class DeviceUtils {
      */
     public static boolean isIOSDevice(HttpServletRequest request) {
         boolean isMobile = false;
-        final String[] ios_sys = { "iPhone", "iPad", "iPod" };
+        final String[] ios_sys = {"iPhone", "iPad", "iPod"};
         String userAgent = request.getHeader("user-agent");
         for (int i = 0; !isMobile && userAgent != null && !userAgent.trim().equals("") && i < ios_sys.length; i++) {
             if (userAgent.contains(ios_sys[i])) {

@@ -42,6 +42,6 @@ public interface WebInfoRepository extends JpaRepository<WebInfo, Long> {
     List<WebInfo> findByIpOrderByIdDesc(@Param("ip") String ip);
 
     Long countByEKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(@Param("eKeywordid") String eKeywordid,
-                                                                                    @Param("startTime") Long startTime,
-                                                                                    @Param("endTime") Long endTime);
+                                                                             @Param("startTime") Long startTime,
+                                                                             @Param("endTime") Long endTime);
 }

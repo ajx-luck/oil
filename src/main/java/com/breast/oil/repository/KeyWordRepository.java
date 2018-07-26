@@ -9,6 +9,6 @@ import java.util.List;
 /**
  * Created by B04e on 2017/12/19.
  */
-public interface KeyWordRepository extends JpaRepository<KeyWord,Long>{
+public interface KeyWordRepository extends JpaRepository<KeyWord, Long> {
     List<KeyWord> findByKeyWord(@Param("keyWord") String keyWord);
 }

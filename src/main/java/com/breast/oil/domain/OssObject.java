@@ -12,7 +12,7 @@ public class OssObject {
      */
     private String key;
 
-    public OssObject(){
+    public OssObject() {
 
     }
 

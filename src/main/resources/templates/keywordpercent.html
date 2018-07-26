@@ -21,23 +21,23 @@
     <title>查询结果</title>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <th>下标</th>
-            <th>关键字Id</th>
-            <th>关键字描述</th>
-            <th>微信点击</th>
-            <th>网页点击</th>
-            <th>百分比</th>
-        </tr>
-        <tr  th:each="count,countStat : ${list}">
-            <th th:text="${countStat.index}">下标</th>
-            <th th:text="${count.keywordid}">关键字</th>
-            <th th:text="${count.keyWord}">关键字描述</th>
-            <th th:text="${count.weixin}">微信点击</th>
-            <th th:text="${count.web}">网页点击</th>
-            <th th:text="${count.percent}">百分比</th>
-        </tr>
-    </table>
+<table border="1">
+    <tr>
+        <th>下标</th>
+        <th>关键字Id</th>
+        <th>关键字描述</th>
+        <th>微信点击</th>
+        <th>网页点击</th>
+        <th>百分比</th>
+    </tr>
+    <tr th:each="count,countStat : ${list}">
+        <th th:text="${countStat.index}">下标</th>
+        <th th:text="${count.keywordid}">关键字</th>
+        <th th:text="${count.keyWord}">关键字描述</th>
+        <th th:text="${count.weixin}">微信点击</th>
+        <th th:text="${count.web}">网页点击</th>
+        <th th:text="${count.percent}">百分比</th>
+    </tr>
+</table>
 </body>
 </html>

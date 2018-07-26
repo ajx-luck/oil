@@ -30,7 +30,7 @@ public class WebInfo {
     private String keyWord;
     @Column(nullable = true)
     private String eKeywordid;
-    @Type(type="text")
+    @Type(type = "text")
     @Column(nullable = true)
     private String refer;
     /**
@@ -90,12 +90,12 @@ public class WebInfo {
     @Column(nullable = true)
     private String strartUrl;
 
-    public WebInfo(){
+    public WebInfo() {
 
     }
 
     public WebInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String refer, String e_matchtype,
-                   String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice,String strartUrl) {
+                   String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh, String provice, String strartUrl) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;
@@ -278,22 +278,22 @@ public class WebInfo {
     public String toString() {
         return
                 "urlPath=" + urlPath +
-                "&createTime=" + createTime +
-                "&displayTime=" + displayTime +
-                "&ip=" + ip +
-                "&wechatId=" + wechatId +
-                "&keyWord=" + keyWord +
-                "&eKeywordid=" + eKeywordid +
-                "&refer=NULL" +
-                "&eMatchtype=" + eMatchtype +
-                "&eCreative=" + eCreative +
-                "&eAdposition=" + eAdposition +
-                "&ePagenum=" + ePagenum +
-                "&city=" + city +
-                "&price=" + price +
-                "&audience=" + audience +
-                "&dy=" + dy +
-                "&jh=" + jh
+                        "&createTime=" + createTime +
+                        "&displayTime=" + displayTime +
+                        "&ip=" + ip +
+                        "&wechatId=" + wechatId +
+                        "&keyWord=" + keyWord +
+                        "&eKeywordid=" + eKeywordid +
+                        "&refer=NULL" +
+                        "&eMatchtype=" + eMatchtype +
+                        "&eCreative=" + eCreative +
+                        "&eAdposition=" + eAdposition +
+                        "&ePagenum=" + ePagenum +
+                        "&city=" + city +
+                        "&price=" + price +
+                        "&audience=" + audience +
+                        "&dy=" + dy +
+                        "&jh=" + jh
                 ;
     }
 }

@@ -1,9 +1,9 @@
-
 <html class="screen-desktop-wide device-desktop">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
@@ -14,54 +14,50 @@
     <script src="js/jquery-1.js" type="text/javascript"></script>
 
 
-        <script>
+    <script>
 
 
         //
 
-        arr_wx2 = ['jbjx6572','jbjx6572',];
+        arr_wx2 = ['jbjx6572', 'jbjx6572',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
 
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
 
 
     </script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?36b3c300db769ead5cd4b3b35f6f756a";
             var s = document.getElementsByTagName("script")[0];
@@ -72,23 +68,32 @@
 <body>﻿
 
 
-
-
 <div class="wrap">
     <div class="al_box">
         <h1>公布99%有效的的丰胸方法，30天让你的胸围从小A变大D</h1>
         <div style="overflow: hidden;color: #878787;font-size: 16px;padding: 1rem 0">
             <span class="fl" id="date">2018-05-16</span>
-            <span class="fl">&nbsp;丰胸秘籍</span> <a class="fr" style="text-decoration: none;color: #878787"><img style="width: 1.05rem;height: 1.2rem;display: inline-block;vertical-align: bottom;" src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.jpg"> <span style="font-size:12px;">175952</span></a>
+            <span class="fl">&nbsp;丰胸秘籍</span> <a class="fr" style="text-decoration: none;color: #878787"><img
+                style="width: 1.05rem;height: 1.2rem;display: inline-block;vertical-align: bottom;"
+                src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.jpg"> <span
+                style="font-size:12px;">175952</span></a>
         </div>
-        <div style="font-size: 20px;color: #fe4245; font-weight:bold; text-align:center;">99%妹子不知道的方法！而知道的胸部都产生了二次发育！赶快加微信领取吧！！！ </div>
+        <div style="font-size: 20px;color: #fe4245; font-weight:bold; text-align:center;">
+            99%妹子不知道的方法！而知道的胸部都产生了二次发育！赶快加微信领取吧！！！
+        </div>
         <div class="anli">
             <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/1.jpg"></div>
             <p style="margin: 10px 0px;">
                 在一线城市单到了27岁，周围的优质剩女多如牛毛，黄金单身汉还十分稀缺。朋友帮忙介绍
 
                 了几次，都没成，男方虽没明说，但眼神里总是看出来，他们嫌我胸小。平胸的我，试过很多方法，都无效，上万块钱打水漂，都绝望了。偶然机会在抖音上看到了关注的一个平胸美女在短短的时间内胸围暴增，刷了好多评论才打探到用了一个丰胸达人的秘方，加了那个抖友的微信发了个200元的大红包才问到了那个丰胸达人的微
-                信，为了帮助更多的姐妹们，也为了感谢丰胸达人艾薇，现在免费共享出丰胸达人的微信号：<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b> 可以长按微信号复制，建议先去加个微信，避免点错关闭了错失良机。对于丰胸，她有一套非常有效的方法，照着她的方法，快1个月的时候，我的胸部变大了2厘米，原来的内衣都穿不了了。<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">1个多月的时候大到C杯</b>，喜得我冲去买了好几套新内衣。美胸达人艾薇说不要买那么多，按照我的情况，还会变大！没听她的话，结果2个月的时候<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">竟然大到了D杯。</b>现在胸又大又弹，穿什么都女人味十足。前两个月相亲，一个30多岁的私企老总对我发起了攻势，现在已经在准备婚礼和度蜜月计划中了。
+                信，为了帮助更多的姐妹们，也为了感谢丰胸达人艾薇，现在免费共享出丰胸达人的微信号：<b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><span
+                    class="wx" oncopy="gowx2();"
+                    ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></b>
+                可以长按微信号复制，建议先去加个微信，避免点错关闭了错失良机。对于丰胸，她有一套非常有效的方法，照着她的方法，快1个月的时候，我的胸部变大了2厘米，原来的内衣都穿不了了。<b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">1个多月的时候大到C杯</b>，喜得我冲去买了好几套新内衣。美胸达人艾薇说不要买那么多，按照我的情况，还会变大！没听她的话，结果2个月的时候<b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">竟然大到了D杯。</b>现在胸又大又弹，穿什么都女人味十足。前两个月相亲，一个30多岁的私企老总对我发起了攻势，现在已经在准备婚礼和度蜜月计划中了。
             </p>
 
         </div>
@@ -103,7 +108,8 @@
             <p style="margin: 10px 0px;">
                 事业上遇到了瓶颈，业绩一直上不去，眼看着后辈就要赶上自己了，心里很着急。在一次红酒
                 品鉴会中，遇到了旧同事，她跳槽去了大公司，最近又升了职！哇，她到底有什么秘诀？后来她告诉我，女人胸前要有"事业线"，事业才能攀升得更快。她给了我
-                一个微信号，要我把自己的情况告诉邹，会给出专业的建议。本来吧，我以为30几岁的人了，丰胸应该没有希望了，没想到，在她的指导下，胸部竟然迎来第二次发育<b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">从A杯大到D杯，</b>乳房又弹又滑，去哪里都是焦点。现在才知道做女人"大"有好处，不但谈单顺利了，老板也愿意把更多项目交给我。
+                一个微信号，要我把自己的情况告诉邹，会给出专业的建议。本来吧，我以为30几岁的人了，丰胸应该没有希望了，没想到，在她的指导下，胸部竟然迎来第二次发育<b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255,255,255);">从A杯大到D杯，</b>乳房又弹又滑，去哪里都是焦点。现在才知道做女人"大"有好处，不但谈单顺利了，老板也愿意把更多项目交给我。
             </p>
         </div>
         <div class="anli">
@@ -116,9 +122,11 @@
                 没多久就同居了。第一次，他兴致勃勃除去我内衣时，发现我胸前只有那么一丁点大，脸色突然就变了，在没有爱抚和前戏下，他就直接奔入主题，撕裂的痛让我心
                 寒！又迫于家里的压力，他匆忙的和我结了婚。但婚后并不幸福。
             </p>
-            <p style="margin: 10px 0px;">都说男人都是下半身思考的动物，女人长得好，身材好，丰满有料，就轻而易举的把他们的魂勾走了。我们的婚姻出现了小三，而小三的身材火爆得也让我羡慕嫉妒恨，圆润如玉的胸，着实让我受了伤，觉得有点亏欠老公。</p>
             <p style="margin: 10px 0px;">
-                后来闺蜜给了我美胸达人艾薇的微信，说现在好多人都找她丰胸！我半信半疑的加了。按照她的方法，两个礼拜的时候，胸部明显就有热热涨涨的感觉，好像在发育一样。<b style="color:#F00">一个月不到就觉得胸鼓起来了</b>，虽然乳沟不够深，但是有沟了啊！一个半月的时候，<b style="color:#F00">明显看得出已经达到C罩杯的效果！两个月后大到D杯，</b>老公看我眼都亮了，每天下班就回来，一把把我抱起扔在床上，如狼似虎的狂吻。
+                都说男人都是下半身思考的动物，女人长得好，身材好，丰满有料，就轻而易举的把他们的魂勾走了。我们的婚姻出现了小三，而小三的身材火爆得也让我羡慕嫉妒恨，圆润如玉的胸，着实让我受了伤，觉得有点亏欠老公。</p>
+            <p style="margin: 10px 0px;">
+                后来闺蜜给了我美胸达人艾薇的微信，说现在好多人都找她丰胸！我半信半疑的加了。按照她的方法，两个礼拜的时候，胸部明显就有热热涨涨的感觉，好像在发育一样。<b style="color:#F00">一个月不到就觉得胸鼓起来了</b>，虽然乳沟不够深，但是有沟了啊！一个半月的时候，<b
+                    style="color:#F00">明显看得出已经达到C罩杯的效果！两个月后大到D杯，</b>老公看我眼都亮了，每天下班就回来，一把把我抱起扔在床上，如狼似虎的狂吻。
             </p>
         </div>
         <div class="anli">
@@ -128,10 +136,14 @@
             <div class="anlipic"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/4.jpg"></div>
             <p style="margin: 10px 0px;">
                 没生孩子前我也拥有傲人的C杯，生完宝宝后坚持母乳喂养，导致胸部营养严重流失，缩水到
-                A杯，还有下垂等一系列问题，再好看的衣服也穿不出效果！老公也不爱碰我了！我开始疑神疑鬼的，真的很怕老公哪天出轨！幸亏后来得了美胸达人艾薇的微信号，在她的专业指导下，一个月胸围增大4厘米，<b style="color:#F00">2个多月竟然涨到D杯，乳房变得又弹又翘，胸型也变好看了，穿什么都又美又性感！</b>现在再也不担心老公出轨了，反倒是老公把我看得很紧。老公没事就带着我出去跟他的朋友们聚会，喝喜酒，逢人都自豪的介绍，这是我爱人。从头到尾把我夸得心里好爽的。
+                A杯，还有下垂等一系列问题，再好看的衣服也穿不出效果！老公也不爱碰我了！我开始疑神疑鬼的，真的很怕老公哪天出轨！幸亏后来得了美胸达人艾薇的微信号，在她的专业指导下，一个月胸围增大4厘米，<b
+                    style="color:#F00">2个多月竟然涨到D杯，乳房变得又弹又翘，胸型也变好看了，穿什么都又美又性感！</b>现在再也不担心老公出轨了，反倒是老公把我看得很紧。老公没事就带着我出去跟他的朋友们聚会，喝喜酒，逢人都自豪的介绍，这是我爱人。从头到尾把我夸得心里好爽的。
             </p>
             <p style="margin: 10px 0px;">
-                丰胸加美胸达人艾薇微信: <b style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                丰胸加美胸达人艾薇微信: <b
+                    style="color: rgb(230, 0, 19); font-size:16px; background-color: rgb(255, 244, 92);"><span
+                    class="wx" oncopy="gowx2();"
+                    ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
             </b> <b>（←长按可以复制）</b>
             </p>
         </div>
@@ -141,17 +153,20 @@
     <div class="wrapper2">
         <section class="comment">
 
-            <div class="title"> 转发 26883 &nbsp;&nbsp; <span class="title">评论 7575 </span> <span class="topr">赞 175952</span></div>
+            <div class="title"> 转发 26883 &nbsp;&nbsp; <span class="title">评论 7575 </span> <span
+                    class="topr">赞 175952</span></div>
             <dl class="commlist">
                 <dt>
-                    <span class="line"></span>爱上向西 <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 35784  </span> <br>
+                    <span class="line"></span>爱上向西 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 35784  </span> <br>
                     <span class="date">1分钟前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t1.jpg"></span>
                 </dt>
                 <dd>用一段时间，胸部明显有了变化，皮肤也变的细腻光滑了，胸部变的坚挺了，现在穿上内衣感觉有点紧了</dd>
 
                 <dt>
-                    <span class="line"></span>粉色棉花糖之恋 <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 29375  </span> <br>
+                    <span class="line"></span>粉色棉花糖之恋 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 29375  </span> <br>
                     <span class="date">5分钟前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t2.jpg"></span>
                 </dt>
@@ -160,14 +175,16 @@
                 </dd>
 
                 <dt>
-                    <span class="line"></span>执念范er <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 23771  </span> <br>
+                    <span class="line"></span>执念范er <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 23771  </span> <br>
                     <span class="date">10分钟前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t3.jpg"></span>
                 </dt>
                 <dd>谢谢楼主，已经加了，希望2017年能丰胸成功！</dd>
 
                 <dt>
-                    <span class="line"></span>以我之名  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 18612  </span> <br>
+                    <span class="line"></span>以我之名 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 18612  </span> <br>
                     <span class="date">30分钟前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t4.jpg"></span>
                 </dt>
@@ -176,14 +193,16 @@
                 </dd>
 
                 <dt>
-                    <span class="line"></span>放肆寂寞  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 12579  </span> <br>
+                    <span class="line"></span>放肆寂寞 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 12579  </span> <br>
                     <span class="date">1小时前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t5.jpg"></span>
                 </dt>
                 <dd>我介绍了很多朋友，啥情况有都有，但都丰胸成功了。所以说，找对方法才重要。</dd>
 
                 <dt>
-                    <span class="line"></span>给你的崇拜~  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 8564  </span> <br>
+                    <span class="line"></span>给你的崇拜~ <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 8564  </span> <br>
                     <span class="date">2小时前</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t6.jpg"></span>
                 </dt>
@@ -192,7 +211,8 @@
                 </dd>
 
                 <dt>
-                    <span class="line"></span>永远不会回来  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 8249  </span> <br>
+                    <span class="line"></span>永远不会回来 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 8249  </span> <br>
                     <span class="date">昨天 22:46</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t7.jpg"></span>
                 </dt>
@@ -201,7 +221,8 @@
                 </dd>
 
                 <dt>
-                    <span class="line"></span>叮叮当当  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 6532  </span> <br>
+                    <span class="line"></span>叮叮当当 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 6532  </span> <br>
                     <span class="date">昨天 21:29</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t8.jpg"></span>
                 </dt>
@@ -210,14 +231,16 @@
                 </dd>
 
                 <dt>
-                    <span class="line"></span>失心人失心  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 16592  </span> <br>
+                    <span class="line"></span>失心人失心 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 16592  </span> <br>
                     <span class="date">昨天 18:55</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t9.jpg"></span>
                 </dt>
                 <dd>有半个月的时间，现在感觉就是有点肉肉了，我会坚持下去的，期待过年的时候可以给老公一个惊喜！</dd>
 
                 <dt>
-                    <span class="line"></span>岁月尽头有你足矣  <span class="cfr"> <img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 15894  </span> <br>
+                    <span class="line"></span>岁月尽头有你足矣 <span class="cfr"> <img
+                        src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/zan.png"> 15894  </span> <br>
                     <span class="date">昨天 15:19</span>
                     <span class="touxiang"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/t10.jpg"></span>
                 </dt>
@@ -235,55 +258,59 @@
 
                 <div style="float:left;width:50%;line-height:40px;height:40px;background-color:#333333;text-align:center;color:#FFFFFF;font-weight:bold;position:relative;font-weight:bold;font-size:12pt;">
                     微信:&nbsp;<span style="color:#ffffff;">
-                        <span onclick="wechat_69(69,0,15,15)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span onclick="wechat_69(69,0,15,15)"><span class="wx" oncopy="gowx2();"
+                                                                    ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                         </span>
                     </span>
                 </div>
-                <div style="float:left;width:50%;line-height:40px;height:40px;background-color:red;text-align:center;color:#FFFFFF;font-weight:bold;font-size:14pt;cursor:pointer;" id="divAddWx"><span style="font-size:14pt;">+</span>点击添加好友</div>
+                <div style="float:left;width:50%;line-height:40px;height:40px;background-color:red;text-align:center;color:#FFFFFF;font-weight:bold;font-size:14pt;cursor:pointer;"
+                     id="divAddWx"><span style="font-size:14pt;">+</span>点击添加好友
+                </div>
             </div>
         </center>
     </div>
 
     <div style="width: 100%; position: fixed; left: 0px; bottom: -200px; z-index: 500;" id="divDialog">
         <center>
-            <div class="container" style="max-width:600px;border-radius:20px;border:solid 2px #CCCCCC;  background-color:#FFFFFF;">
+            <div class="container"
+                 style="max-width:600px;border-radius:20px;border:solid 2px #CCCCCC;  background-color:#FFFFFF;">
 
-                <div style="text-align:center;height:60px;line-height:60px;font-size:20pt;font-weight:bold;">长按微信号复制 <span id="cd" style="float:right; padding-right:5px; padding-top:5px;"><img src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/closeb.png"></span></div>
+                <div style="text-align:center;height:60px;line-height:60px;font-size:20pt;font-weight:bold;">长按微信号复制
+                    <span id="cd" style="float:right; padding-right:5px; padding-top:5px;"><img
+                            src="http://picket.oss-cn-shenzhen.aliyuncs.com/fxpy/closeb.png"></span></div>
                 <div style="text-align:center;height:60px;line-height:60px;font-size:20pt;font-weight:bold; background-color:#ff6a00">
                     微信号:&nbsp;<span style="color:#000000;">
-                        <span onclick="wechat_69(69,0,15,15)"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span onclick="wechat_69(69,0,15,15)"><span class="wx" oncopy="gowx2();"
+                                                                    ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                         </span>
                     </span>
                 </div>
-                <div style="text-align:center;height:60px;line-height:60px;font-size:20pt;font-weight:bold;"><span class="red"><a style="color:red;" href="weixin://" target="_blank">打开微信添加</a></span></div>
+                <div style="text-align:center;height:60px;line-height:60px;font-size:20pt;font-weight:bold;"><span
+                        class="red"><a style="color:red;" href="weixin://" target="_blank">打开微信添加</a></span></div>
             </div>
         </center>
     </div>
 
     <script type="text/javascript">
 
-        $(document).ready(function(){
-            $("#divAddWx").click(function(){
+        $(document).ready(function () {
+            $("#divAddWx").click(function () {
 
-                if($("#divDialog").css("bottom") =="200px" )
-                {
-                    $("#divDialog").animate({bottom:"-200px"}) ;
+                if ($("#divDialog").css("bottom") == "200px") {
+                    $("#divDialog").animate({bottom: "-200px"});
                 }
-                else
-                {
-                    $("#divDialog").animate({bottom:"200px"}) ;
+                else {
+                    $("#divDialog").animate({bottom: "200px"});
                 }
             });
 
-            $("#cd").click(function(){
+            $("#cd").click(function () {
 
-                if($("#divDialog").css("bottom") =="200px" )
-                {
-                    $("#divDialog").animate({bottom:"-200px"}) ;
+                if ($("#divDialog").css("bottom") == "200px") {
+                    $("#divDialog").animate({bottom: "-200px"});
                 }
-                else
-                {
-                    $("#divDialog").animate({bottom:"200px"}) ;
+                else {
+                    $("#divDialog").animate({bottom: "200px"});
                 }
             });
         });
@@ -340,13 +367,11 @@
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
                     }
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
+                    if (str_wx_id) {
+                        setCookie("wechatid", str_wx_id, 24 * 60);
                     }
                 }
             })
-
-
 
 
         })
@@ -354,9 +379,9 @@
 
     </script>
 
-        <div style="display:none;">
-                <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934"
-                        type="text/javascript"></script>
-            </div>
+    <div style="display:none;">
+        <script src="https://s13.cnzz.com/z_stat.php?id=1273748934&web_id=1273748934"
+                type="text/javascript"></script>
+    </div>
 </body>
 </html>

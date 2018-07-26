@@ -1,44 +1,107 @@
-* {padding: 0;    margin: 0;}
+* {
+    padding: 0;
+    margin: 0;
+}
 
-html {  color: #646473; background:#999999; height: 100%;font-size:100%;}
+html {
+    color: #646473;
+    background: #999999;
+    height: 100%;
+    font-size: 100%;
+}
 
 body {
     background-color: #FFFEFE;
-    font-size:100%;
+    font-size: 100%;
     line-height: normal;
-    font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
-    font-weight:500;
-    color: #4E4E4E; max-width:640px; margin:0 auto;
+    font-family: Microsoft YaHei, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    color: #4E4E4E;
+    max-width: 640px;
+    margin: 0 auto;
     height: auto;
 }
-h1,h2,h3,h4{ font-weight:normal}
-.mt2em{ margin-top:0rem;}
-.mt15em{ margin-top:1.2rem;}
 
+h1, h2, h3, h4 {
+    font-weight: normal
+}
 
-.wrapper{ width:100%; margin:0 auto;}
-.wrapper2{ width:92%; margin:0 auto; background:#FFF; padding:0 4%; }
+.mt2em {
+    margin-top: 0rem;
+}
 
-.top{ width:100%; height:auto;}
-.top img{ width:100%}
-.top h1{ text-align:left; color:#000; font-size:2.2rem; line-height:3rem; font-weight:bold; padding:1rem 0;}
-.topsina{ padding:0 4%; position:relative; min-height:20px; line-height:2rem; font-size:1.1rem;}
-.topr{ float:right; cursor:pointer;}
-.hr1{ height:8px; width:100%; background:url(../images/hr1.jpg); margin:1rem 0;}
+.mt15em {
+    margin-top: 1.2rem;
+}
 
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
 
+.wrapper2 {
+    width: 92%;
+    margin: 0 auto;
+    background: #FFF;
+    padding: 0 4%;
+}
 
+.top {
+    width: 100%;
+    height: auto;
+}
 
+.top img {
+    width: 100%
+}
 
-.key{  width:100%; font-size:1.5rem; line-height:2.8rem;}
-.key p{ padding:.7em;}
+.top h1 {
+    text-align: left;
+    color: #000;
+    font-size: 2.2rem;
+    line-height: 3rem;
+    font-weight: bold;
+    padding: 1rem 0;
+}
 
+.topsina {
+    padding: 0 4%;
+    position: relative;
+    min-height: 20px;
+    line-height: 2rem;
+    font-size: 1.1rem;
+}
 
+.topr {
+    float: right;
+    cursor: pointer;
+}
 
+.hr1 {
+    height: 8px;
+    width: 100%;
+    background: url(../images/hr1.jpg);
+    margin: 1rem 0;
+}
 
-.des h4{ width:100%; text-align:center; padding:.5em 0; color:#A1A1A1; line-height:2em; font-size:1.2em;}
+.key {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+}
 
+.key p {
+    padding: .7em;
+}
 
+.des h4 {
+    width: 100%;
+    text-align: center;
+    padding: .5em 0;
+    color: #A1A1A1;
+    line-height: 2em;
+    font-size: 1.2em;
+}
 
 hr {
     display: block;
@@ -53,133 +116,546 @@ hr {
 img {
     vertical-align: middle;
 }
-.clr{ clear:both}
 
-
-
-
-
-
-.search{ background:#E5004F; }
-.search h4{ font-size:1.2rem; line-height:3.5rem; height:3.5rem; color:#FFF; font-weight:normal; letter-spacing:1px; padding-left:2rem;}
-.search h4 span.k{ background:#FFF; color:#000; font-weight:bold;  padding:.35rem 2rem .35rem 1.5rem; margin-left:1rem;}
-.search h4 span .imgk{ margin-top:-.1rem; padding-right:1rem;}
-.skey{ border:solid 2px #E5004F;   font-size:1.7rem; line-height:2.8rem;}
-.skey p{ padding:.7em; letter-spacing:1px;}
-span.b {    color: #FFF;    background: #E5004F;    padding: .1rem .3rem;}
-span.sky{ color:#2A90D7}
-span.red{ color:#E5004F; font-weight:bold;}
-span.strong{ font-weight:bold;}
-span.copy{ color:#E5004F; font-weight:normal; font-family:Arial; font-size:.9em; }
-.yaokuang{ width:90%; margin:0 auto; text-align:center;}
-.yaokuang h2{ width:70%;margin:0 auto; text-align:left; font-size:1.2em; line-height:2.3em; color:#0026ff}
-.yaokuang img{ width:40%; text-align:center;}
-
-.content{ font-size:1.4rem; line-height:2.8rem;}
-.content img{ width:100%; margin:.4rem 0;}
-.content .ltu1{      text-align: center;    padding: 0;    color: #A1A1A1;    line-height: 1.6em;    font-size: 1.2rem;}
-.content p{ padding:.7em 0; letter-spacing:1px; width:92%; margin:0 auto;}
-.content p.bkhui{ background:#FDEEED;  width:92%; margin:0 auto; padding:4%; }
-.content p span.ra{ color:#E5004F}
-.content p.t{text-align:center;}
-.content p.t img{ width:75%; }
-
-.case{ padding:0.5rem 0;}
-
-.case .btun{ text-align:center; font-size:1.8rem; line-height:1.8rem; margin:2rem auto;}
-.btnTitle{ background:#e5004f; color:#FFF; padding:.8rem 2rem; border-radius:0.5rem;}
-
-
-.case h4{ font-size:1.8rem; line-height:3.5rem; color:#000;}
-
-.case .test{ width:100%; font-weight:normal; font-size:1rem; color:#010101; line-height:3.5rem;}
-.case .test span{  margin:0 2px; border-radius:2rem; border:solid 1px #848484; padding:.4rem 1rem; width:20%; cursor:pointer;}
-.case .test span.check{ background:#2A90D7; color:#FFF; border:solid 1px #1A79BC;}
-.error{  color:#535353; font-size:1.2rem;}
-.tap{padding:.7em; font-size:1rem; color:#585858}
-.tap span{ border:solid 1px #EDEDED; border-radius:.5rem; padding:.3rem 1rem ; margin:.5rem;  background:#FFF;}
-
-.sharp {padding:.4em; font-size:1rem; color:#585858}
-.sharp img{width:24%;}
-
-.comment{}
-.comment .title{  font-size:1.2rem; color:#7E7E7E; line-height:2.5rem; margin-top:1.5rem;}
-span.com{ color:#000; /*background:url(../images/pl.png) bottom center no-repeat;*/ padding-bottom:.6rem}
-.commlist{ width:100%; font-size:1.2rem; color:#222222; line-height:2rem;background:#FFF;}
-.commlist dt{ padding-left:15%; position:relative; font-size:1.2rem;}
-.commlist .cfr{ float:right; font-size:1.2rem; line-height:3rem; color:#808080  }
-.commlist dd{ margin-left:15%; color:#000;  }
-.commlist dd p{ background:#F4F3F3; padding:.5rem; line-height:2.2rem; margin-top:.5rem; color:#000 }
-
-span.ck{ color:#545454; font-size:.95rem;}
-
-span.cks{ color:#595757; font-size:1.3rem;}
-
-span.date{ color:#696969; font-size:1.05rem;}
-.line{ border-bottom:solid 1px #F3F3F3;  margin:1rem 0; width:100%; display:block;}
-span.touxiang{ float:left; width:15%; position:absolute; left:0; top:20%}
-span.touxiang img{ width:60%}
-
-.btnWx{ line-height:3rem;   background:#F72451; display:block; text-align:center; font-size:1.1rem; color:#FFF; border-radius:.5rem;  cursor:pointer; }
-.btn{ padding:1rem 0; margin-top:2rem;}
-.yaokuang{ width:90%; margin:0 auto; text-align:center;}
-.yaokuang h2{ width:70%;margin:0 auto; text-align:left; font-size:1.2em; line-height:2.3em; color:#0026ff}
-.yaokuang img{ width:95%; text-align:center;}
-
-
-.img100{ width:100%}
-.img80{ width:80%}
-
-@media only screen and (min-width: 480px) and (max-width: 539px){
-    .top h1{  font-size:1.2rem; line-height:2.1rem; padding:.6rem 0;}
-    .key {    font-size: 1.1rem;   line-height: 2rem;}
-    .skey{  font-size: 1.1rem;   line-height: 2rem;}
-    .search h4{ font-size:1rem; padding-left: .8rem;}
-    .content {    font-size: 1.2rem;    line-height: 2.2rem;}
-    .content img { margin: .4rem 0;}
-    .comment .title{font-size: 1rem;}
-    .commlist{ font-size: .9rem;line-height:1.8rem;}
-    .commlist dt {  font-size: .9rem;}
-    .commlist .cfr {  font-size: .9rem;}
-    span.date{  font-size: .8rem;}
-    .yaokuang h2{    font-size: 1.1em; line-height:1.6rem;}
-    .btnWx{font-size:1rem;}
-    .topsina .s1{ max-width:140px;}
-    .topsina .s2{ max-width:90px;}
-    span.ck{font-size:.8rem;}
-    span.cks{ font-size:1.1rem;}
-    .case .btun{    font-size: 1.4rem;    line-height: 2.8rem;    margin: 1rem auto;}
-    .case h4{ font-size: 1.2rem; line-height:2.6rem;  }
-    .commlist dd p{  padding:.4rem; line-height:1.8rem;  color:#000 }
-    .case .test{font-size:.85rem}
+.clr {
+    clear: both
 }
 
+.search {
+    background: #E5004F;
+}
 
+.search h4 {
+    font-size: 1.2rem;
+    line-height: 3.5rem;
+    height: 3.5rem;
+    color: #FFF;
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding-left: 2rem;
+}
 
+.search h4 span.k {
+    background: #FFF;
+    color: #000;
+    font-weight: bold;
+    padding: .35rem 2rem .35rem 1.5rem;
+    margin-left: 1rem;
+}
+
+.search h4 span .imgk {
+    margin-top: -.1rem;
+    padding-right: 1rem;
+}
+
+.skey {
+    border: solid 2px #E5004F;
+    font-size: 1.7rem;
+    line-height: 2.8rem;
+}
+
+.skey p {
+    padding: .7em;
+    letter-spacing: 1px;
+}
+
+span.b {
+    color: #FFF;
+    background: #E5004F;
+    padding: .1rem .3rem;
+}
+
+span.sky {
+    color: #2A90D7
+}
+
+span.red {
+    color: #E5004F;
+    font-weight: bold;
+}
+
+span.strong {
+    font-weight: bold;
+}
+
+span.copy {
+    color: #E5004F;
+    font-weight: normal;
+    font-family: Arial;
+    font-size: .9em;
+}
+
+.yaokuang {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.yaokuang h2 {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 2.3em;
+    color: #0026ff
+}
+
+.yaokuang img {
+    width: 40%;
+    text-align: center;
+}
+
+.content {
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+}
+
+.content img {
+    width: 100%;
+    margin: .4rem 0;
+}
+
+.content .ltu1 {
+    text-align: center;
+    padding: 0;
+    color: #A1A1A1;
+    line-height: 1.6em;
+    font-size: 1.2rem;
+}
+
+.content p {
+    padding: .7em 0;
+    letter-spacing: 1px;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.content p.bkhui {
+    background: #FDEEED;
+    width: 92%;
+    margin: 0 auto;
+    padding: 4%;
+}
+
+.content p span.ra {
+    color: #E5004F
+}
+
+.content p.t {
+    text-align: center;
+}
+
+.content p.t img {
+    width: 75%;
+}
+
+.case {
+    padding: 0.5rem 0;
+}
+
+.case .btun {
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    margin: 2rem auto;
+}
+
+.btnTitle {
+    background: #e5004f;
+    color: #FFF;
+    padding: .8rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.case h4 {
+    font-size: 1.8rem;
+    line-height: 3.5rem;
+    color: #000;
+}
+
+.case .test {
+    width: 100%;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #010101;
+    line-height: 3.5rem;
+}
+
+.case .test span {
+    margin: 0 2px;
+    border-radius: 2rem;
+    border: solid 1px #848484;
+    padding: .4rem 1rem;
+    width: 20%;
+    cursor: pointer;
+}
+
+.case .test span.check {
+    background: #2A90D7;
+    color: #FFF;
+    border: solid 1px #1A79BC;
+}
+
+.error {
+    color: #535353;
+    font-size: 1.2rem;
+}
+
+.tap {
+    padding: .7em;
+    font-size: 1rem;
+    color: #585858
+}
+
+.tap span {
+    border: solid 1px #EDEDED;
+    border-radius: .5rem;
+    padding: .3rem 1rem;
+    margin: .5rem;
+    background: #FFF;
+}
+
+.sharp {
+    padding: .4em;
+    font-size: 1rem;
+    color: #585858
+}
+
+.sharp img {
+    width: 24%;
+}
+
+.comment {
+}
+
+.comment .title {
+    font-size: 1.2rem;
+    color: #7E7E7E;
+    line-height: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+span.com {
+    color: #000; /*background:url(../images/pl.png) bottom center no-repeat;*/
+    padding-bottom: .6rem
+}
+
+.commlist {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #222222;
+    line-height: 2rem;
+    background: #FFF;
+}
+
+.commlist dt {
+    padding-left: 15%;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.commlist .cfr {
+    float: right;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    color: #808080
+}
+
+.commlist dd {
+    margin-left: 15%;
+    color: #000;
+}
+
+.commlist dd p {
+    background: #F4F3F3;
+    padding: .5rem;
+    line-height: 2.2rem;
+    margin-top: .5rem;
+    color: #000
+}
+
+span.ck {
+    color: #545454;
+    font-size: .95rem;
+}
+
+span.cks {
+    color: #595757;
+    font-size: 1.3rem;
+}
+
+span.date {
+    color: #696969;
+    font-size: 1.05rem;
+}
+
+.line {
+    border-bottom: solid 1px #F3F3F3;
+    margin: 1rem 0;
+    width: 100%;
+    display: block;
+}
+
+span.touxiang {
+    float: left;
+    width: 15%;
+    position: absolute;
+    left: 0;
+    top: 20%
+}
+
+span.touxiang img {
+    width: 60%
+}
+
+.btnWx {
+    line-height: 3rem;
+    background: #F72451;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #FFF;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.yaokuang {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.yaokuang h2 {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 2.3em;
+    color: #0026ff
+}
+
+.yaokuang img {
+    width: 95%;
+    text-align: center;
+}
+
+.img100 {
+    width: 100%
+}
+
+.img80 {
+    width: 80%
+}
+
+@media only screen and (min-width: 480px) and (max-width: 539px) {
+    .top h1 {
+        font-size: 1.2rem;
+        line-height: 2.1rem;
+        padding: .6rem 0;
+    }
+
+    .key {
+        font-size: 1.1rem;
+        line-height: 2rem;
+    }
+
+    .skey {
+        font-size: 1.1rem;
+        line-height: 2rem;
+    }
+
+    .search h4 {
+        font-size: 1rem;
+        padding-left: .8rem;
+    }
+
+    .content {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+    }
+
+    .content img {
+        margin: .4rem 0;
+    }
+
+    .comment .title {
+        font-size: 1rem;
+    }
+
+    .commlist {
+        font-size: .9rem;
+        line-height: 1.8rem;
+    }
+
+    .commlist dt {
+        font-size: .9rem;
+    }
+
+    .commlist .cfr {
+        font-size: .9rem;
+    }
+
+    span.date {
+        font-size: .8rem;
+    }
+
+    .yaokuang h2 {
+        font-size: 1.1em;
+        line-height: 1.6rem;
+    }
+
+    .btnWx {
+        font-size: 1rem;
+    }
+
+    .topsina .s1 {
+        max-width: 140px;
+    }
+
+    .topsina .s2 {
+        max-width: 90px;
+    }
+
+    span.ck {
+        font-size: .8rem;
+    }
+
+    span.cks {
+        font-size: 1.1rem;
+    }
+
+    .case .btun {
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+        margin: 1rem auto;
+    }
+
+    .case h4 {
+        font-size: 1.2rem;
+        line-height: 2.6rem;
+    }
+
+    .commlist dd p {
+        padding: .4rem;
+        line-height: 1.8rem;
+        color: #000
+    }
+
+    .case .test {
+        font-size: .85rem
+    }
+}
 
 @media only screen and (max-width: 479px) {
 
-    .top h1{  font-size:1.1rem; line-height:1.6rem; padding:.6rem 0;}
-    .key {    font-size: 1rem;   line-height: 2rem;}
-    .skey{  font-size: 1rem;   line-height: 2rem;}
-    .search h4{ font-size:.9rem;    padding-left: .5rem;}
-    .topsina {    font-size: .9rem;}
-    .content {    font-size: 1rem;    line-height: 1.8rem;}
-    .content img { margin: .4rem 0;}
-    .comment .title{font-size: .9rem;}
-    .commlist{ font-size: .8rem; line-height:1.6rem;}
-    .commlist dt {  font-size: .8rem;}
-    .commlist .cfr {  font-size: .8rem;}
-    span.date{  font-size: .7rem;}
-    .btnWx{font-size: 1rem;}
-    .yaokuang h2{    font-size: 1em; line-height:1.4rem;}
-    .topsina .s1{ max-width:130px;}
-    .topsina .s2{ max-width:80px;}
-    .commlist dd p{  padding:.4rem; line-height:1.6rem;  color:#000 }
-    span.ck{font-size:.7rem;}
-    span.cks{ font-size:1rem;}
-    .case .btun{    font-size: 1.2rem;    line-height: 2.3rem;    margin: .8rem auto;}
-    .case h4{ font-size: 1.1rem; line-height:2.2rem;  }
-    .case .test{font-size:.6rem}
-    .case .test span{    padding: .4rem .7rem;margin: 0 1px;}
+    .top h1 {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+        padding: .6rem 0;
+    }
+
+    .key {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+    .skey {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+    .search h4 {
+        font-size: .9rem;
+        padding-left: .5rem;
+    }
+
+    .topsina {
+        font-size: .9rem;
+    }
+
+    .content {
+        font-size: 1rem;
+        line-height: 1.8rem;
+    }
+
+    .content img {
+        margin: .4rem 0;
+    }
+
+    .comment .title {
+        font-size: .9rem;
+    }
+
+    .commlist {
+        font-size: .8rem;
+        line-height: 1.6rem;
+    }
+
+    .commlist dt {
+        font-size: .8rem;
+    }
+
+    .commlist .cfr {
+        font-size: .8rem;
+    }
+
+    span.date {
+        font-size: .7rem;
+    }
+
+    .btnWx {
+        font-size: 1rem;
+    }
+
+    .yaokuang h2 {
+        font-size: 1em;
+        line-height: 1.4rem;
+    }
+
+    .topsina .s1 {
+        max-width: 130px;
+    }
+
+    .topsina .s2 {
+        max-width: 80px;
+    }
+
+    .commlist dd p {
+        padding: .4rem;
+        line-height: 1.6rem;
+        color: #000
+    }
+
+    span.ck {
+        font-size: .7rem;
+    }
+
+    span.cks {
+        font-size: 1rem;
+    }
+
+    .case .btun {
+        font-size: 1.2rem;
+        line-height: 2.3rem;
+        margin: .8rem auto;
+    }
+
+    .case h4 {
+        font-size: 1.1rem;
+        line-height: 2.2rem;
+    }
+
+    .case .test {
+        font-size: .6rem
+    }
+
+    .case .test span {
+        padding: .4rem .7rem;
+        margin: 0 1px;
+    }
 }

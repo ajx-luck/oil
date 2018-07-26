@@ -17,7 +17,7 @@ public class Custom {
         this.weixin = weixin;
         this.web = web;
         this.keyWord = keyWord;
-        percent = FormatUtils.percentage(weixin,web);
+        percent = FormatUtils.percentage(weixin, web);
     }
 
     public String getKeywordid() {

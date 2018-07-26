@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Created by B04e on 2017/11/28.
  */
-public interface PathToWechatRepository extends JpaRepository<PathToWechat,Long>{
-    @Modifying(clearAutomatically=true)
+public interface PathToWechatRepository extends JpaRepository<PathToWechat, Long> {
+    @Modifying(clearAutomatically = true)
     @Transactional
     @Query("update PathToWechat set wechatId=:wechatId where urlPath=:urlPath")
     void updateWechatByUrlPath(@Param("urlPath") String urlPath, @Param("wechatId") String wechatId);
@@ -24,7 +24,7 @@ public interface PathToWechatRepository extends JpaRepository<PathToWechat,Long>
     @Query("select '*' from PathToWechat where wechatId=:wechatId")
     List<PathToWechat> findByWechatId(@Param("wechatId") String wechatId);
 
-    @Modifying(clearAutomatically=true)
+    @Modifying(clearAutomatically = true)
     @Transactional
     @Query("delete from PathToWechat where wechatId=:wechatId")
     void deleteByWechatId(@Param("wechatId") String wechatId);

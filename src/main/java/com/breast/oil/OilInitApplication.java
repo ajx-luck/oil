@@ -19,7 +19,7 @@ public class OilInitApplication extends SpringBootServletInitializer {
         return builder.sources(OilInitApplication.class);
     }
 
-    public static void main(String[] args){
-        SpringApplication.run(OilInitApplication.class,args);
+    public static void main(String[] args) {
+        SpringApplication.run(OilInitApplication.class, args);
     }
 }

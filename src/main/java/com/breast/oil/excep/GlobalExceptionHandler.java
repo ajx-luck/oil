@@ -14,6 +14,6 @@ public class GlobalExceptionHandler {
     public void connectionAbort(final ClientAbortException e) {
         // Tomcat-specific exception when existing request is aborted by client
 
-        return ;
+        return;
     }
 }

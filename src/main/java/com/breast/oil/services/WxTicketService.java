@@ -13,7 +13,7 @@ import java.io.IOException;
 @Service
 public class WxTicketService {
     public static String ticket = "weixin://";
-    public final static long ONE_Minute =  300 * 1000;
+    public final static long ONE_Minute = 300 * 1000;
 
    /* @Scheduled(fixedDelay=ONE_Minute)
     public String getTicket(){

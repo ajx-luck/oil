@@ -22,27 +22,27 @@ public class KeyWordService {
     @Autowired
     WXInfoRepository mWXInfoRepository;
 
-    public List<Custom> getAllWeiXinData(long start,long end){
-        List<WXInfo> wxInfos = mWXInfoRepository.findByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start,end);
-        Map<String,Integer> map = new HashMap<>();
-        Map<String,String> keywords = new HashMap<>();
+    public List<Custom> getAllWeiXinData(long start, long end) {
+        List<WXInfo> wxInfos = mWXInfoRepository.findByCreateTimeGreaterThanEqualAndCreateTimeLessThan(start, end);
+        Map<String, Integer> map = new HashMap<>();
+        Map<String, String> keywords = new HashMap<>();
         List<Custom> customs = new ArrayList<>();
-        for(WXInfo info:wxInfos){
+        for (WXInfo info : wxInfos) {
             Integer value = map.get(info.geteKeywordid());
-            if(value == null){
-                map.put(info.geteKeywordid(),1);
-                keywords.put(info.geteKeywordid(),info.getKeyWord());
-            }else{
-                map.put(info.geteKeywordid(),++value);
+            if (value == null) {
+                map.put(info.geteKeywordid(), 1);
+                keywords.put(info.geteKeywordid(), info.getKeyWord());
+            } else {
+                map.put(info.geteKeywordid(), ++value);
             }
         }
-        for(Map.Entry<String,Integer> entry:map.entrySet()){
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
 
             String keywordid = entry.getKey();
             String keyword = keywords.get(keywordid);
             int weixin = entry.getValue();
-            long web = mWebInfoRepository.countByEKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(keywordid,start,end);
-            Custom custom = new Custom(keywordid,weixin,web,keyword);
+            long web = mWebInfoRepository.countByEKeywordidAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(keywordid, start, end);
+            Custom custom = new Custom(keywordid, weixin, web, keyword);
             customs.add(custom);
         }
         return customs;

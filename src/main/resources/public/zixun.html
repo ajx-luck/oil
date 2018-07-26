@@ -21,45 +21,39 @@
     <title>加老师微信，免费领取丰胸秘籍</title>
 
     <script>
-        arr_wx2 = ['ivy136158','ivy136158',];
+        arr_wx2 = ['ivy136158', 'ivy136158',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return decodeURIComponent(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return decodeURIComponent(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
 
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
-
-
 
 
     </script>
@@ -97,7 +91,7 @@
                 async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
                 contentType: "application/json;charset=utf-8",
-                data: {urlPath: "wx",keyword:getCookie("word")},
+                data: {urlPath: "wx", keyword: getCookie("word")},
                 success: function (msg) {
                     var jsonobj = jQuery.parseJSON(msg);
                     str_wx_id = stxlwx;
@@ -113,17 +107,16 @@
                     if (city != null) {
                         setCookie("cityid", city, 24 * 60);
                     }
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
+                    if (str_wx_id) {
+                        setCookie("wechatid", str_wx_id, 24 * 60);
                     }
                 }
             })
 
-            $(".wximg").attr("src","/weixin/"+stxlwx+".jpg");
+            $(".wximg").attr("src", "/weixin/" + stxlwx + ".jpg");
 
 
         });
-
 
 
     </script>
@@ -132,25 +125,64 @@
 <script type="text/javascript" src="js/flexible.js"></script>
 
 
-
 <style type="text/css">
-    *{margin: 0;padding: 0;}
-    body{width: 100%;max-width: 640px;margin: 0 auto;font-family: "微软雅黑","Microsoft YaHei",Arial,sans-serif;font-size: 16px;line-height: 1.5;}
-    .main{padding-top: 50px;text-align: center;color: #0066c2;letter-spacing: 2px;overflow: hidden;}
-    .main b{font-size: 0.6rem;display: inline-block;}
-    .main .sx{background: #0066c2;color: #fff;padding: 5px 20px; margin-top: 15px;}
-    .num,.code_box{color: #ff0;}
-    .main p{color: #03abf4;font-size: 0.5rem;}
-    #code{width: 70%;}
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        font-family: "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .main {
+        padding-top: 50px;
+        text-align: center;
+        color: #0066c2;
+        letter-spacing: 2px;
+        overflow: hidden;
+    }
+
+    .main b {
+        font-size: 0.6rem;
+        display: inline-block;
+    }
+
+    .main .sx {
+        background: #0066c2;
+        color: #fff;
+        padding: 5px 20px;
+        margin-top: 15px;
+    }
+
+    .num, .code_box {
+        color: #ff0;
+    }
+
+    .main p {
+        color: #03abf4;
+        font-size: 0.5rem;
+    }
+
+    #code {
+        width: 70%;
+    }
 </style>
 
 
 <body style="font-size: 12px;">
 <div class="main">
-    <b>加微信号<span name="notweixin"><span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span><span style="font-size: 0.6rem;">,<span style="color: #ff2d46;font-size: 0.6rem;">限时免费</span>开启一对一问题咨询</span></b>
+    <b>加微信号<span name="notweixin"><span class="wx" oncopy="gowx2();"
+                                        ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span></span><span
+            style="font-size: 0.6rem;">,<span style="color: #ff2d46;font-size: 0.6rem;">限时免费</span>开启一对一问题咨询</span></b>
     <br/>
     <br/>
-    <img width='95%'  src="/baidu/list-2_files/photolist.jpg"/>
+    <img width='95%' src="/baidu/list-2_files/photolist.jpg"/>
     <br/>
     <span style="color: #ff2d46;font-size: 0.6rem;">⬇长按下方二维码添加老师微信⬇</span>
     <br/>
@@ -165,14 +197,14 @@
 
     var clipboard = new Clipboard('.btn');
     //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
-    clipboard.on('success', function(e) {
+    clipboard.on('success', function (e) {
         alert('复制成功!')
         e.clearSelection();
     });
-    clipboard.on('error', function(e) {
+    clipboard.on('error', function (e) {
         alert('请选择“拷贝”进行复制!')
     });
-　　　　　　　　　　
+
 </script>
 </body>
 </html>

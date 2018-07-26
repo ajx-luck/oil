@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
@@ -21,7 +21,8 @@
     <title>上传文件</title>
 </head>
 <body>
-<form  action="http://picket.oss-cn-shenzhen.aliyuncs.com" method="post" enctype="multipart/form-data" th:object="${ossObject}">
+<form action="http://picket.oss-cn-shenzhen.aliyuncs.com" method="post" enctype="multipart/form-data"
+      th:object="${ossObject}">
     <input type="text" name="OSSAccessKeyId" th:field="*{OSSAccessKeyId}"/>
     <input type="text" name="policy" th:field="*{policy}"/>
     <input type="text" name="Signature" th:field="*{Signature}"/>

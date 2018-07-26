@@ -5,14 +5,14 @@ html {
 }
 
 body {
-    font-family: Microsoft YaHei,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-width: 320px;
     background: #f6f6f6;
     color: #333;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: Microsoft YaHei,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
 }
 
@@ -146,7 +146,6 @@ a:link, a:visited, a:hover {
     display: block;
 }*/
 
-
 .ls-tab li.sort-by-price a:after, .ls-header-icon-back span, .ls-header-icon-cancel span, .ls-header-icon-category span, .ls-header-icon-close:after, .ls-header-icon-logo span, .ls-header-icon-search span, .ls-header-icon-shortcut span, .ls-header-shortcut span, .jd-search-tab li.sort-by-integrative a:after, .jd-search-tab li.sort-by-integrative.active a:after, .jd-search-tab li.sort-by-price a:after, .jd-search-tab li.sort-by-price.active a.arrow-down:after, .jd-search-tab li.sort-by-price.active a.arrow-up:after, .search-history a:before, .region-title-back i, .sidebar-btn-location:after, .sidebar-categories .arrow, .sidebar-categories li.checked .tick, .supplier-arrow-right {
     display: block;
     background: url(../images/ls-sprites.png) no-repeat;
@@ -162,7 +161,6 @@ a:link, a:visited, a:hover {
 .banner-mod {
     width: 100%;
 }
-
 
 footer {
     width: 100%;
@@ -245,7 +243,7 @@ footer {
     text-align: center;
     color: #fff;
     line-height: 35px;
-    background: rgba(188,188,188,0.6) url(../images/top.png) no-repeat center center;
+    background: rgba(188, 188, 188, 0.6) url(../images/top.png) no-repeat center center;
     display: block;
     cursor: pointer;
     position: absolute;
@@ -299,32 +297,31 @@ footer {
     background-size: 100% 100%;
 }
 
-
-@media only screen and (min-width:361px) {
+@media only screen and (min-width: 361px) {
     html {
         font-size: 72% !important;
     }
 }
 
-@media only screen and (min-width:381px) {
+@media only screen and (min-width: 381px) {
     html {
         font-size: 78% !important;
     }
 }
 
-@media only screen and (min-width:481px) {
+@media only screen and (min-width: 481px) {
     html {
         font-size: 94% !important;
     }
 }
 
-@media only screen and (min-width:561px) {
+@media only screen and (min-width: 561px) {
     html {
         font-size: 109% !important;
     }
 }
 
-@media only screen and (min-width:641px) {
+@media only screen and (min-width: 641px) {
     html {
         font-size: 125% !important;
     }

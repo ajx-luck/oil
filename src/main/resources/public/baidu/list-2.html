@@ -42,41 +42,38 @@
 
         //
 
-        arr_wx2 = ['ivy136158','ivy136158',];
+        arr_wx2 = ['ivy136158', 'ivy136158',];
 
 
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=");
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1 ;
-                    c_end=document.cookie.indexOf(";",c_start);
-                    if (c_end==-1)
-                        c_end=document.cookie.length;
-                    return unescape(document.cookie.substring(c_start,c_end));
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1)
+                        c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
                 }
             }
             return "";
         }
 
-        function setCookie(c_name,value,expiredays)
-        {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+";path=/"+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + expiredays);
+            document.cookie = c_name + "=" + escape(value) + ";path=/" + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
         }
+
         //先判断cookie中是否有值
-        if(getCookie('wechatid')!=null && getCookie('wechatid')!=""){
+        if (getCookie('wechatid') != null && getCookie('wechatid') != "") {
             stxlwx = getCookie('wechatid');//有，则直接赋值给mess2
         }
-        else{
-            val = Math.floor((Math.random() * arr_wx2.length)+1)-1;//无，则重新获取随机数得出值再赋值给mess2
+        else {
+            val = Math.floor((Math.random() * arr_wx2.length) + 1) - 1;//无，则重新获取随机数得出值再赋值给mess2
             stxlwx = arr_wx2[val];
-            setCookie('wechatid',stxlwx,7);
-            sessionStorage.lastname=stxlwx;
+            setCookie('wechatid', stxlwx, 7);
+            sessionStorage.lastname = stxlwx;
         }
 
 
@@ -104,7 +101,8 @@
             <p>少走弯路 不花冤枉钱！</p>
             <p>
                 免费一对一指导微信：<span class="wxnum">
-                        <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span class="wx" oncopy="gowx2();"
+                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                     </span>（长按复制)
             </p>
         </div>
@@ -173,7 +171,8 @@
             <!--<p style="text-indent: 2em; color:#ff0000;">这是丰胸前的自己。</p>-->
             <p style="text-indent: 2em; margin-top: 1rem">
                 后来有一次偶然的刷微信的时候，丰胸老师：<span style="color: #fe4245;" class="wxnum">
-                        <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span class="wx" oncopy="gowx2();"
+                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                     </span> (←长按复制加微信)<a href="weixin://"
                                          style="border:1px solid #c6c6c6;border-radius:10em;padding:0 0.46em;font-size:1.0em;color:#1848db;text-decoration:none;background:linear-gradient(150deg,#f5f5f5,#d7d7d7,#d2d2d2);margin-left:0.15em;"
                                          id="dd">打开微信</a>就这样的出现在我的视线里，那时候心里也是怀着丰胸的心，所以也特别的关注了，但是也没有马上跑去问她，她帮助姐妹们丰胸成功的方法是什么。
@@ -185,7 +184,8 @@
                style="background: #f43f9b; color: #fff; padding: 0 .5rem; font-size: 1.2rem; line-height: 1.7rem;text-align: center;">
                 添加老师微信：
                 <span class="wxnum">
-                        <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span class="wx" oncopy="gowx2();"
+                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                     </span>（←长按微信号可以复制）<a href="weixin://"
                                           style="display:inline-block;border:1px solid #c6c6c6;border-radius:10em;padding:0 0.46em;font-size:1.0em;color:#1848db;text-decoration:none;background:linear-gradient(150deg,#f5f5f5,#d7d7d7,#d2d2d2);margin-left:0.15em;"
                                           id="dd">打开微信</a>
@@ -195,7 +195,8 @@
             <p style="text-indent: 2em; margin-top: 1rem">
                 每天都迫不及待等到第二天早上，特别想看到胸部能马上大起来~！效果也是立竿见影，看着自己的胸部一天天慢慢增大，我真是太兴奋了。坚持了一段时间后，胸部在原来还不到32A杯的情况下增大到了32C杯了，虽然是小C杯，但是不到3个月就增大了2个罩杯，真的太惊喜了，而且乳房也很挺，很有肉感，穿什么衣服都很好看了。想不到我苦苦追寻了那么久的丰满胸部，终于梦想成真了，一瞬间我哭的稀里哗啦的！那一刻我把老师：<span
                     style="color: #fe4245;" class="wxnum">
-                        <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                        <span class="wx" oncopy="gowx2();"
+                              ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                     </span> (←长按复制加微信)<a href="weixin://"
                                          style="border:1px solid #c6c6c6;border-radius:10em;padding:0 0.46em;font-size:1.0em;color:#1848db;text-decoration:none;background:linear-gradient(150deg,#f5f5f5,#d7d7d7,#d2d2d2);margin-left:0.15em;"
                                          id="dd">打开微信</a>当成了我此生最大的恩人！最最最重要的是，老公啊，我的老公终于不再乱瞄别人了，整个心都挂在我身上。下班带我去吃好的，节假日带我去旅游，说这样的我带在身边倍有面子！！！
@@ -214,7 +215,8 @@
                     在这里为你们（当然也是为了我自己），说了自己历尽的千辛万苦，卖萌耍无赖地找老师：<span
                         style="background: #fe4245; color: #fff; padding: .2rem .5rem; font-size: 1.3rem">
                             <span class="wxnum">
-                                <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                                <span class="wx" oncopy="gowx2();"
+                                      ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
                             </span>   (←长按复制加微信)<a href="weixin://"
                                                    style="border:1px solid #c6c6c6;border-radius:10em;padding:0 0.46em;font-size:1.0em;color:#1848db;text-decoration:none;background:linear-gradient(150deg,#f5f5f5,#d7d7d7,#d2d2d2);margin-left:0.15em;"
                                                    id="dd">打开微信</a>老师，一切都是值得的！！
@@ -241,7 +243,8 @@
     </div>
     <h3 style="margin-top: 0rem; background: #fe4245">
         微信号: <span class="wxnum">
-                <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                <span class="wx" oncopy="gowx2();"
+                      ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
             </span>
     </h3>
     <div class="text">
@@ -462,7 +465,8 @@
     <p id="wx_icon"></p>
     <div id="wx_copy">
             <span class="wxnum">
-                <span class="wx" oncopy="gowx2();" ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
+                <span class="wx" oncopy="gowx2();"
+                      ontouchstart="_czc.push([&#39;_trackEvent&#39;, &#39;微信&#39;, &#39;复制&#39;]);"><script>document.write(stxlwx);</script></span>
             </span><br>
         <em id="copy_num">(长按复制微信号，添加好友)</em><br>
         <b><i></i>现在加好友好礼免费赠</b>
@@ -506,31 +510,28 @@
     var str_wx_id
     $(function () {
 
-            var url = "/rememberweb";
-            $.ajax({
-                type: "get",
-                url: url,
-                async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
+        var url = "/rememberweb";
+        $.ajax({
+            type: "get",
+            url: url,
+            async: true,//false代表等待ajax执行完毕后才执行alert("ajax执行完毕")语句;
 //                dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                data: {urlPath: "list-2",keyword:getCookie("word")},
-                success: function (msg) {
-                    var jsonobj = jQuery.parseJSON(msg);
-                    str_wx_id = jsonobj.wechatId;
-                    var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
-                    eval(js_add_copy);
-                    // $(".wxnum").html(str_wx_id);
-                    if(str_wx_id){
-                        setCookie("wechatid",str_wx_id,24*60);
-                    }
+            contentType: "application/json;charset=utf-8",
+            data: {urlPath: "list-2", keyword: getCookie("word")},
+            success: function (msg) {
+                var jsonobj = jQuery.parseJSON(msg);
+                str_wx_id = jsonobj.wechatId;
+                var js_add_copy = jsonobj.JS_ADD_COPY_LISTENER;
+                eval(js_add_copy);
+                // $(".wxnum").html(str_wx_id);
+                if (str_wx_id) {
+                    setCookie("wechatid", str_wx_id, 24 * 60);
                 }
-            })
-
-
+            }
+        })
 
 
     });
-
 
 
 </script>

@@ -44,21 +44,21 @@ public class UrlMappingService {
 
     /**
      * 随机获取一个微信号码
+     *
      * @return
      */
-    public String getRandomWechatId(){
+    public String getRandomWechatId() {
         List<PathToWechat> list = getAllPathToWechat();
         int i = new Random().nextInt(list.size());
         return list.get(i).getWechatId();
     }
 
 
-
-    public String getWechatIdByIP(String ip){
+    public String getWechatIdByIP(String ip) {
         List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
-        if(list == null || list.size() == 0 || StringUtils.isEmptyOrWhitespace(list.get(0).getWechatId())){
+        if (list == null || list.size() == 0 || StringUtils.isEmptyOrWhitespace(list.get(0).getWechatId())) {
             return getRandomWechatId();
-        }else{
+        } else {
             return list.get(0).getWechatId();
         }
     }
@@ -104,11 +104,11 @@ public class UrlMappingService {
         }
     }
 
-    public WebInfo getWebInfoByIP(String ip){
+    public WebInfo getWebInfoByIP(String ip) {
         List<WebInfo> list = mWebInfoRepository.findByIpOrderByIdDesc(ip);
-        if(list == null || list.size() == 0){
+        if (list == null || list.size() == 0) {
             return null;
-        }else{
+        } else {
             return list.get(0);
         }
     }
@@ -123,7 +123,6 @@ public class UrlMappingService {
     public void cacheIp(String url, String ip) {
 
     }
-
 
 
     /**
@@ -228,22 +227,22 @@ public class UrlMappingService {
      * @param info
      * @param ip
      */
-    public void savaWebInfo(WebInfo info,String url, String ip) {
-        cacheWeb(url,ip);
+    public void savaWebInfo(WebInfo info, String url, String ip) {
+        cacheWeb(url, ip);
         //真实有效点击
-        if(info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) && (!"上海".equals(info.getCity()))
-                && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity())) && ("fxb".equals(info.getUrlPath()) || "fxd".equals(info.getUrlPath()) || "fxy".equals(info.getUrlPath()) || "fxz".equals(info.getUrlPath()))){
-            addKeyWordAndWebClick(info.getKeyWord(),info.geteKeywordid());
-            RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(),info.getCreateTime(),info.getIp(),info.getWechatId(),info.getKeyWord(),info.geteKeywordid(),null,info.geteMatchtype(),info.geteCreative(),info.geteAdposition(),
-                    info.getePagenum(),info.getPrice(),info.getAudience(),info.getDy(),info.getJh(),info.getProvice(),info.getStrartUrl());
+        if (info.getePagenum() != null && (!info.getePagenum().equals("{pagenum}")) && info.getPrice() != null && (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) && (!"上海".equals(info.getCity()))
+                && (!"北京".equals(info.getCity())) && (!"广州".equals(info.getCity())) && (!"深圳".equals(info.getCity())) && ("fxb".equals(info.getUrlPath()) || "fxd".equals(info.getUrlPath()) || "fxy".equals(info.getUrlPath()) || "fxz".equals(info.getUrlPath()))) {
+            addKeyWordAndWebClick(info.getKeyWord(), info.geteKeywordid());
+            RealWebInfo realWebInfo = new RealWebInfo(info.getUrlPath(), info.getCreateTime(), info.getIp(), info.getWechatId(), info.getKeyWord(), info.geteKeywordid(), null, info.geteMatchtype(), info.geteCreative(), info.geteAdposition(),
+                    info.getePagenum(), info.getPrice(), info.getAudience(), info.getDy(), info.getJh(), info.getProvice(), info.getStrartUrl());
             realWebInfo.setCity(info.getCity());
             mRealWebInfoRepository.save(realWebInfo);
         }
         mWebInfoRepository.save(info);
     }
 
-//    @CachePut(value = "saveweb#5#2", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
-    public void cacheWeb(String url,String ip) {
+    //    @CachePut(value = "saveweb#5#2", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
+    public void cacheWeb(String url, String ip) {
 
     }
 
@@ -254,16 +253,16 @@ public class UrlMappingService {
      * @param ip
      */
     @Cacheable(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
-    public void savaWXInfo(WXInfo info, String url,String ip) {
-        cacheWx(url,ip);
-        if(!StringUtils.isEmptyOrWhitespace(info.getKeyWord())){
-            addKeyWordAndWxClick(info.getKeyWord(),info.geteKeywordid());
+    public void savaWXInfo(WXInfo info, String url, String ip) {
+        cacheWx(url, ip);
+        if (!StringUtils.isEmptyOrWhitespace(info.getKeyWord())) {
+            addKeyWordAndWxClick(info.getKeyWord(), info.geteKeywordid());
         }
         mWXInfoRepository.save(info);
     }
 
     @CachePut(value = "savewx", key = "T(String).valueOf(#url).concat('-').concat(#ip)")
-    public void cacheWx(String url,String ip) {
+    public void cacheWx(String url, String ip) {
 
     }
 
@@ -291,44 +290,46 @@ public class UrlMappingService {
 
     /**
      * 关键词统计+1
+     *
      * @param keyword
      * @param keyWordDesc
      */
-    public void addKeyWordAndWebClick(String keyword,String keyWordDesc){
-        if(keyword == null || keyWordDesc == null){
+    public void addKeyWordAndWebClick(String keyword, String keyWordDesc) {
+        if (keyword == null || keyWordDesc == null) {
             return;
         }
         List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
         KeyWord kw;
-        if(list!=null && list.size() > 0){
+        if (list != null && list.size() > 0) {
             kw = list.get(0);
-            kw.setWeb(kw.getWeb()+1);
-        }else{
-            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+            kw.setWeb(kw.getWeb() + 1);
+        } else {
+            kw = new KeyWord(keyword, keyWordDesc, new Date().getTime());
         }
-        if(!keyWordDesc.equals("{keywordid}")) {
+        if (!keyWordDesc.equals("{keywordid}")) {
             mKeyWordRepository.save(kw);
         }
     }
 
     /**
      * 关键词统计+1
+     *
      * @param keyword
      * @param keyWordDesc
      */
-    public void addKeyWordAndWxClick(String keyword,String keyWordDesc){
-        if(keyword == null || keyWordDesc == null){
+    public void addKeyWordAndWxClick(String keyword, String keyWordDesc) {
+        if (keyword == null || keyWordDesc == null) {
             return;
         }
         List<KeyWord> list = mKeyWordRepository.findByKeyWord(keyword);
         KeyWord kw;
-        if(list!=null && list.size() > 0){
+        if (list != null && list.size() > 0) {
             kw = list.get(0);
-            kw.setWxClick(kw.getWxClick()+1);
-        }else{
-            kw = new KeyWord(keyword,keyWordDesc,new Date().getTime());
+            kw.setWxClick(kw.getWxClick() + 1);
+        } else {
+            kw = new KeyWord(keyword, keyWordDesc, new Date().getTime());
         }
-        if(!keyWordDesc.equals("{keywordid}")) {
+        if (!keyWordDesc.equals("{keywordid}")) {
             mKeyWordRepository.save(kw);
         }
     }
@@ -422,7 +423,7 @@ public class UrlMappingService {
             if (list != null && list.size() > 0) {
                 wechatId = list.get(list.size() - 1).getWechatId();
             }
-            return StringUtils.isEmptyOrWhitespace(wechatId)?getRandomWechatIdByUrl("fxc"):wechatId;
+            return StringUtils.isEmptyOrWhitespace(wechatId) ? getRandomWechatIdByUrl("fxc") : wechatId;
 
         }
     }

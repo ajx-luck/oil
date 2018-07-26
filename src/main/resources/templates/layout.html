@@ -7,71 +7,110 @@
 <body>
 <!-- kh导航 -->
 <div th:fragment="kh_title">
-<link href="css/public.css" rel="stylesheet" />
-<link href="css/search.css" rel="stylesheet" />
-<link href="css/product.css" rel="stylesheet" />
-<script src="js/name.js"></script>
-<script scr="js/jquery-1.js"></script>
-<!--导航样式 -->
-<style>
-    ._nav{width:100%;height:40px;background:#E5004F;border-bottom:solid 2px #fff;}
-    ._nav ul{list-style:none;}
-    ._nav ul li{float:left;width:25%;text-align:center;font-size:14px;line-height:40px}
-    ._nav ul li a{display:block;color:#fff;}
-    ._nav ul li a:hover{background:#E5004F;}
-    ._top h1{width:100%;overflow:hidden;margin:0px 0px;line-height:30px;}
-    ._top h1 span{display:block;width:100%;font-size:15px;float:left;text-align:center;color:#666;}
-    ._top h1 span:nth-child(2){color:red;font-size:18px;}
-</style>
-<!--导航样式 -->
-<div class="_top">
-    <h1>
-        <span><script>document.write(name);</script></span> <span></span>
-    </h1>
-</div>
+    <link href="css/public.css" rel="stylesheet"/>
+    <link href="css/search.css" rel="stylesheet"/>
+    <link href="css/product.css" rel="stylesheet"/>
+    <script src="js/name.js"></script>
+    <script scr="js/jquery-1.js"></script>
+    <!--导航样式 -->
+    <style>
+        ._nav {
+            width: 100%;
+            height: 40px;
+            background: #E5004F;
+            border-bottom: solid 2px #fff;
+        }
 
-<header style=" background:#4a8519; color:#fff;">
+        ._nav ul {
+            list-style: none;
+        }
 
-    <div class="_nav">
-        <ul>
-            <li class="menuitem">
-                <a th:href="@{'/'+${home}}">首页</a>
-            </li>
-            <li class="menuitem">
-                <a th:href="@{/product(home=${home})}">产品中心</a>
-            </li>
+        ._nav ul li {
+            float: left;
+            width: 25%;
+            text-align: center;
+            font-size: 14px;
+            line-height: 40px
+        }
 
-            <li class="menuitem">
-                <a th:href="@{/about(home=${home})}">公司简介</a>
-            </li>
-            <li class="menuitem">
-                <a th:href="@{/contact(home=${home})}">联系我们</a>
-            </li>
-        </ul>
+        ._nav ul li a {
+            display: block;
+            color: #fff;
+        }
+
+        ._nav ul li a:hover {
+            background: #E5004F;
+        }
+
+        ._top h1 {
+            width: 100%;
+            overflow: hidden;
+            margin: 0px 0px;
+            line-height: 30px;
+        }
+
+        ._top h1 span {
+            display: block;
+            width: 100%;
+            font-size: 15px;
+            float: left;
+            text-align: center;
+            color: #666;
+        }
+
+        ._top h1 span:nth-child(2) {
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+    <!--导航样式 -->
+    <div class="_top">
+        <h1>
+            <span><script>document.write(name);</script></span> <span></span>
+        </h1>
     </div>
 
+    <header style=" background:#4a8519; color:#fff;">
 
- <!--   <div id="layout_search_head" >&lt;!&ndash; 默认状态返回按钮 s !&ndash;&gt;
-        &lt;!&ndash;<div class="ls-header-icon-back" id="layout_urlblack"><a href="#"><span>返回</span></a></div>&ndash;&gt;
-        &lt;!&ndash; 默认状态返回按钮 end !&ndash;&gt;&lt;!&ndash; 标题 s !&ndash;&gt;
-        <div class="ls-header-title">碧丝芙丰韵美乳精油</div>
-        &lt;!&ndash; 标题 end !&ndash;&gt;&lt;!&ndash; 新增咨询按钮 s !&ndash;&gt;
+        <div class="_nav">
+            <ul>
+                <li class="menuitem">
+                    <a th:href="@{'/'+${home}}">首页</a>
+                </li>
+                <li class="menuitem">
+                    <a th:href="@{/product(home=${home})}">产品中心</a>
+                </li>
 
-        &lt;!&ndash; 新增咨询按钮 end !&ndash;&gt;&lt;!&ndash; 隐藏导航区 s !&ndash;&gt;
-        &lt;!&ndash;<div id="layout_lsKey" class="ls-header-icon-shortcut"><span></span></div>&ndash;&gt;
-        &lt;!&ndash; 隐藏导航区 end !&ndash;&gt;
+                <li class="menuitem">
+                    <a th:href="@{/about(home=${home})}">公司简介</a>
+                </li>
+                <li class="menuitem">
+                    <a th:href="@{/contact(home=${home})}">联系我们</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!--   <div id="layout_search_head" >&lt;!&ndash; 默认状态返回按钮 s !&ndash;&gt;
+               &lt;!&ndash;<div class="ls-header-icon-back" id="layout_urlblack"><a href="#"><span>返回</span></a></div>&ndash;&gt;
+               &lt;!&ndash; 默认状态返回按钮 end !&ndash;&gt;&lt;!&ndash; 标题 s !&ndash;&gt;
+               <div class="ls-header-title">碧丝芙丰韵美乳精油</div>
+               &lt;!&ndash; 标题 end !&ndash;&gt;&lt;!&ndash; 新增咨询按钮 s !&ndash;&gt;
+
+               &lt;!&ndash; 新增咨询按钮 end !&ndash;&gt;&lt;!&ndash; 隐藏导航区 s !&ndash;&gt;
+               &lt;!&ndash;<div id="layout_lsKey" class="ls-header-icon-shortcut"><span></span></div>&ndash;&gt;
+               &lt;!&ndash; 隐藏导航区 end !&ndash;&gt;
+           </div>-->
+    </header>
+
+
+    <!-- banner -->
+    <!--<div class="viewport">
+        <img src="./nav/images/3-03.jpg" alt=""/>
     </div>-->
-</header>
+    <!-- banner -->
 
-
-
-<!-- banner -->
-<!--<div class="viewport">
-    <img src="./nav/images/3-03.jpg" alt=""/>
-</div>-->
-<!-- banner -->
-
-<!-- kh导航 -->
+    <!-- kh导航 -->
 </div>
 
 <!-- 导航 -->
@@ -86,17 +125,38 @@
             padding: 0;
             width: 100%;
         }
-        .Header{font-family:'微软雅黑'; max-width:640px; margin:0px auto;}
-        .Header .Menu{height:40px; line-height:40px; background-color:#FF7FAA;}
-        .Header .Menu a{color:#FFF; text-decoration:none; font-size:14px; margin:0px 2px;}
-        .header{
-            max-width:660px;padding:5px;margin:0 auto;
+
+        .Header {
+            font-family: '微软雅黑';
+            max-width: 640px;
+            margin: 0px auto;
         }
-        a{
+
+        .Header .Menu {
+            height: 40px;
+            line-height: 40px;
+            background-color: #FF7FAA;
+        }
+
+        .Header .Menu a {
+            color: #FFF;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0px 2px;
+        }
+
+        .header {
+            max-width: 660px;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        a {
             color: #000;
             text-decoration: none;
         }
-        .nav{
+
+        .nav {
             padding: 0;
             color: #000;
             width: 90%;
@@ -107,29 +167,34 @@
             -webkit-justify-content: space-around; /* Safari 6.1+ */
             justify-content: space-around;
         }
-        .nav li{
+
+        .nav li {
             width: 30%;
             padding: 4px 0;
             text-align: center;
             border: 1px solid #000;
         }
-        .title{
+
+        .title {
             margin: 8% 0;
             color: #5cd7e6;
             font-size: 2rem;
             font-weight: bold;
             text-align: center;
         }
-        .wrap{
+
+        .wrap {
             padding: 4% 3%;
             margin: 5% 8px;
             border-radius: 5px;
             background-color: #fff;
         }
-        .new-title{
+
+        .new-title {
             margin: 5% 0;
         }
-        .wrap .new-title{
+
+        .wrap .new-title {
             position: absolute;
             top: -7%;
             left: 2%;
@@ -140,42 +205,49 @@
             color: #fff;
             background-color: #45adbc;
         }
-        .top-head{
+
+        .top-head {
             width: 98%;
             margin: auto;
         }
-        .top-head h1{
+
+        .top-head h1 {
             font-size: 16px;
             text-align: center;
-            padding:0;
-            margin:0;
+            padding: 0;
+            margin: 0;
         }
-        @media screen and (max-width:500px){
-            .top-head h1{
+
+        @media screen and (max-width: 500px) {
+            .top-head h1 {
                 font-size: 16px;
                 text-align: center;
             }
         }
-        .top-head ul{
-            background-color: rgb(7,179,227);
+
+        .top-head ul {
+            background-color: rgb(7, 179, 227);
             height: 50px;
             font-size: 16px;
         }
-        @media screen and (max-width:500px){
-            .top-head ul{
-                background-color: rgb(7,179,227);
+
+        @media screen and (max-width: 500px) {
+            .top-head ul {
+                background-color: rgb(7, 179, 227);
                 height: 24px;
             }
         }
-        .top-head ul li{
+
+        .top-head ul li {
             list-style: none;
             width: 25%;
             text-align: center;
             line-height: 20px;
             float: left;
         }
-        @media screen and (max-width:500px){
-            .top-head ul li{
+
+        @media screen and (max-width: 500px) {
+            .top-head ul li {
                 list-style: none;
                 width: 25%;
                 text-align: center;
@@ -183,30 +255,34 @@
                 float: left;
             }
         }
-        .top-head ul li a{
+
+        .top-head ul li a {
             color: #666;
-            font-size:12px;
+            font-size: 12px;
             text-decoration: none;
         }
-        @media screen and (max-width:500px){
-            .top-head ul li a{
+
+        @media screen and (max-width: 500px) {
+            .top-head ul li a {
                 color: #fff;
                 text-decoration: none;
                 font-size: 14px;
             }
         }
-        .top-head-img{
+
+        .top-head-img {
             width: 100%;
             margin: 0 auto;
         }
-        @media screen and (max-width:500px){
-            .top-head-img{
+
+        @media screen and (max-width: 500px) {
+            .top-head-img {
                 width: 80%;
                 margin: 0 auto;
             }
         }
 
-        .top-head-img img{
+        .top-head-img img {
             width: 100%;
         }
     </style>
@@ -243,18 +319,24 @@
 <!-- kh版权 -->
 <footer style="margin-top:100px;border-top:2px solid #666" th:fragment="kh_footer">
     <div class="Copyright" style="text-size:18px;">
-        <p> <script>document.write(banquan);document.write(name);</script> </p>
+        <p>
+            <script>document.write(banquan);
+            document.write(name);</script>
+        </p>
         <p><a href='http://www.miitbeian.gov.cn/'>鲁ICP备17040548号</a></p>
-        <p><script>document.write(address);</script></p>
+        <p>
+            <script>document.write(address);</script>
+        </p>
     </div>
 </footer>
 
 <div th:fragment="yi_footer">
-    <p style="text-align: center;font-size:12px;line-height:12px;">Copyright ? 2017,广州源诚网络科技有限公司,All rights reserved </p>
-    <p style="text-align: center;font-size:12px;line-height:12px;">地 址： 广州市天河区东圃一横路96号216、217房 备案号：<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17133431号</a></p>
+    <p style="text-align: center;font-size:12px;line-height:12px;">Copyright ? 2017,广州源诚网络科技有限公司,All rights
+        reserved </p>
+    <p style="text-align: center;font-size:12px;line-height:12px;">地 址： 广州市天河区东圃一横路96号216、217房 备案号：<a
+            href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17133431号</a></p>
     <br/><br/>
 </div>
-
 
 
 <!-- kh版权 -->

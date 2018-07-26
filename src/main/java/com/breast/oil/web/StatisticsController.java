@@ -69,8 +69,8 @@ public class StatisticsController {
         String audience = request.getParameter("audience");
         String city = "北京";
         String provice = "";
-        Map<String,Object> params = new HashMap<>();
-        params.put("ip",ip);
+        Map<String, Object> params = new HashMap<>();
+        params.put("ip", ip);
         String result = HttpClientHelper.sendGet("http://ip.taobao.com/service/getIpInfo.php", params, "UTF-8");
         if (result != null) {
             LocationTaobao locationTaobao = JSONObject.parseObject(result, new TypeReference<LocationTaobao>() {
@@ -78,29 +78,29 @@ public class StatisticsController {
             Location location = locationTaobao.data;
             city = location.city;
             provice = location.getProvince();
-            WebInfo info = new WebInfo(urlPath,new Date().getTime(),CommonUtils.getIpAddr(request),
-                    wechatId,keyWord,eKeywordid,referer,eMatchtype,eCreative,eAdposition,ePagenum,price,audience,dy,jh,provice,null);
+            WebInfo info = new WebInfo(urlPath, new Date().getTime(), CommonUtils.getIpAddr(request),
+                    wechatId, keyWord, eKeywordid, referer, eMatchtype, eCreative, eAdposition, ePagenum, price, audience, dy, jh, provice, null);
             info.setCity(city);
-            mUrlMappingService.savaWebInfo(info,urlPath,ip);
+            mUrlMappingService.savaWebInfo(info, urlPath, ip);
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,eKeywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_NEW,AppConsts.JS_ADD_COPY_LISTENER);
-            if ( StringUtils.isEmptyOrWhitespace(eCreative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
+                    , wechatId, city, keyWord, eKeywordid, AppConsts.JS_ADD_HISTORY, AppConsts.JS_ADD_BACK_LISTENER_NEW, AppConsts.JS_ADD_COPY_LISTENER);
+            if (StringUtils.isEmptyOrWhitespace(eCreative) || StringUtils.isEmptyOrWhitespace(audience) || StringUtils.isEmptyOrWhitespace(referer) || location == null || StringUtils.isEmptyOrWhitespace(location.city) || location.toString().contains("北京") || location.toString().contains("上海")
                     || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
-                if (location != null && (!location.toString().contains("广东"))   && (!StringUtils.isEmptyOrWhitespace(eCreative))) {
-                    if("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)
-                            || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)){
+                if (location != null && (!location.toString().contains("广东")) && (!StringUtils.isEmptyOrWhitespace(eCreative))) {
+                    if ("北京".equals(city) || "北京".equals(location.getProvince()) || "北京".equals(location.country) || location.toString().contains("北京") || location.toString().contains("上海") || StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)
+                            || location.toString().contains("广州") || location.toString().contains("深圳") || location.toString().contains("东莞") || "广州".equals(city) || "深圳".equals(city) || "北京".equals(city) || "上海".equals(city) || "东莞".equals(city)) {
                         return "{code:1}";
-                    }else{
+                    } else {
                         return str;
                     }
 
-                }else {
-                    if(StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)){
+                } else {
+                    if (StringUtils.isEmptyOrWhitespace(eCreative) || "{creative}".equals(eCreative)) {
                         return "{code:1}";
                     }
                     return "{code:1}";
                 }
-            }else{
+            } else {
                 return str;
             }
 
@@ -108,8 +108,6 @@ public class StatisticsController {
         return "{code:1}";
 
     }
-
-
 
 
     /**
@@ -122,20 +120,19 @@ public class StatisticsController {
     public String remember(HttpServletRequest request) {
         String type = request.getParameter("position");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(CommonUtils.getIpAddr(request));
-        if(webInfo != null) {
+        if (webInfo != null) {
             WXInfo wxInfo = new WXInfo(webInfo.getWechatId(), webInfo.getIp(), webInfo.getUrlPath(), new Date().getTime(),
                     type, webInfo.getKeyWord(), webInfo.geteKeywordid(), null,
-                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(),webInfo.getPrice(),webInfo.getAudience(),webInfo.getDy(),webInfo.getJh(),webInfo.getProvice(),webInfo.getStrartUrl());
+                    webInfo.geteMatchtype(), webInfo.geteCreative(), webInfo.geteAdposition(), webInfo.getePagenum(), webInfo.getPrice(), webInfo.getAudience(), webInfo.getDy(), webInfo.getJh(), webInfo.getProvice(), webInfo.getStrartUrl());
             wxInfo.setCity(webInfo.getCity());
             mUrlMappingService.savaWXInfo(wxInfo, webInfo.getUrlPath(), CommonUtils.getIpAddr(request));
             return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,webInfo.getWechatId(),webInfo.getCity(),webInfo.getKeyWord(),webInfo.geteKeywordid(), AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_BAIDU,AppConsts.JS_ADD_COPY_LISTENER);
-        }else{
+                    , webInfo.getWechatId(), webInfo.getCity(), webInfo.getKeyWord(), webInfo.geteKeywordid(), AppConsts.JS_ADD_HISTORY, AppConsts.JS_ADD_BACK_LISTENER_BAIDU, AppConsts.JS_ADD_COPY_LISTENER);
+        } else {
             return "{code:1}";
         }
 
     }
-
 
 
     /**
@@ -150,30 +147,30 @@ public class StatisticsController {
         String urlPath = request.getParameter("urlPath");
         String keyWord = request.getParameter("keyword");
         WebInfo webInfo = mUrlMappingService.getWebInfoByIP(ip);
-        String wechatId ;
+        String wechatId;
         String city = "北京";
         String provice = "";
-        if(webInfo != null) {
+        if (webInfo != null) {
             wechatId = mUrlMappingService.getRandomWechatId();
             //如果为空，就取推广的记录页面，否则随便取
-            if(StringUtils.isEmptyOrWhitespace(wechatId)) {
+            if (StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
             }
             city = webInfo.getCity();
             provice = webInfo.getProvice();
-            if(StringUtils.isEmptyOrWhitespace(keyWord)) {
+            if (StringUtils.isEmptyOrWhitespace(keyWord)) {
                 keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
             }
-            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
+            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸" : webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath(),webInfo.getStrartUrl());
+                    wechatId, keyWord, e_keywordid, city, provice, webInfo.getUrlPath(), webInfo.getStrartUrl());
             webInfo.setKeyWord(keyWord);
-            if(!"fxc".equals(urlPath)) {
+            if (!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
                 mWebInfoRepository.save(webInfo);
             }
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,AppConsts.JS_ADD_BACK_LISTENER_SELF,AppConsts.JS_ADD_COPY_LISTENER);
+                    , wechatId, city, keyWord, e_keywordid, AppConsts.JS_ADD_HISTORY, AppConsts.JS_ADD_BACK_LISTENER_SELF, AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
         return "{code:1}";
@@ -195,31 +192,30 @@ public class StatisticsController {
         String wechatId = mUrlMappingService.getRandomWechatIdByUrl(urlPath);
         String city = "北京";
         String provice = "";
-        if(webInfo != null) {
+        if (webInfo != null) {
             //如果为空，就取推广的记录页面，否则随便取
-            if(StringUtils.isEmptyOrWhitespace(wechatId)) {
+            if (StringUtils.isEmptyOrWhitespace(wechatId)) {
                 wechatId = webInfo.getWechatId();
             }
             city = webInfo.getCity();
             provice = webInfo.getProvice();
-            if(StringUtils.isEmptyOrWhitespace(keyWord)) {
+            if (StringUtils.isEmptyOrWhitespace(keyWord)) {
                 keyWord = webInfo.getKeyWord() == null ? "丰胸" : webInfo.getKeyWord();
             }
-            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸":webInfo.geteKeywordid();
+            String e_keywordid = webInfo.geteKeywordid() == null ? "丰胸" : webInfo.geteKeywordid();
             HtmlInfo htmlInfo = new HtmlInfo(urlPath, new Date().getTime(), ip,
-                    wechatId, keyWord, e_keywordid,city,provice,webInfo.getUrlPath(),webInfo.getStrartUrl());
-            if(!"fxc".equals(urlPath)) {
+                    wechatId, keyWord, e_keywordid, city, provice, webInfo.getUrlPath(), webInfo.getStrartUrl());
+            if (!"fxc".equals(urlPath)) {
                 mUrlMappingService.savaHtmlWebInfo(htmlInfo);
             }
-            String backparams = String.format(AppConsts.JS_ADD_BACK_LISTENER,webInfo.toString());
+            String backparams = String.format(AppConsts.JS_ADD_BACK_LISTENER, webInfo.toString());
             String str = String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"%s\",\"e_keywordid\":\"%s\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                    ,wechatId,city,keyWord,e_keywordid, AppConsts.JS_ADD_HISTORY,backparams,AppConsts.JS_ADD_COPY_LISTENER);
+                    , wechatId, city, keyWord, e_keywordid, AppConsts.JS_ADD_HISTORY, backparams, AppConsts.JS_ADD_COPY_LISTENER);
             return str;
         }
         return String.format("{\"wechatId\":\"%s\",\"city\":\"%s\",\"keyWord\":\"丰胸\",\"e_keywordid\":\"丰胸\",\"JS_ADD_HISTORY\":\"%s\",\"JS_ADD_BACK_LISTENER\":\"%s\",\"JS_ADD_COPY_LISTENER\":\"%s\"}"
-                ,wechatId,city, "fengxiong","fengxiong","\"fengxiong\"");
+                , wechatId, city, "fengxiong", "fengxiong", "\"fengxiong\"");
     }
-
 
 
     /**

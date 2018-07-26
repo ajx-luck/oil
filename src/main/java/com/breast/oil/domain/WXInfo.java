@@ -33,7 +33,7 @@ public class WXInfo {
     private String keyWord;
     @Column(nullable = true)
     private String eKeywordid;
-    @Type(type="text")
+    @Type(type = "text")
     @Column(nullable = true)
     private String refer;
     /**
@@ -94,12 +94,12 @@ public class WXInfo {
     @Column(nullable = true)
     private String strartUrl;
 
-    public WXInfo(){
+    public WXInfo() {
 
     }
 
     public WXInfo(String wechatId, String ip, String urlPath, Long createTime, String type, String keyWord, String e_keywordid,
-                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum,String price,String audience,String dy,String jh,String provice,String strartUrl) {
+                  String refer, String e_matchtype, String e_creative, String e_adposition, String e_pagenum, String price, String audience, String dy, String jh, String provice, String strartUrl) {
         this.wechatId = wechatId;
         this.ip = ip;
         this.urlPath = urlPath;

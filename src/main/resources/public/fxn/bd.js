@@ -1,4 +1,3 @@
-
 function getSelectedText() {
     var a = '';
     if (window.getSelection) {
@@ -16,13 +15,15 @@ function getSelectedText() {
         return true
     }
 }
-$(function() {
-    $("body").bind('copy', function() {
+
+$(function () {
+    $("body").bind('copy', function () {
         if (getSelectedText()) {
 
             try {
                 window.location.href = "weixin://"
-            } catch (e) {}
+            } catch (e) {
+            }
         }
     })
 });

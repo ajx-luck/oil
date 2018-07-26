@@ -21,25 +21,25 @@
     <title>查询结果</title>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <th>下标</th>
-            <th>关键字</th>
-            <th>关键字描述</th>
-            <th>微信号码（可选）</th>
-            <th>微信点击</th>
-            <th>网页点击</th>
-            <th>百分比</th>
-        </tr>
-        <tr  th:each="count,countStat : ${list}">
-            <th th:text="${countStat.index}">下标</th>
-            <th th:text="${count.keyWord}">关键字</th>
-            <th th:text="${count.keyWordDesc}">关键字描述</th>
-            <th th:text="${count.wechatId}">微信号码（可选）</th>
-            <th th:text="${count.wxCount}">微信点击</th>
-            <th th:text="${count.webCount}">网页点击</th>
-            <th th:text="${count.percentage}">百分比</th>
-        </tr>
-    </table>
+<table border="1">
+    <tr>
+        <th>下标</th>
+        <th>关键字</th>
+        <th>关键字描述</th>
+        <th>微信号码（可选）</th>
+        <th>微信点击</th>
+        <th>网页点击</th>
+        <th>百分比</th>
+    </tr>
+    <tr th:each="count,countStat : ${list}">
+        <th th:text="${countStat.index}">下标</th>
+        <th th:text="${count.keyWord}">关键字</th>
+        <th th:text="${count.keyWordDesc}">关键字描述</th>
+        <th th:text="${count.wechatId}">微信号码（可选）</th>
+        <th th:text="${count.wxCount}">微信点击</th>
+        <th th:text="${count.webCount}">网页点击</th>
+        <th th:text="${count.percentage}">百分比</th>
+    </tr>
+</table>
 </body>
 </html>

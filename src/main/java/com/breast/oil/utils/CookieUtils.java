@@ -13,6 +13,7 @@ public class CookieUtils {
 
     /**
      * 设置cookie
+     *
      * @param response
      * @param name
      * @param value
@@ -21,7 +22,7 @@ public class CookieUtils {
     public static void set(HttpServletResponse response,
                            String name,
                            String value,
-                           int maxAge){
+                           int maxAge) {
         Cookie cookie = new Cookie(name, value); //设置cookie的key和value值
         cookie.setPath("/");        //路径
         cookie.setMaxAge(maxAge);   //过期时间
@@ -30,16 +31,17 @@ public class CookieUtils {
 
     /**
      * 获取cookie
+     *
      * @param request
      * @param name
      * @return
      */
     public static Cookie get(HttpServletRequest request,
-                             String name){
+                             String name) {
         Map<String, Cookie> cookieMap = readCookieMap(request);
-        if(cookieMap.containsKey(name)){  //判断cookieMap是否含有该key
+        if (cookieMap.containsKey(name)) {  //判断cookieMap是否含有该key
             return cookieMap.get(name);
-        }else{
+        } else {
             return null;
         }
 
@@ -47,15 +49,16 @@ public class CookieUtils {
 
     /**
      * 将cookie封装成map
+     *
      * @param request
      * @return
      */
-    private static Map<String, Cookie> readCookieMap(HttpServletRequest request){
+    private static Map<String, Cookie> readCookieMap(HttpServletRequest request) {
         Map<String, Cookie> cookieMap = new HashMap<>();
         Cookie[] cookies = request.getCookies();        //获取所有的cookie值
-        if(cookies != null){
-            for (Cookie cookie : cookies){
-                cookieMap.put(cookie.getName(),cookie);
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookieMap.put(cookie.getName(), cookie);
             }
         }
         return cookieMap;

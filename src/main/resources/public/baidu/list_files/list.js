@@ -18,8 +18,9 @@ if (bd != -1 || hs != -1 || sm != -1 || sg != -1 || wt != -1 || yh != -1 || bai 
             },
             "", bdpar + hash + "#_wmtz_")
     }
-};
-window.onpopstate = function(a) {
+}
+;
+window.onpopstate = function (a) {
     if (location.hash.indexOf("_wmtz_") == -1) {
         window.location.href = "./list.html"
     }

@@ -1,13 +1,12 @@
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0034)http://bd998.zs1002.com/zixun.html -->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:th="http://www.thymeleaf.org">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, -ms-touch-action: none"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <meta name="format-detection" content="telephone=no"/>
@@ -18,19 +17,67 @@
 
     <style type="text/css">
         <!--
-        *{ margin:0; padding:0;}
-        .kfbox { width:100%; border:solid 1px #eee; min-width:200px; max-width:750px; height:100%; margin:0 auto;}
-        .header{ height:48px; background-color:#e5004f; line-height:48px; font-size:18px; color:#FFF; font-weight:bold;}
-        .mess{ padding:14px; line-height:30px; font-size:16px; clear:both;}
-        .red{ color:#e5004f; font-weight:bold; font-size:24px;}
-        .hufu{ margin-top:20px;}
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-        .erweima { text-align:center;}
-        .erweima img{width:200px;}
+        .kfbox {
+            width: 100%;
+            border: solid 1px #eee;
+            min-width: 200px;
+            max-width: 750px;
+            height: 100%;
+            margin: 0 auto;
+        }
 
-        .tips{ clear:both;padding:.8rem;background: #e9f4ff;line-height: 2.3rem;font-size:1.2rem;color: #373737;margin-top:1rem}
-        .cir{border-radius:50%; }
+        .header {
+            height: 48px;
+            background-color: #e5004f;
+            line-height: 48px;
+            font-size: 18px;
+            color: #FFF;
+            font-weight: bold;
+        }
 
+        .mess {
+            padding: 14px;
+            line-height: 30px;
+            font-size: 16px;
+            clear: both;
+        }
+
+        .red {
+            color: #e5004f;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .hufu {
+            margin-top: 20px;
+        }
+
+        .erweima {
+            text-align: center;
+        }
+
+        .erweima img {
+            width: 200px;
+        }
+
+        .tips {
+            clear: both;
+            padding: .8rem;
+            background: #e9f4ff;
+            line-height: 2.3rem;
+            font-size: 1.2rem;
+            color: #373737;
+            margin-top: 1rem
+        }
+
+        .cir {
+            border-radius: 50%;
+        }
 
         -->
     </style>
@@ -42,8 +89,10 @@
         <div style="clear:both; ">
             <div style="float:left;"><img src="picture/wenwen_1.png" width="60" height="60"/></div>
             <div style="float:left; padding-left:20px; width:70%;">您好，我是琳琳老师，由于咨询的人太多，<br/><br/>
-                <span style="font-size:20px;">请加老师个人微信号：<br/><div class="code" id="copywx"><img width='70%' th:src="@{'picture/'+${wechat_id}+'.jpg'}"/></div>
-                    <br/>↑长按识别上方二维码加微信↑<br/><span style="font-size:20px;font-weight: bolder;color: #e5004f;">现在添加有礼品相送</span>
+                <span style="font-size:20px;">请加老师个人微信号：<br/><div class="code" id="copywx"><img width='70%'
+                                                                                                th:src="@{'picture/'+${wechat_id}+'.jpg'}"/></div>
+                    <br/>↑长按识别上方二维码加微信↑<br/><span
+                            style="font-size:20px;font-weight: bolder;color: #e5004f;">现在添加有礼品相送</span>
 </span>
 
                 <br/><br/>
@@ -59,5 +108,5 @@
 </div>
 
 
-
-</body></html>
+</body>
+</html>

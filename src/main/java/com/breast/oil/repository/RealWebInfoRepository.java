@@ -44,5 +44,5 @@ public interface RealWebInfoRepository extends JpaRepository<RealWebInfo, Long> 
                                                                              @Param("startTime") Long startTime,
                                                                              @Param("endTime") Long endTime);
 
-    RealWebInfo findByIp( @Param("ip") String ip);
+    RealWebInfo findByIp(@Param("ip") String ip);
 }

@@ -44,11 +44,11 @@ public class HtmlInfo {
     @Column(nullable = true)
     private String city;
 
-    public HtmlInfo(){
+    public HtmlInfo() {
 
     }
 
-    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid,String city,String provice,String urlRefer,String strartUrl) {
+    public HtmlInfo(String urlPath, Long createTime, String ip, String wechatId, String keyWord, String e_keywordid, String city, String provice, String urlRefer, String strartUrl) {
         this.urlPath = urlPath;
         this.createTime = createTime;
         this.ip = ip;

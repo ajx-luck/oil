@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>学历查询_中国高等教育学生信息网(学信网)</title>
+    <link rel="icon" href="/favicon.ico?v=1483494816229" type="image/x-icon"/>
+    <link rel="stylesheet" href='http://t4.chei.com.cn/chsi/css/common2014.css?v=1483494816229'>
+    <link rel="stylesheet" href='http://t1.chei.com.cn/common/ch/iconfont.css?v=1483494816229'>
+    <link rel="stylesheet" href='http://t4.chei.com.cn/chsi/xlcx/lscx/css/min/lscx.min.css?v=1483494816230'/>
+    <link rel="stylesheet" href='http://t1.chei.com.cn/common/plugins/dialog/6.0.5/css/ui-dialog.css?v=1483494816229'>
+    <script src='http://t1.chei.com.cn/common/jquery/1.9.1/jquery.min.js?v=1483494816229'></script>
+    <script src='http://t1.chei.com.cn/common/plugins/dialog/6.0.5/dialog-min.js?v=1483494816229'></script>
+    <script src='http://t1.chei.com.cn/common/plugins/validation/jquery.validate.min.js?v=1483494816229'></script>
+
+
+    <script src="https://t1.chei.com.cn/common/js/boomerang-min-20141211.js"></script>
+    <script>
+        BOOMR.init({
+            beacon_url: "https://www.chsi.com.cn/images/perf.gif",
+            log: null,
+            DNS: {
+                base_url: "http://*.chdi.com.cn/images/"
+            }
+        });
+    </script>
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-100524-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="header">
+
+
+    <img src='http://t1.chei.com.cn/common/wap/images/share_xxw.jpg' width='0' height='0'
+         style='position: absolute;top:-100px;left: 0'/>
+    <div class="t_top_nav">
+        <div class="width1000 clearfix">
+            <div class="t_top_nav_l"><span style="color:#d94840">&nbsp;</span>
+            </div>
+            <div class="t_top_nav_r"><a href="/" target="_parent">首页</a>　|　<a href="/help/wzdh.jsp" target="_parent">网站导航</a>　|　<a
+                    href="http://www.chsi.cn/" target="_parent">教育网</a>　|　<a href="/en/" target="_parent">English</a>
+            </div>
+            <div class="clearit"></div>
+        </div>
+    </div>
+    <div class="t_header">
+        <div class="width1000 clearfix">
+            <div class="t_h_logo"><a href="/" target="_parent" class="home"></a>&nbsp;</div>
+            <h2><a href="/" target="_parent" class="home"></a>教育部学历查询网站、教育部高校招生阳光工程指定网站、全国硕士研究生招生报名和调剂指定网站</h2>
+            <div class="t_h_search">
+                <form method="get" action="/search.jsp" target="_blank" id='cse-search-box'>
+                    <table cellpadding="0" cellspacing="0" border="0" align="right">
+                        <tr>
+                            <td>
+                                <input type="text" name="q" maxlength="50" id="sbi" class="t_h_s_input color999"
+                                       value="站内搜索"/>
+                                <input type="hidden" name="sitesearch" value="chsi"/>
+                                <input type="hidden" name="searchType" value="baidu"/>
+                            </td>
+                            <td>
+                                <input type="submit" id="sbb" value="搜索" class="t_h_s_submit"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        .t_nav li {
+            padding-right: 7px;
+        }
+    </style>
+    <div class="t_nav">
+        <ul class="width1000">
+            <li style="padding-left:5px;"><a href="/" target="_parent">首页</a></li>
+            <li><a href="https://my.chsi.com.cn/" target="_blank">学籍查询</a></li>
+            <li><a href="/xlcx/index.jsp" target="_parent">学历查询</a></li>
+            <li><a href="/xlcx/bgcx.jsp">在线验证</a></li>
+            <li><a href="/xlrz/index.jsp" target="_parent">学历与成绩认证</a></li>
+            <li><a href="https://my.chsi.com.cn/archive/index.jsp#txjd" target="_blank">图像校对</a></li>
+            <li><a href="https://my.chsi.com.cn/" target="_blank">学信档案</a></li>
+            <li><a href="http://gaokao.chsi.com.cn/" target="_blank" title="教育部阳光高考信息平台">高考</a></li>
+            <li><a href="http://yz.chsi.com.cn/" target="_blank" title="中国研究生招生信息网">考研</a></li>
+            <li><a href="http://zf.chsi.com.cn/" target="_blank" title="政法干警改革试点招生网">政法招生</a></li>
+            <li><a href="http://www.gatzs.com.cn/" target="_blank">港澳台招生</a></li>
+            <li><a href="/cet/" target="_parent">四六级查分</a></li>
+            <li><a href="http://www.gfbzb.gov.cn/" target="_blank">征兵</a></li>
+            <li><a href="http://job.chsi.com.cn/" target="_blank">就业</a></li>
+            <li><a href="http://xz.chsi.com.cn/" target="_blank">学职平台</a></li>
+            <li><a href="http://jp.chsi.com.cn/" target="_blank">日本频道</a></li>
+            <li style="padding-right:0;"><a href="http://www.ncss.org.cn" title='新职业' target='_blank'
+                                            onmousedown="goo(this, '1654381345')"
+                                            onblur="this.href='http://www.ncss.org.cn'">新职业</a></li>
+        </ul>
+    </div>
+    <script>
+        function formSubmitH() {
+            var sbi = document.getElementById('sbi').value;
+            sbi = sbi.replace(/^\s+|\s+$/g, '');//去左右空格
+            document.getElementById('sbi').value = sbi;//去空格后赋值
+            if (sbi == '' || sbi == '站内搜索') {
+                alert('请输入搜索内容！');
+                return false;
+            }
+            if (sbi.length > 50) {
+                alert('关键字不得超过50个字');
+                return false;
+            }
+            return true;
+        }
+
+        document.getElementById("cse-search-box").onsubmit = function () {
+            return formSubmitH();
+        }
+
+        //输入框获取焦点和失去焦点效果
+        function eventFocusAndBlur(id, text) {
+            document.getElementById(id).onfocus = function () {
+                if (this.value == "" || this.value == text) {
+                    this.value = "";
+                }
+                this.style.color = "#333333";
+            }
+            document.getElementById(id).onblur = function () {
+                if (this.value == "" || this.value == text) {
+                    this.value = text;
+                    this.style.color = "#999999";
+                }
+            }
+        }
+
+        eventFocusAndBlur("sbi", "站内搜索");
+
+        function goo(curr, adv_id) {
+            curr.href = "http://axvert.chsi.com.cn/goo.action?aid=" + adv_id + "&evtype=referer_blank";
+            return true;
+        }
+    </script>
+</div>
+<div class="content">
+
+
+    <div class="main clearfix">
+        <div class="m_yah"><a href='/'>首页</a>&nbsp;&gt;&nbsp;<a href='/xlcx/index.jsp'>学历查询</a>&nbsp;&gt;&nbsp;<a
+                href='/xlcx/lscx/query.do'>零散查询</a>&nbsp;&gt;&nbsp;查询结果
+        </div>
+        <div class="m_l" id="leftH">
+            <h2>中国高等教育学历证书查询结果</h2>
+            <div id="result">
+                <div class="m_cnt_m clearfix">
+                    <div class="xlcx-list">
+                        <div class="xl-photo"><img width="110" src='/picture/789.jpg'/></div>
+                        <table class="xl-table">
+
+
+                            <tr>
+                                <th class="td-width-1">姓名：</th>
+                                <td class="td-width-2">何铭名</td>
+                                <th class="td-width-3">性别：</th>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <th>出生日期：</th>
+                                <td>1990年7月23日</td>
+                                <th>入学日期：</th>
+                                <td>2007年9月1日</td>
+                            </tr>
+                            <tr>
+                                <th>毕（结）业日期：</th>
+                                <td>2011年6月30日</td>
+                                <th>学校名称：</th>
+                                <td>
+                                    长沙学院
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>专业：</th>
+                                <td>软件工程</td>
+                                <th>学历类别：</th>
+                                <td>普通高等教育</td>
+                            </tr>
+                            <tr>
+                                <th>学制：</th>
+                                <td>4</td>
+                                <th>学习形式：</th>
+                                <td>普通全日制</td>
+                            </tr>
+                            <tr>
+                                <th>层次：</th>
+                                <td>本科</td>
+                                <th>毕（结）业：</th>
+                                <td>毕业</td>
+                            </tr>
+                            <tr>
+                                <th>校（院）长姓名：</th>
+                                <td>*</td>
+                                <th>证书编号：</th>
+                                <td>
+                                    110771201105000308
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="xlcx-prompt">
+                    <strong>声明：</strong>
+                    <p> 1、未经学历信息权属人同意，不得将本材料用于违背权属人意愿之用途。学历信息内容标注“＊”号，表示该项内容不详。学历信息如有修改，请以网站在线查询内容为准。 </p>
+                    <p> 2、学历证书查询结果仅供查询人使用，不具有再验证功能。如需向第三方提供学历信息，建议使用具有验证功能的学历证书电子注册备案表。 </p>
+
+                </div>
+            </div>
+            <div class='xlcx-center'>
+                <a href="https://my.chsi.com.cn" target='_blank' class='query_btn btn_blue'>登录学信档案免费申请学历证书电子注册备案表</a>
+            </div>
+        </div>
+
+
+        <div class="m_r" id="rightH">
+            <h2><span class="line">&nbsp;</span><span class="txt">网站提醒</span></h2>
+            <div class="m_cnt_s"><a href="/jyzx/201206/20120614/320592423.html" target="_blank">谨防学历售假骗局</a><br/>
+                <a href="/jyzx/201109/20110923/235075716.html" target="_blank">获取学历没有捷径，防止上当受骗</a></div>
+
+            <h2><span class="line">&nbsp;</span><span class="txt">政策及常识</span></h2>
+            <div class="m_cnt_s">
+                <ul>
+                    <li><a href="/jyzx/201408/20140829/1245955796.html" target="_blank">高等学校学生学籍学历电子注册办法</a></li>
+                    <li><a href="/xlrz/ct06.shtml" target="_blank">学历电子注册工作流程</a></li>
+                    <li><a href="/xlcx/200710/20071019/1407132.html" target="_blank">高校学生获得学籍及毕业证书政策</a></li>
+                    <li><a href="/xlcx/xlcs.shtml" target="_blank">学历相关知识</a>　<a href="/help/index.jsp" target='_blank'>常见问题</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        if (self != top) {
+            top.location = self.location;
+        }
+
+        function clickPrint() {
+            var rndid = $("#rndid").val();
+            $.ajax({
+                type: 'post',
+                url: 'printxl.do',
+                data: {'rndid': rndid},
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        doPrint();
+                    } else {
+                        alert(data.message);
+                    }
+                }
+
+            });
+        }
+
+        function doPrint() {
+            var str = '<!doctype html><html><head><meta charset="utf-8">';
+            str += '<title>' + document.title + '</title>';
+            str += '<link href="http://t1.chei.com.cn/chsi/css/resultPrint2014.css?v=1483609374523" rel="stylesheet" type="text/css">';
+            str += '</head>';
+            str += '<body onload="window.print()" class="main clearfix"><h1>中国高等教育学历证书查询结果</h1>' + document.getElementById("result").innerHTML + '</body></html>';
+            w = window.open("", "", "");
+            w.document.write(str);
+            w.document.close();
+        }
+    </script>
+</body>
+</html>
+</div>
+<div class="footer">
+
+
+    <div class="foot" id="footer"><a href="http://chesicc.moe.edu.cn/zxgw/zxjs/201604/20160418/1529506207.html"
+                                     target="_blank">中心简介</a> － <a href="/about/about_site.shtml"
+                                                                   target="_blank">网站简介</a> － <a
+            href="/about/contact.shtml" target="_blank">联系我们</a> － <a href="/zhaopin/index.jsp" target="_blank">招聘信息</a>
+        － <a href="/about/copyright.shtml" target="_blank">版权声明</a> － <a href="/ad/index.shtml" target="_blank">网站广告</a>
+        － <a href="/help/" target="_blank">帮助中心</a> － <a href="/help/wzdh.jsp" target="_blank">网站导航</a> － <a
+                href="/z/tenyears/index.jsp" target="_blank">学信十周年</a><br/>
+        主办单位：<a href="http://chesicc.moe.edu.cn/" target="_blank">全国高等学校学生信息咨询与就业指导中心</a>　客服热线：010-82199588　客服邮箱：kefu#chsi.com.cn（将#替换为@）　Copyright
+        © 2003-2018 <a href="http://www.chsi.com.cn/" target="_blank">学信网</a> All Rights Reserved
+    </div>
+    <script type="text/javascript">
+        function footerPst(id1, id2) {
+            var subH = document.documentElement.clientHeight - document.body.offsetHeight;
+            if (document.getElementById("footer") && document.getElementById(id1) && subH > 0) {
+                var leftH = document.getElementById(id1).offsetHeight;
+                var rightH = 0, new_subH = 0;
+                if (document.getElementById(id2)) {
+                    rightH = document.getElementById(id2).offsetHeight;
+                } else {
+                    if (leftH < 443) {
+                        new_subH = subH - (443 - leftH);
+                    }
+                    leftH = (leftH > 443) ? leftH : 443;//for news,news_right changed, the number change
+                }
+                if (leftH > rightH) {
+                    if (leftH == 443) { //说明leftH小于443，上面已经重新赋值了
+                        subH = new_subH;
+                    }
+                    document.getElementById(id1).style.height = leftH + subH - 20 + "px";
+                } else {
+                    document.getElementById(id2).style.height = rightH + subH - 20 + "px";
+                }
+            }
+        }
+
+        window.onload = function () {
+            footerPst("leftH", "rightH");
+            footerPst("leftMenu", "rightCnt");
+            footerPst("leftHeight", "");
+        }
+    </script>
+</div>
+</body>
+</html>
