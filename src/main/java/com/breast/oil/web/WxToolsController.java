@@ -6,6 +6,7 @@ import com.breast.oil.po.RespInfo;
 import com.breast.oil.po.WechatFriend;
 import com.breast.oil.push.Demo;
 import com.breast.oil.repository.PYQInfoRepository;
+import com.breast.oil.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,8 @@ public class WxToolsController {
     PYQInfoRepository mPYQInfoRepository;
     @Autowired
     Demo mPush;
+    @Autowired
+    UserService mUserService;
 
     @RequestMapping(value = "/names", method = RequestMethod.GET)
     public String remember(HttpServletRequest request) {
@@ -57,7 +60,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidCustomizedcast("养号","TRUE",name,"WEIXIN");
+            mPush.sendAndroidUnicast("养号","TRUE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,7 +87,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidCustomizedcast("朋友圈","TRUE",name,"WEIXIN");
+            mPush.sendAndroidUnicast("朋友圈","TRUE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +119,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidCustomizedcast("加粉",time,name,"WEIXIN");
+            mPush.sendAndroidUnicast("加粉",time,name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +134,8 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidCustomizedcast("停止","FALSE",name,"WEIXIN");
+//            mPush.sendAndroidCustomizedcast("停止","FALSE",name,"WEIXIN");
+            mPush.sendAndroidUnicast("停止","FALSE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -38,13 +38,13 @@ public class Demo {
 		client.send(broadcast);
 	}
 	
-	public void sendAndroidUnicast() throws Exception {
+	public void sendAndroidUnicast(String title,String content,String devicetoken) throws Exception {
 		AndroidUnicast unicast = new AndroidUnicast(appkey,appMasterSecret);
 		// TODO Set your device token
-		unicast.setDeviceToken( "your device token");
+		unicast.setDeviceToken( devicetoken);
 		unicast.setTicker( "Android unicast ticker");
-		unicast.setTitle(  "中文的title");
-		unicast.setText(   "Android unicast text");
+		unicast.setTitle(  title);
+		unicast.setText(   content);
 		unicast.goAppAfterOpen();
 		unicast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
 		// TODO Set 'production_mode' to 'false' if it's a test device. 

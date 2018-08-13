@@ -3,6 +3,7 @@ package com.breast.oil.services;
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.SecretInfo;
 import com.breast.oil.domain.UserInfo;
+import com.breast.oil.push.Demo;
 import com.breast.oil.repository.SecretInfoRepository;
 import com.breast.oil.repository.UserInfoRepository;
 import com.breast.oil.utils.SymmetricEncoder;
@@ -19,6 +20,8 @@ public class UserService {
     UserInfoRepository mUserInfoRepository;
     @Autowired
     SecretInfoRepository mSecretInfoRepository;
+    @Autowired
+    Demo mPush;
 
     public String checkUserByDevice(String device){
         List<UserInfo> list = mUserInfoRepository.findByDevice(device);
@@ -85,6 +88,18 @@ public class UserService {
                 mSecretInfoRepository.save(info);
                 mUserInfoRepository.save(userInfo);
                 return true;
+            }
+        }
+    }
+
+
+    public void sendPush(String title,String content,String username){
+        List<UserInfo> list = mUserInfoRepository.findByUsername(username);
+        for(UserInfo userInfo:list){
+            try {
+                mPush.sendAndroidUnicast(title,content,userInfo.pushkey);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

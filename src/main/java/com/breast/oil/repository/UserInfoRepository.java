@@ -10,4 +10,6 @@ public interface UserInfoRepository extends JpaRepository<UserInfo,Long> {
     List<UserInfo> findByDevice(@Param("device") String device);
 
     List<UserInfo> findByTonken(@Param("tonken") String tonken);
+
+    List<UserInfo> findByUsername(@Param("username") String username);
 }
