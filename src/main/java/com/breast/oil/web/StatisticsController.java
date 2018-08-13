@@ -1,16 +1,20 @@
 package com.breast.oil.web;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
 import com.breast.oil.po.Location;
 import com.breast.oil.po.LocationTaobao;
+import com.breast.oil.po.RespInfo;
+import com.breast.oil.repository.PYQInfoRepository;
 import com.breast.oil.repository.RealWebInfoRepository;
 import com.breast.oil.repository.WXInfoRepository;
 import com.breast.oil.repository.WebInfoRepository;
 import com.breast.oil.services.UrlMappingService;
+import com.breast.oil.services.UserService;
 import com.breast.oil.utils.CommonUtils;
 import com.breast.oil.utils.HttpClientHelper;
 import com.breast.oil.utils.TimeUtils;
@@ -43,6 +47,8 @@ public class StatisticsController {
     RealWebInfoRepository mRealWebInfoRepository;
     @Autowired
     WebInfoRepository mWebInfoRepository;
+    @Autowired
+    UserService mUserService;
 
 
     /**
@@ -242,10 +248,10 @@ public class StatisticsController {
         long end = TimeUtils.DateTimeParse(secondClick.getEnd() + " " + secondClick.getEndTime());
         String result = "";
         if (secondClick.getWechatId() == null || secondClick.getWechatId() == "") {
-            result = "{count:" + mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+            result = "{asum:" + mWXInfoRepository.countByKeyWordAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
                     secondClick.getKeyWord(), start, end) + "}";
         } else {
-            result = "{count:" + mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
+            result = "{asum:" + mWXInfoRepository.countByKeyWordAndWechatIdAndCreateTimeGreaterThanEqualAndCreateTimeLessThan(
                     secondClick.getKeyWord(), secondClick.wechatId, start, end) + "}";
         }
         return result;
@@ -264,5 +270,38 @@ public class StatisticsController {
         KeyWord kw = new KeyWord(keyWord, keyWordDesc, new Date().getTime());
         mUrlMappingService.addKeyWord(kw);
         return "{code:0}";
+    }
+
+    @RequestMapping(value = "/access", method = RequestMethod.GET)
+    public String access(HttpServletRequest request) {
+        RespInfo info = new RespInfo();
+        String pushkey = request.getParameter("pushkey");
+        String secret = request.getParameter("secret");
+        String deviceid = request.getParameter("deviceid");
+        String name = request.getParameter("name");
+        if(mUserService.addOrUpdateUser(pushkey,secret,deviceid,name)){
+            info.status = 200;
+            info.message = "ok";
+        }else{
+            info.status = 500;
+            info.message = "fail";
+        }
+        return JSON.toJSONString(info);
+    }
+
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    public String check(HttpServletRequest request) {
+        RespInfo info = new RespInfo();
+        String deviceid = request.getParameter("deviceid");
+        String data = mUserService.checkUserByDevice(deviceid);
+        info.data = data;
+        if(!"fail".equals(data)) {
+            info.status = 200;
+            info.message = "ok";
+        }else{
+            info.status = 500;
+            info.message = "fail";
+        }
+        return JSON.toJSONString(info);
     }
 }

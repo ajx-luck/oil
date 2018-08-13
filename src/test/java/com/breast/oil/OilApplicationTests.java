@@ -1,10 +1,13 @@
 package com.breast.oil;
 
+import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.KeyWord;
+import com.breast.oil.domain.SecretInfo;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.repository.*;
 import com.breast.oil.services.WxTicketService;
+import com.breast.oil.utils.SymmetricEncoder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +33,8 @@ public class OilApplicationTests {
     private KeyWordRepository mKeyWordRepository;
     @Autowired
     private WxTicketService mWxTicketService;
+    @Autowired
+    private SecretInfoRepository mSecretInfoRepository;
 
     @Test
     public void contextLoads() {
@@ -69,5 +75,16 @@ public class OilApplicationTests {
         mKeyWordRepository.save(keyWord);
     }
 
+
+    @Test
+    public void testSetSecret() {
+        String secret = SymmetricEncoder.AESEncode(AppConsts.ENCODER_KEY,   new Date().getTime() + "53"+ new Random().nextInt(5000));
+        long time = 24*30;
+        SecretInfo secretInfo = new SecretInfo();
+        secretInfo.secret = secret;
+        secretInfo.availTime = time;
+        secretInfo.isUse = false;
+        mSecretInfoRepository.save(secretInfo);
+    }
 
 }

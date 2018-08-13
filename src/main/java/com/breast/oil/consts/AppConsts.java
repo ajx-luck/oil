@@ -15,6 +15,8 @@ public interface AppConsts {
     String URL_8 = "fx8";
     String URL_9 = "fx9";
     String URL_10 = "fx10";
+    //AES加密key
+    String ENCODER_KEY = "mcc%/123.opx";
 
     String WECHAT_ID_COOKIE_NAME = "wechatid";
     String CITY_NAME = "cityid";
