@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.breast.oil.domain.PYQInfo;
 import com.breast.oil.po.RespInfo;
 import com.breast.oil.po.WechatFriend;
-import com.breast.oil.push.Demo;
 import com.breast.oil.repository.PYQInfoRepository;
 import com.breast.oil.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,6 @@ import java.util.List;
 public class WxToolsController {
     @Autowired
     PYQInfoRepository mPYQInfoRepository;
-    @Autowired
-    Demo mPush;
     @Autowired
     UserService mUserService;
 
@@ -60,7 +57,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidUnicast("养号","TRUE",name);
+            mUserService.sendPush("养号","TRUE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,7 +84,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidUnicast("朋友圈","TRUE",name);
+            mUserService.sendPush("朋友圈","TRUE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -119,7 +116,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mPush.sendAndroidUnicast("加粉",time,name);
+            mUserService.sendPush("加粉",time,name);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,8 +131,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-//            mPush.sendAndroidCustomizedcast("停止","FALSE",name,"WEIXIN");
-            mPush.sendAndroidUnicast("停止","FALSE",name);
+            mUserService.sendPush("停止","FALSE",name);
         } catch (Exception e) {
             e.printStackTrace();
         }
