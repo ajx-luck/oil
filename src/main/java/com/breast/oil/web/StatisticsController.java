@@ -9,14 +9,12 @@ import com.breast.oil.domain.*;
 import com.breast.oil.po.Location;
 import com.breast.oil.po.LocationTaobao;
 import com.breast.oil.po.RespInfo;
-import com.breast.oil.repository.PYQInfoRepository;
-import com.breast.oil.repository.RealWebInfoRepository;
-import com.breast.oil.repository.WXInfoRepository;
-import com.breast.oil.repository.WebInfoRepository;
+import com.breast.oil.repository.*;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.UserService;
 import com.breast.oil.utils.CommonUtils;
 import com.breast.oil.utils.HttpClientHelper;
+import com.breast.oil.utils.SymmetricEncoder;
 import com.breast.oil.utils.TimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -30,6 +28,7 @@ import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static com.breast.oil.consts.AppConsts.URL_2;
 
@@ -49,7 +48,8 @@ public class StatisticsController {
     WebInfoRepository mWebInfoRepository;
     @Autowired
     UserService mUserService;
-
+    @Autowired
+    private SecretInfoRepository mSecretInfoRepository;
 
     /**
      * 记录静态网页点击
@@ -303,5 +303,20 @@ public class StatisticsController {
             info.message = "fail";
         }
         return JSON.toJSONString(info);
+    }
+
+    @RequestMapping(value = "/setcdk", method = RequestMethod.GET)
+    public String setCDK(HttpServletRequest request) {
+        int number = Integer.valueOf(request.getParameter("number"));
+        long time = Long.valueOf(request.getParameter("time"));
+        for(int i=0;i<number;i++) {
+            String secret = SymmetricEncoder.AESEncode(AppConsts.ENCODER_KEY, new Date().getTime() + "53" + new Random().nextInt(5000));
+            SecretInfo secretInfo = new SecretInfo();
+            secretInfo.secret = secret;
+            secretInfo.availTime = time;
+            secretInfo.isUse = false;
+            mSecretInfoRepository.save(secretInfo);
+        }
+        return "0";
     }
 }
