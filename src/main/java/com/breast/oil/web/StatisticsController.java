@@ -335,7 +335,7 @@ public class StatisticsController {
             info.status = 200;
             info.message = "ok";
             ListTemplete listTemplete = new ListTemplete();
-            listTemplete.list = mUserService.getContacts(username);
+            listTemplete.names = mUserService.getContacts(username);
             info.data = listTemplete;
         }else{
             info.status = 500;
