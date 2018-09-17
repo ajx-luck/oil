@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
 import com.breast.oil.domain.*;
+import com.breast.oil.po.ListTemplete;
 import com.breast.oil.po.Location;
 import com.breast.oil.po.LocationTaobao;
 import com.breast.oil.po.RespInfo;
@@ -333,7 +334,9 @@ public class StatisticsController {
         if(!"fail".equals(data)) {
             info.status = 200;
             info.message = "ok";
-            info.data = mUserService.getContacts(username);
+            ListTemplete listTemplete = new ListTemplete();
+            listTemplete.list = mUserService.getContacts(username);
+            info.data = listTemplete;
         }else{
             info.status = 500;
             info.message = "fail";
