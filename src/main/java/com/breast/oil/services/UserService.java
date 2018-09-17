@@ -1,13 +1,19 @@
 package com.breast.oil.services;
 
 import com.breast.oil.consts.AppConsts;
+import com.breast.oil.domain.ContactsInfo;
 import com.breast.oil.domain.SecretInfo;
 import com.breast.oil.domain.UserInfo;
 import com.breast.oil.push.Demo;
+import com.breast.oil.repository.ContactsInfoRepository;
 import com.breast.oil.repository.SecretInfoRepository;
 import com.breast.oil.repository.UserInfoRepository;
 import com.breast.oil.utils.SymmetricEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -20,6 +26,8 @@ public class UserService {
     UserInfoRepository mUserInfoRepository;
     @Autowired
     SecretInfoRepository mSecretInfoRepository;
+    @Autowired
+    ContactsInfoRepository mContactsInfoRepository;
     @Autowired
     Demo mPush;
 
@@ -102,5 +110,19 @@ public class UserService {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    public List<ContactsInfo> getContacts(String username){
+        Pageable pageable = new PageRequest(0,60, Sort.Direction.ASC,"id");
+        Page<ContactsInfo> pages = mContactsInfoRepository.findByUsernameAndIsread(username,0L,pageable);
+        List<ContactsInfo> contactsInfos = pages.getContent();
+        if(contactsInfos != null && contactsInfos.size() > 0) {
+            for (ContactsInfo contactsInfo : contactsInfos) {
+                contactsInfo.isread = 1L;
+                mContactsInfoRepository.save(contactsInfo);
+            }
+        }
+        return contactsInfos;
     }
 }

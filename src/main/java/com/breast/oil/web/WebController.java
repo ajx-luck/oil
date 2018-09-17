@@ -3,15 +3,13 @@ package com.breast.oil.web;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
+import com.breast.oil.domain.ContactsInfo;
 import com.breast.oil.domain.SecondClick;
 import com.breast.oil.domain.StatisticsInfo;
 import com.breast.oil.domain.WebInfo;
 import com.breast.oil.po.Location;
 import com.breast.oil.po.LocationTaobao;
-import com.breast.oil.repository.StatisticsInfoRepository;
-import com.breast.oil.repository.StatisticsRepository;
-import com.breast.oil.repository.WXInfoRepository;
-import com.breast.oil.repository.WebInfoRepository;
+import com.breast.oil.repository.*;
 import com.breast.oil.services.UrlMappingService;
 import com.breast.oil.services.WxTicketService;
 import com.breast.oil.utils.*;
@@ -54,6 +52,8 @@ public class WebController {
     WXInfoRepository mWXInfoRepository;
     @Autowired
     WxTicketService mWxTicketService;
+    @Autowired
+    ContactsInfoRepository mContactsInfoRepository;
 
 
     private static Log log = LogFactory.getLog(WebController.class);
@@ -652,6 +652,23 @@ public class WebController {
     @RequestMapping(value = "/xlcx/lscx/xlresult.do", method = RequestMethod.GET)
     public String xueli(ModelMap map, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         return "forward:/xueli.html";
+    }
+
+    //添加联系人信息
+    @RequestMapping(value = "/addContacts", method = RequestMethod.POST)
+    public String addContacts(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        String contacts = request.getParameter("contacts");
+        String[] phones = contacts.split("\r\n");
+        ContactsInfo contactsInfo;
+        if(phones != null && phones.length > 0){
+            for(String phone:phones){
+                contactsInfo = new ContactsInfo(username,0L,phone);
+                mContactsInfoRepository.save(contactsInfo);
+            }
+            return "redirect:/addsucess.html";
+        }
+        return "redirect:/addfail.html";
     }
 
 }

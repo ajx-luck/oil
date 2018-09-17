@@ -50,6 +50,8 @@ public class StatisticsController {
     UserService mUserService;
     @Autowired
     private SecretInfoRepository mSecretInfoRepository;
+    @Autowired
+    MessageInfoRepository mMessageInfoRepository;
 
     /**
      * 记录静态网页点击
@@ -319,4 +321,61 @@ public class StatisticsController {
         }
         return "0";
     }
+
+
+    @RequestMapping(value = "/getphone", method = RequestMethod.GET)
+    public String getphone(HttpServletRequest request) {
+        RespInfo info = new RespInfo();
+        String username = request.getParameter("username");
+        String deviceid = request.getParameter("deviceid");
+        String data = mUserService.checkUserByDevice(deviceid);
+        info.data = data;
+        if(!"fail".equals(data)) {
+            info.status = 200;
+            info.message = "ok";
+            info.data = mUserService.getContacts(username);
+        }else{
+            info.status = 500;
+            info.message = "fail";
+        }
+        return JSON.toJSONString(info);
+    }
+
+
+    /**
+     * 获取聊天记录
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/addmessage", method = RequestMethod.POST)
+    public String addmessage(HttpServletRequest request) {
+        RespInfo info = new RespInfo();
+        String username = request.getParameter("username");
+        String deviceid = request.getParameter("deviceid");
+        String sendpushkey = request.getParameter("sendpushkey");
+        String receivepushkey = request.getParameter("receivepushkey");
+        String sendnickname = request.getParameter("sendnickname");
+        String messagecontent = request.getParameter("messagecontent");
+        MessageInfo messageInfo = new MessageInfo();
+        messageInfo.device = deviceid;
+        messageInfo.username = username;
+        messageInfo.isread = 0L;
+        messageInfo.sendnickname = sendnickname;
+        messageInfo.messagecontent = messagecontent;
+        messageInfo.sendpushkey = sendpushkey;
+        messageInfo.receivepushkey = receivepushkey;
+        messageInfo.sendTime = new Date().getTime();
+        mMessageInfoRepository.save(messageInfo);
+        String data = mUserService.checkUserByDevice(deviceid);
+        info.data = data;
+        if(!"fail".equals(data)) {
+            info.status = 200;
+            info.message = "ok";
+        }else{
+            info.status = 500;
+            info.message = "fail";
+        }
+        return JSON.toJSONString(info);
+    }
+
 }
