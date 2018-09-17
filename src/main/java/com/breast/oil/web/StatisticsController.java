@@ -334,9 +334,7 @@ public class StatisticsController {
         if(!"fail".equals(data)) {
             info.status = 200;
             info.message = "ok";
-            ListTemplete listTemplete = new ListTemplete();
-            listTemplete.names = mUserService.getContacts(username);
-            info.data = listTemplete;
+            info.data = mUserService.getContacts(username);
         }else{
             info.status = 500;
             info.message = "fail";
