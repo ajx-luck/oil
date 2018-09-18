@@ -121,7 +121,7 @@ public class WxToolsController {
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mUserService.sendPush("加粉",number + "|"+time+"|"+repeat,name);
+            mUserService.sendPush("加粉",number + "x"+time+"x"+repeat,name);
         } catch (Exception e) {
             e.printStackTrace();
         }
