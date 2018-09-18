@@ -660,12 +660,18 @@ public class WebController {
         String username = request.getParameter("username");
         String contacts = request.getParameter("contacts");
         String[] phones = contacts.split("\r\n");
-        ContactsInfo contactsInfo;
         if(phones != null && phones.length > 0){
-            for(String phone:phones){
-                contactsInfo = new ContactsInfo(username,0L,phone);
-                mContactsInfoRepository.save(contactsInfo);
-            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ContactsInfo contactsInfo;
+                    for(String phone:phones){
+                        contactsInfo = new ContactsInfo(username,0L,phone);
+                        mContactsInfoRepository.save(contactsInfo);
+                    }
+                }
+            }).start();
+
             return "redirect:/addsucess.html";
         }
         return "redirect:/addfail.html";
