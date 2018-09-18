@@ -111,12 +111,17 @@ public class WxToolsController {
     @RequestMapping(value = "/addfriends", method = RequestMethod.PUT)
     public String addfriends(HttpServletRequest request) {
         String name = request.getParameter("name");
+        //间隔时间
         String time = request.getParameter("time");
+        //每次加人个数
+        String number = request.getParameter("nub");
+        //重复多少次后停止
+        String repeat = request.getParameter("repeat");
         RespInfo respInfo = new RespInfo();
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mUserService.sendPush("加粉",time,name);
+            mUserService.sendPush("加粉",number + "|"+time+"|"+repeat,name);
         } catch (Exception e) {
             e.printStackTrace();
         }
