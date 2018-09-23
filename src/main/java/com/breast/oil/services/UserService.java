@@ -105,7 +105,8 @@ public class UserService {
         List<UserInfo> list = mUserInfoRepository.findByUsername(username);
         for(UserInfo userInfo:list){
             try {
-                mPush.sendAndroidUnicast(title,content,userInfo.pushkey);
+//                mPush.sendAndroidUnicast(title,content,userInfo.pushkey);
+                mPush.sendAndroidCustomizedcast(title,content,userInfo.device,userInfo.username);
             } catch (Exception e) {
                 e.printStackTrace();
             }
