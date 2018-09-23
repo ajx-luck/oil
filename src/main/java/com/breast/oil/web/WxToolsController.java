@@ -117,11 +117,13 @@ public class WxToolsController {
         String number = request.getParameter("nub");
         //重复多少次后停止
         String repeat = request.getParameter("repeat");
+        //性别
+        String sex = request.getParameter("sex");
         RespInfo respInfo = new RespInfo();
         respInfo.status = 200;
         respInfo.message = "ok";
         try {
-            mUserService.sendPush("加粉",number + "x"+time+"x"+repeat,name);
+            mUserService.sendPush("加粉",number + "x"+time+"x"+repeat+"x"+sex,name);
         } catch (Exception e) {
             e.printStackTrace();
         }
