@@ -677,4 +677,15 @@ public class WebController {
         return "redirect:/addfail.html";
     }
 
+    //添加联系人信息
+    @RequestMapping(value = "/getContacts", method = RequestMethod.POST)
+    public ResponseEntity getContacts(HttpServletRequest request) {
+        String username = request.getParameter("username");
+        if(StringUtils.isEmptyOrWhitespace(username)){
+            return new ResponseEntity("剩余个数：0", HttpStatus.OK);
+        }
+        return new ResponseEntity("剩余个数："+mContactsInfoRepository.countByUsernameAndIsread(username,0L), HttpStatus.OK);
+
+    }
+
 }

@@ -15,4 +15,6 @@ import java.util.List;
 public interface ContactsInfoRepository extends JpaRepository<ContactsInfo, Long> {
 
     Page<ContactsInfo> findByUsernameAndIsread(@Param("username") String username,@Param("isread") Long isread,Pageable pageable);
+
+    Long countByUsernameAndIsread(@Param("username") String username,@Param("isread") Long isread);
 }
