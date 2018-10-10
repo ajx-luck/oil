@@ -26,10 +26,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Field;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import static com.breast.oil.consts.AppConsts.URL_2;
 
@@ -53,6 +50,8 @@ public class StatisticsController {
     private SecretInfoRepository mSecretInfoRepository;
     @Autowired
     MessageInfoRepository mMessageInfoRepository;
+    @Autowired
+    VersionInfoRepository mVersionInfoRepository;
 
     /**
      * 记录静态网页点击
@@ -301,6 +300,10 @@ public class StatisticsController {
         if(!"fail".equals(data)) {
             info.status = 200;
             info.message = "ok";
+            List<VersionInfo> versionInfos = mVersionInfoRepository.findAll();
+            if(versionInfos != null) {
+                info.data = versionInfos.get(versionInfos.size() - 1);
+            }
         }else{
             info.status = 500;
             info.message = "fail";

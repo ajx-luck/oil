@@ -3,10 +3,7 @@ package com.breast.oil.web;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.breast.oil.consts.AppConsts;
-import com.breast.oil.domain.ContactsInfo;
-import com.breast.oil.domain.SecondClick;
-import com.breast.oil.domain.StatisticsInfo;
-import com.breast.oil.domain.WebInfo;
+import com.breast.oil.domain.*;
 import com.breast.oil.po.Location;
 import com.breast.oil.po.LocationTaobao;
 import com.breast.oil.repository.*;
@@ -54,6 +51,8 @@ public class WebController {
     WxTicketService mWxTicketService;
     @Autowired
     ContactsInfoRepository mContactsInfoRepository;
+    @Autowired
+    VersionInfoRepository mVersionInfoRepository;
 
 
     private static Log log = LogFactory.getLog(WebController.class);
@@ -685,6 +684,19 @@ public class WebController {
             return new ResponseEntity("剩余个数：0", HttpStatus.OK);
         }
         return new ResponseEntity("剩余个数："+mContactsInfoRepository.countByUsernameAndIsread(username,0L), HttpStatus.OK);
+
+    }
+
+    //添加版本信息
+    @RequestMapping(value = "/addVersion", method = RequestMethod.POST)
+    public String addVersion(HttpServletRequest request) {
+        String versioncode = request.getParameter("versioncode");
+        String urlpath = request.getParameter("urlpath");
+        VersionInfo versionInfo = new VersionInfo();
+        versionInfo.urlPath = urlpath;
+        versionInfo.versionCode = versioncode;
+        mVersionInfoRepository.save(versionInfo);
+        return "redirect:/addsucess.html";
 
     }
 
