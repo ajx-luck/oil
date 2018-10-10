@@ -14,4 +14,6 @@ public class VersionInfo {
     public String urlPath;
     @Column(nullable = false)
     public String versionCode;
+
+    public String username;
 }

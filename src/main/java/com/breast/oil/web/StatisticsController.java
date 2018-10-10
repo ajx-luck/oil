@@ -296,13 +296,13 @@ public class StatisticsController {
         RespInfo info = new RespInfo();
         String deviceid = request.getParameter("deviceid");
         String data = mUserService.checkUserByDevice(deviceid);
-        info.data = data;
         if(!"fail".equals(data)) {
             info.status = 200;
             info.message = "ok";
             List<VersionInfo> versionInfos = mVersionInfoRepository.findAll();
             if(versionInfos != null) {
                 info.data = versionInfos.get(versionInfos.size() - 1);
+                ((VersionInfo) info.data).username = mUserService.checkUserByDevice(deviceid);
             }
         }else{
             info.status = 500;
