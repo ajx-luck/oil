@@ -146,6 +146,22 @@ public class WxToolsController {
 
     }
 
+    @RequestMapping(value = "/controlscreen", method = RequestMethod.GET)
+    public String controlScreen(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        String isOn = request.getParameter("ison");
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        try {
+            mUserService.sendPush("屏幕",isOn,name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return JSON.toJSONString(respInfo);
+
+    }
+
 
     public static List<String> stringToList(String mList) {
         return Arrays.asList(mList.split(","));
