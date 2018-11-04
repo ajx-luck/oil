@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Demo {
-	private String appkey = "5b58ed6ff43e4815d8000515";
-	private String appMasterSecret = "rvee24en5v5cvbqqpa4ipk0jpy4b7xu4";
+	private String appkey = "5bde5c46f1f5567ff60008ee";
+	private String appMasterSecret = "isjktvvua41o0tcr2fwzzpyttbomstqq";
 	private String timestamp = null;
 	private PushClient client = new PushClient();
 	
