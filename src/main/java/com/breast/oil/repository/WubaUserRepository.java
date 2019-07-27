@@ -12,4 +12,5 @@ public interface WubaUserRepository extends JpaRepository<WubaUser,Long> {
         List<WubaUser> findByUid(@Param("uid") String uid);
 
         List<WubaUser> findByUpdatetimesLessThan(@Param("updatetimes") Long updatetimes);
+
 }

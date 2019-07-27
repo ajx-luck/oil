@@ -95,8 +95,8 @@ public class DouController {
     public String getwubauser(HttpServletRequest request) {
         String reg = request.getParameter("reg");
         Long currenttime = System.currentTimeMillis();
-//        Long yesterday = currenttime - 24*60*60*1000;
-        Long yesterday = currenttime;
+        Long yesterday = currenttime - 24*60*60*1000;
+//        Long yesterday = currenttime;
         List<WubaUser> list = wubaUserRepository.findByUpdatetimesLessThan(yesterday);
         WubaUser wubaUser;
         RespInfo respInfo = new RespInfo();
@@ -149,7 +149,7 @@ public class DouController {
             }else{
                 wubaUser = new WubaUser();
                 wubaUser.setCreatetimes(currenttime);
-                wubaUser.setUpdatetimes(currenttime);
+                wubaUser.setUpdatetimes(currenttime- 24*60*60*1000);
                 wubaUser.setUid(uid);
                 wubaUser.setWubacook1(wubacook1);
                 wubaUser.setWubacook2(wubacook2);
