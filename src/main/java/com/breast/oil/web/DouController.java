@@ -165,4 +165,38 @@ public class DouController {
 
         return JSON.toJSONString(respInfo);
     }
+
+    @RequestMapping(value = "/wubauser", method = RequestMethod.DELETE)
+    public String deletewubauser(HttpServletRequest request) {
+        String wubacook1 = request.getParameter("wubacook1");
+        String wubacook2 = request.getParameter("wubacook2");
+        long currenttime = System.currentTimeMillis();
+        WubaUser wubaUser;
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = "账号删除成功";
+        try {
+            JSONObject jsonObject = new JSONObject(wubacook2);
+            JSONObject data = (JSONObject) jsonObject.get("data");
+
+            String uid = data.getString("uid");
+            List<WubaUser> list = wubaUserRepository.findByUid(uid);
+
+            if(list!=null&&list.size()>0){
+                wubaUser = list.get(0);
+                wubaUserRepository.delete(wubaUser);;
+            }else{
+                respInfo.status = 404;
+                respInfo.message = "fail";
+                respInfo.data = "账号不存在";
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return JSON.toJSONString(respInfo);
+    }
+
+
 }
