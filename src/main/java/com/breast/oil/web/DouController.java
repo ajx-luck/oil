@@ -27,6 +27,7 @@ public class DouController {
     WubaTribeRepository wubaTribeRepository;
     @Autowired
     WubaUserRepository wubaUserRepository;
+    String wubatouxiang = "";
     @RequestMapping(value = "/addaccount", method = RequestMethod.GET)
     public String addAccount(HttpServletRequest request) {
         DouyinAccount douyinAccount = new DouyinAccount();
@@ -198,5 +199,24 @@ public class DouController {
         return JSON.toJSONString(respInfo);
     }
 
+
+    @RequestMapping(value = "/wubatouxiang", method = RequestMethod.GET)
+    public String getWubaTouxiang(HttpServletRequest request) {
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = wubatouxiang;
+        return JSON.toJSONString(respInfo);
+    }
+
+    @RequestMapping(value = "/wubatouxiang", method = RequestMethod.POST)
+    public String setWubaTouxiang(HttpServletRequest request) {
+        wubatouxiang = request.getParameter("wubatouxiang");
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = wubatouxiang;
+        return JSON.toJSONString(respInfo);
+    }
 
 }
