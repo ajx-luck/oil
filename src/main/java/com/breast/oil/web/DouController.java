@@ -96,6 +96,23 @@ public class DouController {
         return JSON.toJSONString(respInfo);
     }
 
+    @RequestMapping(value = "/deleteaccount", method = RequestMethod.POST)
+    public String deleteAccount(HttpServletRequest request) {
+        String ios = request.getParameter("ios");
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = "删除成功";
+        List<DouyinAccount> list = douyinAccountRepository.findByIos(ios);
+        if(list != null && list.size() > 0) {
+            douyinAccountRepository.delete(list.get(0));
+        }else{
+            respInfo.status = 404;
+            respInfo.message = "fail";
+            respInfo.data = "账号不存在";
+        }
+        return JSON.toJSONString(respInfo);
+    }
 
     @RequestMapping(value = "/douyinacc", method = RequestMethod.GET)
     public String getFollowAcc(HttpServletRequest request) {
@@ -127,6 +144,8 @@ public class DouController {
         }
         return StringUtils.isEmpty(douyinAccount.getIos()) ? "":douyinAccount.getIos();
     }
+
+
 
 
     @RequestMapping(value = "/tribeid", method = RequestMethod.GET)
