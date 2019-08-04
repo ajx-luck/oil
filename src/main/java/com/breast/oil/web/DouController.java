@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -28,20 +29,105 @@ public class DouController {
     @Autowired
     WubaUserRepository wubaUserRepository;
     String wubatouxiang = "";
-    @RequestMapping(value = "/addaccount", method = RequestMethod.GET)
+    static final long DAY = 24*60*60*1000;
+    @RequestMapping(value = "/addaccount", method = RequestMethod.POST)
     public String addAccount(HttpServletRequest request) {
+        String ios = request.getParameter("ios");
+        String phone = request.getParameter("phone");
+        String android = request.getParameter("android");
+        List<DouyinAccount> list = douyinAccountRepository.findByIos(ios);
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 400;
+        respInfo.message = "fail";
+        respInfo.data = "账号已经存在";
+        if(list != null && list.size() > 0) {
+            return JSON.toJSONString(respInfo);
+        }
         DouyinAccount douyinAccount = new DouyinAccount();
-        douyinAccount.setPhone(request.getParameter("phone"));
-        douyinAccount.setAndroid(request.getParameter("android"));
-        douyinAccount.setIos(request.getParameter("ios"));
+        douyinAccount.setPhone(phone);
+        douyinAccount.setAndroid(android);
+        douyinAccount.setIos(ios);
         douyinAccount.setAndroidusetimes(0L);
         douyinAccount.setIosusetimes(0L);
         long currentTime = System.currentTimeMillis();
         douyinAccount.setCreatetimes(currentTime);
-        douyinAccount.setUpdatetimes(currentTime);
+        douyinAccount.setUpdatetimes(currentTime-DAY);
+        douyinAccount.setFollowtimes(currentTime-DAY);
         douyinAccountRepository.save(douyinAccount);
-        return "{code:200}";
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = "上传成功";
+        return JSON.toJSONString(respInfo);
     }
+
+    @RequestMapping(value = "/addaccountlist", method = RequestMethod.POST)
+    public String addAccountList(HttpServletRequest request) {
+        String ios = request.getParameter("ios");
+        String[] ioss = ios.split("\r\n");
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = "上传成功";
+        if(ioss != null && ioss.length>0){
+            for(String str:ioss){
+                String acc = str;
+                if(str.contains("----")){
+                    acc = str.split("----")[1];
+                }
+                List<DouyinAccount> list = douyinAccountRepository.findByIos(acc);
+                if(list == null || list.size() == 0) {
+                    DouyinAccount douyinAccount = new DouyinAccount();
+                    douyinAccount.setIos(acc);
+                    douyinAccount.setAndroidusetimes(0L);
+                    douyinAccount.setIosusetimes(0L);
+                    long currentTime = System.currentTimeMillis();
+                    douyinAccount.setCreatetimes(currentTime);
+                    douyinAccount.setUpdatetimes(currentTime-DAY);
+                    douyinAccount.setFollowtimes(currentTime-DAY);
+                    douyinAccountRepository.save(douyinAccount);
+                }
+            }
+        }else{
+            respInfo.status = 400;
+            respInfo.message = "fail";
+            respInfo.data = "账号格式不正确";
+        }
+
+        return JSON.toJSONString(respInfo);
+    }
+
+
+    @RequestMapping(value = "/douyinacc", method = RequestMethod.GET)
+    public String getFollowAcc(HttpServletRequest request) {
+        String usetype = request.getParameter("usetype");
+        Long currenttime = System.currentTimeMillis();
+        Long yesterday = currenttime - DAY;
+        List<DouyinAccount> list;
+        if("follow".equals(usetype)) {
+            list = douyinAccountRepository.findByFollowtimesLessThan(yesterday);
+        }else{
+            list = douyinAccountRepository.findByUpdatetimesLessThan(yesterday);
+        }
+        DouyinAccount douyinAccount = new DouyinAccount();
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 404;
+        respInfo.message = "fail";
+        respInfo.data = "没有可用的账号";
+        if(list != null && list.size() > 0) {
+            int count = list.size();
+            int index = new Random().nextInt(count);
+            douyinAccount = list.get(index);
+            if("follow".equals(usetype)) {
+                douyinAccount.setFollowtimes(currenttime);
+            }else{
+                douyinAccount.setUpdatetimes(currenttime);
+            }
+            douyinAccount.setIosusetimes(douyinAccount.getIosusetimes()+1);
+            douyinAccountRepository.save(douyinAccount);
+        }
+        return StringUtils.isEmpty(douyinAccount.getIos()) ? "":douyinAccount.getIos();
+    }
+
 
     @RequestMapping(value = "/tribeid", method = RequestMethod.GET)
     public String gettribeid(HttpServletRequest request) {

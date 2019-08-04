@@ -1,5 +1,7 @@
 package com.breast.oil.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,14 +14,18 @@ public class DouyinAccount {
     private Long id;
     @Column(nullable = true)
     private String phone;
+    @Type(type = "text")
     @Column(nullable = true)
     private String android;
+    @Type(type = "text")
     @Column(nullable = true)
     private String ios;
     @Column(nullable = true)
     private Long createtimes;
     @Column(nullable = true)
     private Long updatetimes;
+    @Column(nullable = true)
+    private Long followtimes;
     @Column(nullable = true)
     private Long androidusetimes;
     @Column(nullable = true)
@@ -87,5 +93,13 @@ public class DouyinAccount {
 
     public void setIosusetimes(Long iosusetimes) {
         this.iosusetimes = iosusetimes;
+    }
+
+    public Long getFollowtimes() {
+        return followtimes;
+    }
+
+    public void setFollowtimes(Long followtimes) {
+        this.followtimes = followtimes;
     }
 }
