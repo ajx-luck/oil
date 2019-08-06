@@ -35,6 +35,7 @@ public class DouController {
         String ios = request.getParameter("ios");
         String phone = request.getParameter("phone");
         String android = request.getParameter("android");
+        String filename = request.getParameter("filename");
         List<DouyinAccount> list = douyinAccountRepository.findByIos(ios);
         RespInfo respInfo = new RespInfo();
         respInfo.status = 400;
@@ -47,6 +48,7 @@ public class DouController {
         douyinAccount.setPhone(phone);
         douyinAccount.setAndroid(android);
         douyinAccount.setIos(ios);
+        douyinAccount.setFilename(filename);
         douyinAccount.setAndroidusetimes(0L);
         douyinAccount.setIosusetimes(0L);
         long currentTime = System.currentTimeMillis();
@@ -63,6 +65,7 @@ public class DouController {
     @RequestMapping(value = "/addaccountlist", method = RequestMethod.POST)
     public String addAccountList(HttpServletRequest request) {
         String ios = request.getParameter("ios");
+        String filename = request.getParameter("filename");
         String[] ioss = ios.split("\r\n");
         RespInfo respInfo = new RespInfo();
         respInfo.status = 200;
@@ -78,6 +81,7 @@ public class DouController {
                 if(list == null || list.size() == 0) {
                     DouyinAccount douyinAccount = new DouyinAccount();
                     douyinAccount.setIos(acc);
+                    douyinAccount.setFilename(filename);
                     douyinAccount.setAndroidusetimes(0L);
                     douyinAccount.setIosusetimes(0L);
                     long currentTime = System.currentTimeMillis();
@@ -117,13 +121,22 @@ public class DouController {
     @RequestMapping(value = "/douyinacc", method = RequestMethod.GET)
     public String getFollowAcc(HttpServletRequest request) {
         String usetype = request.getParameter("usetype");
+        String filename = request.getParameter("filename");
         Long currenttime = System.currentTimeMillis();
         Long yesterday = currenttime - DAY;
         List<DouyinAccount> list;
         if("follow".equals(usetype)) {
-            list = douyinAccountRepository.findByFollowtimesLessThan(yesterday);
+            if(StringUtils.isEmpty(filename)) {
+                list = douyinAccountRepository.findByFollowtimesLessThan(yesterday);
+            }else{
+                list = douyinAccountRepository.findByFilenameAndFollowtimesLessThan(filename,yesterday);
+            }
         }else{
-            list = douyinAccountRepository.findByUpdatetimesLessThan(yesterday);
+            if(StringUtils.isEmpty(filename)) {
+                list = douyinAccountRepository.findByUpdatetimesLessThan(yesterday);
+            }else{
+                list = douyinAccountRepository.findByFilenameAndUpdatetimesLessThan(filename,yesterday);
+            }
         }
         DouyinAccount douyinAccount = new DouyinAccount();
         RespInfo respInfo = new RespInfo();

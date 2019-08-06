@@ -15,4 +15,9 @@ public interface DouyinAccountRepository extends JpaRepository<DouyinAccount,Lon
     List<DouyinAccount> findByFollowtimesLessThan(@Param("followtimes") Long followtimes);
 
     List<DouyinAccount> findByIos(@Param("ios") String ios);
+
+    List<DouyinAccount> findByFilenameAndUpdatetimesLessThan(@Param("filename") String filename,@Param("updatetimes") Long updatetimes);
+
+    List<DouyinAccount> findByFilenameAndFollowtimesLessThan(@Param("filename") String filename,@Param("followtimes") Long followtimes);
+
 }

@@ -30,6 +30,8 @@ public class DouyinAccount {
     private Long androidusetimes;
     @Column(nullable = true)
     private Long iosusetimes;
+    @Column(nullable = true)
+    private String filename;
 
     public Long getId() {
         return id;
@@ -101,5 +103,13 @@ public class DouyinAccount {
 
     public void setFollowtimes(Long followtimes) {
         this.followtimes = followtimes;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }
