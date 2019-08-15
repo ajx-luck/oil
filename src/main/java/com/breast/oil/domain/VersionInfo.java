@@ -16,4 +16,6 @@ public class VersionInfo {
     public String versionCode;
 
     public String username;
+    @Column(nullable = true)
+    public String appPackage;
 }

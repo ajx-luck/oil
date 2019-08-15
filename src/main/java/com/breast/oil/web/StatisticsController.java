@@ -294,20 +294,12 @@ public class StatisticsController {
     @RequestMapping(value = "/check", method = RequestMethod.GET)
     public String check(HttpServletRequest request) {
         RespInfo info = new RespInfo();
-        String deviceid = request.getParameter("deviceid");
-        String data = mUserService.checkUserByDevice(deviceid);
-        if(!"fail".equals(data)) {
-            info.status = 200;
-            info.message = "ok";
-            List<VersionInfo> versionInfos = mVersionInfoRepository.findAll();
-            if(versionInfos != null) {
-                info.data = versionInfos.get(versionInfos.size() - 1);
-                ((VersionInfo) info.data).username = mUserService.checkUserByDevice(deviceid);
-            }
-        }else{
-            info.status = 500;
-            info.message = "fail";
+        String apppackage = request.getParameter("apppackage");
+        List<VersionInfo> versionInfos = mVersionInfoRepository.findByAppPackage(apppackage);
+        if(versionInfos != null && versionInfos.size() > 0) {
+            info.data = versionInfos.get(versionInfos.size() - 1);
         }
+
         return JSON.toJSONString(info);
     }
 

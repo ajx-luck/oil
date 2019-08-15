@@ -691,10 +691,12 @@ public class WebController {
     @RequestMapping(value = "/addVersion", method = RequestMethod.POST)
     public String addVersion(HttpServletRequest request) {
         String versioncode = request.getParameter("versioncode");
+        String apppackage = request.getParameter("apppackage");
         String urlpath = request.getParameter("urlpath");
         VersionInfo versionInfo = new VersionInfo();
         versionInfo.urlPath = urlpath;
         versionInfo.versionCode = versioncode;
+        versionInfo.appPackage = apppackage;
         mVersionInfoRepository.save(versionInfo);
         return "redirect:/addsucess.html";
 
