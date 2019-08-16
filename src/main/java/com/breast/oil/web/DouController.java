@@ -3,11 +3,14 @@ package com.breast.oil.web;
 import com.alibaba.fastjson.JSON;
 import com.breast.oil.domain.DouyinAccount;
 import com.breast.oil.domain.WubaTribe;
+import com.breast.oil.domain.WubaUid;
 import com.breast.oil.domain.WubaUser;
 import com.breast.oil.po.RespInfo;
 import com.breast.oil.repository.DouyinAccountRepository;
 import com.breast.oil.repository.WubaTribeRepository;
+import com.breast.oil.repository.WubaUidRepository;
 import com.breast.oil.repository.WubaUserRepository;
+import org.apache.http.util.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,8 @@ public class DouController {
     WubaTribeRepository wubaTribeRepository;
     @Autowired
     WubaUserRepository wubaUserRepository;
+    @Autowired
+    WubaUidRepository wubaUidRepository;
     String wubatouxiang = "";
     static final long DAY = 24*60*60*1000;
     @RequestMapping(value = "/addaccount", method = RequestMethod.POST)
@@ -334,6 +339,60 @@ public class DouController {
         respInfo.status = 200;
         respInfo.message = "ok";
         respInfo.data = wubatouxiang;
+        return JSON.toJSONString(respInfo);
+    }
+
+    @RequestMapping(value = "/wubauid", method = RequestMethod.POST)
+    public String setwubauid(HttpServletRequest request) {
+        String wubauids = request.getParameter("uids");
+        String[] uidarr = wubauids.split("----");
+        int length = 0;
+        int enablelength = 0;
+        if(uidarr!= null && uidarr.length>0){
+            length = uidarr.length;
+            for(String uid : uidarr){
+                List<WubaUid> list = wubaUidRepository.findByUid(uid);
+                if(list == null || list.size() == 0){
+                    WubaUid wubaUid = new WubaUid();
+                    wubaUid.setUid(uid);
+                    wubaUid.setUsetime(0);
+                    wubaUid.setCreatetimes(System.currentTimeMillis());
+                    wubaUid.setUpdatetimes(System.currentTimeMillis());
+                    wubaUidRepository.save(wubaUid);
+                    enablelength = enablelength + 1;
+                }
+            }
+        }
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = String.format("上传了%d个Uid,有效Uid%d个",length,enablelength);
+        return JSON.toJSONString(respInfo);
+    }
+
+    @RequestMapping(value = "/wubauid", method = RequestMethod.GET)
+    public String getwubauid(HttpServletRequest request) {
+        List<WubaUid> list = wubaUidRepository.findByUsetimeLimite(0);
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        respInfo.data = "";
+        StringBuilder sb = new StringBuilder();
+        if(list!=null && list.size()>0){
+            for(WubaUid wubaUid:list){
+                wubaUid.setUsetime(wubaUid.getUsetime() + 1);
+                wubaUid.setUpdatetimes(System.currentTimeMillis() + 1);
+                wubaUidRepository.save(wubaUid);
+                if (TextUtils.isEmpty(sb)) {
+                    sb.append(wubaUid.getUid());
+                } else {
+                    sb.append("----");
+                    sb.append(wubaUid.getUid());
+                }
+
+            }
+        }
+        respInfo.data = sb.toString();
         return JSON.toJSONString(respInfo);
     }
 
