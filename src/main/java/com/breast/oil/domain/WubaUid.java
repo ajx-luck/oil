@@ -20,6 +20,9 @@ public class WubaUid {
     @Column(nullable = true)
     private Integer usetime;
 
+    @Column(nullable = true)
+    private Integer praisetime;
+
     public Long getId() {
         return id;
     }
@@ -58,5 +61,13 @@ public class WubaUid {
 
     public void setUsetime(Integer usetime) {
         this.usetime = usetime;
+    }
+
+    public Integer getPraisetime() {
+        return praisetime;
+    }
+
+    public void setPraisetime(Integer praisetime) {
+        this.praisetime = praisetime;
     }
 }

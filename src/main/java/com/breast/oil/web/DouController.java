@@ -348,6 +348,10 @@ public class DouController {
         String[] uidarr = wubauids.split("----");
         int length = 0;
         int enablelength = 0;
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        StringBuilder sb = new StringBuilder();
         if(uidarr!= null && uidarr.length>0){
             length = uidarr.length;
             for(String uid : uidarr){
@@ -355,18 +359,22 @@ public class DouController {
                 if(list == null || list.size() == 0){
                     WubaUid wubaUid = new WubaUid();
                     wubaUid.setUid(uid);
-                    wubaUid.setUsetime(0);
+                    wubaUid.setUsetime(1);
                     wubaUid.setCreatetimes(System.currentTimeMillis());
                     wubaUid.setUpdatetimes(System.currentTimeMillis());
                     wubaUidRepository.save(wubaUid);
                     enablelength = enablelength + 1;
+                    if (TextUtils.isEmpty(sb)) {
+                        sb.append(wubaUid.getUid());
+                    } else {
+                        sb.append("----");
+                        sb.append(wubaUid.getUid());
+                    }
                 }
             }
         }
-        RespInfo respInfo = new RespInfo();
-        respInfo.status = 200;
-        respInfo.message = "ok";
-        respInfo.data = String.format("上传了%d个Uid,有效Uid%d个",length,enablelength);
+        respInfo.data = sb.toString();
+//        respInfo.data = String.format("上传了%d个Uid,有效Uid%d个",length,enablelength);
         return JSON.toJSONString(respInfo);
     }
 
