@@ -345,6 +345,7 @@ public class DouController {
     @RequestMapping(value = "/wubauid", method = RequestMethod.POST)
     public String setwubauid(HttpServletRequest request) {
         String wubauids = request.getParameter("uids");
+        int follow = Integer.valueOf(request.getParameter("follow"));
         String[] uidarr = wubauids.split("----");
         int length = 0;
         int enablelength = 0;
@@ -356,7 +357,7 @@ public class DouController {
             length = uidarr.length;
             for(String uid : uidarr){
                 List<WubaUid> list = wubaUidRepository.findByUid(uid);
-                if(list == null || list.size() == 0){
+                if((list == null || list.size() == 0) && (enablelength < follow)){
                     WubaUid wubaUid = new WubaUid();
                     wubaUid.setUid(uid);
                     wubaUid.setUsetime(1);
