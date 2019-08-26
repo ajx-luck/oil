@@ -26,6 +26,15 @@ public class WubaUser {
     @Column(nullable = true)
     private Integer login;
 
+    @Column(nullable = true)
+    private String followjson;
+
+    @Column(nullable = true)
+    private Integer block;
+
+    @Column(nullable = true)
+    private String mobile;
+
     public Long getId() {
         return id;
     }
@@ -80,5 +89,29 @@ public class WubaUser {
 
     public void setLogin(Integer login) {
         this.login = login;
+    }
+
+    public String getFollowjson() {
+        return followjson;
+    }
+
+    public void setFollowjson(String followjson) {
+        this.followjson = followjson;
+    }
+
+    public Integer getBlock() {
+        return block;
+    }
+
+    public void setBlock(Integer block) {
+        this.block = block;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

@@ -264,6 +264,7 @@ public class DouController {
             if(list!=null&&list.size()>0){
                 wubaUser = list.get(0);
                 wubaUser.setUpdatetimes(currenttime);
+                wubaUser.setUid(uid);
                 wubaUser.setWubacook1(wubacook1);
                 wubaUser.setWubacook2(wubacook2);
                 wubaUserRepository.save(wubaUser);
@@ -405,4 +406,71 @@ public class DouController {
         return JSON.toJSONString(respInfo);
     }
 
+
+    @RequestMapping(value = "/wubauserfollow", method = RequestMethod.POST)
+    public String setwubauserfollow(HttpServletRequest request) {
+        String followjson = request.getParameter("followjson");
+        String uid = request.getParameter("uid");
+        String wubacook1 = request.getParameter("wubacook1");
+        String wubacook2 = request.getParameter("wubacook2");
+        long currenttime = System.currentTimeMillis();
+        WubaUser wubaUser;
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 404;
+        respInfo.message = "fail";
+        respInfo.data = "上传账号失败";
+        try {
+            JSONObject jsonObject = new JSONObject(wubacook1);
+            JSONObject data = (JSONObject) jsonObject.get("data");
+            String mobile = data.getString("MOBILE");
+            List<WubaUser> list = wubaUserRepository.findByUid(uid);
+            if(list!=null&&list.size()>0){
+                wubaUser = list.get(0);
+                wubaUser.setUpdatetimes(currenttime);
+                wubaUser.setFollowjson(followjson);
+                wubaUser.setWubacook1(wubacook1);
+                wubaUser.setWubacook2(wubacook2);
+                wubaUser.setUid(uid);
+                wubaUserRepository.save(wubaUser);
+                respInfo.status = 200;
+                respInfo.message = "ok";
+                respInfo.data = "账号已存在，更新信息完成";
+            }else{
+                wubaUser = new WubaUser();
+                wubaUser.setCreatetimes(currenttime);
+                wubaUser.setUpdatetimes(currenttime- 24*60*60*1000);
+                wubaUser.setUid(uid);
+                wubaUser.setLogin(0);
+                wubaUser.setWubacook1(wubacook1);
+                wubaUser.setWubacook2(wubacook2);
+                wubaUser.setFollowjson(followjson);
+                wubaUserRepository.save(wubaUser);
+                respInfo.status = 200;
+                respInfo.message = "ok";
+                respInfo.data = "上传关注信息成功";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return JSON.toJSONString(respInfo);
+    }
+
+
+    @RequestMapping(value = "/wubauserfollow", method = RequestMethod.GET)
+    public String getwubauserfollow(HttpServletRequest request) {
+        String uid = request.getParameter("uid");
+        List<WubaUser> list = wubaUserRepository.findByUid(uid);
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 404;
+        respInfo.message = "fail";
+        respInfo.data = "";
+        if(list!=null && list.size()>0){
+            WubaUser wubaUser = list.get(0);
+            respInfo.status = 200;
+            respInfo.message = "ok";
+            respInfo.data = wubaUser.getFollowjson();
+        }
+        return JSON.toJSONString(respInfo);
+    }
 }
