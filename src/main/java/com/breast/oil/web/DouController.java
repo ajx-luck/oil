@@ -444,6 +444,7 @@ public class DouController {
                 wubaUser.setWubacook1(wubacook1);
                 wubaUser.setWubacook2(wubacook2);
                 wubaUser.setFollowjson(followjson);
+                wubaUser.setMobile(mobile);
                 wubaUserRepository.save(wubaUser);
                 respInfo.status = 200;
                 respInfo.message = "ok";
