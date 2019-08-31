@@ -98,15 +98,15 @@ public class WebController {
                         return "redirect:/fxbb.html";
                     }
                 } else {
-                    setInfo(map, request, URL_1, "fxd", city, provice, response);
-                    return "redirect:/fxg.html";
+//                    setInfo(map, request, URL_1, "fxd", city, provice, response);
+                    return "redirect:/fxbb.html";
 
                 }
 
             }
         } catch (Exception e) {
             log.error(e);
-            setInfo(map, request, URL_1, "fxe", city, provice, response);
+//            setInfo(map, request, URL_1, "fxe", city, provice, response);
             return "redirect:/fxbb.html";
         }
         setInfo(map, request, URL_1, "fxf", city, provice, response);
@@ -400,7 +400,7 @@ public class WebController {
                     }
                 } else {
                     setInfo(map, request, URL_3, "fxd", city, provice, response);
-                    return "redirect:/fxxg.html";
+                    return "redirect:/fxbb.html";
 
                 }
 
