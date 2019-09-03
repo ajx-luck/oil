@@ -83,4 +83,42 @@ public class MusicController {
         return JSON.toJSONString(respInfo);
     }
 
+
+    @RequestMapping(value = "/nearmusicuid", method = RequestMethod.POST)
+    public String setnearmusicuid(HttpServletRequest request) {
+        String uids = request.getParameter("uids");
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 200;
+        respInfo.message = "ok";
+        List<MusicUid> musicUids = JSONObject.parseArray(uids, MusicUid.class);
+        respInfo.data = "";
+        if(musicUids != null) {
+            int length = musicUids.size();
+            int avalength = 0;
+            StringBuilder sb = new StringBuilder();
+            for (MusicUid musicUid : musicUids) {
+                String uid = musicUid.getUid();
+                List<MusicUid> list = musicUidRepository.findByUid(uid);
+                if ((list == null || list.size() == 0)) {
+                    if (TextUtils.isEmpty(sb)) {
+                        sb.append(uid);
+                    } else {
+                        sb.append("----");
+                        sb.append(uid);
+                    }
+                    avalength = avalength + 1;
+                    musicUid.setUid(uid);
+                    musicUid.setUsetime(1);
+                    musicUid.setCreatetimes(System.currentTimeMillis());
+                    musicUid.setUpdatetimes(System.currentTimeMillis());
+                    musicUidRepository.save(musicUid);
+                }
+            }
+            respInfo.data = sb.toString();
+        }
+
+//        respInfo.data = String.format("上传了%d个Uid,有效Uid%d个",length,enablelength);
+        return JSON.toJSONString(respInfo);
+    }
+
 }
