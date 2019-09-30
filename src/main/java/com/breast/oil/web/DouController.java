@@ -474,4 +474,21 @@ public class DouController {
         }
         return JSON.toJSONString(respInfo);
     }
+
+    @RequestMapping(value = "/wubauserbyphone", method = RequestMethod.GET)
+    public String getwubauserByPhone(HttpServletRequest request) {
+        String mobile = request.getParameter("mobile");
+        List<WubaUser> list = wubaUserRepository.findByMobile(mobile);
+        RespInfo respInfo = new RespInfo();
+        respInfo.status = 404;
+        respInfo.message = "fail";
+        respInfo.data = "";
+        if(list!=null && list.size()>0){
+            WubaUser wubaUser = list.get(0);
+            respInfo.status = 200;
+            respInfo.message = "ok";
+            respInfo.data = wubaUser.getWubacook1() + "----------" + wubaUser.getWubacook2();
+        }
+        return JSON.toJSONString(respInfo);
+    }
 }
